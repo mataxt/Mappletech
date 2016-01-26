@@ -21,10 +21,10 @@ $(document).ready(function() {
  
   $("#owl-demo").owlCarousel({
  
-      slideSpeed : 300,
-      paginationSpeed : 400,
+      slideSpeed : 1000,
+      paginationSpeed : 500,
       singleItem:true,
-      autoPlay: 3000
+      autoPlay: 6000
  
   });
  
