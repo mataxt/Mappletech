@@ -8,6 +8,7 @@ body {
     background-size: cover;
     background-position: 50% 50%;
     font-family: 'Open Sans', sans-serif;
+    outline: 0;
 }
 
 a,
@@ -152,23 +153,31 @@ fieldset[disabled] .btn-primary.active {
     background: #0ECEAB;
 }
 
+.purple{
+    background: #9b59b6;
+}
 
 
 /**** Start Main Body Section ****/
 
 .mainbody-section {
-    padding-top: 50px;
+    padding-top: 30px;
     padding-bottom: 30px;
 }
 
 .menu-item {
     color: #fff;
-    padding-top: 20px;
-    padding-bottom: 20px;
+    padding-top: 45px;
+    padding-bottom: 45px;
     margin-bottom: 30px;
 	-webkit-transition: all 0.3s;
 	transition: all 0.3s;
+    border: 5px solid transparent;
 	
+}
+
+.menu-item:hover{
+    border: 5px solid rgba(255, 255, 255, 0.70);
 }
 
 .menu-item a {
@@ -191,11 +200,6 @@ fieldset[disabled] .btn-primary.active {
 
 .menu-item:hover a {
     text-decoration: none;
-    //color: #333;
-	animation: wobble;
-	-webkit-animation: wobble;
-	animation-duration: 1000ms;
-	-webkit-animation-duration: 1000ms;
 }
 
 @media only screen 
@@ -211,11 +215,13 @@ and (max-width : 991px) {
         width: 49.5%;
         float: left;
         margin-right: 3px;
+        margin-top: 5px;
     }
     
     .menu-item.responsive-2 {
         width: 49.5%;
         float: right;
+        margin-top: 5px;
     }
     
 }
@@ -241,10 +247,23 @@ and (max-width : 1199px) {
     
 }
 
+#owl-demo .item img{
+    display: block;
+    width: 100%;
+    height: auto;
+}
+
+.home-slider{
+    margin-top: 30px;
+}
 
 .home-slider img {
     width: 100%;
     height: auto;
+}
+
+.home-slider .carousel-inner{
+    height: 400px;
 }
 
 .home-slider .carousel-indicators {
@@ -939,20 +958,20 @@ and (max-width : 991px) {
 
 
 
-/**** Start Testimonial Section ****/
+/**** Start clients Section ****/
 
-.testimonial {
+.clients {
     margin-bottom: 80px;
 }
 
-.testimonial h4 {
+.clients h4 {
     font-family: 'Oswald', sans-serif;
     font-weight: 300;
     padding-top: 20px;
     padding-bottom: 20px;
 }
 
-.testimonial .speech {
+.clients .speech {
     background: #FF432E;
     padding: 20px;
     color: #fff;

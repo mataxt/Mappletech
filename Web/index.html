@@ -8,33 +8,38 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="description" content="">
         <meta name="author" content="">
-
-        <title>Elevator - Multipurpose Bootstrap Theme</title>
+        	<title>Mappletech</title>
 
         <!-- Bootstrap Core CSS -->
-        <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
+        <link href="UI/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 
         <!-- Font Awesome CSS -->
-        <link href="css/font-awesome.min.css" rel="stylesheet">
+        <link href="UI/css/font-awesome.min.css" rel="stylesheet">
 		
 		<!-- Custom CSS -->
-        <link href="css/animate.css" rel="stylesheet">
+        <link href="UI/css/animate.css" rel="stylesheet">
+
+        <!-- OWL Carousel -->
+        <link href="UI/css/owl.carousel.css" rel="stylesheet">
+        <link href="UI/css/owl.theme.css" rel="stylesheet">
+
 
         <!-- Custom CSS -->
-        <link href="css/style.css" rel="stylesheet">
+        <link href="UI/css/style.css" rel="stylesheet">
 
         <!-- Custom Fonts -->
         <link href='http://fonts.googleapis.com/css?family=Lobster' rel='stylesheet' type='text/css'>
 
 
         <!-- Template js -->
-        <script src="js/jquery-2.1.1.min.js"></script>
-        <script src="bootstrap/js/bootstrap.min.js"></script>
-        <script src="js/jquery.appear.js"></script>
-        <script src="js/contact_me.js"></script>
-        <script src="js/jqBootstrapValidation.js"></script>
-        <script src="js/modernizr.custom.js"></script>
-        <script src="js/script.js"></script>
+        <script src="UI/js/jquery-2.1.1.min.js"></script>
+        <script src="UI/bootstrap/js/bootstrap.min.js"></script>
+        <script src="UI/js/jquery.appear.js"></script>
+        <script src="UI/js/contact_me.js"></script>
+        <script src="UI/js/owl.carousel.min.js"></script>
+        <script src="UI/js/jqBootstrapValidation.js"></script>
+        <script src="UI/js/modernizr.custom.js"></script>
+        <script src="UI/js/script.js"></script>
 
         <!--[if lt IE 9]>
             <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
@@ -50,23 +55,37 @@
             <div class="container">
                 <div class="row">
                     <div class="col-md-12">
+                        <a href="#">
                         <div class="logo text-center">
-                            <h1>elevator</h1>
-                            <span>Your Business Field</span>
+                            <h1>Mappletech</h1>
+                            <span>Förening</span>
                         </div>
+                        </a>
                     </div>
                 </div>
             </div>
         </section>
         <!-- End Logo Section -->
-        
+
+        <!-- Start Carousel Section -->
+        <div class="home-slider container">
+
+            <div id="owl-demo" class="owl-carousel owl-theme">
+             
+              <div class="item"><img src="UI/images/about-01.jpg" alt="about-01"></div>
+              <div class="item"><img src="UI/images/about-02.jpg" alt="about-02"></div>
+              <div class="item"><img src="UI/images/about-03.jpg" alt="about-03"></div>
+             
+            </div>
+        </div>
+        <!-- Start Carousel Section -->        
         
         <!-- Start Main Body Section -->
         <div class="mainbody-section text-center">
             <div class="container">
                 <div class="row">
                     
-                    <div class="col-md-3">
+                    <div class="col-md-4">
                         
                         <div class="menu-item blue">
                             <a href="#feature-modal" data-toggle="modal">
@@ -91,60 +110,30 @@
                         
                     </div>
                     
-                    <div class="col-md-6">
-                        
-                        <!-- Start Carousel Section -->
-                        <div class="home-slider">
-                            <div id="carousel-example-generic" class="carousel slide" data-ride="carousel" style="padding-bottom: 30px;">
-                                <!-- Indicators -->
-                                <ol class="carousel-indicators">
-                                    <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
-                                    <li data-target="#carousel-example-generic" data-slide-to="1"></li>
-                                    <li data-target="#carousel-example-generic" data-slide-to="2"></li>
-                                </ol>
-
-                                <!-- Wrapper for slides -->
-                                <div class="carousel-inner">
-                                    <div class="item active">
-                                        <img src="images/about-03.jpg" class="img-responsive" alt="">
-                                    </div>
-                                    <div class="item">
-                                        <img src="images/about-02.jpg" class="img-responsive" alt="">
-                                    </div>
-                                    <div class="item">
-                                        <img src="images/about-01.jpg" class="img-responsive" alt="">
-                                    </div>
-
-                                </div>
-
-                            </div>
-                        </div>
-                        <!-- Start Carousel Section -->
-                        
-                        <div class="row">
-                            <div class="col-md-6">
-                                <div class="menu-item color responsive">
+                    <div class="col-md-4">
+                                <div class="menu-item color">
                                     <a href="#service-modal" data-toggle="modal">
                                         <i class="fa fa-area-chart"></i>
                                         <p>Services</p>
                                     </a>
                                 </div>
-                            </div>
                             
-                            <div class="col-md-6">
-                                <div class="menu-item light-orange responsive-2">
+                                <div class="menu-item light-orange">
                                     <a href="#team-modal" data-toggle="modal">
                                         <i class="fa fa-users"></i>
                                         <p>Team</p>
                                     </a>
-                                </div>
                             </div>
-                            
-                        </div>
-                        
+
+                                <div class="menu-item purple">
+                                    <a href="#pricing-modal" data-toggle="modal">
+                                        <i class="fa fa-usd"></i>
+                                        <p>Pricing</p>
+                                    </a>
+                            </div>                        
                     </div>
                     
-                    <div class="col-md-3">
+                    <div class="col-md-4">
                         
                         <div class="menu-item light-red">
                             <a href="#contact-modal" data-toggle="modal">
@@ -154,16 +143,16 @@
                         </div>
                         
                         <div class="menu-item color">
-                            <a href="#testimonial-modal" data-toggle="modal">
+                            <a href="#clients-modal" data-toggle="modal">
                                 <i class="fa fa-comment-o"></i>
-                                <p>Testimonial</p>
+                                <p>Clients</p>
                             </a>
                         </div>
                         
                         <div class="menu-item blue">
                             <a href="#news-modal" data-toggle="modal">
-                                <i class="fa fa-mortar-board"></i>
-                                <p>Latest News</p>
+                                <i class="fa fa-edit"></i>
+                                <p>Blog</p>
                             </a>
                         </div>
                         
@@ -178,7 +167,7 @@
             <div class="container">
                 <div class="row">
                     <div class="col-md-12">
-                        <div>Design & Developed by <a href="https://www.facebook.com/Shahriyar.Ahmed.Sohel" target="_blank">Shahriyar Ahmed</a> for <a href="http://graygrids.com">GrayGrids</a></div>
+                        <!-- Copyright -->
                     </div>
                 </div>
             </div>
@@ -777,6 +766,125 @@
         </div>
         <!-- End Service Section -->
         
+
+        <!-- Start Service Section -->
+        <div class="section-modal modal fade" id="pricing-modal" tabindex="-1" role="dialog" aria-hidden="true">
+            <div class="modal-content">
+                <div class="close-modal" data-dismiss="modal">
+                    <div class="lr">
+                        <div class="rl">
+                        </div>
+                    </div>
+                </div>
+                
+
+                
+                <div class="pricing-section">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-md-3 col-sm-6">
+                                <div class="pricing-table">
+                                    <div class="plan-name">
+                                        <h3>Free</h3>
+                                    </div>
+                                    <div class="plan-price">
+                                        <div class="price-value">$49<span>.00</span></div>
+                                        <div class="interval">per month</div>
+                                    </div>
+                                    <div class="plan-list">
+                                        <ul>
+                                            <li>40 GB Storage</li>
+                                            <li>40GB Transfer</li>
+                                            <li>10 Domains</li>
+                                            <li>20 Projects</li>
+                                            <li>Free installation</li>
+                                        </ul>
+                                    </div>
+                                    <div class="plan-signup">
+                                        <a href="#" class="btn-system btn-small">Sign Up Now</a>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-md-3 col-sm-6">
+                                <div class="pricing-table">
+                                    <div class="plan-name">
+                                        <h3>Standard</h3>
+                                    </div>
+                                    <div class="plan-price">
+                                        <div class="price-value">$49<span>.00</span></div>
+                                        <div class="interval">per month</div>
+                                    </div>
+                                    <div class="plan-list">
+                                        <ul>
+                                            <li>40 GB Storage</li>
+                                            <li>40GB Transfer</li>
+                                            <li>10 Domains</li>
+                                            <li>20 Projects</li>
+                                            <li>Free installation</li>
+                                        </ul>
+                                    </div>
+                                    <div class="plan-signup">
+                                        <a href="#" class="btn-system btn-small">Sign Up Now</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-3 col-sm-6">
+                                <div class="pricing-table">
+                                    <div class="plan-name">
+                                        <h3>Premium</h3>
+                                    </div>
+                                    <div class="plan-price">
+                                        <div class="price-value">$49<span>.00</span></div>
+                                        <div class="interval">per month</div>
+                                    </div>
+                                    <div class="plan-list">
+                                        <ul>
+                                            <li>40 GB Storage</li>
+                                            <li>40GB Transfer</li>
+                                            <li>10 Domains</li>
+                                            <li>20 Projects</li>
+                                            <li>Free installation</li>
+                                        </ul>
+                                    </div>
+                                    <div class="plan-signup">
+                                        <a href="#" class="btn-system btn-small">Sign Up Now</a>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-md-3 col-sm-6">
+                                <div class="pricing-table">
+                                    <div class="plan-name">
+                                        <h3>Professional</h3>
+                                    </div>
+                                    <div class="plan-price">
+                                        <div class="price-value">$49<span>.00</span></div>
+                                        <div class="interval">per month</div>
+                                    </div>
+
+                                    <div class="plan-list">
+                                        <ul>
+                                            <li>40 GB Storage</li>
+                                            <li>40GB Transfer</li>
+                                            <li>10 Domains</li>
+                                            <li>20 Projects</li>
+                                            <li>Free installation</li>
+                                        </ul>
+                                    </div>
+                                    <div class="plan-signup">
+                                        <a href="#" class="btn-system btn-small">Sign Up Now</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+        <!-- End Service Section -->
+
         
         <!-- Start Team Member Section -->
         <div class="section-modal modal fade" id="team-modal" tabindex="-1" role="dialog" aria-hidden="true">
@@ -954,7 +1062,7 @@
                 <div class="container">
                     <div class="row">
                         <div class="section-title text-center">
-                            <h3>Exclusive News</h3>
+                            <h3>From The Blog</h3>
                             <p>Duis aute irure dolor in reprehenderit in voluptate</p>
                         </div>
                     </div>
@@ -1128,8 +1236,8 @@
         <!-- End Contact Section -->
         
         
-         <!-- Start Testimonial Section -->
-        <div class="section-modal modal fade contact" id="testimonial-modal" tabindex="-1" role="dialog" aria-hidden="true">
+         <!-- Start clients Section -->
+        <div class="section-modal modal fade contact" id="clients-modal" tabindex="-1" role="dialog" aria-hidden="true">
             <div class="modal-content">
                 <div class="close-modal" data-dismiss="modal">
                     <div class="lr">
@@ -1148,7 +1256,7 @@
                     <div class="row">
                         
                         <div class="col-md-6">
-                            <div class="testimonial">
+                            <div class="clients">
                                 <img src="images/team/manage-1.png" class="img-responsive" alt="...">
                                 <h4>John Doe</h4>
                                 <div class="speech">
@@ -1158,7 +1266,7 @@
                         </div>
                         
                         <div class="col-md-6">
-                            <div class="testimonial">
+                            <div class="clients">
                                 <img src="images/team/manage-2.png" class="img-responsive" alt="...">
                                 <h4>John Doe</h4>
                                 <div class="speech">
@@ -1168,7 +1276,7 @@
                         </div>
                         
                         <div class="col-md-6">
-                            <div class="testimonial">
+                            <div class="clients">
                                 <img src="images/team/manage-3.png" class="img-responsive" alt="...">
                                 <h4>John Doe</h4>
                                 <div class="speech">
@@ -1178,7 +1286,7 @@
                         </div>
                         
                         <div class="col-md-6">
-                            <div class="testimonial">
+                            <div class="clients">
                                 <img src="images/team/manage-4.png" class="img-responsive" alt="...">
                                 <h4>John Doe</h4>
                                 <div class="speech">
@@ -1193,7 +1301,7 @@
                 
             </div>
         </div>
-        <!-- End Testimonial Section -->
+        <!-- End clients Section -->
         
     </body>
     

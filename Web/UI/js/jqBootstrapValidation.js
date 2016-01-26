@@ -557,6 +557,7 @@
 
         this.each(function (i, el) {
           errorMessages = errorMessages.concat(
+
             $(el).triggerHandler("getValidators.validation") ? $(el).triggerHandler("validation.validation", {submitting: true}) : []
           );
         });
