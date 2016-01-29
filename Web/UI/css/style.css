@@ -2,10 +2,12 @@
 @import url(http://fonts.googleapis.com/css?family=Oswald:400,300);
 
 body {
-    background: url(../images/background.jpg) no-repeat;
-    background-attachment: fixed;
+    background: url(../images/background.png) no-repeat;
     background-size: cover;
-    background-position: 50% 50%;
+	background-attachment: fixed;
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	-o-background-size: cover;
     font-family: 'Open Sans', sans-serif;
     outline: 0;
 }
@@ -119,7 +121,7 @@ fieldset[disabled] .btn-primary.active {
 }
 
 .logo span {
-    color: #999;
+    color: #eee;
 }
 
 
@@ -272,14 +274,19 @@ and (max-width : 1199px) {
 	background-color: #FF432E;
 }
 
-
 .copyright {
-    background: rgba( 0, 0, 0, 0.7);
+    background: rgba(120, 120, 140, 0.5);
     color: #fff;
     padding-top: 20px;
     padding-bottom: 20px;
 }
 
+.logintop {
+    background: rgba(120, 120, 140, 0.5);
+    color: #fff;
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
 
 
 /**** Start Modal Section ****/
