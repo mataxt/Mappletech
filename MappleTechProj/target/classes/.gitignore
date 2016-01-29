@@ -1,5 +1,4 @@
 /model/
-/controller/
+/dao/
 /logic/
 /vm/
-/dao/

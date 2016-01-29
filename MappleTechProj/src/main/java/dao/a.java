@@ -1,4 +1,4 @@
-package logic;
+package dao;
 
 public class a {
 

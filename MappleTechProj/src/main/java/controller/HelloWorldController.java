@@ -5,19 +5,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
-// TODO: Auto-generated Javadoc
-/**
- * The Class HelloWorldController.
- */
 @Controller
 public class HelloWorldController {
 	
-	/**
-	 * Show message.
-	 *
-	 * @param name the name
-	 * @return the model and view
-	 */
 	@RequestMapping("/hello")
 	public ModelAndView showMessage(
 			@RequestParam(value = "name", required = false, defaultValue = "World") 
