@@ -10,7 +10,7 @@ import model.User;
 /**
  * The Class UserDAO.
  */
-public class UserDAO {
+public class UserDAO { 
 	
 	/**
 	 * Adds the user.
