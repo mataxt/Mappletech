@@ -1,9 +1,6 @@
 var $ = jQuery.noConflict();
 
-
-
 // Progress Bar
-
 $(document).ready(function ($) {
     "use strict";
     
@@ -27,5 +24,4 @@ $(document).ready(function() {
       autoPlay: 6000
  
   });
- 
 });
