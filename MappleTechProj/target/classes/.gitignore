@@ -1,5 +1,11 @@
+/controller/
+/Forms/
+/forms/
 /model/
+<<<<<<< HEAD
 /controller/
 /logic/
 /vm/
 /dao/
+=======
+>>>>>>> 0c8354185f6690e23453fdcd71a760170b0d3ee7
