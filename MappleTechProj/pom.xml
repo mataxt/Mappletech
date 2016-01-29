@@ -26,8 +26,20 @@
 		<artifactId>spring-web</artifactId>
 		<version>4.2.4.RELEASE</version>
 	</dependency>
+
+
+	<dependency>
+		<groupId>org.hibernate</groupId>
+		<artifactId>hibernate-core</artifactId>
+		<version>5.0.7.Final</version>
+	</dependency>
 	
-    
+	<dependency>
+		<groupId>org.hibernate</groupId>
+		<artifactId>hibernate-entitymanager</artifactId>
+		<version>5.0.7.Final</version>
+	</dependency>
+	
   </dependencies>
   <build>
     <finalName>MappleTech</finalName>
