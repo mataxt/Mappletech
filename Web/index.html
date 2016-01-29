@@ -44,8 +44,12 @@
         <script src="UI/js/script.js"></script>
 		<script src="UI/js/select2.full.min.js"></script>
 		
-		<script type="text/javascript">
-          $('select').select2();
+		<script>
+			$(document).ready(function() {
+				$(".select2dropdown").select2()({
+				  maximumSelectionLength: 1
+				});
+			});
         </script>
         
         <!--[if lt IE 9]>
@@ -60,11 +64,21 @@
         <div class="logintop text-center">
             <div class="container">
                 <div class="row">
-                    <div class="col-md-12">
-                        <p style="text-align:right">
+                    <div class="col-md-6">
+                    	<div style="text-align:left">
                             <strong>Inloggad som: </strong>
                             <a href="anvandare/index.html?=Mange" style="font-size:20px">Mange</a>
-                        </p>
+                        </div>
+                    </div>
+                    
+                    <div class="col-md-5"></div>
+                    
+                    <div class="col-md-1">
+                    	<div class="col-sm">
+                            <a href="#">
+                            	<button class="btn btn-sm btn-danger btn-block">Logga ut</button>
+                            </a>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -421,8 +435,7 @@
                                 
                                     <div class="col-md-12">
                                     	<div class="form-group">
-                                            <select class="form-control select2" style="width: 100%;">
-                                                <option selected="selected">Välj kategori</option>
+                                            <select class="form-control select2dropdown" multiple="multiple" data-placeholder="Välj kategori" style="width: 100%;">
                                                 <option>Trapphus</option>
                                                 <option>Soprum</option>
                                                 <option>Tvättstuga</option>
