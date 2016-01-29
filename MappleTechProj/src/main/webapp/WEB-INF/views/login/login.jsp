@@ -1,7 +1,10 @@
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
+<br xmlns:th="http://www.thymeleaf.org">
 <!DOCTYPE html>
 <html lang="en">
 
     <head>
+    	
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -74,26 +77,26 @@
                 <div class="row">
                     <div class="container">
                         <div class="col-md-offset-4 col-md-4 col-md-offset-4" style="background-color:rgba(120, 120, 140, 0.5)"> 
-                            <form class="form-signin">
+                            <form:form  commandName="userForm" class="form-signin" method="POST">
 								
                                 <p>&nbsp;</p>
                                 
                                 <label for="inputEmail" class="sr-only">Epost adress</label>
-                                <input type="email" id="inputEmail" class="form-control" placeholder="E-post Adress" required="" autofocus>              
-                                <label for="inputPassword" class="sr-only">Lösenord</label>
-                                <input type="password" id="inputPassword" class="form-control" placeholder="Lösenord" required="">          
+                                <input type="email" id="inputEmail" class="form-control" placeholder="E-post Adress" required="" autofocus th:field="*{username}">              
+                                <label for="inputPassword" class="sr-only">L�senord</label>
+                                <input type="password" id="inputPassword" class="form-control" placeholder="Lösenord" required="" th:field="*{password}">          
                                 
                                 <div class="checkbox">
                                     <label>
                                         <p style="color:#eee">
-                                            <input type="checkbox" value="remember-me">Kom ihåg mig
+                                            <input type="checkbox" value="remember-me">Kom ih�g mig
                                         </p>
                                     </label>
                                 </div>
                                 
                                 <button class="btn btn-lg btn-default btn-block" type="submit">Logga in</button>
                                 <br>
-                            </form>
+                            </form:form>
                         </div>
                     </div>
                 </div>
