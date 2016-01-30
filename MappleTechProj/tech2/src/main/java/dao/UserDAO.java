@@ -99,7 +99,7 @@ public class UserDAO {
 	 *
 	 * @param user to be changed
 	 * @param value to be changed into OBS: for "privilege" operation use integers as String e.g. "1" or "3"
-	 * @param operation {"username", "password", "fullname", "email", "phonenumber","address", "privilege"}
+	 * @param operation {"password", "fullname", "email", "phonenumber","address", "privilege"}
 	 * @return true, if successful
 	 */
 	public static boolean changeUser(User user, String value, String operation) {
@@ -111,9 +111,6 @@ public class UserDAO {
 			User u = em.find(User.class, user.getUserName());
 			if (u != null) {
 				switch (operation) {
-				case "username":
-					u.setUserName(value);
-					break;
 				case "password":
 					u.setPassWord(value);
 					break;
@@ -121,7 +118,7 @@ public class UserDAO {
 					u.setFullName(value);
 					break;
 				case "address":
-					u.setAdress(value);
+					u.setAddress(value);
 					break;
 				case "phonenumber":
 					u.setPhoneNumber(value);
@@ -136,7 +133,6 @@ public class UserDAO {
 					break;
 				}
 				em.merge(u);
-				em.flush();
 				em.getTransaction().commit();
 				success = true;
 			}
