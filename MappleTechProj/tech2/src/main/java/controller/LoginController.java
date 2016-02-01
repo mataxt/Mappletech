@@ -6,6 +6,7 @@ import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.servlet.ModelAndView;
 
 import forms.UserForm;
 
@@ -16,21 +17,21 @@ public class LoginController {
 	private UserForm userForm = new UserForm();
 
 	@RequestMapping(value = "/login", method = RequestMethod.GET)
-	public String login(ModelMap model) {
+	public ModelAndView login(ModelMap model) {
+		System.out.println("HEEEEEEJ");
 		
-		
-		model.addAttribute("userForm", userForm);
-        return "login/login";
-		/*ModelAndView mv = new ModelAndView("login/login");
+		model.addAttribute("user", userForm);
+        //return "login/login";
+		ModelAndView mv = new ModelAndView("login/login");
 		mv.addObject("user", userForm);
-		return mv;*/
+		return mv;
 	}
 
 	
 	@RequestMapping(value = "/login", method = RequestMethod.POST)
-	public String loginSubmit(@ModelAttribute("user") UserForm userForm, Model model) {
+	public String login(@ModelAttribute("user") UserForm userForm, Model model) {
 		System.out.println("Username: " + userForm.getUsername());
-		return "redirect:/index";
+		return "redirect:/";
 	}
 
 }

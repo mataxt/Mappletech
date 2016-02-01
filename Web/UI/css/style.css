@@ -293,7 +293,7 @@ and (max-width : 1199px) {
 /**** Start Modal Section ****/
 
 .section-modal .modal-content {
-    padding: 100px 0 !important;
+    padding: 40px 0 !important;
     min-height: 100%;
     border: 0 !important;
     border-radius: 0;
@@ -304,8 +304,6 @@ and (max-width : 1199px) {
     color: #888;
     font-weight: 300;
 }
-
-
 
 .section-modal .close-modal {
     position: absolute;
@@ -342,6 +340,39 @@ and (max-width : 1199px) {
     transform: rotate(90deg);
 }
 
+
+.section-modal .back-modal {
+    position: absolute;
+    top: 25px;
+    right: 20px;
+    width: 75px;
+    height: 75px;
+    background-color: transparent;
+    cursor: pointer;
+}
+
+.section-modal .back-modal:hover {
+    opacity: .3;
+}
+
+.section-modal .back-modal .lr {
+    width: 1px;
+    height: 75px;
+    margin-left: 30px;
+    background-color: #222;
+    -webkit-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    transform: rotate(45deg);
+}
+
+.section-modal .back-modal .lr .rl {
+    width: 1px;
+    height: 75px;
+    background-color: #222;
+    -webkit-transform: rotate(90deg);
+    -ms-transform: rotate(90deg);
+    transform: rotate(90deg);
+}
 
 /**** Start Feature Section ****/
 
