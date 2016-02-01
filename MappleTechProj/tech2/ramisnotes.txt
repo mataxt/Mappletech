@@ -1,0 +1,41 @@
+protected void setUp() {
+		user = new User();
+		user.setUserName("username");
+		user.setPassWord("password");
+		user.setFullName("fullname");
+		user.setEmail("email");
+		user.setAddress("address");
+		user.setPrivilege(0);
+		user.setPhoneNumber("phonenumber");
+		group = new Group();
+		group.setGroupName("group");
+		group.setHost(user);
+		group.setDescription("desc");
+		
+		List<User> us = new ArrayList<User>();
+		us.add(user);
+		group.setUsers(us);
+	}
+
+	public void testConnect() {
+		EntityManagerFactory emf = Persistence.createEntityManagerFactory("UserPU");
+		EntityManager em = emf.createEntityManager();
+		try {
+			em.getTransaction().begin();
+			em.persist(user);
+			em.persist(group);
+			em.getTransaction().commit();
+		} catch (Exception e) {
+			if (em.getTransaction().isActive()) {
+				em.getTransaction().rollback();
+			}
+			System.out.println("Failed");
+		} finally {
+			if (em != null) {
+				em.close();
+			}
+			if (emf != null) {
+				emf.close();
+			}
+		}
+	}

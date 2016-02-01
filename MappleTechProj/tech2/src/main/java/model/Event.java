@@ -3,31 +3,43 @@ package model;
 import java.io.Serializable;
 import java.sql.Date;
 
-public class Event implements Serializable{
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.Table;
+
+@Entity
+@Table(name = "Events", catalog = "mappletech")
+public class Event implements Serializable {
 
 	private Integer eventID;
-	private String  title;
-	private String  description;
-	private String  creator;
-	private Date 	date;
-	private String	image;
-	
+	private String title;
+	private String description;
+	private User creator;
+	private Date date;
+
 	public Event() {
-		
+
 	}
 
-	public Event(Integer eventID, String title, String description,
-			String creator, Date date, String image) {
+	public Event(Integer eventID, String title, String description, User creator, Date date) {
 		super();
 		this.eventID = eventID;
 		this.title = title;
 		this.description = description;
 		this.creator = creator;
 		this.date = date;
-		this.image = image;
-	}
-	
 
+	}
+
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name = "EventId", nullable = false)
 	public Integer getEventID() {
 		return eventID;
 	}
@@ -36,6 +48,7 @@ public class Event implements Serializable{
 		this.eventID = eventID;
 	}
 
+	@Column(name = "Title", nullable = false)
 	public String getTitle() {
 		return title;
 	}
@@ -43,7 +56,8 @@ public class Event implements Serializable{
 	public void setTitle(String title) {
 		this.title = title;
 	}
-
+	
+	@Column(name = "Description",columnDefinition = "TEXT", nullable = true)
 	public String getDescription() {
 		return description;
 	}
@@ -52,14 +66,17 @@ public class Event implements Serializable{
 		this.description = description;
 	}
 
-	public String getCreator() {
+	@ManyToOne(fetch = FetchType.LAZY)
+	@JoinColumn(name = "Creator", nullable = true)
+	public User getCreator() {
 		return creator;
 	}
 
-	public void setCreator(String creator) {
+	public void setCreator(User creator) {
 		this.creator = creator;
 	}
-
+	
+	@Column(name = "Date",columnDefinition="DATETIME", nullable = false)
 	public Date getDate() {
 		return date;
 	}
@@ -68,16 +85,6 @@ public class Event implements Serializable{
 		this.date = date;
 	}
 
-	public String getImage() {
-		return image;
-	}
 
-	public void setImage(String image) {
-		this.image = image;
-	}
-
-	/**
-	 * 
-	 */
 	private static final long serialVersionUID = 1L;
 }
