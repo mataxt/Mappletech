@@ -13,8 +13,11 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
+import org.hibernate.annotations.DynamicInsert;
+
 @Entity
 @Table(name = "Facilities", catalog = "mappletech")
+@DynamicInsert
 public class Facility implements Serializable {
 	private Integer facilityId;
 	private String facilityName;
@@ -74,7 +77,8 @@ public class Facility implements Serializable {
 	public void setLocation(String location) {
 		this.location = location;
 	}
-	@Column(name = "Available", nullable = false)
+	
+	@Column(name = "Available",nullable = false, insertable = false)
 	public Boolean getAvailable() {
 		return available;
 	}
@@ -91,6 +95,7 @@ public class Facility implements Serializable {
 	public void setReservations(List<Reservation> reservations) {
 		this.reservations = reservations;
 	}
+	
 
 	private static final long serialVersionUID = 1L;
 	
