@@ -2,8 +2,8 @@ package vm;
 
 public class UserVM {
 
-	private String userName;
-	private String passWord;
+	private String username;
+	private String password;
 	private String fullName;
 	private	String email;
 	private	String phoneNumber;
@@ -14,11 +14,11 @@ public class UserVM {
 		
 	}
 
-	public UserVM(String userName, String passWord, String fullName,
+	public UserVM(String username, String password, String fullName,
 			String email, String phoneNumber, String adress, Integer privilege) {
 		super();
-		this.userName = userName;
-		this.passWord = passWord;
+		this.username = username;
+		this.password = password;
 		this.fullName = fullName;
 		this.email = email;
 		this.phoneNumber = phoneNumber;
@@ -26,10 +26,10 @@ public class UserVM {
 		this.privilege = privilege;
 	}
 	
-	public UserVM(String userName, String fullName,
+	public UserVM(String username, String fullName,
 			String email, String phoneNumber, String adress, Integer privilege) {
 		super();
-		this.userName = userName;
+		this.username = username;
 		this.fullName = fullName;
 		this.email = email;
 		this.phoneNumber = phoneNumber;
@@ -37,26 +37,35 @@ public class UserVM {
 		this.privilege = privilege;
 	}
 
-	public UserVM(String userName) {
+	public UserVM(String username) {
 		super();
-		this.userName = userName;
+		this.username = username;
 	}
 	
 
-	public UserVM(String userName, String passWord) {
+	public UserVM(String username, String password) {
 		super();
-		this.userName = userName;
-		this.passWord = passWord;
+		this.username = username;
+		this.password = password;
 	}
 
 
-	public String getUserName() {
-		return userName;
+	public String getUsername() {
+		return username;
 	}
 
-	public String getPassWord() {
-		return passWord;
+	public void setUsername(String username) {
+		this.username = username;
 	}
+
+	public String getPassword() {
+		return password;
+	}
+
+	public void setPassword(String password) {
+		this.password = password;
+	}
+	
 
 	public String getFullName() {
 		return fullName;
@@ -79,3 +88,4 @@ public class UserVM {
 		return privilege;
 	}
 }
+

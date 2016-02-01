@@ -39,10 +39,11 @@ public class LoginController {
 		try {
 			UserVM loggedInUser = new UserVM(userVm.getUsername(), passwordHash(userVm.getPassword()));
 			String jsonString = mapper.writeValueAsString(loggedInUser);
+			
 		} catch (JsonProcessingException | NoSuchAlgorithmException e) {
 			System.out.println("Error: "+e.getStackTrace());
 		}finally{
-			//REST --> Skicka jsonString
+			
 			
 		}
 		return "redirect:/";
@@ -52,7 +53,7 @@ public class LoginController {
 	private String passwordHash(String pwd) throws NoSuchAlgorithmException{
 		
 		MessageDigest msgDigest = MessageDigest.getInstance("SHA-256");
-		msgDigest.update(userVm.getPassword().getBytes());
+		msgDigest.update(pwd.getBytes());
 		byte[] digest = msgDigest.digest();
 		return digest.toString();
 		
