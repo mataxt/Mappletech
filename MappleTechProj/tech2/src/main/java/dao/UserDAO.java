@@ -1,9 +1,13 @@
 package dao;
 
 
+import java.util.ArrayList;
+import java.util.List;
+
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
+
 import model.User;
 
 // TODO: Auto-generated Javadoc
@@ -43,6 +47,32 @@ public class UserDAO {
 		return registered;
 	}
 
+	public static List<User> getAllUsers() {
+		EntityManagerFactory emf = Persistence.createEntityManagerFactory("UserPU");
+		EntityManager em = emf.createEntityManager();
+		List<User> users = new ArrayList<User>();
+		try {
+			em.getTransaction().begin();
+			users = em.createQuery("from User",User.class).getResultList();
+			em.getTransaction().commit();
+
+		} catch (Exception e) {
+			if (em.getTransaction().isActive()) {
+				em.getTransaction().rollback();
+			}
+
+		} finally {
+			if (em != null) {
+				em.close();
+			}
+			if (emf != null) {
+				emf.close();
+			}
+		}
+		
+		return users;
+	}
+	
 	/**
 	 * Gets the user info.
 	 *
@@ -68,31 +98,35 @@ public class UserDAO {
 		return user;
 	}
 
-//	/**
-//	 * Gets the user info.
-//	 *
-//	 * @param username of the user
-//	 * @return model.User
-//	 */
-//	public static ArrayList<User> getAllUsers(String username) {
-//		EntityManagerFactory emf = Persistence.createEntityManagerFactory("UserPU");
-//		EntityManager em = emf.createEntityManager();
-//		User user = null;
-//		try {
-//			user = em.find(User.class, username);
-//		} catch (Exception e) {
-//			e.printStackTrace();
-//		} finally {
-//			if (em != null) {
-//				em.close();
-//			}
-//			if (emf != null) {
-//				emf.close();
-//			}
-//		}
-//		return user;
-//	}
 
+	/**
+	 * Gets the user info.
+	 *
+	 * @param username of the user
+	 * @return model.User
+	 */
+	public static boolean confirmUser(String username, String password) {
+		EntityManagerFactory emf = Persistence.createEntityManagerFactory("UserPU");
+		EntityManager em = emf.createEntityManager();
+		boolean exists = false;
+		try {
+			String query = "from User where username = ?1 and password = ?2";
+			if (em.createQuery(query, User.class).setParameter(1, username).setParameter(2, password)
+					.getSingleResult() != null) {
+				exists = true;
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			if (em != null) {
+				em.close();
+			}
+			if (emf != null) {
+				emf.close();
+			}
+		}
+		return exists;
+	}
 	
 	/**
 	 * Change user.
