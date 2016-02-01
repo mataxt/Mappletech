@@ -13,35 +13,35 @@
         	<title>Mappletech</title>
 
         <!-- Bootstrap Core CSS -->
-        <link href="../UI/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+        <link href="../resources/UI/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 
         <!-- Font Awesome CSS -->
-        <link href="../UI/css/font-awesome.min.css" rel="stylesheet">
+        <link href="../resources/UI/css/font-awesome.min.css" rel="stylesheet">
 		
 		<!-- Custom CSS -->
-        <link href="../UI/css/animate.css" rel="stylesheet">
+        <link href="../resources/UI/css/animate.css" rel="stylesheet">
 
         <!-- OWL Carousel -->
-        <link href="../UI/css/owl.carousel.css" rel="stylesheet">
-        <link href="../UI/css/owl.theme.css" rel="stylesheet">
+        <link href="../resources/UI/css/owl.carousel.css" rel="stylesheet">
+        <link href="../resources/UI/css/owl.theme.css" rel="stylesheet">
 
 
         <!-- Custom CSS -->
-        <link href="../UI/css/style.css" rel="stylesheet">
+        <link href="../resources/UI/css/style.css" rel="stylesheet">
 
         <!-- Custom Fonts -->
         <link href="http://fonts.googleapis.com/css?family=Lobster" rel="stylesheet" type="text/css">
 
 
         <!-- Template js -->
-        <script src="../UI/js/jquery-2.1.1.min.js"></script>
-        <script src="../UI/bootstrap/js/bootstrap.min.js"></script>
-        <script src="../UI/js/jquery.appear.js"></script>
-        <script src="../UI/js/contact_me.js"></script>
-        <script src="../UI/js/owl.carousel.min.js"></script>
-        <script src="../UI/js/jqBootstrapValidation.js"></script>
-        <script src="../UI/js/modernizr.custom.js"></script>
-        <script src="../UI/js/script.js"></script>
+        <script src="../resources/UI/js/jquery-2.1.1.min.js"></script>
+        <script src="../resources/UI/bootstrap/js/bootstrap.min.js"></script>
+        <script src="../resources/UI/js/jquery.appear.js"></script>
+        <script src="../resources/UI/js/contact_me.js"></script>
+        <script src="../resources/UI/js/owl.carousel.min.js"></script>
+        <script src="../resources/UI/js/jqBootstrapValidation.js"></script>
+        <script src="../resources/UI/js/modernizr.custom.js"></script>
+        <script src="../resources/UI/js/script.js"></script>
 
         <!--[if lt IE 9]>
             <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
@@ -49,7 +49,7 @@
         <![endif]-->
     </head>
     
-    <body style="background-image:url(../UI/images/background.png)">
+    <body style="background-image:url(../resources/UI/images/background.png)">
         <!-- Start Logo Section -->
         <p>&nbsp;</p>
         <section id="logo-section" class="text-center">
@@ -59,7 +59,7 @@
                         <a href="#">
                         <div class="logo text-center">
                             <h1>Mappletech</h1>
-                            <p><span style="color:#eee">FÃ¶reningsplattform</span>
+                            <p><span style="color:#eee">Föreningsplattform</span>
                             </p>
                             <p>&nbsp;</p>
                         </div>
@@ -81,9 +81,9 @@
 								
                                 <p>&nbsp;</p>
                                 
-                                <label for="inputUsername class="sr-only">Användarnamn: </label>
+                                
                                 <form:input path="username" id="inputUsername" class="form-control" placeholder="Användarnamn" required="" autofocus="true"/>              
-                                <label for="inputPassword" class="sr-only">Lösenord: </label>
+                               
                                 <form:input path="password" type="password" id="inputPassword" class="form-control" placeholder="Lösenord" required=""/>        
                                 
                                 <div class="checkbox">
