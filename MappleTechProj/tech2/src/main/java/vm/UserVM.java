@@ -25,6 +25,17 @@ public class UserVM {
 		this.adress = adress;
 		this.privilege = privilege;
 	}
+	
+	public UserVM(String userName, String fullName,
+			String email, String phoneNumber, String adress, Integer privilege) {
+		super();
+		this.userName = userName;
+		this.fullName = fullName;
+		this.email = email;
+		this.phoneNumber = phoneNumber;
+		this.adress = adress;
+		this.privilege = privilege;
+	}
 
 	public UserVM(String userName) {
 		super();
