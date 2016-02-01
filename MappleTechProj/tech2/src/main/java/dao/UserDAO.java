@@ -1,6 +1,5 @@
 package dao;
 
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -14,17 +13,19 @@ import model.User;
 /**
  * The Class UserDAO.
  */
-public class UserDAO { 
-	
+public class UserDAO {
+
 	/**
 	 * Adds the user.
 	 *
-	 * @param user model.user
+	 * @param user
+	 *            model.user
 	 * @return true, if successful
 	 */
 	public static boolean addUser(User user) {
 		boolean registered = false;
-		EntityManagerFactory emf = Persistence.createEntityManagerFactory("UserPU");
+		EntityManagerFactory emf = Persistence
+				.createEntityManagerFactory("UserPU");
 		EntityManager em = emf.createEntityManager();
 		try {
 			em.getTransaction().begin();
@@ -48,12 +49,13 @@ public class UserDAO {
 	}
 
 	public static List<User> getAllUsers() {
-		EntityManagerFactory emf = Persistence.createEntityManagerFactory("UserPU");
+		EntityManagerFactory emf = Persistence
+				.createEntityManagerFactory("UserPU");
 		EntityManager em = emf.createEntityManager();
 		List<User> users = new ArrayList<User>();
 		try {
 			em.getTransaction().begin();
-			users = em.createQuery("from User",User.class).getResultList();
+			users = em.createQuery("from User", User.class).getResultList();
 			em.getTransaction().commit();
 
 		} catch (Exception e) {
@@ -69,18 +71,20 @@ public class UserDAO {
 				emf.close();
 			}
 		}
-		
+
 		return users;
 	}
-	
+
 	/**
 	 * Gets the user info.
 	 *
-	 * @param username of the user
+	 * @param username
+	 *            of the user
 	 * @return model.User
 	 */
 	public static User fetchUser(String username) {
-		EntityManagerFactory emf = Persistence.createEntityManagerFactory("UserPU");
+		EntityManagerFactory emf = Persistence
+				.createEntityManagerFactory("UserPU");
 		EntityManager em = emf.createEntityManager();
 		User user = null;
 		try {
@@ -98,23 +102,23 @@ public class UserDAO {
 		return user;
 	}
 
-
 	/**
 	 * Gets the user info.
 	 *
-	 * @param username of the user
+	 * @param username
+	 *            of the user
 	 * @return model.User
 	 */
-	public static boolean confirmUser(String username, String password) {
-		EntityManagerFactory emf = Persistence.createEntityManagerFactory("UserPU");
+	public static User confirmUser(String username, String password) {
+		EntityManagerFactory emf = Persistence
+				.createEntityManagerFactory("UserPU");
 		EntityManager em = emf.createEntityManager();
-		boolean exists = false;
+		User u = null;
 		try {
 			String query = "from User where username = ?1 and password = ?2";
-			if (em.createQuery(query, User.class).setParameter(1, username).setParameter(2, password)
-					.getSingleResult() != null) {
-				exists = true;
-			}
+			u = em.createQuery(query, User.class).setParameter(1, username)
+					.setParameter(2, password).getSingleResult();
+
 		} catch (Exception e) {
 			e.printStackTrace();
 		} finally {
@@ -125,19 +129,25 @@ public class UserDAO {
 				emf.close();
 			}
 		}
-		return exists;
+		return u;
 	}
-	
+
 	/**
 	 * Change user.
 	 *
-	 * @param user to be changed
-	 * @param value to be changed into OBS: for "privilege" operation use integers as String e.g. "1" or "3"
-	 * @param operation {"password", "fullname", "email", "phonenumber","address", "privilege"}
+	 * @param user
+	 *            to be changed
+	 * @param value
+	 *            to be changed into OBS: for "privilege" operation use integers
+	 *            as String e.g. "1" or "3"
+	 * @param operation
+	 *            {"password", "fullname", "email", "phonenumber","address",
+	 *            "privilege"}
 	 * @return true, if successful
 	 */
 	public static boolean changeUser(User user, String value, String operation) {
-		EntityManagerFactory emf = Persistence.createEntityManagerFactory("UserPU");
+		EntityManagerFactory emf = Persistence
+				.createEntityManagerFactory("UserPU");
 		EntityManager em = emf.createEntityManager();
 		boolean success = false;
 		try {
@@ -182,15 +192,17 @@ public class UserDAO {
 		}
 		return success;
 	}
-	
+
 	/**
 	 * Removes the user.
 	 *
-	 * @param model.User
+	 * @param model
+	 *            .User
 	 * @return true, if successful
 	 */
 	public static boolean removeUser(User user) {
-		EntityManagerFactory emf = Persistence.createEntityManagerFactory("UserPU");
+		EntityManagerFactory emf = Persistence
+				.createEntityManagerFactory("UserPU");
 		EntityManager em = emf.createEntityManager();
 		boolean success = false;
 		try {
