@@ -77,14 +77,14 @@
                 <div class="row">
                     <div class="container">
                         <div class="col-md-offset-4 col-md-4 col-md-offset-4" style="background-color:rgba(120, 120, 140, 0.5)"> 
-                            <form:form  commandName="userForm" class="form-signin" method="POST">
+                            <form:form modelAttribute="user" id="user" class="form-signin" method="POST">
 								
                                 <p>&nbsp;</p>
                                 
-                                <label for="inputEmail" class="sr-only">Epost adress</label>
-                                <form:input path="username" type="email" id="inputEmail" class="form-control" placeholder="E-post Adress" required="" autofocus="true"/>              
-                                <label for="inputPassword" class="sr-only">Lösenord</label>
-                                <form:input path="password" type="password" id="inputPassword" class="form-control" placeholder="LÃ¶senord" required=""/>        
+                                <label for="inputUsername class="sr-only">Användarnamn: </label>
+                                <form:input path="username" id="inputUsername" class="form-control" placeholder="Användarnamn" required="" autofocus="true"/>              
+                                <label for="inputPassword" class="sr-only">Lösenord: </label>
+                                <form:input path="password" type="password" id="inputPassword" class="form-control" placeholder="Lösenord" required=""/>        
                                 
                                 <div class="checkbox">
                                     <label>
