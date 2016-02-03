@@ -1,5 +1,6 @@
 package dao;
 
+import java.sql.Date;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -7,28 +8,28 @@ import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 
-import model.Group;
+import model.Report;
 import model.User;
 
 /**
- * The Class GroupDAO.
+ * The Class ReportDAO.
  */
-public class GroupDAO {
+public class ReportDAO {
 
 	/**
-	 * Adds the Group.
+	 * Adds the Report.
 	 *
-	 * @param Group
-	 *            model.Group
+	 * @param Report
+	 *            model.Report
 	 * @return true, if successful
 	 */
-	public static boolean addGroup(Group group) {
+	public static boolean addReport(Report report) {
 		boolean registered = false;
 		EntityManagerFactory emf = Persistence.createEntityManagerFactory("UserPU");
 		EntityManager em = emf.createEntityManager();
 		try {
 			em.getTransaction().begin();
-			em.persist(group);
+			em.persist(report);
 			em.getTransaction().commit();
 			registered = true;
 		} catch (Exception e) {
@@ -47,13 +48,13 @@ public class GroupDAO {
 		return registered;
 	}
 
-	public static List<Group> getAllGroups() {
+	public static List<Report> getAllReports() {
 		EntityManagerFactory emf = Persistence.createEntityManagerFactory("UserPU");
 		EntityManager em = emf.createEntityManager();
-		List<Group> groups = new ArrayList<Group>();
+		List<Report> reports = new ArrayList<Report>();
 		try {
 			em.getTransaction().begin();
-			groups = em.createQuery("from Group", Group.class).getResultList();
+			reports = em.createQuery("from Report", Report.class).getResultList();
 			em.getTransaction().commit();
 
 		} catch (Exception e) {
@@ -70,22 +71,22 @@ public class GroupDAO {
 			}
 		}
 
-		return groups;
+		return reports;
 	}
 
 	/**
-	 * Gets the Group info.
+	 * Gets the Report info.
 	 *
-	 * @param Groupname
-	 *            of the Group
-	 * @return model.Group
+	 * @param Reportname
+	 *            of the Report
+	 * @return model.Report
 	 */
-	public static Group fetchGroup(String groupname) {
+	public static Report fetchReport(String reportname) {
 		EntityManagerFactory emf = Persistence.createEntityManagerFactory("UserPU");
 		EntityManager em = emf.createEntityManager();
-		Group group = null;
+		Report report = null;
 		try {
-			group = em.find(Group.class, groupname);
+			report = em.find(Report.class, reportname);
 		} catch (Exception e) {
 			e.printStackTrace();
 		} finally {
@@ -96,13 +97,13 @@ public class GroupDAO {
 				emf.close();
 			}
 		}
-		return group;
+		return report;
 	}
 
 	/**
-	 * Change Group.
+	 * Change Report.
 	 *
-	 * @param Group
+	 * @param Report
 	 *            to be changed
 	 * @param value
 	 *            Username of user or description string
@@ -110,36 +111,35 @@ public class GroupDAO {
 	 *            {"host", "description", "add", "remove}
 	 * @return true, if successful
 	 */
-	public static boolean changeGroup(Group Group, String value, String operation) {
+	public static boolean changeReport(Report Report, String value, String operation) {
 		EntityManagerFactory emf = Persistence.createEntityManagerFactory("UserPU");
 		EntityManager em = emf.createEntityManager();
 		boolean success = false;
 		try {
 			em.getTransaction().begin();
-			Group u = em.find(Group.class, Group.getGroupName());
+			Report u = em.find(Report.class, Report.getReportId());
 			if (u != null) {
 				switch (operation) {
-				case "host":
-					u.setHost(new User(value));
+				case "date":
+					u.setDate(Date.valueOf(value));
 					success = true;
 					break;
 				case "description":
 					u.setDescription(value);
 					success = true;
 					break;
-				case "add":
-					List<User> uAdd = u.getUsers();
-					if (uAdd.add(new User(value))) {
-						u.setUsers(uAdd);
-						success = true;
-					}
+				case "reason":
+					u.setReason(value);
+					success = true;
 					break;
-				case "remove":
-					List<User> uRem = u.getUsers();
-					if (uRem.remove(new User(value))) {
-						u.setUsers(uRem);
-						success = true;
-					}
+				case "reporter":
+					u.setReporter(new User(value));
+					success = true;
+					break;
+				case "status":
+					u.setStatus(value);
+					success = true;
+					break;
 				default:
 					break;
 				}
@@ -161,19 +161,19 @@ public class GroupDAO {
 	}
 
 	/**
-	 * Removes the Group.
+	 * Removes the Report.
 	 *
 	 * @param model
-	 *            .Group
+	 *            .Report
 	 * @return true, if successful
 	 */
-	public static boolean removeGroup(Group group) {
+	public static boolean removeReport(Report report) {
 		EntityManagerFactory emf = Persistence.createEntityManagerFactory("UserPU");
 		EntityManager em = emf.createEntityManager();
 		boolean success = false;
 		try {
 			em.getTransaction().begin();
-			Group u = em.find(Group.class, group.getGroupName());
+			Report u = em.find(Report.class, report.getReportId());
 			if (u != null) {
 				em.remove(u);
 				success = true;

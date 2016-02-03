@@ -1,5 +1,6 @@
 package dao;
 
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -7,28 +8,27 @@ import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 
-import model.Group;
-import model.User;
+import model.Facility;
 
 /**
- * The Class GroupDAO.
+ * The Class FacilityDAO.
  */
-public class GroupDAO {
+public class FacilityDAO {
 
 	/**
-	 * Adds the Group.
+	 * Adds the Facility.
 	 *
-	 * @param Group
-	 *            model.Group
+	 * @param Facility
+	 *            model.Facility
 	 * @return true, if successful
 	 */
-	public static boolean addGroup(Group group) {
+	public static boolean addFacility(Facility facility) {
 		boolean registered = false;
 		EntityManagerFactory emf = Persistence.createEntityManagerFactory("UserPU");
 		EntityManager em = emf.createEntityManager();
 		try {
 			em.getTransaction().begin();
-			em.persist(group);
+			em.persist(facility);
 			em.getTransaction().commit();
 			registered = true;
 		} catch (Exception e) {
@@ -47,13 +47,18 @@ public class GroupDAO {
 		return registered;
 	}
 
-	public static List<Group> getAllGroups() {
+	 /** @param 
+	 *            model.Facility
+	 * @return List<Facility>
+	 * 
+	 */
+	public static List<Facility> getAllFacilities() {
 		EntityManagerFactory emf = Persistence.createEntityManagerFactory("UserPU");
 		EntityManager em = emf.createEntityManager();
-		List<Group> groups = new ArrayList<Group>();
+		List<Facility> facilities = new ArrayList<Facility>();
 		try {
 			em.getTransaction().begin();
-			groups = em.createQuery("from Group", Group.class).getResultList();
+			facilities = em.createQuery("from Facility", Facility.class).getResultList();
 			em.getTransaction().commit();
 
 		} catch (Exception e) {
@@ -70,22 +75,22 @@ public class GroupDAO {
 			}
 		}
 
-		return groups;
+		return facilities;
 	}
 
 	/**
-	 * Gets the Group info.
+	 * Gets the Facility info.
 	 *
-	 * @param Groupname
-	 *            of the Group
-	 * @return model.Group
+	 * @param String facilityName
+	 *            of the Facility
+	 * @return model.Facility
 	 */
-	public static Group fetchGroup(String groupname) {
+	public static Facility fetchFacility(Integer facilityId) {
 		EntityManagerFactory emf = Persistence.createEntityManagerFactory("UserPU");
 		EntityManager em = emf.createEntityManager();
-		Group group = null;
+		Facility facility = null;
 		try {
-			group = em.find(Group.class, groupname);
+			facility = em.find(Facility.class, facilityId);
 		} catch (Exception e) {
 			e.printStackTrace();
 		} finally {
@@ -96,54 +101,47 @@ public class GroupDAO {
 				emf.close();
 			}
 		}
-		return group;
+		return facility;
 	}
 
 	/**
-	 * Change Group.
+	 * Change Facility.
 	 *
-	 * @param Group
+	 * @param Facility
 	 *            to be changed
 	 * @param value
-	 *            Username of user or description string
+	 *           Name of user or description string
 	 * @param operation
-	 *            {"host", "description", "add", "remove}
+	 *            {"facilityname", "descriptiom", "location", "available"}
 	 * @return true, if successful
 	 */
-	public static boolean changeGroup(Group Group, String value, String operation) {
+	public static boolean changeEvent(Facility facility, String value, String operation) {
 		EntityManagerFactory emf = Persistence.createEntityManagerFactory("UserPU");
 		EntityManager em = emf.createEntityManager();
 		boolean success = false;
 		try {
 			em.getTransaction().begin();
-			Group u = em.find(Group.class, Group.getGroupName());
-			if (u != null) {
+			Facility f = em.find(Facility.class, facility.getFacilityName());
+			if (f != null) {
 				switch (operation) {
-				case "host":
-					u.setHost(new User(value));
+				case "facilityname":
+					f.setFacilityName(value);;
 					success = true;
 					break;
 				case "description":
-					u.setDescription(value);
+					f.setDescription(value);
 					success = true;
 					break;
-				case "add":
-					List<User> uAdd = u.getUsers();
-					if (uAdd.add(new User(value))) {
-						u.setUsers(uAdd);
-						success = true;
-					}
+				case "location":
+					f.setLocation(value);;
+					success = true;
 					break;
-				case "remove":
-					List<User> uRem = u.getUsers();
-					if (uRem.remove(new User(value))) {
-						u.setUsers(uRem);
-						success = true;
-					}
+				case "available":
+					f.setAvailable(Boolean.getBoolean(value));;
 				default:
 					break;
 				}
-				em.merge(u);
+				em.merge(f);
 				em.getTransaction().commit();
 
 			}
@@ -161,21 +159,21 @@ public class GroupDAO {
 	}
 
 	/**
-	 * Removes the Group.
+	 * Removes the Facility.
 	 *
 	 * @param model
-	 *            .Group
+	 *            .Facility
 	 * @return true, if successful
 	 */
-	public static boolean removeGroup(Group group) {
+	public static boolean removeFacility(Facility facility) {
 		EntityManagerFactory emf = Persistence.createEntityManagerFactory("UserPU");
 		EntityManager em = emf.createEntityManager();
 		boolean success = false;
 		try {
 			em.getTransaction().begin();
-			Group u = em.find(Group.class, group.getGroupName());
-			if (u != null) {
-				em.remove(u);
+			Facility f = em.find(Facility.class, facility.getFacilityId());
+			if (f != null) {
+				em.remove(f);
 				success = true;
 			}
 			em.getTransaction().commit();
