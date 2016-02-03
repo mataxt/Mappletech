@@ -7,7 +7,7 @@ public class UserVM {
 	private String fullName;
 	private	String email;
 	private	String phoneNumber;
-	private String adress;
+	private String address;
 	private Integer privilege;
 	
 	public UserVM() {
@@ -15,14 +15,14 @@ public class UserVM {
 	}
 
 	public UserVM(String username, String password, String fullName,
-			String email, String phoneNumber, String adress, Integer privilege) {
+			String email, String phoneNumber, String address, Integer privilege) {
 		super();
 		this.username = username;
 		this.password = password;
 		this.fullName = fullName;
 		this.email = email;
 		this.phoneNumber = phoneNumber;
-		this.adress = adress;
+		this.address = address;
 		this.privilege = privilege;
 	}
 	
@@ -33,7 +33,7 @@ public class UserVM {
 		this.fullName = fullName;
 		this.email = email;
 		this.phoneNumber = phoneNumber;
-		this.adress = adress;
+		this.address = adress;
 		this.privilege = privilege;
 	}
 
@@ -79,9 +79,13 @@ public class UserVM {
 		return phoneNumber;
 	}
 
-	
-	public String getAdress() {
-		return adress;
+
+	public String getAddress() {
+		return address;
+	}
+
+	public void setAddress(String address) {
+		this.address = address;
 	}
 
 	public Integer getPrivilege() {
