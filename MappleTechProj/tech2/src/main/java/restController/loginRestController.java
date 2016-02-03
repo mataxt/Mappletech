@@ -1,6 +1,8 @@
 package restController;
 
-import org.springframework.boot.autoconfigure.security.oauth2.client.EnableOAuth2Sso;
+import org.springframework.security.config.annotation.web.builders.HttpSecurity;
+import org.springframework.security.config.annotation.web.builders.WebSecurity;
+import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -12,8 +14,7 @@ import model.User;
 import vm.UserVM;
 
 @RestController
-@EnableOAuth2Sso
-public class loginRestController {
+public class loginRestController{
 
 	@RequestMapping(value = "/hello", method= RequestMethod.GET,produces = "application/json")
 	public String helloWorld()
@@ -34,6 +35,6 @@ public class loginRestController {
 				u.getPhoneNumber(),u.getAddress(),u.getPrivilege());
 		}
 		return userVM;
-	}
+	}	
 	
 }
