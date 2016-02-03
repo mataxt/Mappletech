@@ -1,5 +1,6 @@
 package dao;
 
+import java.sql.Date;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -7,28 +8,28 @@ import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 
-import model.Group;
+import model.Event;
 import model.User;
 
 /**
- * The Class GroupDAO.
+ * The Class EventDAO.
  */
-public class GroupDAO {
+public class EventDAO {
 
 	/**
-	 * Adds the Group.
+	 * Adds the Event.
 	 *
-	 * @param Group
-	 *            model.Group
+	 * @param Event
+	 *            model.Event
 	 * @return true, if successful
 	 */
-	public static boolean addGroup(Group group) {
+	public static boolean addEvent(Event event) {
 		boolean registered = false;
 		EntityManagerFactory emf = Persistence.createEntityManagerFactory("UserPU");
 		EntityManager em = emf.createEntityManager();
 		try {
 			em.getTransaction().begin();
-			em.persist(group);
+			em.persist(event);
 			em.getTransaction().commit();
 			registered = true;
 		} catch (Exception e) {
@@ -47,13 +48,13 @@ public class GroupDAO {
 		return registered;
 	}
 
-	public static List<Group> getAllGroups() {
+	public static List<Event> getAllEvents() {
 		EntityManagerFactory emf = Persistence.createEntityManagerFactory("UserPU");
 		EntityManager em = emf.createEntityManager();
-		List<Group> groups = new ArrayList<Group>();
+		List<Event> events = new ArrayList<Event>();
 		try {
 			em.getTransaction().begin();
-			groups = em.createQuery("from Group", Group.class).getResultList();
+			events = em.createQuery("from Event", Event.class).getResultList();
 			em.getTransaction().commit();
 
 		} catch (Exception e) {
@@ -70,22 +71,22 @@ public class GroupDAO {
 			}
 		}
 
-		return groups;
+		return events;
 	}
 
 	/**
-	 * Gets the Group info.
+	 * Gets the Event info.
 	 *
-	 * @param Groupname
-	 *            of the Group
-	 * @return model.Group
+	 * @param Eventname
+	 *            of the Event
+	 * @return model.Event
 	 */
-	public static Group fetchGroup(String groupname) {
+	public static Event fetchEvent(String eventname) {
 		EntityManagerFactory emf = Persistence.createEntityManagerFactory("UserPU");
 		EntityManager em = emf.createEntityManager();
-		Group group = null;
+		Event event = null;
 		try {
-			group = em.find(Group.class, groupname);
+			event = em.find(Event.class, eventname);
 		} catch (Exception e) {
 			e.printStackTrace();
 		} finally {
@@ -96,50 +97,43 @@ public class GroupDAO {
 				emf.close();
 			}
 		}
-		return group;
+		return event;
 	}
 
 	/**
-	 * Change Group.
+	 * Change Event.
 	 *
-	 * @param Group
+	 * @param Event
 	 *            to be changed
 	 * @param value
 	 *            Username of user or description string
 	 * @param operation
-	 *            {"host", "description", "add", "remove}
+	 *            {"title", "description", "date", "creator"}
 	 * @return true, if successful
 	 */
-	public static boolean changeGroup(Group Group, String value, String operation) {
+	public static boolean changeEvent(Event Event, String value, String operation) {
 		EntityManagerFactory emf = Persistence.createEntityManagerFactory("UserPU");
 		EntityManager em = emf.createEntityManager();
 		boolean success = false;
 		try {
 			em.getTransaction().begin();
-			Group u = em.find(Group.class, Group.getGroupName());
+			Event u = em.find(Event.class, Event.getEventID());
 			if (u != null) {
 				switch (operation) {
-				case "host":
-					u.setHost(new User(value));
+				case "creator":
+					u.setCreator(new User(value));
 					success = true;
 					break;
 				case "description":
 					u.setDescription(value);
 					success = true;
 					break;
-				case "add":
-					List<User> uAdd = u.getUsers();
-					if (uAdd.add(new User(value))) {
-						u.setUsers(uAdd);
-						success = true;
-					}
+				case "date":
+					u.setDate(Date.valueOf(value));
+					success = true;
 					break;
-				case "remove":
-					List<User> uRem = u.getUsers();
-					if (uRem.remove(new User(value))) {
-						u.setUsers(uRem);
-						success = true;
-					}
+				case "title":
+					u.setTitle(value);
 				default:
 					break;
 				}
@@ -161,19 +155,19 @@ public class GroupDAO {
 	}
 
 	/**
-	 * Removes the Group.
+	 * Removes the Event.
 	 *
 	 * @param model
-	 *            .Group
+	 *            .Event
 	 * @return true, if successful
 	 */
-	public static boolean removeGroup(Group group) {
+	public static boolean removeEvent(Event event) {
 		EntityManagerFactory emf = Persistence.createEntityManagerFactory("UserPU");
 		EntityManager em = emf.createEntityManager();
 		boolean success = false;
 		try {
 			em.getTransaction().begin();
-			Group u = em.find(Group.class, group.getGroupName());
+			Event u = em.find(Event.class, event.getEventID());
 			if (u != null) {
 				em.remove(u);
 				success = true;
