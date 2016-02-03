@@ -14,15 +14,19 @@ import org.junit.Test;
 import org.junit.runners.MethodSorters;
 import org.springframework.context.annotation.DependsOn;
 
+import dao.ReservationDAO;
 import dao.UserDAO;
 import junit.framework.TestCase;
+import model.Facility;
+import model.Reservation;
 import model.User;
 
-public class UserTests extends TestCase {
+public class ReservationTests extends TestCase {
 
 	User user;
-	User user2;
-
+	Facility fac;
+	Reservation reservation;
+	int id;
 
 	// assigning the values
 	protected void setUp() {
@@ -35,32 +39,30 @@ public class UserTests extends TestCase {
 		user.setPrivilege(0);
 		user.setPhoneNumber("phonenumber");
 		
-		user2 = new User();
-		user2.setUserName("username2");
-		user2.setPassWord("password");
-		user2.setFullName("fullname");
-		user2.setEmail("email");
-		user2.setAddress("address");
-		user2.setPrivilege(0);
-		user2.setPhoneNumber("phonenumber");
+		fac = new Facility();
+		fac.setFacilityName("tvätt");
+		reservation = new Reservation();
+		reservation.setTitle("party");
+		
+		reservation.setHost(user);
+		reservation.setFacilityID(fac);
+		
+		reservation.setTimeTo(Date.valueOf("2015-02-01"));
+		reservation.setTimeFrom(Date.valueOf("2014-02-01"));
 	}
 
 	public void testConnect() {
 		EntityManagerFactory emf = Persistence.createEntityManagerFactory("UserPU");
 		EntityManager em = emf.createEntityManager();
 		try {
-//			em.getTransaction().begin();
-//			em.persist(user);
-//			em.persist(user2);
-//			em.getTransaction().commit();
-//			
 			em.getTransaction().begin();
-			List<User> u = new ArrayList<User>();
-			u = UserDAO.getAllUsers();
-			System.out.println(u.get(0).getUserName());
-			System.out.println(u.get(1).getUserName());
-			
+			//em.persist(user);
+			//em.persist(fac);
+		//	em.persist(reservation);
+			//em.flush();
+			id = reservation.getReservationId();
 			em.getTransaction().commit();
+			
 		} catch (Exception e) {
 			if (em.getTransaction().isActive()) {
 				em.getTransaction().rollback();
@@ -76,6 +78,37 @@ public class UserTests extends TestCase {
 		}
 	}
 
+//	public void testDelete() {
+//		
+//		System.out.println("\n------Running delete Registration----\n");
+//		EntityManagerFactory emf = Persistence.createEntityManagerFactory("UserPU");
+//		EntityManager em = emf.createEntityManager();
+//		try {
+//			
+//			em.getTransaction().begin();
+//			reservation.setReservationId(15);
+//			if(!ReservationDAO.removeReservation(reservation)) {
+//				System.out.println("\nFailed to remove");
+//			}
+//			em.getTransaction().commit();
+//			
+//		}catch (Exception e) {
+//			if (em.getTransaction().isActive()) {
+//				em.getTransaction().rollback();
+//			}
+//			System.out.println("Failed");
+//		} finally {
+//			if (em != null) {
+//				em.close();
+//			}
+//			if (emf != null) {
+//				emf.close();
+//			}
+//		
+//		}
+//	}
+	
+	
 	// public void connect() {
 	// System.out.print("Running Add user test...");
 	// EntityManagerFactory emf =

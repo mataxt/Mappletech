@@ -18,6 +18,7 @@ import javax.persistence.Table;
 public class Reservation implements Serializable {
 
 	private Integer reservationId;
+	private String title;
 	private User host;
 	private Facility facilityID;
 	private Date timeFrom;
@@ -27,9 +28,10 @@ public class Reservation implements Serializable {
 
 	}
 
-	public Reservation(Integer reservationId, User host, Facility facilityID, Date timeFrom, Date timeTo) {
+	public Reservation(Integer reservationId, String title, User host, Facility facilityID, Date timeFrom, Date timeTo) {
 		super();
 		this.reservationId = reservationId;
+		this.title = title;
 		this.host = host;
 		this.setFacilityID(facilityID);
 		this.timeFrom = timeFrom;
@@ -86,6 +88,18 @@ public class Reservation implements Serializable {
 	public void setTimeTo(Date timeTo) {
 		this.timeTo = timeTo;
 	}
+	
+	
+	@Column(name = "Title", nullable = false)
+	public String getTitle() {
+		return title;
+	}
+
+	public void setTitle(String title) {
+		this.title = title;
+	}
+
+
 
 
 	private static final long serialVersionUID = -8197501379045971105L;

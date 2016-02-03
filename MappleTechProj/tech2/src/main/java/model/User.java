@@ -1,7 +1,6 @@
 package model;
 
 import java.io.Serializable;
-import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.CascadeType;
@@ -9,11 +8,9 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.Id;
-import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
-import javax.persistence.JoinColumn;
 
 @Entity
 @Table(name = "Users", catalog = "mappletech")
@@ -24,6 +21,7 @@ public class User implements Serializable {
 	private String fullName;
 	private String email;
 	private String phoneNumber;
+	private String mobileNumber;
 	private String address;
 	private Integer privilege;
 	private List<Group> groups;
@@ -35,12 +33,13 @@ public class User implements Serializable {
 
 	}
 
-	public User(String userName, String passWord, String fullName, String email, String phoneNumber, String address,
+	public User(String userName, String passWord, String mobileNumber, String fullName, String email, String phoneNumber, String address,
 			Integer privilege, List<Group> groups, List<Report> reports, List<Reservation> reservations,
 			List<Event> events) {
 		super();
 		this.userName = userName;
 		this.passWord = passWord;
+		this.mobileNumber = mobileNumber;
 		this.fullName = fullName;
 		this.email = email;
 		this.phoneNumber = phoneNumber;
@@ -107,6 +106,15 @@ public class User implements Serializable {
 
 	public void setPhoneNumber(String phoneNumber) {
 		this.phoneNumber = phoneNumber;
+	}
+
+	@Column(name = "MobileNumber", nullable = true)
+	public String getMobileNumber() {
+		return mobileNumber;
+	}
+
+	public void setMobileNumber(String mobileNumber) {
+		this.mobileNumber = mobileNumber;
 	}
 
 	@Column(name = "Address", nullable = true)
