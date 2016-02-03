@@ -1,6 +1,6 @@
 package dao;
 
-import java.sql.Date;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -8,28 +8,27 @@ import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 
-import model.Event;
-import model.User;
+import model.Facility;
 
 /**
- * The Class EventDAO.
+ * The Class FacilityDAO.
  */
-public class EventDAO {
+public class FacilityDAO {
 
 	/**
-	 * Adds the Event.
+	 * Adds the Facility.
 	 *
-	 * @param Event
-	 *            model.Event
+	 * @param Facility
+	 *            model.Facility
 	 * @return true, if successful
 	 */
-	public static boolean addEvent(Event event) {
+	public static boolean addFacility(Facility facility) {
 		boolean registered = false;
 		EntityManagerFactory emf = Persistence.createEntityManagerFactory("UserPU");
 		EntityManager em = emf.createEntityManager();
 		try {
 			em.getTransaction().begin();
-			em.persist(event);
+			em.persist(facility);
 			em.getTransaction().commit();
 			registered = true;
 		} catch (Exception e) {
@@ -48,13 +47,18 @@ public class EventDAO {
 		return registered;
 	}
 
-	public static List<Event> getAllEvents() {
+	 /** @param 
+	 *            model.Facility
+	 * @return List<Facility>
+	 * 
+	 */
+	public static List<Facility> getAllFacilities() {
 		EntityManagerFactory emf = Persistence.createEntityManagerFactory("UserPU");
 		EntityManager em = emf.createEntityManager();
-		List<Event> events = new ArrayList<Event>();
+		List<Facility> facilities = new ArrayList<Facility>();
 		try {
 			em.getTransaction().begin();
-			events = em.createQuery("from Event", Event.class).getResultList();
+			facilities = em.createQuery("from Facility", Facility.class).getResultList();
 			em.getTransaction().commit();
 
 		} catch (Exception e) {
@@ -71,22 +75,22 @@ public class EventDAO {
 			}
 		}
 
-		return events;
+		return facilities;
 	}
 
 	/**
-	 * Gets the Event info.
+	 * Gets the Facility info.
 	 *
-	 * @param Eventname
-	 *            of the Event
-	 * @return model.Event
+	 * @param String facilityName
+	 *            of the Facility
+	 * @return model.Facility
 	 */
-	public static Event fetchEvent(Integer eventId) {
+	public static Facility fetchFacility(Integer facilityId) {
 		EntityManagerFactory emf = Persistence.createEntityManagerFactory("UserPU");
 		EntityManager em = emf.createEntityManager();
-		Event event = null;
+		Facility facility = null;
 		try {
-			event = em.find(Event.class, eventId);
+			facility = em.find(Facility.class, facilityId);
 		} catch (Exception e) {
 			e.printStackTrace();
 		} finally {
@@ -97,47 +101,47 @@ public class EventDAO {
 				emf.close();
 			}
 		}
-		return event;
+		return facility;
 	}
 
 	/**
-	 * Change Event.
+	 * Change Facility.
 	 *
-	 * @param Event
+	 * @param Facility
 	 *            to be changed
 	 * @param value
-	 *            Username of user or description string
+	 *           Name of user or description string
 	 * @param operation
-	 *            {"title", "description", "date", "creator"}
+	 *            {"facilityname", "descriptiom", "location", "available"}
 	 * @return true, if successful
 	 */
-	public static boolean changeEvent(Event Event, String value, String operation) {
+	public static boolean changeEvent(Facility facility, String value, String operation) {
 		EntityManagerFactory emf = Persistence.createEntityManagerFactory("UserPU");
 		EntityManager em = emf.createEntityManager();
 		boolean success = false;
 		try {
 			em.getTransaction().begin();
-			Event e = em.find(Event.class, Event.getEventID());
-			if (e != null) {
+			Facility f = em.find(Facility.class, facility.getFacilityName());
+			if (f != null) {
 				switch (operation) {
-				case "creator":
-					e.setCreator(new User(value));
+				case "facilityname":
+					f.setFacilityName(value);;
 					success = true;
 					break;
 				case "description":
-					e.setDescription(value);
+					f.setDescription(value);
 					success = true;
 					break;
-				case "date":
-					e.setDate(Date.valueOf(value));
+				case "location":
+					f.setLocation(value);;
 					success = true;
 					break;
-				case "title":
-					e.setTitle(value);
+				case "available":
+					f.setAvailable(Boolean.getBoolean(value));;
 				default:
 					break;
 				}
-				em.merge(e);
+				em.merge(f);
 				em.getTransaction().commit();
 
 			}
@@ -155,21 +159,21 @@ public class EventDAO {
 	}
 
 	/**
-	 * Removes the Event.
+	 * Removes the Facility.
 	 *
 	 * @param model
-	 *            .Event
+	 *            .Facility
 	 * @return true, if successful
 	 */
-	public static boolean removeEvent(Event event) {
+	public static boolean removeFacility(Facility facility) {
 		EntityManagerFactory emf = Persistence.createEntityManagerFactory("UserPU");
 		EntityManager em = emf.createEntityManager();
 		boolean success = false;
 		try {
 			em.getTransaction().begin();
-			Event e = em.find(Event.class, event.getEventID());
-			if (e != null) {
-				em.remove(e);
+			Facility f = em.find(Facility.class, facility.getFacilityId());
+			if (f != null) {
+				em.remove(f);
 				success = true;
 			}
 			em.getTransaction().commit();
