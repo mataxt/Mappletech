@@ -2,11 +2,7 @@ package controller;
 
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
-import java.util.ArrayList;
-import java.util.List;
 
-import org.springframework.http.converter.HttpMessageConverter;
-import org.springframework.http.converter.json.MappingJackson2HttpMessageConverter;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -30,11 +26,14 @@ public class LoginController {
 		return mv;
 	}
 
-	@RequestMapping(value = "doLogin", method = RequestMethod.POST)
+	@RequestMapping(value = "/login", method = RequestMethod.POST)
 	public String doLogin(@ModelAttribute("uservm") UserVM userVm, Model model) {
 		try {
 			System.out.println("In POST Login...");
 			UserVM loggedInUser = new UserVM(userVm.getUsername(), passwordHash(userVm.getPassword()));
+	        RestTemplate restTemplate = new RestTemplate();
+	        restTemplate.postForLocation(URI, loggedInUser, UserVM.class);
+	        System.out.println("SUCCESS");
 		} catch (NoSuchAlgorithmException e) {
 			System.out.println("Error: " + e.getStackTrace());
 		}

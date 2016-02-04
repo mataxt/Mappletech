@@ -90,5 +90,6 @@ public class UserVM {
 	public Integer getPrivilege() {
 		return privilege;
 	}
+	
 }
 

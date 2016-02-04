@@ -26,8 +26,8 @@ public class loginRestController{
 	@RequestMapping(value="/login")
 	public UserVM login(@RequestBody(required=true) UserVM user)
 	{
-		System.out.println(user.getEmail());
-		User u = UserDAO.confirmUser(user.getEmail(),user.getPassword());
+		System.out.println(user.getUsername());
+		User u = UserDAO.confirmUser(user.getUsername(),user.getPassword());
 		UserVM userVM = null;
 		if(u != null)
 		{

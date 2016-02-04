@@ -71,7 +71,7 @@
 				<div class="container">
 					<div class="col-md-offset-4 col-md-4 col-md-offset-4"
 						style="background-color: rgba(120, 120, 140, 0.5)">
-						<form:form modelAttribute="uservm" id="user" action="doLogin" class="form-signin"
+						<form:form modelAttribute="uservm" id="user" class="form-signin"
 							method="POST">
 
 							<p>&nbsp;</p>
