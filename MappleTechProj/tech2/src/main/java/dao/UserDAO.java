@@ -5,6 +5,7 @@ import java.util.List;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
+import javax.persistence.NoResultException;
 import javax.persistence.Persistence;
 
 import model.User;
@@ -118,7 +119,8 @@ public class UserDAO {
 			String query = "from User where username = ?1 and password = ?2";
 			u = em.createQuery(query, User.class).setParameter(1, username)
 					.setParameter(2, password).getSingleResult();
-
+		} catch (NoResultException e) {
+			System.out.println("not found");
 		} catch (Exception e) {
 			e.printStackTrace();
 		} finally {
@@ -152,11 +154,11 @@ public class UserDAO {
 		boolean success = false;
 		try {
 			em.getTransaction().begin();
-			User u = em.find(User.class, user.getUserName());
+			User u = em.find(User.class, user.getUsername());
 			if (u != null) {
 				switch (operation) {
 				case "password":
-					u.setPassWord(value);
+					u.setPassword(value);
 					break;
 				case "fullname":
 					u.setFullName(value);
@@ -207,7 +209,7 @@ public class UserDAO {
 		boolean success = false;
 		try {
 			em.getTransaction().begin();
-			User u = em.find(User.class, user.getUserName());
+			User u = em.find(User.class, user.getUsername());
 			if (u != null) {
 				em.remove(u);
 				success = true;

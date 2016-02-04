@@ -16,8 +16,8 @@ import javax.persistence.Table;
 @Table(name = "Users", catalog = "mappletech")
 public class User implements Serializable {
 
-	private String userName;
-	private String passWord;
+	private String username;
+	private String password;
 	private String fullName;
 	private String email;
 	private String phoneNumber;
@@ -33,12 +33,12 @@ public class User implements Serializable {
 
 	}
 
-	public User(String userName, String passWord, String mobileNumber, String fullName, String email, String phoneNumber, String address,
+	public User(String username, String password, String mobileNumber, String fullName, String email, String phoneNumber, String address,
 			Integer privilege, List<Group> groups, List<Report> reports, List<Reservation> reservations,
 			List<Event> events) {
 		super();
-		this.userName = userName;
-		this.passWord = passWord;
+		this.username = username;
+		this.password = password;
 		this.mobileNumber = mobileNumber;
 		this.fullName = fullName;
 		this.email = email;
@@ -51,34 +51,34 @@ public class User implements Serializable {
 		this.events = events;
 	}
 
-	public User(String userName) {
+	public User(String username) {
 		super();
-		this.userName = userName;
+		this.username = username;
 	}
 
-	public User(String userName, String passWord) {
+	public User(String username, String password) {
 		super();
-		this.userName = userName;
-		this.passWord = passWord;
+		this.username = username;
+		this.password = password;
 	}
 
 	@Id
 	@Column(name = "Username", nullable = false)
-	public String getUserName() {
-		return userName;
+	public String getUsername() {
+		return username;
 	}
 
-	public void setUserName(String userName) {
-		this.userName = userName;
+	public void setUsername(String username) {
+		this.username = username;
 	}
 
 	@Column(name = "Password", nullable = false)
-	public String getPassWord() {
-		return passWord;
+	public String getPassword() {
+		return password;
 	}
 
-	public void setPassWord(String passWord) {
-		this.passWord = passWord;
+	public void setPassword(String password) {
+		this.password = password;
 	}
 
 	@Column(name = "FullName", nullable = false)

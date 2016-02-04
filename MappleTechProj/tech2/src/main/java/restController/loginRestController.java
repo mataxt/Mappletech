@@ -26,13 +26,14 @@ public class loginRestController{
 	@RequestMapping(value="/login")
 	public UserVM login(@RequestBody(required=true) UserVM user)
 	{
-		System.out.println(user.getUsername());
+		System.out.println("Password: \n"+user.getPassword()+"\n");
 		User u = UserDAO.confirmUser(user.getUsername(),user.getPassword());
 		UserVM userVM = null;
 		if(u != null)
 		{
-			userVM = new UserVM(u.getUserName(),u.getFullName(),u.getEmail(),
+			userVM = new UserVM(u.getUsername(),u.getFullName(),u.getEmail(),
 				u.getPhoneNumber(),u.getAddress(),u.getPrivilege());
+			System.out.println(userVM.getUsername() + " " + userVM.getFullName());
 		}
 		return userVM;
 	}	
