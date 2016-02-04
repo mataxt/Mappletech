@@ -27,7 +27,7 @@ public class loginRestController{
 	public UserVM login(@RequestBody(required=true) UserVM user)
 	{
 		System.out.println(user.getEmail());
-		User u = UserDAO.confirmUser(user.getEmail(),user.getPassWord());
+		User u = UserDAO.confirmUser(user.getEmail(),user.getPassword());
 		UserVM userVM = null;
 		if(u != null)
 		{

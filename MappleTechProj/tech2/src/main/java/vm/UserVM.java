@@ -1,14 +1,13 @@
 package vm;
 
 public class UserVM {
-
-	private String username;
-	private String password;
-	private String fullName;
-	private	String email;
-	private	String phoneNumber;
-	private String address;
-	private Integer privilege;
+	private String username = "";
+	private String password = "";
+	private String fullName = "";
+	private	String email = "";
+	private	String phoneNumber = "";
+	private String address = "";
+	private Integer privilege = 0;
 	
 	public UserVM() {
 		
