@@ -1,19 +1,10 @@
 package tech2;
 
-import java.sql.Date;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
-
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
-
-import org.junit.FixMethodOrder;
-import org.junit.Test;
-import org.junit.runners.MethodSorters;
-import org.springframework.context.annotation.DependsOn;
-
 import dao.UserDAO;
 import junit.framework.TestCase;
 import model.User;
@@ -27,8 +18,8 @@ public class UserTests extends TestCase {
 	// assigning the values
 	protected void setUp() {
 		user = new User();
-		user.setUserName("username");
-		user.setPassWord("password");
+		user.setUsername("username");
+		user.setPassword("password");
 		user.setFullName("fullname");
 		user.setEmail("email");
 		user.setAddress("address");
@@ -36,8 +27,8 @@ public class UserTests extends TestCase {
 		user.setPhoneNumber("phonenumber");
 		
 		user2 = new User();
-		user2.setUserName("username2");
-		user2.setPassWord("password");
+		user2.setUsername("username2");
+		user2.setPassword("password");
 		user2.setFullName("fullname");
 		user2.setEmail("email");
 		user2.setAddress("address");
@@ -57,8 +48,8 @@ public class UserTests extends TestCase {
 			em.getTransaction().begin();
 			List<User> u = new ArrayList<User>();
 			u = UserDAO.getAllUsers();
-			System.out.println(u.get(0).getUserName());
-			System.out.println(u.get(1).getUserName());
+			System.out.println(u.get(0).getUsername());
+			System.out.println(u.get(1).getUsername());
 			
 			em.getTransaction().commit();
 		} catch (Exception e) {

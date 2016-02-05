@@ -31,8 +31,8 @@ public class ReservationTests extends TestCase {
 	// assigning the values
 	protected void setUp() {
 		user = new User();
-		user.setUserName("username");
-		user.setPassWord("password");
+		user.setUsername("username");
+		user.setPassword("password");
 		user.setFullName("fullname");
 		user.setEmail("email");
 		user.setAddress("address");

@@ -22,4 +22,5 @@
 		cache-period="31556926" />
 
 	<mvc:annotation-driven />
+	
 </beans>

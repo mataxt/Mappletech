@@ -17,6 +17,13 @@ import vm.UserVM;
 public class LoginController {
 	private final String URI = "http://localhost:8080/tech2/rest/login"; // http://130.237.84.211:8080/tech2/rest/login
 
+	// Omdirigerar just nu till login
+	@RequestMapping(value = { "/" }, method = RequestMethod.GET)
+	public String start() {
+		
+		return "redirect:/login";
+	}
+	
 	@RequestMapping(value = { "/login" }, method = RequestMethod.GET)
 	public ModelAndView login() {
 		System.out.println("In GET Login...");
