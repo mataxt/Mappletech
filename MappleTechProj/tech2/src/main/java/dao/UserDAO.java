@@ -198,8 +198,7 @@ public class UserDAO {
 	/**
 	 * Removes the user.
 	 *
-	 * @param model
-	 *            .User
+	 * @param model.User
 	 * @return true, if successful
 	 */
 	public static boolean removeUser(User user) {
