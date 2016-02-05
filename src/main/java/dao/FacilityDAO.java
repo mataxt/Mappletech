@@ -18,8 +18,7 @@ public class FacilityDAO {
 	/**
 	 * Adds the Facility.
 	 *
-	 * @param Facility
-	 *            model.Facility
+	 * @param Facility model.Facility
 	 * @return true, if successful
 	 */
 	public static boolean addFacility(Facility facility) {
