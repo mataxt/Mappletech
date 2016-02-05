@@ -137,8 +137,7 @@ public class UserDAO {
 	/**
 	 * Change user.
 	 *
-	 * @param user
-	 *            to be changed
+	 * @param user to be changed
 	 * @param value
 	 *            to be changed into OBS: for "privilege" operation use integers
 	 *            as String e.g. "1" or "3"
@@ -198,7 +197,7 @@ public class UserDAO {
 	/**
 	 * Removes the user.
 	 *
-	 * @param model.User
+	 * @param model.User 
 	 * @return true, if successful
 	 */
 	public static boolean removeUser(User user) {
