@@ -15,7 +15,7 @@ import vm.UserVM;
 
 @Controller
 public class LoginController {
-	private final String URI = "http://localhost:8080/tech2/rest/login"; // http://130.237.84.211:8080/tech2/rest/login
+	private final String URI = "http://130.237.84.211:8080/mappletech/rest/login";
 
 	// Omdirigerar just nu till login
 	@RequestMapping(value = { "/" }, method = RequestMethod.GET)
