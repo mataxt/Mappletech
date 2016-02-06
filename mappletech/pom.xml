@@ -67,11 +67,6 @@
 
 	<build>
 		<finalName>tech2</finalName>
-		<resources>
-			<resource>
-				<directory>src/main/webapp/resources</directory>
-			</resource>
-		</resources>
 		<plugins>
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
@@ -89,19 +84,16 @@
 				<artifactId>maven-war-plugin</artifactId>
 				<version>2.6</version>
 				<configuration>
-					<overlays>
-						<overlay>
+					<artifactItems>
+						<artifactItem>
 							<groupId>mappletech</groupId>
 							<artifactId>mappletech</artifactId>
 							<type>jar</type>
-							<includes>
-								<include>**/*.jsp</include>
-							</includes>
-							<targetPath>WEB-INF/pages</targetPath>
-						</overlay>
-					</overlays>
-					<warSourceDirectory>WebContent</warSourceDirectory>
-					<failOnMissingWebXml>false</failOnMissingWebXml>
+							<overWrite>true</overWrite>
+							<outputDirectory>src/main/webapp</outputDirectory>
+							<includes>*</includes>
+						</artifactItem>
+					</artifactItems>
 				</configuration>
 			</plugin>
 			<plugin>
