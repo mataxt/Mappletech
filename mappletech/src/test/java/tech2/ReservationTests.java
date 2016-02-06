@@ -1,21 +1,13 @@
 package tech2;
 
 import java.sql.Date;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
+
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 
-import org.junit.FixMethodOrder;
-import org.junit.Test;
-import org.junit.runners.MethodSorters;
-import org.springframework.context.annotation.DependsOn;
 
-import dao.ReservationDAO;
-import dao.UserDAO;
 import junit.framework.TestCase;
 import model.Facility;
 import model.Reservation;
@@ -40,7 +32,7 @@ public class ReservationTests extends TestCase {
 		user.setPhoneNumber("phonenumber");
 		
 		fac = new Facility();
-		fac.setFacilityName("tvätt");
+		fac.setFacilityName("tvatt");
 		reservation = new Reservation();
 		reservation.setTitle("party");
 		
