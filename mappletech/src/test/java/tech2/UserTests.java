@@ -78,11 +78,16 @@ public class UserTests extends TestCase {
 			try {
 				User tmpUser=new User();
 				tmpUser = UserDAO.fetchUser(user.getUsername());
-				assertTrue(tmpUser != null);
 				
+				assertTrue(tmpUser != null);
 				assertEquals(user.getUsername(), tmpUser.getUsername());
 				assertEquals(user.getAddress(), tmpUser.getAddress());
 				assertEquals(user.getPassword(), tmpUser.getPassword());
+				assertEquals(user.getEmail(), tmpUser.getEmail());
+				assertEquals(user.getFullName(), tmpUser.getFullName());
+				assertEquals(user.getMobileNumber(), tmpUser.getMobileNumber());
+				assertEquals(user.getPhoneNumber(), tmpUser.getPhoneNumber());
+				assertEquals(user.getPrivilege(), tmpUser.getPrivilege());
 				
 				System.out.println("Success");
 			} catch (AssertionError e) {
@@ -122,6 +127,11 @@ public class UserTests extends TestCase {
 				assertEquals(password, tmpUser.getPassword());
 				assertEquals(user.getUsername(), tmpUser.getUsername());
 				assertEquals(user.getAddress(), tmpUser.getAddress());
+				assertEquals(user.getEmail(), tmpUser.getEmail());
+				assertEquals(user.getFullName(), tmpUser.getFullName());
+				assertEquals(user.getMobileNumber(), tmpUser.getMobileNumber());
+				assertEquals(user.getPhoneNumber(), tmpUser.getPhoneNumber());
+				assertEquals(user.getPrivilege(), tmpUser.getPrivilege());
 				
 				System.out.println("Success");
 			} catch (AssertionError e) {
