@@ -1,6 +1,7 @@
 package model;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.CascadeType;
@@ -21,7 +22,7 @@ public class Group implements Serializable {
 	private String groupName;
 	private String description;
 	private User host;
-	private List<User> users;
+	private List<User> users = new ArrayList<>();
 
 	public Group() {
 
@@ -64,8 +65,8 @@ public class Group implements Serializable {
 		this.host = host;
 	}
 
-	@ManyToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-	@JoinTable(name = "Users_Groups", catalog = "mappletech", joinColumns = {
+	@ManyToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+	@JoinTable(name = "Users_Groups", joinColumns = {
 			@JoinColumn(name = "GroupName", nullable = false, updatable = true, referencedColumnName = "GroupName") }, inverseJoinColumns = {
 					@JoinColumn(name = "Username", nullable = false, updatable = true, referencedColumnName = "Username") })
 	public List<User> getUsers() {

@@ -1,11 +1,5 @@
 package tech2;
 
-import java.util.ArrayList;
-
-import javax.persistence.EntityManager;
-import javax.persistence.EntityManagerFactory;
-import javax.persistence.Persistence;
-
 import testdao.GroupDAO;
 import testdao.UserDAO;
 import model.Group;
@@ -15,7 +9,6 @@ import junit.framework.TestCase;
 public class GroupTests extends TestCase {
 
 	User user, user2, user3, host;
-	ArrayList<User> members = new ArrayList<User>();
 	Group group;
 
 	// assigning the values
@@ -58,44 +51,18 @@ public class GroupTests extends TestCase {
 		UserDAO.addUser(user2);
 		UserDAO.addUser(user3);
 
-		members.add(user);
-		members.add(user2);
-		members.add(user3);
-
 		group = new Group();
 		group.setGroupName("groupName");
 		group.setHost(host);
-		group.setUsers(members);
 		group.setDescription("description");
 
 	}
-	
-	public void tearDown(){
+
+	public void tearDown() {
 		UserDAO.removeUser(host);
 		UserDAO.removeUser(user);
 		UserDAO.removeUser(user2);
 		UserDAO.removeUser(user3);
-	}
-
-	public void testConnect() {
-		EntityManagerFactory emf = Persistence.createEntityManagerFactory("UserPU");
-		EntityManager em = emf.createEntityManager();
-		try {
-			em.getTransaction().begin();
-			em.getTransaction().commit();
-		} catch (Exception e) {
-			if (em.getTransaction().isActive()) {
-				em.getTransaction().rollback();
-			}
-			System.out.println("Failed at testConnect");
-		} finally {
-			if (em != null) {
-				em.close();
-			}
-			if (emf != null) {
-				emf.close();
-			}
-		}
 	}
 
 	public void testAddRemove() throws Exception {
@@ -109,16 +76,39 @@ public class GroupTests extends TestCase {
 		}
 	}
 
-	public void testFetch() throws Exception {
+	public void testAddRemoveMembers() throws Exception {
+		group.setGroupName("groupName2");
+		if (GroupDAO.addGroup(group))
+			try {
+				assertTrue(GroupDAO.changeGroup(group, user.getUsername(), "add"));
+				assertTrue(GroupDAO.changeGroup(group, user2.getUsername(), "add"));
+				assertTrue(GroupDAO.changeGroup(group, user3.getUsername(), "add"));
+				Group tmp = GroupDAO.fetchGroup(group.getGroupName());
+				assertEquals(3, tmp.getUsers().size());
+				assertTrue(GroupDAO.changeGroup(group, user.getUsername(), "remove"));
+				assertTrue(GroupDAO.changeGroup(group, user2.getUsername(), "remove"));
+				assertTrue(GroupDAO.changeGroup(group, user3.getUsername(), "remove"));
+				tmp = GroupDAO.fetchGroup(group.getGroupName());
+				assertEquals(0, tmp.getUsers().size());
+				System.out.println("Success");
+			} catch (AssertionError e) {
+				System.out.println("Failed at testAddRemoveMembers");
+				throw e;
+			} finally {
+				GroupDAO.removeGroup(group);
+			}
+	}
 
+	public void testFetch() throws Exception {
+		group.setGroupName("groupName3");
 		if (GroupDAO.addGroup(group)) {
 			try {
 				Group tmp = GroupDAO.fetchGroup(group.getGroupName());
 				assertTrue(tmp != null);
 				assertEquals(group.getGroupName(), tmp.getGroupName());
 				assertEquals(group.getDescription(), tmp.getDescription());
-				assertEquals(group.getHost(), tmp.getHost());
-				assertEquals(group.getUsers(), tmp.getUsers());
+				assertEquals(group.getHost().getUsername(), tmp.getHost().getUsername());
+				assertEquals(group.getUsers().size(), tmp.getUsers().size());
 				System.out.println("Success");
 			} catch (AssertionError e) {
 				System.out.println("Failed at group testFetch");
@@ -131,65 +121,52 @@ public class GroupTests extends TestCase {
 		}
 	}
 
-	// public void testFetchUser() {
-	// user.setUsername("testFetchUser");
-	// if (UserDAO.addUser(user)) {
-	// try {
-	// User tmpUser = new User();
-	// tmpUser = UserDAO.fetchUser(user.getUsername());
-	// assertTrue(tmpUser != null);
-	//
-	// assertEquals(user.getUsername(), tmpUser.getUsername());
-	// assertEquals(user.getAddress(), tmpUser.getAddress());
-	// assertEquals(user.getPassword(), tmpUser.getPassword());
-	//
-	// System.out.println("Success");
-	// } catch (AssertionError e) {
-	// System.out.println("Failed at testFetchUser");
-	// throw e;
-	// } finally {
-	// UserDAO.removeUser(user);
-	// }
-	// }
-	// }
-	//
-	// public void testGetAllUsers() {
-	// user.setUsername("testFetchUser");
-	// if (UserDAO.addUser(user)) {
-	// try {
-	// assertTrue(UserDAO.fetchUser(user.getUsername()) != null);
-	// System.out.println("Success");
-	// } catch (AssertionError e) {
-	// System.out.println("Failed at testFetchUser");
-	// throw e;
-	// } finally {
-	// UserDAO.removeUser(user);
-	// }
-	// }
-	// }
-	//
-	// public void testChangeUser() {
-	// user.setUsername("testChangeUser");
-	// String password = "123";
-	// if (UserDAO.addUser(user)) {
-	// try {
-	// User tmpUser = new User();
-	//
-	// assertTrue(UserDAO.changeUser(user, password, "password"));
-	// tmpUser = UserDAO.fetchUser(user.getUsername());
-	// assertTrue(tmpUser != null);
-	// assertEquals(password, tmpUser.getPassword());
-	// assertEquals(user.getUsername(), tmpUser.getUsername());
-	// assertEquals(user.getAddress(), tmpUser.getAddress());
-	//
-	// System.out.println("Success");
-	// } catch (AssertionError e) {
-	// System.out.println("Failed at testChangeUser");
-	// throw e;
-	// } finally {
-	// UserDAO.removeUser(user);
-	// }
-	// }
-	// }
+	public void testGetAllGroups() {
+		group.setGroupName("testGetAllGroups");
+		Group group2 = new Group();
+		group2.setGroupName("Group2Test");
+		group2.setDescription("desc2");
+		group2.setHost(user);
+		if (GroupDAO.addGroup(group) && GroupDAO.addGroup(group2)) {
+			try {
+				assertEquals(2, GroupDAO.getAllGroups().size());
+				System.out.println("Success");
+			} catch (AssertionError e) {
+				System.out.println("Failed at testGettAllGroups");
+				throw e;
+			} finally {
+				GroupDAO.removeGroup(group);
+				GroupDAO.removeGroup(group2);
+			}
+		}
+	}
+
+	public void testChangeGroup() {
+		group.setGroupName("groupName4");
+		String newHost = user.getUsername();
+		String newDesc = "newDesc";
+		if (GroupDAO.addGroup(group)) {
+			try {
+				Group tmp;
+				assertTrue(GroupDAO.changeGroup(group, newHost, "host"));
+				tmp = GroupDAO.fetchGroup(group.getGroupName());
+				assertTrue(tmp != null);
+				assertEquals(newHost, tmp.getHost().getUsername());
+
+				tmp = null;
+				assertTrue(GroupDAO.changeGroup(group, newDesc, "description"));
+				tmp = GroupDAO.fetchGroup(group.getGroupName());
+				assertTrue(tmp != null);
+				assertEquals(newDesc, tmp.getDescription());
+
+				System.out.println("Success");
+			} catch (AssertionError e) {
+				System.out.println("Failed at testChangeGroup");
+				throw e;
+			} finally {
+				GroupDAO.removeGroup(group);
+			}
+		}
+	}
 
 }

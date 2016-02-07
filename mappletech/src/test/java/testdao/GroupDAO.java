@@ -116,34 +116,38 @@ public class GroupDAO {
 		boolean success = false;
 		try {
 			em.getTransaction().begin();
-			Group u = em.find(Group.class, Group.getGroupName());
-			if (u != null) {
+			Group g = em.find(Group.class, Group.getGroupName());
+			if (g != null) {
 				switch (operation) {
 				case "host":
-					u.setHost(new User(value));
+					User u = em.find(User.class, value);
+					g.setHost(u);
 					success = true;
 					break;
 				case "description":
-					u.setDescription(value);
+					g.setDescription(value);
 					success = true;
 					break;
 				case "add":
-					List<User> uAdd = u.getUsers();
-					if (uAdd.add(new User(value))) {
-						u.setUsers(uAdd);
+					List<User> uAdd = g.getUsers();
+					User u2 = em.find(User.class, value);
+					if (uAdd.add(u2)) {
+						g.setUsers(uAdd);
 						success = true;
 					}
 					break;
 				case "remove":
-					List<User> uRem = u.getUsers();
-					if (uRem.remove(new User(value))) {
-						u.setUsers(uRem);
+					List<User> uRem = g.getUsers();
+					User u3 = em.find(User.class, value);
+					if (uRem.remove(u3)) {
+						g.setUsers(uRem);
 						success = true;
 					}
+					break;
 				default:
 					break;
 				}
-				em.merge(u);
+				em.merge(g);
 				em.getTransaction().commit();
 
 			}
