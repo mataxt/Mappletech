@@ -23,7 +23,7 @@ public class FacilityDAO {
 	 */
 	public static boolean addFacility(Facility facility) {
 		boolean registered = false;
-		EntityManagerFactory emf = Persistence.createEntityManagerFactory("UserPU");
+		EntityManagerFactory emf = Persistence.createEntityManagerFactory("TestPU");
 		EntityManager em = emf.createEntityManager();
 		try {
 			em.getTransaction().begin();
@@ -52,7 +52,7 @@ public class FacilityDAO {
 	 * 
 	 */
 	public static List<Facility> getAllFacilities() {
-		EntityManagerFactory emf = Persistence.createEntityManagerFactory("UserPU");
+		EntityManagerFactory emf = Persistence.createEntityManagerFactory("TestPU");
 		EntityManager em = emf.createEntityManager();
 		List<Facility> facilities = new ArrayList<Facility>();
 		try {
@@ -85,7 +85,7 @@ public class FacilityDAO {
 	 * @return model.Facility
 	 */
 	public static Facility fetchFacility(Integer facilityId) {
-		EntityManagerFactory emf = Persistence.createEntityManagerFactory("UserPU");
+		EntityManagerFactory emf = Persistence.createEntityManagerFactory("TestPU");
 		EntityManager em = emf.createEntityManager();
 		Facility facility = null;
 		try {
@@ -115,7 +115,7 @@ public class FacilityDAO {
 	 * @return true, if successful
 	 */
 	public static boolean changeEvent(Facility facility, String value, String operation) {
-		EntityManagerFactory emf = Persistence.createEntityManagerFactory("UserPU");
+		EntityManagerFactory emf = Persistence.createEntityManagerFactory("TestPU");
 		EntityManager em = emf.createEntityManager();
 		boolean success = false;
 		try {
@@ -165,7 +165,7 @@ public class FacilityDAO {
 	 * @return true, if successful
 	 */
 	public static boolean removeFacility(Facility facility) {
-		EntityManagerFactory emf = Persistence.createEntityManagerFactory("UserPU");
+		EntityManagerFactory emf = Persistence.createEntityManagerFactory("TestPU");
 		EntityManager em = emf.createEntityManager();
 		boolean success = false;
 		try {

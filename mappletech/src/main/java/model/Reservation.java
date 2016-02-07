@@ -14,7 +14,7 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "Reservations", catalog = "mappletech")
+@Table(name = "Reservations")
 public class Reservation implements Serializable {
 
 	private Integer reservationId;

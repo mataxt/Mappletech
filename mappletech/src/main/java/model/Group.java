@@ -15,7 +15,7 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "Groups", catalog = "mappletech")
+@Table(name = "Groups")
 public class Group implements Serializable {
 
 	private String groupName;

@@ -26,7 +26,7 @@ public class EventDAO {
 	 */
 	public static boolean addEvent(Event event) {
 		boolean registered = false;
-		EntityManagerFactory emf = Persistence.createEntityManagerFactory("UserPU");
+		EntityManagerFactory emf = Persistence.createEntityManagerFactory("TestPU");
 		EntityManager em = emf.createEntityManager();
 		try {
 			em.getTransaction().begin();
@@ -50,7 +50,7 @@ public class EventDAO {
 	}
 
 	public static List<Event> getAllEvents() {
-		EntityManagerFactory emf = Persistence.createEntityManagerFactory("UserPU");
+		EntityManagerFactory emf = Persistence.createEntityManagerFactory("TestPU");
 		EntityManager em = emf.createEntityManager();
 		List<Event> events = new ArrayList<Event>();
 		try {
@@ -83,7 +83,7 @@ public class EventDAO {
 	 * @return model.Event
 	 */
 	public static Event fetchEvent(Integer eventId) {
-		EntityManagerFactory emf = Persistence.createEntityManagerFactory("UserPU");
+		EntityManagerFactory emf = Persistence.createEntityManagerFactory("TestPU");
 		EntityManager em = emf.createEntityManager();
 		Event event = null;
 		try {
@@ -113,7 +113,7 @@ public class EventDAO {
 	 * @return true, if successful
 	 */
 	public static boolean changeEvent(Event Event, String value, String operation) {
-		EntityManagerFactory emf = Persistence.createEntityManagerFactory("UserPU");
+		EntityManagerFactory emf = Persistence.createEntityManagerFactory("TestPU");
 		EntityManager em = emf.createEntityManager();
 		boolean success = false;
 		try {
@@ -163,7 +163,7 @@ public class EventDAO {
 	 * @return true, if successful
 	 */
 	public static boolean removeEvent(Event event) {
-		EntityManagerFactory emf = Persistence.createEntityManagerFactory("UserPU");
+		EntityManagerFactory emf = Persistence.createEntityManagerFactory("TestPU");
 		EntityManager em = emf.createEntityManager();
 		boolean success = false;
 		try {

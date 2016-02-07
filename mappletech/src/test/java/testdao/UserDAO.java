@@ -26,7 +26,7 @@ public class UserDAO {
 	public static boolean addUser(User user) {
 		boolean registered = false;
 		EntityManagerFactory emf = Persistence
-				.createEntityManagerFactory("UserPU");
+				.createEntityManagerFactory("TestPU");
 		EntityManager em = emf.createEntityManager();
 		try {
 			em.getTransaction().begin();
@@ -51,7 +51,7 @@ public class UserDAO {
 
 	public static List<User> getAllUsers() {
 		EntityManagerFactory emf = Persistence
-				.createEntityManagerFactory("UserPU");
+				.createEntityManagerFactory("TestPU");
 		EntityManager em = emf.createEntityManager();
 		List<User> users = new ArrayList<User>();
 		try {
@@ -85,7 +85,7 @@ public class UserDAO {
 	 */
 	public static User fetchUser(String username) {
 		EntityManagerFactory emf = Persistence
-				.createEntityManagerFactory("UserPU");
+				.createEntityManagerFactory("TestPU");
 		EntityManager em = emf.createEntityManager();
 		User user = null;
 		try {
@@ -112,7 +112,7 @@ public class UserDAO {
 	 */
 	public static User confirmUser(String username, String password) {
 		EntityManagerFactory emf = Persistence
-				.createEntityManagerFactory("UserPU");
+				.createEntityManagerFactory("TestPU");
 		EntityManager em = emf.createEntityManager();
 		User u = null;
 		try {
@@ -148,7 +148,7 @@ public class UserDAO {
 	 */
 	public static boolean changeUser(User user, String value, String operation) {
 		EntityManagerFactory emf = Persistence
-				.createEntityManagerFactory("UserPU");
+				.createEntityManagerFactory("TestPU");
 		EntityManager em = emf.createEntityManager();
 		boolean success = false;
 		try {
@@ -202,7 +202,7 @@ public class UserDAO {
 	 */
 	public static boolean removeUser(User user) {
 		EntityManagerFactory emf = Persistence
-				.createEntityManagerFactory("UserPU");
+				.createEntityManagerFactory("TestPU");
 		EntityManager em = emf.createEntityManager();
 		boolean success = false;
 		try {

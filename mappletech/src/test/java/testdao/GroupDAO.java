@@ -24,7 +24,7 @@ public class GroupDAO {
 	 */
 	public static boolean addGroup(Group group) {
 		boolean registered = false;
-		EntityManagerFactory emf = Persistence.createEntityManagerFactory("UserPU");
+		EntityManagerFactory emf = Persistence.createEntityManagerFactory("TestPU");
 		EntityManager em = emf.createEntityManager();
 		try {
 			em.getTransaction().begin();
@@ -48,7 +48,7 @@ public class GroupDAO {
 	}
 
 	public static List<Group> getAllGroups() {
-		EntityManagerFactory emf = Persistence.createEntityManagerFactory("UserPU");
+		EntityManagerFactory emf = Persistence.createEntityManagerFactory("TestPU");
 		EntityManager em = emf.createEntityManager();
 		List<Group> groups = new ArrayList<Group>();
 		try {
@@ -81,7 +81,7 @@ public class GroupDAO {
 	 * @return model.Group
 	 */
 	public static Group fetchGroup(String groupname) {
-		EntityManagerFactory emf = Persistence.createEntityManagerFactory("UserPU");
+		EntityManagerFactory emf = Persistence.createEntityManagerFactory("TestPU");
 		EntityManager em = emf.createEntityManager();
 		Group group = null;
 		try {
@@ -111,7 +111,7 @@ public class GroupDAO {
 	 * @return true, if successful
 	 */
 	public static boolean changeGroup(Group Group, String value, String operation) {
-		EntityManagerFactory emf = Persistence.createEntityManagerFactory("UserPU");
+		EntityManagerFactory emf = Persistence.createEntityManagerFactory("TestPU");
 		EntityManager em = emf.createEntityManager();
 		boolean success = false;
 		try {
@@ -168,7 +168,7 @@ public class GroupDAO {
 	 * @return true, if successful
 	 */
 	public static boolean removeGroup(Group group) {
-		EntityManagerFactory emf = Persistence.createEntityManagerFactory("UserPU");
+		EntityManagerFactory emf = Persistence.createEntityManagerFactory("TestPU");
 		EntityManager em = emf.createEntityManager();
 		boolean success = false;
 		try {

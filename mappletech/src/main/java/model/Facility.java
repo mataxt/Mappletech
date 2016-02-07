@@ -16,7 +16,7 @@ import javax.persistence.Table;
 import org.hibernate.annotations.DynamicInsert;
 
 @Entity
-@Table(name = "Facilities", catalog = "mappletech")
+@Table(name = "Facilities")
 @DynamicInsert
 public class Facility implements Serializable {
 	private Integer facilityId;

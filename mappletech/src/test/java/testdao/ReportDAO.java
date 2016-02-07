@@ -25,7 +25,7 @@ public class ReportDAO {
 	 */
 	public static boolean addReport(Report report) {
 		boolean registered = false;
-		EntityManagerFactory emf = Persistence.createEntityManagerFactory("UserPU");
+		EntityManagerFactory emf = Persistence.createEntityManagerFactory("TestPU");
 		EntityManager em = emf.createEntityManager();
 		try {
 			em.getTransaction().begin();
@@ -49,7 +49,7 @@ public class ReportDAO {
 	}
 
 	public static List<Report> getAllReports() {
-		EntityManagerFactory emf = Persistence.createEntityManagerFactory("UserPU");
+		EntityManagerFactory emf = Persistence.createEntityManagerFactory("TestPU");
 		EntityManager em = emf.createEntityManager();
 		List<Report> reports = new ArrayList<Report>();
 		try {
@@ -82,7 +82,7 @@ public class ReportDAO {
 	 * @return model.Report
 	 */
 	public static Report fetchReport(String reportname) {
-		EntityManagerFactory emf = Persistence.createEntityManagerFactory("UserPU");
+		EntityManagerFactory emf = Persistence.createEntityManagerFactory("TestPU");
 		EntityManager em = emf.createEntityManager();
 		Report report = null;
 		try {
@@ -112,7 +112,7 @@ public class ReportDAO {
 	 * @return true, if successful
 	 */
 	public static boolean changeReport(Report Report, String value, String operation) {
-		EntityManagerFactory emf = Persistence.createEntityManagerFactory("UserPU");
+		EntityManagerFactory emf = Persistence.createEntityManagerFactory("TestPU");
 		EntityManager em = emf.createEntityManager();
 		boolean success = false;
 		try {
@@ -168,7 +168,7 @@ public class ReportDAO {
 	 * @return true, if successful
 	 */
 	public static boolean removeReport(Report report) {
-		EntityManagerFactory emf = Persistence.createEntityManagerFactory("UserPU");
+		EntityManagerFactory emf = Persistence.createEntityManagerFactory("TestPU");
 		EntityManager em = emf.createEntityManager();
 		boolean success = false;
 		try {

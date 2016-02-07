@@ -28,7 +28,7 @@ public class ReservationDAO {
 	public static boolean addReservation(Reservation reservation) {
 		boolean registered = false;
 		EntityManagerFactory emf = Persistence
-				.createEntityManagerFactory("UserPU");
+				.createEntityManagerFactory("TestPU");
 		EntityManager em = emf.createEntityManager();
 		try {
 			em.getTransaction().begin();
@@ -59,7 +59,7 @@ public class ReservationDAO {
 	 */
 	public static List<Reservation> getAllReservations() {
 		EntityManagerFactory emf = Persistence
-				.createEntityManagerFactory("UserPU");
+				.createEntityManagerFactory("TestPU");
 		EntityManager em = emf.createEntityManager();
 		List<Reservation> reservations = new ArrayList<Reservation>();
 		try {
@@ -95,7 +95,7 @@ public class ReservationDAO {
 	 */
 	public static Reservation fetchReservation(Integer reservationID) {
 		EntityManagerFactory emf = Persistence
-				.createEntityManagerFactory("UserPU");
+				.createEntityManagerFactory("TestPU");
 		EntityManager em = emf.createEntityManager();
 		Reservation reservation = null;
 		try {
@@ -129,7 +129,7 @@ public class ReservationDAO {
 	public static boolean changeReservation(Reservation reservation,
 			String value, String operation) {
 		EntityManagerFactory emf = Persistence
-				.createEntityManagerFactory("UserPU");
+				.createEntityManagerFactory("TestPU");
 		EntityManager em = emf.createEntityManager();
 		boolean success = false;
 		try {
@@ -184,7 +184,7 @@ public class ReservationDAO {
 	 */
 	public static boolean removeReservation(Reservation reservation) {
 		EntityManagerFactory emf = Persistence
-				.createEntityManagerFactory("UserPU");
+				.createEntityManagerFactory("TestPU");
 		EntityManager em = emf.createEntityManager();
 		boolean success = false;
 		try {
