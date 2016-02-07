@@ -1,19 +1,15 @@
 package tech2;
 
-import java.util.ArrayList;
-import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
-import dao.UserDAO;
 import junit.framework.TestCase;
 import model.User;
+import testdao.UserDAO;
 
 public class UserTests extends TestCase {
 
 	User user;
-	User user2;
-
 
 	// assigning the values
 	protected void setUp() {
@@ -25,38 +21,20 @@ public class UserTests extends TestCase {
 		user.setAddress("address");
 		user.setPrivilege(0);
 		user.setPhoneNumber("phonenumber");
-		
-		user2 = new User();
-		user2.setUsername("username2");
-		user2.setPassword("password");
-		user2.setFullName("fullname");
-		user2.setEmail("email");
-		user2.setAddress("address");
-		user2.setPrivilege(0);
-		user2.setPhoneNumber("phonenumber");
+
 	}
 
 	public void testConnect() {
 		EntityManagerFactory emf = Persistence.createEntityManagerFactory("UserPU");
 		EntityManager em = emf.createEntityManager();
 		try {
-//			em.getTransaction().begin();
-//			em.persist(user);
-//			em.persist(user2);
-//			em.getTransaction().commit();
-//			
 			em.getTransaction().begin();
-			List<User> u = new ArrayList<User>();
-			u = UserDAO.getAllUsers();
-			System.out.println(u.get(0).getUsername());
-			System.out.println(u.get(1).getUsername());
-			
 			em.getTransaction().commit();
 		} catch (Exception e) {
 			if (em.getTransaction().isActive()) {
 				em.getTransaction().rollback();
 			}
-			System.out.println("Failed");
+			System.out.println("Failed at testConnect");
 		} finally {
 			if (em != null) {
 				em.close();
@@ -67,51 +45,92 @@ public class UserTests extends TestCase {
 		}
 	}
 
-	// public void connect() {
-	// System.out.print("Running Add user test...");
-	// EntityManagerFactory emf =
-	// Persistence.createEntityManagerFactory("UserPU");
-	// EntityManager em = emf.createEntityManager();
-	// try {
-	// assertTrue(emf.isOpen());
-	// System.out.println("Success");
-	// } catch (AssertionError e) {
-	// System.out.println("Failed");
-	// throw e;
-	// } finally {
-	// if (em != null) {
-	// em.close();
-	// }
-	// if (emf != null) {
-	// emf.close();
-	// }
-	// }
-	// }
+	public void testAddRemove() {
+		try {
+			user.setUsername("testAddRemove");
+			assertTrue(UserDAO.addUser(user));
+			assertTrue(UserDAO.removeUser(user));
+			System.out.println("Success");
+		} catch (AssertionError e) {
+			System.out.println("Failed at testAddRemove");
+			throw e;
+		}
+	}
 
-	// @DependsOn("#testConnect")
-	// public void add() {
-	// System.out.print("Running Add user test...");
-	// try {
-	// assertTrue(UserDAO.addUser(user));
-	// System.out.println("Success");
-	// } catch (AssertionError e) {
-	// System.out.println("Failed");
-	// throw e;
-	// }
-	// }
-	//
-	//
-	//
-	//
-	// @DependsOn("#testAdd")
-	// public void remove() {
-	// System.out.print("Running Remove user test...");
-	// try {
-	// assertTrue(UserDAO.removeUser(user));
-	// System.out.println("Success");
-	// } catch (AssertionError e) {
-	// System.out.println("Failed");
-	// throw e;
-	// }
-	// }
+	public void testConfirmUser() {
+		user.setUsername("testConfirmUser");
+		if (UserDAO.addUser(user)) {
+			try {
+				assertTrue(UserDAO.confirmUser(user.getUsername(), user.getPassword()) != null);
+				System.out.println("Success");
+			} catch (AssertionError e) {
+				System.out.println("Failed at testConfirmUser");
+				throw e;
+			} finally {
+				UserDAO.removeUser(user);
+			}
+		}
+	}
+
+	public void testFetchUser() {
+		user.setUsername("testFetchUser");
+		if (UserDAO.addUser(user)) {
+			try {
+				User tmpUser=new User();
+				tmpUser = UserDAO.fetchUser(user.getUsername());
+				assertTrue(tmpUser != null);
+				
+				assertEquals(user.getUsername(), tmpUser.getUsername());
+				assertEquals(user.getAddress(), tmpUser.getAddress());
+				assertEquals(user.getPassword(), tmpUser.getPassword());
+				
+				System.out.println("Success");
+			} catch (AssertionError e) {
+				System.out.println("Failed at testFetchUser");
+				throw e;
+			} finally {
+				UserDAO.removeUser(user);
+			}
+		}
+	}
+	
+	public void testGetAllUsers() {
+		user.setUsername("testFetchUser");
+		if (UserDAO.addUser(user)) {
+			try {
+				assertTrue(UserDAO.fetchUser(user.getUsername()) != null);
+				System.out.println("Success");
+			} catch (AssertionError e) {
+				System.out.println("Failed at testFetchUser");
+				throw e;
+			} finally {
+				UserDAO.removeUser(user);
+			}
+		}
+	}
+	
+	public void testChangeUser() {
+		user.setUsername("testChangeUser");
+		String password ="123";
+		if (UserDAO.addUser(user)) {
+			try {
+				User tmpUser=new User();
+				
+				assertTrue(UserDAO.changeUser(user, password,"password"));
+				tmpUser = UserDAO.fetchUser(user.getUsername());
+				assertTrue(tmpUser != null);
+				assertEquals(password, tmpUser.getPassword());
+				assertEquals(user.getUsername(), tmpUser.getUsername());
+				assertEquals(user.getAddress(), tmpUser.getAddress());
+				
+				System.out.println("Success");
+			} catch (AssertionError e) {
+				System.out.println("Failed at testChangeUser");
+				throw e;
+			} finally {
+				UserDAO.removeUser(user);
+			}
+		}
+	}
+
 }
