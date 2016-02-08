@@ -5,12 +5,6 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 
 <head>
-<spring:url value="<%=request.getContextPath()%>/resources/UI/bootstrap/css/bootstrap.min.css"
-	var="mappleTechCSS_bootst" />
-<spring:url value="<%=request.getContextPath()%>/resources/UI/css/font-awesome.min.css"
-	var="mappleTechCSS_font" />
-<spring:url value="<%=request.getContextPath()%>/resources/UI/css/style.css"
-	var="mappleTechCSS_style" />
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -21,13 +15,13 @@
 
 
 <!-- Bootstrap Core CSS -->
-<link href="${mappleTechCSS_bootst}" rel="stylesheet">
+<link href="<%=request.getContextPath()%>/resources/UI/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 
 <!-- Font Awesome CSS -->
-<link href="${mappleTechCSS_font}" rel="stylesheet">
+<link href="<%=request.getContextPath()%>/resources/UI/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 
 <!-- Custom CSS -->
-<link href="${mappleTechCSS_style}" rel="stylesheet">
+<link href="<%=request.getContextPath()%>/resources/UI/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 
 <!-- Custom Fonts -->
 <link href="http://fonts.googleapis.com/css?family=Lobster"
