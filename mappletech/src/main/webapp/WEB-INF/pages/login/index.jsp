@@ -5,11 +5,11 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 
 <head>
-<spring:url value="/resources/UI/bootstrap/css/bootstrap.min.css"
+<spring:url value="<%=request.getContextPath()%>/resources/UI/bootstrap/css/bootstrap.min.css"
 	var="mappleTechCSS_bootst" />
-<spring:url value="/resources/UI/css/font-awesome.min.css"
+<spring:url value="<%=request.getContextPath()%>/resources/UI/css/font-awesome.min.css"
 	var="mappleTechCSS_font" />
-<spring:url value="/resources/UI/css/style.css"
+<spring:url value="<%=request.getContextPath()%>/resources/UI/css/style.css"
 	var="mappleTechCSS_style" />
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -35,12 +35,12 @@
 
 
 <!-- Template js -->
-<script src="/resources/UI/js/jquery-2.1.1.min.js"></script>
-<script src="/resources/UI/bootstrap/js/bootstrap.min.js"></script>
-<script src="/resources/UI/js/jquery.appear.js"></script>
+<script src="<%=request.getContextPath()%>/resources/UI/js/jquery-2.1.1.min.js"></script>
+<script src="<%=request.getContextPath()%>/resources/UI/bootstrap/js/bootstrap.min.js"></script>
+<script src="<%=request.getContextPath()%>/resources/UI/js/jquery.appear.js"></script>
 
-<script src="/resources/UI/js/jqBootstrapValidation.js"></script>
-<script src="/resources/UI/js/modernizr.custom.js"></script>
+<script src="<%=request.getContextPath()%>/resources/UI/js/jqBootstrapValidation.js"></script>
+<script src="<%=request.getContextPath()%>/resources/UI/js/modernizr.custom.js"></script>
 
 <!--[if lt IE 9]>
             <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
@@ -49,7 +49,7 @@
 
 </head>
 
-<body style="background-image: url(/resources/UI/images/background.png)">
+<body style="background-image: url(<%=request.getContextPath()%>/resources/UI/images/background.png)">
 	<!-- Start Logo Section -->
 	<p>&nbsp;</p>
 	<section id="logo-section" class="text-center">
