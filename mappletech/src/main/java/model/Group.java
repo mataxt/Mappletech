@@ -18,15 +18,14 @@ import javax.persistence.Table;
 @Entity
 @Table(name = "Groups")
 public class Group implements Serializable {
-
+	private static final long serialVersionUID = 4995712236937229725L;
+	
 	private String groupName;
 	private String description;
 	private User host;
 	private List<User> users = new ArrayList<>();
 
-	public Group() {
-
-	}
+	public Group() {}
 
 	public Group(String groupName, String description, User host, List<User> users) {
 		super();
@@ -76,7 +75,4 @@ public class Group implements Serializable {
 	public void setUsers(List<User> users) {
 		this.users = users;
 	}
-
-	private static final long serialVersionUID = 4995712236937229725L;
-
 }

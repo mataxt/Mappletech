@@ -24,9 +24,7 @@ public class Reservation implements Serializable {
 	private Date timeFrom;
 	private Date timeTo;
 
-	public Reservation() {
-
-	}
+	public Reservation() {}
 
 	public Reservation(Integer reservationId, String title, User host, Facility facilityID, Date timeFrom, Date timeTo) {
 		super();
@@ -78,7 +76,6 @@ public class Reservation implements Serializable {
 	public void setTimeFrom(Date timeFrom) {
 		this.timeFrom = timeFrom;
 	}
-	
 
 	@Column(name = "TimeTo",columnDefinition="DATETIME", nullable = false)
 	public Date getTimeTo() {
