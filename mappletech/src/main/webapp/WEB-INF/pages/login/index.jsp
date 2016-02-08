@@ -5,9 +5,12 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 
 <head>
-<spring:url value="/resources/UI/bootstrap/css/bootstrap.min.css" var="mappleTechCSS_bootst" />
-<spring:url value="/resources/UI/css/font-awesome.min.css" var="mappleTechCSS_font" />
-<spring:url value="/resources/UI/css/style.css" var="mappleTechCSS_style" />
+<spring:url value="/resources/UI/bootstrap/css/bootstrap.min.css"
+	var="mappleTechCSS_bootst" />
+<spring:url value="/resources/UI/css/font-awesome.min.css"
+	var="mappleTechCSS_font" />
+<spring:url value="/resources/UI/css/style.css"
+	var="mappleTechCSS_style" />
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -89,11 +92,8 @@
 								class="form-control" placeholder="Lösenord" required="" />
 
 							<div class="checkbox">
-								<label>
-									<p style="color: #eee">
-										<input type="checkbox" value="remember-me">Kom ihåg
-										mig
-									</p>
+								<label> <input type="checkbox" style="color: #eee"
+									value="remember-me">Kom ihåg mig
 								</label>
 							</div>
 
