@@ -3,8 +3,6 @@ package controller;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 
-import org.apache.http.impl.client.HttpClients;
-import org.springframework.http.client.HttpComponentsClientHttpRequestFactory;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -27,7 +25,8 @@ public class LoginController {
 
 	@RequestMapping(value = { "/login" }, method = RequestMethod.GET)
 	public ModelAndView login() {
-		return new ModelAndView("login/index", "uservm", new UserVM());
+		System.out.println("In GET Login...");
+		return new ModelAndView("login/index","uservm", new UserVM());
 	}
 
 	@RequestMapping(value = "/login", method = RequestMethod.POST)
@@ -35,14 +34,13 @@ public class LoginController {
 
 		System.out.println("In POST Login...");
 		UserVM loggedInUser = new UserVM(userVm.getUsername(), passwordHash(userVm.getPassword()));
-		RestTemplate restTemplate = new RestTemplate(
-				new HttpComponentsClientHttpRequestFactory(HttpClients.createDefault()));
+		RestTemplate restTemplate = new RestTemplate();
 		System.out.println(loggedInUser.getUsername());
 		UserVM u = restTemplate.postForObject(URI, loggedInUser, UserVM.class);
 		if (u != null) {
-			return new ModelAndView("index", "sessUser", u);
+			return new ModelAndView("index","sessUser", u);
 		} else {
-			return new ModelAndView("login/index", "uservm", new UserVM());
+			return new ModelAndView("login/index","uservm", new UserVM());
 		}
 	}
 

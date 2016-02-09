@@ -18,7 +18,7 @@ public class loginRestController{
 		return "fuark the World!";
 	}
 	
-	@RequestMapping(value="/login",produces = "application/json")
+	@RequestMapping(value="/login")
 	public UserVM login(@RequestBody(required=true) UserVM user)
 	{
 		System.out.println("Password: \n"+user.getPassword()+"\n");
