@@ -33,14 +33,6 @@
     <script src="<%=request.getContextPath()%>/resources/UI/js/jqBootstrapValidation.js"></script>
     <script src="<%=request.getContextPath()%>/resources/UI/js/modernizr.custom.js"></script>
     
-    <script>
-		$(document).ready(function() {
-			$(".select2dropdown").select2()({
-				maximumSelectionLength: 1
-			});
-		});
-    </script>
-    
     <!--[if lt IE 9]>
         <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
         <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
