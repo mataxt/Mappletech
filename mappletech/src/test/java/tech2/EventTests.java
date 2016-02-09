@@ -75,7 +75,7 @@ public class EventTests extends TestCase{
 		if(EventDAO.addEvent(event))
 		{
 			try{
-				//fetchEvent vill ha id men jag kan inte få id
+				//fetchEvent vill ha id men jag kan inte fa id
 				Event tmp = EventDAO.fetchEvent(event.getTitle());
 				assertTrue(tmp != null);
 				assertEquals(event.getTitle(),tmp.getTitle());
