@@ -60,6 +60,7 @@
 	</section>
 	<!-- End Logo Section -->
 
+	<p>&nbsp;</p>
 
 	<!-- Start Main Body Section -->
 	<div class="mainbody-section text-center">
