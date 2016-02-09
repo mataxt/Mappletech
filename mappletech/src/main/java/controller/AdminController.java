@@ -18,7 +18,7 @@ public class AdminController {
 
 	@RequestMapping(value = { "/administrator/anvandare" }, method = RequestMethod.GET)
 	public ModelAndView addUsersGet() {
-		System.out.println("In GET användare...");
+		System.out.println("In GET anvandare...");
 		ModelAndView mv = new ModelAndView("administrator/anvandare");
 
 		mv.addObject("uservm", new UserVM());
@@ -28,7 +28,7 @@ public class AdminController {
 	@RequestMapping(value = "/administrator/anvandare", method = RequestMethod.POST)
 	public String addUsersPost(@ModelAttribute("uservm") UserVM userVm, Model model) {
 
-		System.out.println("In POST användare...");
+		System.out.println("In POST anvandare...");
 		UserVM newUser = new UserVM(userVm.getUsername(), generatePassword(), userVm.getFullName(), userVm.getPrivilege());
 		RestTemplate restTemplate = new RestTemplate();
 		boolean userExists = restTemplate.postForObject(URI, newUser, Boolean.class);
