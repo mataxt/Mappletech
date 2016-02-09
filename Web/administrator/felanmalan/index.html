@@ -10,46 +10,40 @@
         	<title>Mappletech</title>
 
         <!-- Bootstrap Core CSS -->
-        <link href="UI/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+        <link href="../../UI/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 
         <!-- Font Awesome CSS -->
-        <link href="UI/css/font-awesome.min.css" rel="stylesheet">
-		
-        <!-- Select2-->
-        <link href="UI/css/select2.min.css" rel="stylesheet">
+        <link href="../../UI/css/font-awesome.min.css" rel="stylesheet">
         
 		<!-- Custom CSS -->
-        <link href="UI/css/animate.css" rel="stylesheet">
+        <link href="../../UI/css/animate.css" rel="stylesheet">
 
         <!-- OWL Carousel -->
-        <link href="UI/css/owl.carousel.css" rel="stylesheet">
-        <link href="UI/css/owl.theme.css" rel="stylesheet">
-
-
+        <link href="../../UI/css/owl.carousel.css" rel="stylesheet">
+        <link href="../../UI/css/owl.theme.css" rel="stylesheet">
+        
         <!-- Custom CSS -->
-        <link href="UI/css/style.css" rel="stylesheet">
+        <link href="../../UI/css/style.css" rel="stylesheet">
 
         <!-- Custom Fonts -->
-        <link href='http://fonts.googleapis.com/css?family=Lobster' rel='stylesheet' type='text/css'>
-
-
-        <!-- Template js -->
-        <script src="UI/js/jquery-2.1.1.min.js"></script>
-        <script src="UI/bootstrap/js/bootstrap.min.js"></script>
-        <script src="UI/js/jquery.appear.js"></script>
-        <script src="UI/js/contact_me.js"></script>
-        <script src="UI/js/owl.carousel.min.js"></script>
-        <script src="UI/js/jqBootstrapValidation.js"></script>
-        <script src="UI/js/modernizr.custom.js"></script>
-        <script src="UI/js/script.js"></script>
-		<script src="UI/js/select2.full.min.js"></script>
+        <link href="http://fonts.googleapis.com/css?family=Lobster" rel="stylesheet" type="text/css">
 		
-        <script>
-		  $(function () {
-			//Initialize Select2 Elements
-			$(".select2").select2();
-		  }
-		</script>
+        <!--EXTRA CSS/JS FOR TABLE-->
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.0.8/angular.min.js"></script>
+        <script src="http://vitalets.github.io/angular-xeditable/dist/js/xeditable.js"></script>
+        <script src="https://code.angularjs.org/1.0.8/angular-mocks.js"></script>
+        <link href="http://vitalets.github.io/angular-xeditable/dist/css/xeditable.css" rel="stylesheet" type="text/css">
+        <link href="../../UI/css/angular-extra-table.css" rel="stylesheet">
+        
+        <!-- Template js -->
+        <script src="../../UI/js/jquery-2.1.1.min.js"></script>
+        <script src="../../UI/bootstrap/js/bootstrap.min.js"></script>
+        <script src="../../UI/js/jquery.appear.js"></script>
+        <script src="../../UI/js/contact_me.js"></script>
+        <script src="../../UI/js/owl.carousel.min.js"></script>
+        <script src="../../UI/js/jqBootstrapValidation.js"></script>
+        <script src="../../UI/js/modernizr.custom.js"></script>
+        <script src="../../UI/js/script.js"></script>
         
         <!--[if lt IE 9]>
             <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
@@ -57,1009 +51,218 @@
         <![endif]-->
     </head>
     
-    <body>
-    
-        <!-- Start Logintop Section -->
-        <div class="logintop text-center">
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-12">
-                        <p style="text-align:right">
-                            <strong>Inloggad som: </strong>
-                            <a href="anvandare/index.html?=Mange">Mange</a>
-                        </p>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!-- End Copyright Section -->
-        
-        <p>&nbsp;</p>
-        
-        <!-- Start Logo Section -->
-        <section id="logo-section" class="text-center">
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-offset-4 col-md-4 col-md-offset-4" style="background:rgba(120, 120, 140, 0.5)">
-                        <a href="#">
-                            <div class="logo text-center">
-                                <h1>Mappletech</h1>
-                                <p><span style="color:#eee">Föreningsplattform</span></p>
-                                
-                                <p>&nbsp;</p>
-                            
-                            </div>
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </section>
-        <!-- End Logo Section -->
-
-        <!-- Start Carousel Section -->
-        <div class="home-slider container">
-			<!-- NEWS HERE!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! -->
-        </div>
-        <!-- Start Carousel Section -->        
+    <body style="background-image:none">
         
         <!-- Start Main Body Section -->
-        <div class="mainbody-section text-center">
-            <div class="container">
-                <div class="row">
-                    
-                    <div class="col-md-4">
-                        
-                        <div class="menu-item blue">
-                            <a href="#bokning-modal" data-toggle="modal">
-                                <i class="fa fa-calendar"></i>
-                                <p>Bokning</p>
-                            </a>
+        <div class="text-center section-modal">
+        
+        	<div class="modal-content">
+                <div class="back-modal" data-dismiss="modal">
+                    <a href="/">
+                        <div class="lr">
+                                <div class="rl"></div>
                         </div>
-                        
-                        <div class="menu-item green">
-                            <a href="#grupper-modal" data-toggle="modal">
-                                <i class="fa fa-users"></i>
-                                <p>Grupper</p>
-                            </a>
-                        </div>
-                      
-                    </div>
-                    
-                    <div class="col-md-4">
-                                <div class="menu-item light-red">
-                                    <a href="#felanmalan-modal" data-toggle="modal">
-                                        <i class="fa fa-exclamation-triangle"></i>
-                                        <p>Felanmälan</p>
-                                    </a>
-                                </div>
-                            
-                                <div class="menu-item light-orange">
-                                    <a href="#kontakta-oss-modal" data-toggle="modal">
-                                        <i class="fa fa-comment"></i>
-                                        <p>Kontakta oss</p>
-                                    </a>
-                            </div>
-                   
-                    </div>
-                    
-                    <div class="col-md-4">
-                        
-                        <div class="menu-item purple">
-                            <a href="#handalser-modal" data-toggle="modal">
-                                <i class="fa fa-file-text"></i>
-                                <p>Händelser</p>
-                            </a>
-                        </div>
-                        
-                        <div class="menu-item color">
-                            <a href="#administrator-modal" data-toggle="modal">
-                                <i class="fa fa-cog"></i>
-                                <p>Administratör</p>
-                            </a>
-                        </div>
-                        
-                    </div>
+                    </a>
                 </div>
             </div>
+            
+            <div class="container">
+                <div class="row">
+
+                    <div class="container">
+                    <div class="row">
+                        <div class="section-title text-center">
+                            <h3>Användare</h3>
+                            <p>Hantera användare här</p>
+                        </div>
+                    </div>
+                    
+                    <div class="row">
+						<div ng-app="app" ng-controller="Ctrl">
+                         <table class="table table-bordered table-hover table-condensed">
+                          <tr style="font-weight: bold">
+                            <td style="width:13%">Användarnamn</td>
+                            <td style="width:12%">Fullt namn</td>
+                            <td style="width:13%">E-post</td>
+                            <td style="width:12%">Telefon nr</td>
+                            <td style="width:13%">Mobil nr</td>
+                            <td style="width:12%">Adress</td>
+                            <td style="width:13%">Rättigheter</td>
+                            <td style="width:12%">Edit</td>
+                          </tr>
+      					  <tr ng-repeat="user in users">
+                          
+        				<td>
+                          <!-- editable username (text with validation) -->
+                          <span editable-text="user.name" e-name="name" e-form="rowform" onbeforesave="checkName($data, user.id)" e-required>
+                           {{ user.name || 'empty' }}
+                          </span>
+                    	</td>
+                        
+                        <td>
+                          <!-- editable status (select-local) -->
+                          <span editable-text="user.status" e-name="status" e-form="rowform" e-ng-options="s.value as s.text for s in statuses">
+                            {{ showStatus(user) }}
+                          </span>
+            		   </td>
+                       
+                        <td>
+                          <!-- editable group (select-remote) -->
+                          <span editable-text="user.group" e-name="group" onshow="loadGroups()" e-form="rowform" e-ng-options="g.id as g.text for g in groups">
+                            {{ showGroup(user) }}
+                          </span>
+                        </td>
+                        
+                        <td>
+                          <!-- editable status (select-local) -->
+                          <span editable-text="user.status" e-name="status" e-form="rowform" e-ng-options="s.value as s.text for s in statuses">
+                            {{ showStatus(user) }}
+                          </span>
+            		   </td>
+                        
+                        <td>
+                          <!-- editable status (select-local) -->
+                          <span editable-text="user.status" e-name="status" e-form="rowform" e-ng-options="s.value as s.text for s in statuses">
+                            {{ showStatus(user) }}
+                          </span>
+            		   </td>
+                        
+                        <td>
+                          <!-- editable status (select-local) -->
+                          <span editable-text="user.status" e-name="status" e-form="rowform" e-ng-options="s.value as s.text for s in statuses">
+                            {{ showStatus(user) }}
+                          </span>
+            		   </td>
+                       
+                       <td>
+                          <!-- editable status (select-local) -->
+                          <span editable-select="user.status" e-name="status" e-form="rowform" e-ng-options="s.value as s.text for s in statuses">
+                            {{ showStatus(user) }}
+                          </span>
+            		   </td>
+                        
+                        <!-- change and remove buttons -->
+                        <td style="white-space: nowrap">
+                        
+                        <!-- form -->
+                        <form editable-form name="rowform" onbeforesave="saveUser($data, user.id)" ng-show="rowform.$visible" class="form-buttons form-inline" shown="inserted == user">
+                                <button type="submit" ng-disabled="rowform.$waiting" class="btn btn-success">
+                                  Spara
+                                </button>
+                                <button type="button" ng-disabled="rowform.$waiting" ng-click="rowform.$cancel()" class="btn btn-default">
+                                  Avbryt
+                                </button>
+                        </form>
+                          
+                            <div class="buttons" ng-show="!rowform.$visible">
+                              <button class="btn btn-info" ng-click="rowform.$show()">Ändra</button>
+                              <button class="btn btn-danger" ng-click="removeUser($index)">Ta bort</button>
+                            </div>  
+                        </td>
+                      </tr>
+                    </table>
+  
+                    <button class="btn btn-default" ng-click="addUser()">Lägg till användare</button>
+                  
+                  </div>
+                </div>
+              </div>
+              
+            </div>
+          </div>
         </div>
         <!-- End Main Body Section -->
         
-        <!-- Start Copyright Section -->
-        <div class="copyright text-center" style="display:none">
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-12">
-                        <!-- Copyright -->
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!-- End Copyright Section -->
-        
-        <!-- Start Bokning Section -->
-        <div class="section-modal modal fade" id="bokning-modal" tabindex="-1" role="dialog" aria-hidden="true">
-            <div class="modal-content">
-                <div class="close-modal" data-dismiss="modal">
-                    <div class="lr">
-                        <div class="rl">
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="container">
-                    <div class="row">
-                        <div class="section-title text-center">
-                            <h3>Bokning</h3>
-                            <p>Boka här</p>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-md-3 col-sm-6 col-xs-12">
-                            <div class="feature">
-                                <i class="fa fa-magic"></i>
-                                <div class="feature-content">
-                                    <h4>Web Design</h4>
-                                    <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Lorem ipsum dolor. reprehenderit</p>
-                                </div>
-                            </div>
-                        </div><!-- /.col-md-3 -->
-                        <div class="col-md-3 col-sm-6 col-xs-12">
-                            <div class="feature">
-                                <i class="fa fa-gift"></i>
-                                <div class="feature-content">
-                                    <h4>Graphics Design</h4>
-                                    <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Lorem ipsum dolor. reprehenderit</p>
-                                </div>
-                            </div>
-                        </div><!-- /.col-md-3 -->
-                        <div class="col-md-3 col-sm-6 col-xs-12">
-                            <div class="feature">
-                                <i class="fa fa-wordpress"></i>
-                                <div class="feature-content">
-                                    <h4>Wordpress Theme</h4>
-                                    <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Lorem ipsum dolor. reprehenderit</p>
-                                </div>
-                            </div>
-                        </div><!-- /.col-md-3 -->
-                        <div class="col-md-3 col-sm-6 col-xs-12">
-                            <div class="feature">
-                                <i class="fa fa-plug"></i>
-                                <div class="feature-content">
-                                    <h4>Wordpress Plugin</h4>
-                                    <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Lorem ipsum dolor. reprehenderit</p>
-                                </div>
-                            </div>
-                        </div><!-- /.col-md-3 -->
-                        <div class="col-md-3 col-sm-6 col-xs-12">
-                            <div class="feature">
-                                <i class="fa fa-joomla"></i>
-                                <div class="feature-content">
-                                    <h4>Joomla Template</h4>
-                                    <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Lorem ipsum dolor. reprehenderit</p>
-                                </div>
-                            </div>
-                        </div><!-- /.col-md-3 -->
-                        <div class="col-md-3 col-sm-6 col-xs-12">
-                            <div class="feature">
-                                <i class="fa fa-cube"></i>
-                                <div class="feature-content">
-                                    <h4>Joomla Extension</h4>
-                                    <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Lorem ipsum dolor. reprehenderit</p>
-                                </div>
-                            </div>
-                        </div><!-- /.col-md-3 -->
-                        <div class="col-md-3 col-sm-6 col-xs-12">
-                            <div class="feature">
-                                <i class="fa fa-css3"></i>
-                                <div class="feature-content">
-                                    <h4>HTML 5 & CSS3</h4>
-                                    <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Lorem ipsum dolor. reprehenderit</p>
-                                </div>
-                            </div>
-                        </div><!-- /.col-md-3 -->
-                        <div class="col-md-3 col-sm-6 col-xs-12">
-                            <div class="feature">
-                                <i class="fa fa-android"></i>
-                                <div class="feature-content">
-                                    <h4>Android Apps</h4>
-                                    <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Lorem ipsum dolor. reprehenderit</p>
-                                </div>
-                            </div>
-                        </div><!-- /.col-md-3 -->
-                    </div><!-- /.row -->
-                </div>
-                
-            </div>
-        </div>
-        <!-- End Feature Section -->
-        
-        
-        <!-- Start Grupper Section -->
-        <div class="section-modal modal fade" id="grupper-modal" tabindex="-1" role="dialog" aria-hidden="true">
-            <div class="modal-content">
-                <div class="close-modal" data-dismiss="modal">
-                    <div class="lr">
-                        <div class="rl">
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="container">
-                    <div class="row">
-                        <div class="section-title text-center">
-                            <h3>Grupper</h3>
-                            <p>Grupper här</p>
-                        </div>
-                    </div>
-                    <div class="row">
-                        
-                        <div class="col-md-4">
-                            <div class="portfolio-item">
-                                <img src="images/portfolio/1.png" class="img-responsive" alt="...">
-                                <div class="portfolio-details text-center">
-                                    <h4>Project Name</h4>
-                                    <a href="#"><i class="fa fa-link"></i></a>
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <div class="col-md-4">
-                            <div class="portfolio-item">
-                                <img src="images/portfolio/2.png" class="img-responsive" alt="...">
-                                <div class="portfolio-details text-center">
-                                    <h4>Project Name</h4>
-                                    <a href="#"><i class="fa fa-link"></i></a>
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <div class="col-md-4">
-                            <div class="portfolio-item">
-                                <img src="images/portfolio/3.png" class="img-responsive" alt="...">
-                                <div class="portfolio-details text-center">
-                                    <h4>Project Name</h4>
-                                    <a href="#"><i class="fa fa-link"></i></a>
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <div class="col-md-4">
-                            <div class="portfolio-item">
-                                <img src="images/portfolio/4.png" class="img-responsive" alt="...">
-                                <div class="portfolio-details text-center">
-                                    <h4>Project Name</h4>
-                                    <a href="#"><i class="fa fa-link"></i></a>
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <div class="col-md-4">
-                            <div class="portfolio-item">
-                                <img src="images/portfolio/5.png" class="img-responsive" alt="...">
-                                <div class="portfolio-details text-center">
-                                    <h4>Project Name</h4>
-                                    <a href="#"><i class="fa fa-link"></i></a>
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <div class="col-md-4">
-                            <div class="portfolio-item">
-                                <img src="images/portfolio/6.png" class="img-responsive" alt="...">
-                                <div class="portfolio-details text-center">
-                                    <h4>Project Name</h4>
-                                    <a href="#"><i class="fa fa-link"></i></a>
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <div class="col-md-4">
-                            <div class="portfolio-item">
-                                <img src="images/portfolio/7.png" class="img-responsive" alt="...">
-                                <div class="portfolio-details text-center">
-                                    <h4>Project Name</h4>
-                                    <a href="#"><i class="fa fa-link"></i></a>
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <div class="col-md-4">
-                            <div class="portfolio-item">
-                                <img src="images/portfolio/8.png" class="img-responsive" alt="...">
-                                <div class="portfolio-details text-center">
-                                    <h4>Project Name</h4>
-                                    <a href="#"><i class="fa fa-link"></i></a>
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <div class="col-md-4">
-                            <div class="portfolio-item">
-                                <img src="images/portfolio/9.png" class="img-responsive" alt="...">
-                                <div class="portfolio-details text-center">
-                                    <h4>Project Name</h4>
-                                    <a href="#"><i class="fa fa-link"></i></a>
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <div class="col-md-4">
-                            <div class="portfolio-item">
-                                <img src="images/portfolio/10.png" class="img-responsive" alt="...">
-                                <div class="portfolio-details text-center">
-                                    <h4>Project Name</h4>
-                                    <a href="#"><i class="fa fa-link"></i></a>
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <div class="col-md-4">
-                            <div class="portfolio-item">
-                                <img src="images/portfolio/11.png" class="img-responsive" alt="...">
-                                <div class="portfolio-details text-center">
-                                    <h4>Project Name</h4>
-                                    <a href="#"><i class="fa fa-link"></i></a>
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <div class="col-md-4">
-                            <div class="portfolio-item">
-                                <img src="images/portfolio/12.png" class="img-responsive" alt="...">
-                                <div class="portfolio-details text-center">
-                                    <h4>Project Name</h4>
-                                    <a href="#"><i class="fa fa-link"></i></a>
-                                </div>
-                            </div>
-                        </div>
-                        
-                    </div><!-- /.row -->
-                </div>
-                
-            </div>
-        </div>
-        <!-- End Portfolio Section -->
-        
-        
-        <!-- Start About Us Section -->
-        <div class="section-modal modal fade" id="about-modal" tabindex="-1" role="dialog" aria-hidden="true">
-            <div class="modal-content">
-                <div class="close-modal" data-dismiss="modal">
-                    <div class="lr">
-                        <div class="rl">
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="container">
-                    <div class="row">
-                        <div class="section-title text-center">
-                            <h3>About Us</h3>
-                            <p>Duis aute irure dolor in reprehenderit in voluptate</p>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-md-12">
-                            <div class="about-text">
-                                <p>Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source. At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident. It has roots in a piece of classical Latin literature from 45 BC</p>
-                                <div class="row">
-                                    <div class="col-md-4 col-sm-6">
-                                        <ul>
-                                            <li><i class="fa fa-check-square"></i>Sed ut perspiciatis unde omnis iste natus</li>
-                                            <li><i class="fa fa-check-square"></i>Nor again is there anyone who loves</li>
-                                            <li><i class="fa fa-check-square-o"></i>At vero eos et accusamus et iusto odio</li>
-                                            <li><i class="fa fa-check-square-o"></i>Et harum quidem rerum facilis</li>
-                                        </ul>
-                                    </div>
-                                    <div class="col-md-4 col-sm-6">
-                                        <ul>
-                                            <li><i class="fa fa-check-square"></i>Nor again is there anyone who loves</li>
-                                            <li><i class="fa fa-check-square"></i>Nor again is there anyone who loves</li>
-                                            <li><i class="fa fa-check-square-o"></i>Et harum quidem rerum facilis</li>
-                                            <li><i class="fa fa-check-square-o"></i>At vero eos et accusamus et iusto odio</li>
-                                        </ul>
-                                    </div>
-                                    <div class="col-md-4 col-sm-6">
-                                        <ul>
-                                            <li><i class="fa fa-check-square"></i>Nor again is there anyone who loves</li>
-                                            <li><i class="fa fa-check-square"></i>Nor again is there anyone who loves</li>
-                                            <li><i class="fa fa-check-square-o"></i>Et harum quidem rerum facilis</li>
-                                            <li><i class="fa fa-check-square-o"></i>At vero eos et accusamus et iusto odio</li>
-                                        </ul>
-                                    </div>
-                                </div><!-- /.row -->
-                            </div>
-                        </div>
-                    </div><!-- /.row -->
-                    <div class="row">
-                        <div class="col-md-6 col-sm-6">
-                            <div class="skill-shortcode">
-                        
-                                <!-- Progress Bar -->
-                                <div class="skill">
-                                    <p>Web Design</p>          
-                                    <div class="progress">         
-                                        <div class="progress-bar" role="progressbar"  data-percentage="60">
-                                            <span class="progress-bar-span" >60%</span>
-                                            <span class="sr-only">60% Complete</span>
-                                        </div>
-                                    </div>  
-                                </div>
+      <!-- Script for table-->
+      <script>
+	  var app = angular.module("app", ["xeditable", "ngMockE2E"]);
 
-                                <!-- Progress Bar -->
-                                <div class="skill">
-                                    <p>HTML & CSS</p>          
-                                    <div class="progress">         
-                                        <div class="progress-bar" role="progressbar"  data-percentage="95">
-                                            <span class="progress-bar-span" >95%</span>
-                                            <span class="sr-only">95% Complete</span>
-                                        </div>
-                                    </div>  
-                                </div>
+		app.run(function(editableOptions) {
+		  editableOptions.theme = 'bs3';
+		});
 
-                                <!-- Progress Bar -->
-                                <div class="skill">
-                                    <p>Wordpress</p>          
-                                    <div class="progress">         
-                                        <div class="progress-bar" role="progressbar"  data-percentage="80">
-                                            <span class="progress-bar-span" >80%</span>
-                                            <span class="sr-only">80% Complete</span>
-                                        </div>
-                                    </div>  
-                                </div>
+		app.controller('Ctrl', function($scope, $filter, $http) {
+		  $scope.users = [
+			{id: 1, name: 'awesome user1', status: 2, group: 4, groupName: 'admin'},
+			{id: 2, name: 'awesome user2', status: undefined, group: 3, groupName: 'vip'},
+			{id: 3, name: 'awesome user3', status: 2, group: null}
+		  ]; 
 
-                                <!-- Progress Bar -->
-                                <div class="skill">
-                                    <p>Joomla</p>          
-                                    <div class="progress">         
-                                        <div class="progress-bar" role="progressbar"  data-percentage="100">
-                                            <span class="progress-bar-span" >100%</span>
-                                            <span class="sr-only">100% Complete</span>
-                                        </div>
-                                    </div>  
-                                </div>
+		  $scope.statuses = [
+			{value: 1, text: 'status1'},
+			{value: 2, text: 'status2'},
+			{value: 3, text: 'status3'},
+			{value: 4, text: 'status4'}
+		  ]; 
 
-                                <!-- Progress Bar -->
-                                <div class="skill">
-                                    <p>Extension</p>          
-                                    <div class="progress">         
-                                        <div class="progress-bar" role="progressbar"  data-percentage="70">
-                                            <span class="progress-bar-span" >70%</span>
-                                            <span class="sr-only">70% Complete</span>
-                                        </div>
-                                    </div>  
-                                </div>
+		  $scope.groups = [];
+		  $scope.loadGroups = function() {
+			return $scope.groups.length ? null : $http.get('/groups').success(function(data) {
+			  $scope.groups = data;
+			});
+		  };
 
-                            </div>
-                        </div>
-                        <div class="col-md-6">
-                            <div class="custom-tab">
-                        
-                                <ul class="nav nav-tabs nav-justified" role="tablist">
-                                    <li class="active"><a href="#tab-1" role="tab" data-toggle="tab">Our Mission</a></li>
-                                    <li><a href="#tab-2" role="tab" data-toggle="tab">Our Vission</a></li>
-                                    <li><a href="#tab-3" role="tab" data-toggle="tab">Company History</a></li>
-                                </ul>
+		  $scope.showGroup = function(user) {
+			if(user.group && $scope.groups.length) {
+			  var selected = $filter('filter')($scope.groups, {id: user.group});
+			  return selected.length ? selected[0].text : 'Not set';
+			} else {
+			  return user.groupName || 'Not set';
+			}
+		  };
 
-                                <div class="tab-content">
+		  $scope.showStatus = function(user) {
+			var selected = [];
+			if(user.status) {
+			  selected = $filter('filter')($scope.statuses, {value: user.status});
+			}
+			return selected.length ? selected[0].text : 'Not set';
+		  };
 
-                                    <div class="tab-pane active" id="tab-1">
-                                        <p>At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga. Et harum quidem rerum facilis est et expedita distinctio.</p>
-                                        <p>At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga. Et harum quidem rerum facilis est et expedita distinctio. At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident.</p>
-                                     </div>
+		  $scope.checkName = function(data, id) {
+			if (id === 2 && data !== 'awesome') {
+			  return "Username 2 should be `awesome`";
+			}
+		  };
 
+		  $scope.saveUser = function(data, id) {
+			//$scope.user not updated yet
+			angular.extend(data, {id: id});
+			return $http.post('/saveUser', data);
+		  };
 
-                                    <div class="tab-pane" id="tab-2">
-                                        <p>Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maxime placeat facere possimus, omnis voluptas assumenda est, omnis dolor repellendus.</p>
-                                        <p>At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga. Et harum quidem rerum facilis est et expedita distinctio. At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident.</p>
-                                    </div>
+		  // remove user
+		  $scope.removeUser = function(index) {
+			$scope.users.splice(index, 1);
+		  };
 
+		  // add user
+		  $scope.addUser = function() {
+			$scope.inserted = {
+			  id: $scope.users.length+1,
+			  name: '',
+			  status: null,
+			  group: null 
+			};
+			$scope.users.push($scope.inserted);
+		  };
+		});
 
-                                    <div class="tab-pane" id="tab-3">
-                                        <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt.</p>
-                                        <p>At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga. Et harum quidem rerum facilis est et expedita distinctio. At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident.</p>
-                                    </div>
-
-                                </div><!-- /.tab-content -->
-
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                
-            </div>
-        </div>
-        <!-- End About Us Section -->
-        
-        
-        <!-- Start Felanmälan Section -->
-        <div class="section-modal modal fade" id="felanmalan-modal" tabindex="-1" role="dialog" aria-hidden="true">
-            <div class="modal-content">
-                <div class="close-modal" data-dismiss="modal">
-                    <div class="lr">
-                        <div class="rl">
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="container">
-                    <div class="row">
-                        <div class="section-title text-center">
-                            <h3>Felanmälan</h3>
-                            <p>Felanmälan här</p>
-                        </div>
-                    </div>
-                    
-                    <div class="row">
-                        
-                        <div class="col-md-12">
-                            <div class="footer-contact-info">
-                                <h4>Information</h4>
-                                <ul>
-                                    <li><strong>2016-01-29: </strong>Just nu är det problem med avloppssystemen. Magnus har förstoppat rören. Avvaktar mer information kring detta.</li>
-                                </ul>
-                            </div>
-                        </div>
-                        
-                    </div><!--/.row -->
-                    
-                    <div class="row" style="padding-top: 40px;">
-                        <div class="col-md-12">
-                            <form name="sentMessage" id="contactForm" novalidate>
-                                
-                                <div class="row">
-                                
-                                    <div class="col-md-12">
-                                    	<div class="form-group">
-                                            <select class="form-control select2" style="width: 100%;">
-                                                <option selected="selected">Välj kategori</option>
-                                                <option>Trapphus</option>
-                                                <option>Soprum</option>
-                                                <option>Tvättstuga</option>
-                                                <option>Lokaler</option>
-                                                <option>Hushåll</option>
-                                                <option>Parkering</option>
-                                                <option>Förråd</option>
-                                                <option>Övrigt</option>
-                                            </select>
-                                      	</div>
-                                    </div>
-                                    
-                                    <div class="col-md-12">
-                                        <div class="form-group">
-                                            <textarea class="form-control" placeholder="Utförlig beskrivning" id="message" style="height:150px" required data-validation-required-message="Skriva in en utförlig beskrivning."></textarea>
-                                            <p class="help-block text-danger"></p>
-                                        </div>
-                                    </div>
-                                    
-                                    <div class="clearfix"></div>
-                                    
-                                    <div class="col-lg-12 text-center">
-                                        <div id="success"></div>
-                                        <button type="submit" class="btn btn-primary">Skicka felanmälan</button>
-                                    </div>
-                                </div>
-                            </form>
-                            
-                        </div>
-                    </div>
-                </div>
-                
-            </div>
-        </div>
-        <!-- End Service Section -->
-        
-
-        <!-- Start Service Section -->
-        <div class="section-modal modal fade" id="pricing-modal" tabindex="-1" role="dialog" aria-hidden="true">
-            <div class="modal-content">
-                <div class="close-modal" data-dismiss="modal">
-                    <div class="lr">
-                        <div class="rl">
-                        </div>
-                    </div>
-                </div>
-                
-
-                
-                <div class="pricing-section">
-                    <div class="container">
-                        <div class="row">
-                            <div class="col-md-3 col-sm-6">
-                                <div class="pricing-table">
-                                    <div class="plan-name">
-                                        <h3>Free</h3>
-                                    </div>
-                                    <div class="plan-price">
-                                        <div class="price-value">$49<span>.00</span></div>
-                                        <div class="interval">per month</div>
-                                    </div>
-                                    <div class="plan-list">
-                                        <ul>
-                                            <li>40 GB Storage</li>
-                                            <li>40GB Transfer</li>
-                                            <li>10 Domains</li>
-                                            <li>20 Projects</li>
-                                            <li>Free installation</li>
-                                        </ul>
-                                    </div>
-                                    <div class="plan-signup">
-                                        <a href="#" class="btn-system btn-small">Sign Up Now</a>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="col-md-3 col-sm-6">
-                                <div class="pricing-table">
-                                    <div class="plan-name">
-                                        <h3>Standard</h3>
-                                    </div>
-                                    <div class="plan-price">
-                                        <div class="price-value">$49<span>.00</span></div>
-                                        <div class="interval">per month</div>
-                                    </div>
-                                    <div class="plan-list">
-                                        <ul>
-                                            <li>40 GB Storage</li>
-                                            <li>40GB Transfer</li>
-                                            <li>10 Domains</li>
-                                            <li>20 Projects</li>
-                                            <li>Free installation</li>
-                                        </ul>
-                                    </div>
-                                    <div class="plan-signup">
-                                        <a href="#" class="btn-system btn-small">Sign Up Now</a>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-md-3 col-sm-6">
-                                <div class="pricing-table">
-                                    <div class="plan-name">
-                                        <h3>Premium</h3>
-                                    </div>
-                                    <div class="plan-price">
-                                        <div class="price-value">$49<span>.00</span></div>
-                                        <div class="interval">per month</div>
-                                    </div>
-                                    <div class="plan-list">
-                                        <ul>
-                                            <li>40 GB Storage</li>
-                                            <li>40GB Transfer</li>
-                                            <li>10 Domains</li>
-                                            <li>20 Projects</li>
-                                            <li>Free installation</li>
-                                        </ul>
-                                    </div>
-                                    <div class="plan-signup">
-                                        <a href="#" class="btn-system btn-small">Sign Up Now</a>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="col-md-3 col-sm-6">
-                                <div class="pricing-table">
-                                    <div class="plan-name">
-                                        <h3>Professional</h3>
-                                    </div>
-                                    <div class="plan-price">
-                                        <div class="price-value">$49<span>.00</span></div>
-                                        <div class="interval">per month</div>
-                                    </div>
-
-                                    <div class="plan-list">
-                                        <ul>
-                                            <li>40 GB Storage</li>
-                                            <li>40GB Transfer</li>
-                                            <li>10 Domains</li>
-                                            <li>20 Projects</li>
-                                            <li>Free installation</li>
-                                        </ul>
-                                    </div>
-                                    <div class="plan-signup">
-                                        <a href="#" class="btn-system btn-small">Sign Up Now</a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                
-            </div>
-        </div>
-        <!-- End Service Section -->
-
-        
-        <!-- Start kontakta-oss Section -->
-        <div class="section-modal modal fade" id="kontakta-oss-modal" tabindex="-1" role="dialog" aria-hidden="true">
-            <div class="modal-content">
-                <div class="close-modal" data-dismiss="modal">
-                    <div class="lr">
-                        <div class="rl">
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="container">
-                    <div class="row">
-                        <div class="section-title text-center">
-                            <h3>Kontakta Oss</h3>
-                            <p>Kontakta oss här</p>
-                        </div>
-                    </div>
-                    
-                    <div class="row">
-                        
-                        <div class="col-md-6">
-                            <div class="footer-contact-info">
-                                <h4>Kontakt Info</h4>
-                                <ul>
-                                    <li><strong>E-post: </strong>mail@epost.se</li>
-                                    <li><strong>Telefon: </strong>+46-234567896</li>
-                                    <li><strong>Adress: </strong>Föreningsvägen 1</li>
-                                </ul>
-                            </div>
-                        </div>
-                        
-                        <div class="col-md-6">
-                            <div class="footer-contact-info">
-                                <h4>Öppettider</h4>
-                                <ul>
-                                    <li><strong>Måndag-Fredag: </strong>9 - 15</li>
-                                    <li><strong>Lördag: </strong>12 - 15</li>
-                                    <li><strong>Söndag: </strong>Stängt</li>
-                                </ul>
-                            </div>
-                        </div>
-                        
-                    </div><!--/.row -->
-                    <div class="row" style="padding-top: 40px;">
-                        <div class="col-md-12">
-                            <form name="sentMessage" id="contactForm" novalidate>
-                                <div class="row">
-                                    <div class="col-lg-12">
-                                        <div class="form-group">
-                                            <textarea class="form-control" placeholder="Meddelande" id="message" style="height:150px" required data-validation-required-message="Skriv in ett meddelande."></textarea>
-                                            <p class="help-block text-danger"></p>
-                                        </div>
-                                    </div>
-                                    
-                                    <div class="clearfix"></div>
-                                    
-                                    <div class="col-lg-12 text-center">
-                                        <div id="success"></div>
-                                        <button type="submit" class="btn btn-primary">Skicka meddelande</button>
-                                    </div>
-                                </div>
-                            </form>
-                            
-                        </div>
-                    </div>
-                </div>
-                
-            </div>
-        </div>
-        <!-- End Team Member Section -->
-        
-        
-        <!-- Start Latest News Section -->
-        <div class="section-modal modal fade" id="news-modal" tabindex="-1" role="dialog" aria-hidden="true">
-            <div class="modal-content">
-                <div class="close-modal" data-dismiss="modal">
-                    <div class="lr">
-                        <div class="rl">
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="container">
-                    <div class="row">
-                        <div class="section-title text-center">
-                            <h3>From The Blog</h3>
-                            <p>Duis aute irure dolor in reprehenderit in voluptate</p>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-md-6">
-                            <div class="latest-post">
-                                <img src="images/blog-01.jpg" class="img-responsive" alt="">
-                                <h4><a href="#">Standard Post with Image</a></h4>
-                                <div class="post-details">
-                                    <ul>
-                                        <li><i class="fa fa-user"></i> Auther : iThemesLab</li>
-                                        <li><i class="fa fa-calendar"></i> 07 Aug, 2014</li>
-                                        <li><i class="fa fa-tag"></i> Music</li>
-                                    </ul>
-                                </div>
-                                <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur. Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur.</p>
-                                
-                            </div>
-                        </div>
-                        
-                        <div class="col-md-6">
-                            <div class="latest-post">
-                                <img src="images/blog-02.jpg" class="img-responsive" alt="">
-                                <h4><a href="#">Standard Post with Image</a></h4>
-                                <div class="post-details">
-                                    <ul>
-                                        <li><i class="fa fa-user"></i> Auther : iThemesLab</li>
-                                        <li><i class="fa fa-calendar"></i> 07 Aug, 2014</li>
-                                        <li><i class="fa fa-tag"></i> Music</li>
-                                    </ul>
-                                </div>
-                                <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur. Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur.</p>
-                                
-                            </div>
-                        </div>
-                        
-                        <div class="col-md-6">
-                            <div class="latest-post">
-                                <img src="images/blog-03.jpg" class="img-responsive" alt="">
-                                <h4><a href="#">Standard Post with Image</a></h4>
-                                <div class="post-details">
-                                    <ul>
-                                        <li><i class="fa fa-user"></i> Auther : iThemesLab</li>
-                                        <li><i class="fa fa-calendar"></i> 07 Aug, 2014</li>
-                                        <li><i class="fa fa-tag"></i> Music</li>
-                                    </ul>
-                                </div>
-                                <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur. Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur.</p>
-                                
-                            </div>
-                        </div>
-                        
-                        <div class="col-md-6">
-                            <div class="latest-post">
-                                <img src="images/blog-04.jpg" class="img-responsive" alt="">
-                                <h4><a href="#">Standard Post with Image</a></h4>
-                                <div class="post-details">
-                                    <ul>
-                                        <li><i class="fa fa-user"></i> Auther : iThemesLab</li>
-                                        <li><i class="fa fa-calendar"></i> 07 Aug, 2014</li>
-                                        <li><i class="fa fa-tag"></i> Music</li>
-                                    </ul>
-                                </div>
-                                <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur. Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur.</p>
-                                
-                            </div>
-                        </div>
-                        
-                    </div>
-                </div>
-                
-            </div>
-        </div>
-        <!-- End Latest News Section -->
-       
-        <!-- Start Händelser Section -->
-        <div class="section-modal modal fade contact" id="handalser-modal" tabindex="-1" role="dialog" aria-hidden="true">
-            <div class="modal-content">
-                <div class="close-modal" data-dismiss="modal">
-                    <div class="lr">
-                        <div class="rl">
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="container">
-                    <div class="row">
-                        <div class="section-title text-center">
-                            <h3>Händelser</h3>
-                            <p>Händelser här</p>
-                        </div>
-                    </div>
-                    
-                    <div class="row">
-                        
-                        <div class="col-md-6">
-                            
-                        </div>
-                        
-                        <div class="col-md-6">
-                            
-                        </div>
-                        
-                        <div class="col-md-4">
-                            <div class="footer-contact-info">
-                                <h4>Working Hours</h4>
-                                <ul>
-                                    <li><strong>Mon-Wed :</strong> 9 am to 5 pm</li>
-                                    <li><strong>Thurs-Fri :</strong> 12 pm to 10 pm</li>
-                                    <li><strong>Sat :</strong> 9 am to 3 pm</li>
-                                    <li><strong>Sunday :</strong> Closed</li>
-                                </ul>
-                            </div>
-                        </div>
-                        
-                    </div><!--/.row -->
-                    
-                </div>
-            </div>
-        </div>
-        <!-- End Contact Section -->
-        
-        
-         <!-- Start Administratör Section -->
-        <div class="section-modal modal fade contact" id="administrator-modal" tabindex="-1" role="dialog" aria-hidden="true">
-            <div class="modal-content">
-                <div class="close-modal" data-dismiss="modal">
-                    <div class="lr">
-                        <div class="rl">
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="container">
-                    <div class="row">
-                        <div class="section-title text-center">
-                            <h3>Administratör</h3>
-                            <p>Administratör inställningar här</p>
-                        </div>
-                    </div>
-                    
-                    <div class="row">
-                        <div class="col-md-4 col-sm-6 col-xs-12">
-                            <div class="feature">
-                                <a href="administrator/anvandare/">
-                                    <i class="fa fa-user"></i>
-                                    <div class="feature-content">
-                                        <h4>Användare</h4>
-                                        <p>Skapa och hantera användare här</p>
-                                    </div>
-                                </a>
-                            </div>
-                        </div><!-- /.col-md-3 -->
-                        <div class="col-md-4 col-sm-6 col-xs-12">
-                            <div class="feature">
-                                <a href="administrator/grupper/">
-                                    <i class="fa fa-users"></i>
-                                    <div class="feature-content">
-                                        <h4>Grupper</h4>
-                                        <p>Skapa och hantera grupper här</p>
-                                    </div>
-                                </a>
-                            </div>
-                        </div><!-- /.col-md-3 -->
-                        <div class="col-md-4 col-sm-6 col-xs-12">
-                            <div class="feature">
-                            	<a href="administrator/bokningar/">
-                                    <i class="fa fa-calendar"></i>
-                                    <div class="feature-content">
-                                        <h4>Bokningar</h4>
-                                        <p>Hantera bokningar här</p>
-                                    </div>
-                                </a>
-                            </div>
-                        </div><!-- /.col-md-3 -->
-                        <div class="col-md-6 col-sm-6 col-xs-12">
-                            <div class="feature">
-                            	<a href="administrator/handelser/">
-                                    <i class="fa fa-file-text"></i>
-                                    <div class="feature-content">
-                                        <h4>Händelser</h4>
-                                        <p>Skapa och hantera händelser här</p>
-                                    </div>
-                                </a>
-                            </div>
-                        </div><!-- /.col-md-3 -->
-                        <div class="col-md-6 col-sm-6 col-xs-12">
-                            <div class="feature">
-                                <a href="administrator/felanmalan/">
-                                    <i class="fa fa-exclamation-triangle"></i>
-                                    <div class="feature-content">
-                                        <h4>Felanmälan</h4>
-                                        <p>Hantera felanälningar här</p>
-                                    </div>
-                                </a>
-                            </div>
-                        </div><!-- /.col-md-3 -->
-                        
-                    </div><!-- /.row -->
-                    
-                </div>
-                
-            </div>
-        </div>
-        <!-- End clients Section -->
+	// --------------- mock $http requests ----------------------
+		app.run(function($httpBackend) {
+		  $httpBackend.whenGET('/groups').respond([
+			{id: 1, text: 'user'},
+			{id: 2, text: 'customer'},
+			{id: 3, text: 'vip'},
+			{id: 4, text: 'admin'}
+		  ]);
+		
+		  $httpBackend.whenPOST(/\/saveUser/).respond(function(method, url, data) {
+			data = angular.fromJson(data);
+			return [200, {status: 'ok'}];
+		  });
+		});
+	  </script>
       
     </body>
 </html>
