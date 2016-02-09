@@ -25,7 +25,6 @@ public class LoginController {
 
 	@RequestMapping(value = { "/login" }, method = RequestMethod.GET)
 	public ModelAndView login() {
-		System.out.println("In GET Login...");
 		return new ModelAndView("login/index","uservm", new UserVM());
 	}
 
