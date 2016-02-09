@@ -82,9 +82,11 @@
 								class="form-control" placeholder="Lösenord" required="" />
 
 							<div class="checkbox">
-								<label> <input type="checkbox" style="color: #eee"
-									value="remember-me">Kom ihåg mig
-								</label>
+								<label>
+                                	<p style="color:#eee">
+                                		<input type="checkbox" value="remember-me">Kom ihåg mig
+                                	</p>
+                            	</label>
 							</div>
 
 							<button type="submit" value="Submit"
