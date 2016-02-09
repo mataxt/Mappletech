@@ -15,12 +15,12 @@ import vm.UserVM;
 public class AdminController {
 
 	private final String URI = "http://130.237.84.211:8080/mappletech/rest/admin";
-
+	
+	
 	@RequestMapping(value = { "/administrator/anvandare" }, method = RequestMethod.GET)
 	public ModelAndView addUsersGet() {
-		System.out.println("In GET användare...");
+		System.out.println("In GET anvandare...");
 		ModelAndView mv = new ModelAndView("administrator/anvandare");
-
 		mv.addObject("uservm", new UserVM());
 		return mv;
 	}
@@ -28,7 +28,7 @@ public class AdminController {
 	@RequestMapping(value = "/administrator/anvandare", method = RequestMethod.POST)
 	public String addUsersPost(@ModelAttribute("uservm") UserVM userVm, Model model) {
 
-		System.out.println("In POST användare...");
+		System.out.println("In POST anvandare...");
 		UserVM newUser = new UserVM(userVm.getUsername(), generatePassword(), userVm.getFullName(), userVm.getPrivilege());
 		RestTemplate restTemplate = new RestTemplate();
 		boolean userExists = restTemplate.postForObject(URI, newUser, Boolean.class);
@@ -42,7 +42,7 @@ public class AdminController {
 	}
 
 	private String generatePassword() {
-		final String charset = "0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVXYZ";
+		final String charset = "0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
 		Random rand = new Random(System.currentTimeMillis());
 		StringBuilder sb = new StringBuilder();
 		for (int i = 0; i < 6; i++) {
