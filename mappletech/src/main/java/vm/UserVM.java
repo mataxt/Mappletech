@@ -1,6 +1,8 @@
 package vm;
 
-public class UserVM {
+import java.io.Serializable;
+
+public class UserVM{
 	private String username = "";
 	private String password = "";
 	private String fullName = "";

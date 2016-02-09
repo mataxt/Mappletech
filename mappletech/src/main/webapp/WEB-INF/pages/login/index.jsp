@@ -70,26 +70,36 @@
 						<form:form modelAttribute="uservm" id="user" class="form-signin"
 							method="POST">
 
-							<p>&nbsp;</p>
-
+							<br />
 
 							<form:input path="username" id="inputUsername"
 								class="form-control" placeholder="Användarnamn" required=""
 								autofocus="true" />
-
+							
+                            <br />
+                            
 							<form:input path="password" type="password" id="inputPassword"
 								class="form-control" placeholder="Lösenord" required="" />
 
 							<div class="checkbox">
-								<label> <input type="checkbox" style="color: #eee"
-									value="remember-me">Kom ihåg mig
-								</label>
+								<label>
+                                	<p style="color:#eee">
+                                		<input type="checkbox" value="remember-me">Kom ihåg mig
+                                	</p>
+                            	</label>
 							</div>
 
 							<button type="submit" value="Submit"
 								class="btn btn-lg btn-default btn-block">Logga in</button>
-							<br>
-						</form:form>
+							<br />
+                        </form:form>
+                        
+                        <a href="/login/glomt-losenord/">
+                            <button type="submit" value="Submit"
+								class="btn btn-sm btn-info btn-block">Glömt lösenord</button>
+                        </a>
+                        <br />
+                        
 					</div>
 				</div>
 			</div>
