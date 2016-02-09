@@ -16,14 +16,14 @@
     <link href="<%=request.getContextPath()%>/resources/UI/bootstrap/css/bootstrap.min.css" rel="stylesheet">
     
     <!-- Font Awesome CSS -->
-    <link href="<%=request.getContextPath()%>/resources/UI/bootstrap/css/font-awesome.min.css" rel="stylesheet">
+    <link href="<%=request.getContextPath()%>/resources/UI/css/font-awesome.min.css" rel="stylesheet">
     
     <!-- Select2-->
-    <link href="<%=request.getContextPath()%>/resources/UI/bootstrap/css/select2.min.css" rel="stylesheet">
+    <link href="<%=request.getContextPath()%>/resources/UI/css/select2.min.css" rel="stylesheet">
     
     <!-- Custom CSS -->
-    <link href="<%=request.getContextPath()%>/resources/UI/bootstrap/css/style.css" rel="stylesheet">
-    <link href="<%=request.getContextPath()%>/resources/UI/bootstrap/css/animate.css" rel="stylesheet">
+    <link href="<%=request.getContextPath()%>/resources/UI/css/style.css" rel="stylesheet">
+    <link href="<%=request.getContextPath()%>/resources/UI/css/animate.css" rel="stylesheet">
     
     <!-- Custom Fonts -->
     <link href="http://fonts.googleapis.com/css?family=Lobster"
