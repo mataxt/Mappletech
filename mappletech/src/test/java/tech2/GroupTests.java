@@ -55,7 +55,6 @@ public class GroupTests extends TestCase {
 		group.setGroupName("groupName");
 		group.setHost(host);
 		group.setDescription("description");
-
 	}
 
 	public void tearDown() {
@@ -168,5 +167,4 @@ public class GroupTests extends TestCase {
 			}
 		}
 	}
-
 }

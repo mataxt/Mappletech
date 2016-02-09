@@ -19,6 +19,8 @@ import org.hibernate.annotations.DynamicInsert;
 @Table(name = "Facilities")
 @DynamicInsert
 public class Facility implements Serializable {
+	private static final long serialVersionUID = 1L;
+	
 	private Integer facilityId;
 	private String facilityName;
 	private String description;
@@ -26,9 +28,7 @@ public class Facility implements Serializable {
 	private Boolean available;
 	private List<Reservation> reservations;
 	
-	public Facility() {
-		
-	}
+	public Facility() {}
 	
 	public Facility(Integer facilityId, String facilityName,
 			String description, String location, Boolean available,List<Reservation> reservations) {
@@ -95,9 +95,4 @@ public class Facility implements Serializable {
 	public void setReservations(List<Reservation> reservations) {
 		this.reservations = reservations;
 	}
-	
-
-	private static final long serialVersionUID = 1L;
-	
-
 }
