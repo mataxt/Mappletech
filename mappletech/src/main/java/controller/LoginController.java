@@ -15,8 +15,7 @@ import vm.UserVM;
 
 @Controller
 public class LoginController {
-	private final String URI = "http://130.237.84.211:8080/mappletech/rest/login";
-	private ModelAndView loginMV = new ModelAndView("login/index");
+	private final String URI = "http://localhost:8080/tech2/rest/login";
 
 	// Omdirigerar just nu till login
 	@RequestMapping(value = { "/" }, method = RequestMethod.GET)
@@ -27,8 +26,7 @@ public class LoginController {
 	@RequestMapping(value = { "/login" }, method = RequestMethod.GET)
 	public ModelAndView login() {
 		System.out.println("In GET Login...");
-		loginMV.addObject("uservm", new UserVM());
-		return loginMV;
+		return new ModelAndView("login/index","uservm", new UserVM());
 	}
 
 	@RequestMapping(value = "/login", method = RequestMethod.POST)
@@ -37,15 +35,12 @@ public class LoginController {
 		System.out.println("In POST Login...");
 		UserVM loggedInUser = new UserVM(userVm.getUsername(), passwordHash(userVm.getPassword()));
 		RestTemplate restTemplate = new RestTemplate();
+		System.out.println(loggedInUser.getUsername());
 		UserVM u = restTemplate.postForObject(URI, loggedInUser, UserVM.class);
 		if (u != null) {
-			System.out.println("SUCCESS");
-			ModelAndView mv = new ModelAndView("/index");
-			mv.addObject("sessUser", u);
-			return mv;
+			return new ModelAndView("index","sessUser", u);
 		} else {
-			System.out.println("FAILED");
-			return loginMV;
+			return new ModelAndView("login/index","uservm", new UserVM());
 		}
 	}
 
