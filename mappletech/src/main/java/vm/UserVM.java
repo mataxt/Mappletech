@@ -12,6 +12,16 @@ public class UserVM {
 	public UserVM() {
 		
 	}
+	
+
+	// Constructor for admin when creating a new user
+	public UserVM(String username, String password, String fullName, Integer privilege) {
+		super();
+		this.username = username;
+		this.password = password;
+		this.fullName = fullName;
+		this.privilege = privilege;
+	}
 
 	public UserVM(String username, String password, String fullName,
 			String email, String phoneNumber, String address, Integer privilege) {
@@ -41,7 +51,7 @@ public class UserVM {
 		this.username = username;
 	}
 	
-
+	// Constructor for user during login
 	public UserVM(String username, String password) {
 		super();
 		this.username = username;

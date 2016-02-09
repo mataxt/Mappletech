@@ -15,7 +15,7 @@ public class loginRestController{
 	public String helloWorld()
 	{
 		System.out.println("Hello Rest World");
-		return "Hello World!";
+		return "fuark the World!";
 	}
 	
 	@RequestMapping(value="/login")
