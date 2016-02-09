@@ -6,6 +6,7 @@ public class UserVM {
 	private String fullName = "";
 	private	String email = "";
 	private	String phoneNumber = "";
+	private	String mobileNumber = "";
 	private String address = "";
 	private Integer privilege = 0;
 	
@@ -24,13 +25,14 @@ public class UserVM {
 	}
 
 	public UserVM(String username, String password, String fullName,
-			String email, String phoneNumber, String address, Integer privilege) {
+			String email, String phoneNumber, String mobileNumber, String address, Integer privilege) {
 		super();
 		this.username = username;
 		this.password = password;
 		this.fullName = fullName;
 		this.email = email;
 		this.phoneNumber = phoneNumber;
+		this.mobileNumber = mobileNumber;
 		this.address = address;
 		this.privilege = privilege;
 	}
@@ -99,6 +101,36 @@ public class UserVM {
 
 	public Integer getPrivilege() {
 		return privilege;
+	}
+
+
+	public String getMobileNumber() {
+		return mobileNumber;
+	}
+
+
+	public void setMobileNumber(String mobileNumber) {
+		this.mobileNumber = mobileNumber;
+	}
+
+
+	public void setFullName(String fullName) {
+		this.fullName = fullName;
+	}
+
+
+	public void setEmail(String email) {
+		this.email = email;
+	}
+
+
+	public void setPhoneNumber(String phoneNumber) {
+		this.phoneNumber = phoneNumber;
+	}
+
+
+	public void setPrivilege(Integer privilege) {
+		this.privilege = privilege;
 	}
 	
 }
