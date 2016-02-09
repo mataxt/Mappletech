@@ -12,6 +12,7 @@ import model.Group;
 import model.User;
 import testdao.EventDAO;
 import testdao.GroupDAO;
+import testdao.UserDAO;
 
 public class EventTests extends TestCase{
 	Event event;
@@ -26,11 +27,17 @@ public class EventTests extends TestCase{
 		user.setAddress("address");
 		user.setPrivilege(0);
 		user.setPhoneNumber("phonenumber");
+		UserDAO.addUser(user);
 		event = new Event();
 		event.setTitle("EventName");
 		event.setDate(new Date(23131231));
 		event.setDescription("Grillning");
 		event.setCreator(user);
+	}
+	
+	public void tearDown()
+	{
+		UserDAO.removeUser(user);
 	}
 
 	public void testConnect() {
