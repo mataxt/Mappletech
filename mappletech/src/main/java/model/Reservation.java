@@ -20,18 +20,18 @@ public class Reservation implements Serializable {
 	private Integer reservationId;
 	private String title;
 	private User host;
-	private Facility facilityID;
+	private Facility facility;
 	private Date timeFrom;
 	private Date timeTo;
 
 	public Reservation() {}
 
-	public Reservation(Integer reservationId, String title, User host, Facility facilityID, Date timeFrom, Date timeTo) {
+	public Reservation(Integer reservationId, String title, User host, Facility facility, Date timeFrom, Date timeTo) {
 		super();
 		this.reservationId = reservationId;
 		this.title = title;
 		this.host = host;
-		this.setFacilityID(facilityID);
+		this.setFacility(facility);
 		this.timeFrom = timeFrom;
 		this.timeTo = timeTo;
 	}
@@ -59,12 +59,12 @@ public class Reservation implements Serializable {
 	
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "FacilityId", nullable = false)
-	public Facility getFacilityID() {
-		return facilityID;
+	public Facility getFacility() {
+		return facility;
 	}
 
-	public void setFacilityID(Facility facilityID) {
-		this.facilityID = facilityID;
+	public void setFacility(Facility facility) {
+		this.facility = facility;
 	}
 	
 

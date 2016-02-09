@@ -20,34 +20,31 @@ public class LoginController {
 	// Omdirigerar just nu till login
 	@RequestMapping(value = { "/" }, method = RequestMethod.GET)
 	public String start() {
-		
 		return "redirect:/login";
 	}
-	
+
 	@RequestMapping(value = { "/login" }, method = RequestMethod.GET)
 	public ModelAndView login() {
 		System.out.println("In GET Login...");
-		ModelAndView mv = new ModelAndView("login/index");
-		mv.addObject("uservm", new UserVM());
-		return mv;
+		return new ModelAndView("login/index","uservm", new UserVM());
 	}
 
 	@RequestMapping(value = "/login", method = RequestMethod.POST)
-	public String doLogin(@ModelAttribute("uservm") UserVM userVm, Model model) {
+	public ModelAndView doLogin(@ModelAttribute("uservm") UserVM userVm, Model model) {
 
-			System.out.println("In POST Login...");
-			UserVM loggedInUser = new UserVM(userVm.getUsername(), passwordHash(userVm.getPassword()));
-			RestTemplate restTemplate = new RestTemplate();
-			UserVM u = restTemplate.postForObject(URI, loggedInUser, UserVM.class);
-			if (u != null) {
-				System.out.println("SUCCESS");
-				System.out.println(u.getUsername() + " " + u.getFullName() + " ");
-			}
-
-		return "redirect:/";
+		System.out.println("In POST Login...");
+		UserVM loggedInUser = new UserVM(userVm.getUsername(), passwordHash(userVm.getPassword()));
+		RestTemplate restTemplate = new RestTemplate();
+		System.out.println(loggedInUser.getUsername());
+		UserVM u = restTemplate.postForObject(URI, loggedInUser, UserVM.class);
+		if (u != null) {
+			return new ModelAndView("index","sessUser", u);
+		} else {
+			return new ModelAndView("login/index","uservm", new UserVM());
+		}
 	}
 
-	private String passwordHash(String pwd){
+	private String passwordHash(String pwd) {
 
 		MessageDigest msgDigest = null;
 		try {
@@ -58,9 +55,9 @@ public class LoginController {
 		msgDigest.update(pwd.getBytes());
 		byte[] digest = msgDigest.digest();
 		StringBuffer sb = new StringBuffer();
-        for (int i = 0; i < digest.length; i++) {
-         sb.append(Integer.toString((digest[i] & 0xff) + 0x100, 16).substring(1));
-        }
+		for (int i = 0; i < digest.length; i++) {
+			sb.append(Integer.toString((digest[i] & 0xff) + 0x100, 16).substring(1));
+		}
 		return sb.toString();
 	}
 

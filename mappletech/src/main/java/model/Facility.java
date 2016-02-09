@@ -87,7 +87,7 @@ public class Facility implements Serializable {
 		this.available = available;
 	}
 
-	@OneToMany(fetch = FetchType.LAZY, mappedBy = "facilityID",cascade=CascadeType.ALL)
+	@OneToMany(fetch = FetchType.LAZY, mappedBy = "facility",cascade=CascadeType.ALL)
 	public List<Reservation> getReservations() {
 		return reservations;
 	}

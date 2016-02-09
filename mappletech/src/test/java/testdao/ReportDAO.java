@@ -81,12 +81,12 @@ public class ReportDAO {
 	 *            of the Report
 	 * @return model.Report
 	 */
-	public static Report fetchReport(String reportname) {
+	public static Report fetchReport(Integer reportId) {
 		EntityManagerFactory emf = Persistence.createEntityManagerFactory("TestPU");
 		EntityManager em = emf.createEntityManager();
 		Report report = null;
 		try {
-			report = em.find(Report.class, reportname);
+			report = em.find(Report.class, reportId);
 		} catch (Exception e) {
 			e.printStackTrace();
 		} finally {

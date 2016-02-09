@@ -1,13 +1,28 @@
 package tech2;
 
 import java.sql.Date;
-
-
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+import testdao.FacilityDAO;
+import testdao.ReservationDAO;
+import testdao.UserDAO;
 import junit.framework.TestCase;
 import model.Facility;
 import model.Reservation;
@@ -33,14 +48,24 @@ public class ReservationTests extends TestCase {
 		
 		fac = new Facility();
 		fac.setFacilityName("tvatt");
+		
+		UserDAO.addUser(user); 
+		FacilityDAO.addFacility(fac);
+		
 		reservation = new Reservation();
 		reservation.setTitle("party");
 		
 		reservation.setHost(user);
-		reservation.setFacilityID(fac);
+		reservation.setFacility(fac);
 		
 		reservation.setTimeTo(Date.valueOf("2015-02-01"));
 		reservation.setTimeFrom(Date.valueOf("2014-02-01"));
+	}
+	
+	protected void tearDown() {
+		UserDAO.removeUser(user);
+		FacilityDAO.removeFacility(fac);
+		
 	}
 
 	public void testConnect() {
@@ -48,18 +73,13 @@ public class ReservationTests extends TestCase {
 		EntityManager em = emf.createEntityManager();
 		try {
 			em.getTransaction().begin();
-			//em.persist(user);
-			//em.persist(fac);
-		//	em.persist(reservation);
-			//em.flush();
-			id = reservation.getReservationId();
 			em.getTransaction().commit();
 			
 		} catch (Exception e) {
 			if (em.getTransaction().isActive()) {
 				em.getTransaction().rollback();
 			}
-			System.out.println("Failed");
+			System.out.println("Failed at testConnect");
 		} finally {
 			if (em != null) {
 				em.close();
@@ -70,82 +90,97 @@ public class ReservationTests extends TestCase {
 		}
 	}
 
-//	public void testDelete() {
-//		
-//		System.out.println("\n------Running delete Registration----\n");
-//		EntityManagerFactory emf = Persistence.createEntityManagerFactory("UserPU");
-//		EntityManager em = emf.createEntityManager();
-//		try {
-//			
-//			em.getTransaction().begin();
-//			reservation.setReservationId(15);
-//			if(!ReservationDAO.removeReservation(reservation)) {
-//				System.out.println("\nFailed to remove");
-//			}
-//			em.getTransaction().commit();
-//			
-//		}catch (Exception e) {
-//			if (em.getTransaction().isActive()) {
-//				em.getTransaction().rollback();
-//			}
-//			System.out.println("Failed");
-//		} finally {
-//			if (em != null) {
-//				em.close();
-//			}
-//			if (emf != null) {
-//				emf.close();
-//			}
-//		
-//		}
-//	}
-	
-	
-	// public void connect() {
-	// System.out.print("Running Add user test...");
-	// EntityManagerFactory emf =
-	// Persistence.createEntityManagerFactory("UserPU");
-	// EntityManager em = emf.createEntityManager();
-	// try {
-	// assertTrue(emf.isOpen());
-	// System.out.println("Success");
-	// } catch (AssertionError e) {
-	// System.out.println("Failed");
-	// throw e;
-	// } finally {
-	// if (em != null) {
-	// em.close();
-	// }
-	// if (emf != null) {
-	// emf.close();
-	// }
-	// }
-	// }
+	public void testAddDelete() throws Exception {
 
-	// @DependsOn("#testConnect")
-	// public void add() {
-	// System.out.print("Running Add user test...");
-	// try {
-	// assertTrue(UserDAO.addUser(user));
-	// System.out.println("Success");
-	// } catch (AssertionError e) {
-	// System.out.println("Failed");
-	// throw e;
-	// }
-	// }
-	//
-	//
-	//
-	//
-	// @DependsOn("#testAdd")
-	// public void remove() {
-	// System.out.print("Running Remove user test...");
-	// try {
-	// assertTrue(UserDAO.removeUser(user));
-	// System.out.println("Success");
-	// } catch (AssertionError e) {
-	// System.out.println("Failed");
-	// throw e;
-	// }
-	// }
-}
+		try {
+			System.out.println("\n------Running Add_Delete Registration----\n");
+			assertTrue(ReservationDAO.addReservation(reservation));
+			assertTrue(ReservationDAO.removeReservation(reservation));
+			System.out.println("Success");
+		} catch (AssertionError e) {
+			System.out.println("Failed at testAddDelete");
+			throw e;
+		}
+	}
+		
+
+	public void testfetchReservation() throws Exception {
+			if (ReservationDAO.addReservation(reservation)) {
+				try {
+					Reservation tmpRes = new Reservation();
+					tmpRes = ReservationDAO.fetchReservation(reservation
+							.getReservationId());
+		
+					assertTrue(tmpRes != null);
+					assertEquals(reservation.getReservationId(),
+							tmpRes.getReservationId());
+					assertEquals(reservation.getHost().getUsername(), tmpRes.getHost().getUsername());
+					assertEquals(reservation.getFacility().getFacilityId(), tmpRes.getFacility().getFacilityId());
+					assertEquals(reservation.getTimeFrom(), tmpRes.getTimeFrom());
+					assertEquals(reservation.getTimeTo(), tmpRes.getTimeTo());
+		
+					System.out.println("Success");
+				} catch (AssertionError e) {
+					System.out.println("Failed at testFetchReservation");
+					throw e;
+				} finally {
+	                ReservationDAO.removeReservation(reservation);
+	            }
+			} else {
+	            throw new Exception("Failed to fetch reservation in Reservation fetch test");
+	        }
+	}
+		
+	public void testChangeReservation() throws Exception {		
+		
+			Date TimeTo = Date.valueOf("2015-02-05");
+			if (ReservationDAO.addReservation(reservation)) {
+				try {
+					
+					Reservation tmpRes = new Reservation();
+					assertTrue(ReservationDAO.changeReservation(reservation, TimeTo.toString(),"timeto"));
+					tmpRes = ReservationDAO.fetchReservation(reservation
+							.getReservationId());
+					
+					assertTrue(tmpRes != null);
+					assertEquals(TimeTo, tmpRes.getTimeTo());
+					
+					assertEquals(reservation.getReservationId(),
+							tmpRes.getReservationId());
+					
+					assertEquals(reservation.getHost().getUsername(), tmpRes.getHost().getUsername());
+					assertEquals(reservation.getFacility().getFacilityId(), tmpRes.getFacility().getFacilityId());
+					assertEquals(reservation.getTimeFrom(), tmpRes.getTimeFrom());
+
+					System.out.println("Success");
+				} catch (AssertionError e) {
+					System.out.println("Failed at testChangeReservation");
+					throw e;
+				} finally {
+	                ReservationDAO.removeReservation(reservation);
+				}
+			} else {
+	            throw new Exception("Failed to change reservation in Reservation change test");
+	        }
+		}
+	
+	public void testGetAllREservations() throws Exception {
+		
+			if (ReservationDAO.addReservation(reservation)) {
+				try {
+					// if null no reservations found! impossible considering we just
+					// added one
+					assertTrue(ReservationDAO.getAllReservations() != null);
+					System.out.println("Success");
+				} catch (AssertionError e) {
+					System.out.println("Failed at testGetAllReservations");
+					throw e;
+				} finally {
+	                ReservationDAO.removeReservation(reservation);
+				}
+			}
+			 else {
+	            throw new Exception("Failed to get all reservation in Reservation GetAll test");
+	        }
+		}
+	}

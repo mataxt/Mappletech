@@ -147,7 +147,7 @@ public class ReservationDAO {
 				case "facilityid":
 					Facility fac = new Facility();
 					fac.setFacilityId(Integer.parseInt(value));
-					r.setFacilityID(fac);
+					r.setFacility(fac);
 					break;
 				case "timefrom":
 					r.setTimeFrom(Date.valueOf(value));

@@ -5,45 +5,41 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 
 <head>
-<meta charset="utf-8">
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="description" content="">
-<meta name="author" content="">
-<title>Mappletech - Login</title>
-
-
-
-<!-- Bootstrap Core CSS -->
-<link href="<%=request.getContextPath()%>/resources/UI/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-
-<!-- Font Awesome CSS -->
-<link href="<%=request.getContextPath()%>/resources/UI/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-
-<!-- Custom CSS -->
-<link href="<%=request.getContextPath()%>/resources/UI/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-
-<!-- Custom Fonts -->
-<link href="http://fonts.googleapis.com/css?family=Lobster"
-	rel="stylesheet" type="text/css">
-
-
-<!-- Template js -->
-<script src="<%=request.getContextPath()%>/resources/UI/js/jquery-2.1.1.min.js"></script>
-<script src="<%=request.getContextPath()%>/resources/UI/bootstrap/js/bootstrap.min.js"></script>
-<script src="<%=request.getContextPath()%>/resources/UI/js/jquery.appear.js"></script>
-
-<script src="<%=request.getContextPath()%>/resources/UI/js/jqBootstrapValidation.js"></script>
-<script src="<%=request.getContextPath()%>/resources/UI/js/modernizr.custom.js"></script>
-
-<!--[if lt IE 9]>
-            <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-            <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-        <![endif]-->
-
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+        <title>Mappletech - Login</title>
+    
+    <!-- Bootstrap Core CSS -->
+    <link href="<%=request.getContextPath()%>/resources/UI/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- Font Awesome CSS -->
+    <link href="<%=request.getContextPath()%>/resources/UI/css/font-awesome.min.css" rel="stylesheet">
+    
+    <!-- Custom CSS -->
+    <link href="<%=request.getContextPath()%>/resources/UI/css/style.css" rel="stylesheet">
+    
+    <!-- Custom Fonts -->
+    <link href="http://fonts.googleapis.com/css?family=Lobster"
+        rel="stylesheet" type="text/css">
+   
+    <!-- Template js -->
+    <script src="<%=request.getContextPath()%>/resources/UI/js/jquery-2.1.1.min.js"></script>
+    <script src="<%=request.getContextPath()%>/resources/UI/bootstrap/js/bootstrap.min.js"></script>
+    <script src="<%=request.getContextPath()%>/resources/UI/js/jquery.appear.js"></script>    
+    <script src="<%=request.getContextPath()%>/resources/UI/js/jqBootstrapValidation.js"></script>
+    <script src="<%=request.getContextPath()%>/resources/UI/js/modernizr.custom.js"></script>
+    
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
 </head>
 
 <body style="background-image: url(<%=request.getContextPath()%>/resources/UI/images/background.png)">
+
 	<!-- Start Logo Section -->
 	<p>&nbsp;</p>
 	<section id="logo-section" class="text-center">
@@ -54,7 +50,7 @@
 					<div class="logo text-center">
 						<h1>Mappletech</h1>
 						<p>
-							<span style="color: #eee">Föreningsplattform</span>
+							<span style="color: #eee">FÃ¶reningsplattform</span>
 						</p>
 						<p>&nbsp;</p>
 					</div>
@@ -64,6 +60,7 @@
 	</section>
 	<!-- End Logo Section -->
 
+	<p>&nbsp;</p>
 
 	<!-- Start Main Body Section -->
 	<div class="mainbody-section text-center">
@@ -79,15 +76,15 @@
 
 
 							<form:input path="username" id="inputUsername"
-								class="form-control" placeholder="Användarnamn" required=""
+								class="form-control" placeholder="AnvÃ¤ndarnamn" required=""
 								autofocus="true" />
 
 							<form:input path="password" type="password" id="inputPassword"
-								class="form-control" placeholder="Lösenord" required="" />
+								class="form-control" placeholder="LÃ¶senord" required="" />
 
 							<div class="checkbox">
 								<label> <input type="checkbox" style="color: #eee"
-									value="remember-me">Kom ihåg mig
+									value="remember-me">Kom ihÃ¥g mig
 								</label>
 							</div>
 
