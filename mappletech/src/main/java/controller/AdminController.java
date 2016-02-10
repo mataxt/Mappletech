@@ -20,7 +20,7 @@ public class AdminController {
 	@RequestMapping(value = { "/administrator/anvandare/" }, method = RequestMethod.GET)
 	public ModelAndView addUsersGet() {
 		System.out.println("In GET anvandare hantera");
-		ModelAndView mv = new ModelAndView("administrator/anvandare");
+		ModelAndView mv = new ModelAndView("administrator/anvandare/index");
 		mv.addObject("uservm", new UserVM());
 		return mv;
 	}
