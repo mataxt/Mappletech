@@ -5,11 +5,14 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 
 <head>
+
     <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta http-equiv="X-UA-Compatible" content="text/html" charset="ISO-8859-1">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
     <meta name="author" content="">
+
+    
         <title>Mappletech - Login</title>
     
     <!-- Bootstrap Core CSS -->
@@ -50,7 +53,7 @@
 					<div class="logo text-center">
 						<h1>Mappletech</h1>
 						<p>
-							<span style="color: #eee">FÃ¶reningsplattform</span>
+							<span style="color: #eee">Föreningsplattform</span>
 						</p>
 						<p>&nbsp;</p>
 					</div>
@@ -84,7 +87,7 @@
 							<div class="checkbox">
 								<label>
                                 	<p style="color:#eee">
-                                		<input type="checkbox" value="remember-me">Kom ihÃ¥g mig
+                                		<input type="checkbox" value="remember-me">Kom ihåg mig
                                 	</p>
                             	</label>
 							</div>
@@ -96,7 +99,7 @@
                         
                         <a href="/login/glomt-losenord/">
                             <button type="submit" value="Submit"
-								class="btn btn-sm btn-info btn-block">GlÃ¶mt lÃ¶senord</button>
+								class="btn btn-sm btn-info btn-block">Glömt lösenord</button>
                         </a>
                         <br />
                         
