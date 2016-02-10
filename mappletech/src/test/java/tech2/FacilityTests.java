@@ -82,10 +82,8 @@ public class FacilityTests extends TestCase {
 		}
 	}
 
-	/** ALMOST DONE **/
-	public void testChangeEvent() {
-		facility.setFacilityName("testChangeEvent");
 
+	public void testChangeEvent() {
 		try {
 			System.out.println("Success");
 		} catch (AssertionError e) {
