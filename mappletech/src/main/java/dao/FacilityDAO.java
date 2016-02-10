@@ -1,6 +1,5 @@
 package dao;
 
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -18,7 +17,8 @@ public class FacilityDAO {
 	/**
 	 * Adds the Facility.
 	 *
-	 * @param Facility model.Facility
+	 * @param Facility
+	 *            model.Facility
 	 * @return true, if successful
 	 */
 	public static boolean addFacility(Facility facility) {
@@ -46,8 +46,8 @@ public class FacilityDAO {
 		return registered;
 	}
 
-	 /** @param 
-	 *            model.Facility
+	/**
+	 * @param model.Facility
 	 * @return List<Facility>
 	 * 
 	 */
@@ -80,8 +80,8 @@ public class FacilityDAO {
 	/**
 	 * Gets the Facility info.
 	 *
-	 * @param String facilityName
-	 *            of the Facility
+	 * @param String
+	 *            facilityName of the Facility
 	 * @return model.Facility
 	 */
 	public static Facility fetchFacility(Integer facilityId) {
@@ -108,44 +108,28 @@ public class FacilityDAO {
 	 *
 	 * @param Facility
 	 *            to be changed
-	 * @param value
-	 *           Name of user or description string
-	 * @param operation
-	 *            {"facilityname", "descriptiom", "location", "available"}
 	 * @return true, if successful
 	 */
-	public static boolean changeEvent(Facility facility, String value, String operation) {
+	public static boolean changeEvent(Facility facility) {
 		EntityManagerFactory emf = Persistence.createEntityManagerFactory("UserPU");
 		EntityManager em = emf.createEntityManager();
 		boolean success = false;
 		try {
 			em.getTransaction().begin();
-			Facility f = em.find(Facility.class, facility.getFacilityName());
+			Facility f = em.find(Facility.class, facility.getFacilityId());
 			if (f != null) {
-				switch (operation) {
-				case "facilityname":
-					f.setFacilityName(value);;
-					success = true;
-					break;
-				case "description":
-					f.setDescription(value);
-					success = true;
-					break;
-				case "location":
-					f.setLocation(value);;
-					success = true;
-					break;
-				case "available":
-					f.setAvailable(Boolean.getBoolean(value));;
-				default:
-					break;
-				}
+				f.setFacilityName(facility.getFacilityName());
+				f.setDescription(facility.getDescription());
+				f.setLocation(facility.getDescription());
+				f.setAvailable(facility.getAvailable());
+				f.setReservations(facility.getReservations());
 				em.merge(f);
-				em.getTransaction().commit();
-
+				success = true;
 			}
+			em.getTransaction().commit();
 		} catch (Exception e) {
 			e.printStackTrace();
+			return false;
 		} finally {
 			if (em != null) {
 				em.close();

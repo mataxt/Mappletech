@@ -1,7 +1,5 @@
 package testdao;
 
-
-import java.sql.Date;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -10,7 +8,7 @@ import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 
 import model.Event;
-import model.User;
+
 
 /**
  * The Class EventDAO.
@@ -24,20 +22,19 @@ public class EventDAO {
 	 *            model.Event
 	 * @return true, if successful
 	 */
-	public static boolean addEvent(Event event) {
-		boolean registered = false;
+	public static Integer addEvent(Event event) {
+		Integer id = null;
 		EntityManagerFactory emf = Persistence.createEntityManagerFactory("TestPU");
 		EntityManager em = emf.createEntityManager();
 		try {
 			em.getTransaction().begin();
 			em.persist(event);
 			em.getTransaction().commit();
-			registered = true;
+			id = event.getEventID();
 		} catch (Exception e) {
 			if (em.getTransaction().isActive()) {
 				em.getTransaction().rollback();
 			}
-			registered = false;
 		} finally {
 			if (em != null) {
 				em.close();
@@ -46,7 +43,7 @@ public class EventDAO {
 				emf.close();
 			}
 		}
-		return registered;
+		return id;
 	}
 
 	public static List<Event> getAllEvents() {
@@ -112,36 +109,21 @@ public class EventDAO {
 	 *            {"title", "description", "date", "creator"}
 	 * @return true, if successful
 	 */
-	public static boolean changeEvent(Event Event, String value, String operation) {
+	public static boolean changeEvent(Event event) {
 		EntityManagerFactory emf = Persistence.createEntityManagerFactory("TestPU");
 		EntityManager em = emf.createEntityManager();
 		boolean success = false;
 		try {
 			em.getTransaction().begin();
-			Event e = em.find(Event.class, Event.getEventID());
+			Event e = em.find(Event.class, event.getEventID());
 			if (e != null) {
-				switch (operation) {
-				case "creator":
-					e.setCreator(new User(value));
-					success = true;
-					break;
-				case "description":
-					e.setDescription(value);
-					success = true;
-					break;
-				case "date":
-					e.setDate(Date.valueOf(value));
-					success = true;
-					break;
-				case "title":
-					e.setTitle(value);
-				default:
-					break;
-				}
+				e.setDescription(event.getDescription());
+				e.setDate(event.getDate());
+				e.setTitle(event.getTitle());
 				em.merge(e);
-				em.getTransaction().commit();
-
+				success = true;
 			}
+			em.getTransaction().commit();
 		} catch (Exception e) {
 			e.printStackTrace();
 		} finally {
@@ -188,5 +170,4 @@ public class EventDAO {
 		}
 		return success;
 	}
-
 }
