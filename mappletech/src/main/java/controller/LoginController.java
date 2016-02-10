@@ -8,12 +8,14 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.client.RestTemplate;
 import org.springframework.web.servlet.ModelAndView;
 
 import vm.UserVM;
 
 @Controller
+@SessionAttributes("sessUser")
 public class LoginController {
 	private final String URI = "http://130.237.84.211:8080/mappletech/rest/login";
 

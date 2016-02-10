@@ -62,7 +62,7 @@
                     <div class="col-md-6">
                     	<div style="text-align:left">
                             <strong>Inloggad som: </strong>
-                            <a href="profil/index.html?=Mange" style="font-size:20px">Mange</a>
+                            <a href="profil/index.html?=Mange" style="font-size:20px">${sessUser.fullName}</a>
                         </div>
                     </div>
                     
