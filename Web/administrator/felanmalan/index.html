@@ -1,55 +1,52 @@
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
+<%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
+
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <meta name="description" content="">
-        <meta name="author" content="">
-        	<title>Mappletech</title>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="text/html" charset="ISO-8859-1">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+        <title>Mappletech - Felanmälning</title>
+    
+    <!-- Bootstrap Core CSS -->
+    <link href="<%=request.getContextPath()%>/resources/UI/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- Font Awesome CSS -->
+    <link href="<%=request.getContextPath()%>/resources/UI/css/font-awesome.min.css" rel="stylesheet">
+    
+    <!-- Custom CSS -->
+    <link href="<%=request.getContextPath()%>/resources/UI/css/style.css" rel="stylesheet">
+    <link href="<%=request.getContextPath()%>/resources/UI/css/animate.css" rel="stylesheet">
+    
+    <!-- Custom Fonts -->
+    <link href="http://fonts.googleapis.com/css?family=Lobster"
+        rel="stylesheet" type="text/css">
+   
+    <!--EXTRA CSS/JS FOR TABLE-->
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.0.8/angular.min.js"></script>
+    <script src="http://vitalets.github.io/angular-xeditable/dist/js/xeditable.js"></script>
+    <script src="https://code.angularjs.org/1.0.8/angular-mocks.js"></script>
+    <link href="http://vitalets.github.io/angular-xeditable/dist/css/xeditable.css" rel="stylesheet" type="text/css">
+    <link href="<%=request.getContextPath()%>/resources/UI/css/angular-extra-table.css" rel="stylesheet">
 
-        <!-- Bootstrap Core CSS -->
-        <link href="../../UI/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 
-        <!-- Font Awesome CSS -->
-        <link href="../../UI/css/font-awesome.min.css" rel="stylesheet">
-        
-		<!-- Custom CSS -->
-        <link href="../../UI/css/animate.css" rel="stylesheet">
+    <!-- Template js -->
+    <script src="<%=request.getContextPath()%>/resources/UI/js/jquery-2.1.1.min.js"></script>
+    <script src="<%=request.getContextPath()%>/resources/UI/bootstrap/js/bootstrap.min.js"></script>
+    <script src="<%=request.getContextPath()%>/resources/UI/js/jquery.appear.js"></script>
+    <script src="<%=request.getContextPath()%>/resources/UI/js/jqBootstrapValidation.js"></script>
+    <script src="<%=request.getContextPath()%>/resources/UI/js/modernizr.custom.js"></script>
+    
 
-        <!-- OWL Carousel -->
-        <link href="../../UI/css/owl.carousel.css" rel="stylesheet">
-        <link href="../../UI/css/owl.theme.css" rel="stylesheet">
-        
-        <!-- Custom CSS -->
-        <link href="../../UI/css/style.css" rel="stylesheet">
-
-        <!-- Custom Fonts -->
-        <link href="http://fonts.googleapis.com/css?family=Lobster" rel="stylesheet" type="text/css">
-		
-        <!--EXTRA CSS/JS FOR TABLE-->
-        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.0.8/angular.min.js"></script>
-        <script src="http://vitalets.github.io/angular-xeditable/dist/js/xeditable.js"></script>
-        <script src="https://code.angularjs.org/1.0.8/angular-mocks.js"></script>
-        <link href="http://vitalets.github.io/angular-xeditable/dist/css/xeditable.css" rel="stylesheet" type="text/css">
-        <link href="../../UI/css/angular-extra-table.css" rel="stylesheet">
-        
-        <!-- Template js -->
-        <script src="../../UI/js/jquery-2.1.1.min.js"></script>
-        <script src="../../UI/bootstrap/js/bootstrap.min.js"></script>
-        <script src="../../UI/js/jquery.appear.js"></script>
-        <script src="../../UI/js/contact_me.js"></script>
-        <script src="../../UI/js/owl.carousel.min.js"></script>
-        <script src="../../UI/js/jqBootstrapValidation.js"></script>
-        <script src="../../UI/js/modernizr.custom.js"></script>
-        <script src="../../UI/js/script.js"></script>
-        
-        <!--[if lt IE 9]>
-            <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-            <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-        <![endif]-->
-    </head>
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+</head>
     
     <body style="background-image:none">
         
@@ -72,8 +69,8 @@
                     <div class="container">
                     <div class="row">
                         <div class="section-title text-center">
-                            <h3>Användare</h3>
-                            <p>Hantera användare här</p>
+                            <h3>Felanmälning</h3>
+                            <p>Hantera felanmälningar här</p>
                         </div>
                     </div>
                     
@@ -81,24 +78,15 @@
 						<div ng-app="app" ng-controller="Ctrl">
                          <table class="table table-bordered table-hover table-condensed">
                           <tr style="font-weight: bold">
-                            <td style="width:13%">Användarnamn</td>
-                            <td style="width:12%">Fullt namn</td>
-                            <td style="width:13%">E-post</td>
-                            <td style="width:12%">Telefon nr</td>
-                            <td style="width:13%">Mobil nr</td>
-                            <td style="width:12%">Adress</td>
-                            <td style="width:13%">Rättigheter</td>
-                            <td style="width:12%">Edit</td>
+                            <td style="width:16%">Rapporterare</td>
+                            <td style="width:17%">Orsak</td>
+                            <td style="width:17%">Beskrivning</td>
+                            <td style="width:17%">Status</td>
+                            <td style="width:17%">Datum</td>
+                            <td style="width:16%"></td>
                           </tr>
       					  <tr ng-repeat="user in users">
                           
-        				<td>
-                          <!-- editable username (text with validation) -->
-                          <span editable-text="user.name" e-name="name" e-form="rowform" onbeforesave="checkName($data, user.id)" e-required>
-                           {{ user.name || 'empty' }}
-                          </span>
-                    	</td>
-                        
                         <td>
                           <!-- editable status (select-local) -->
                           <span editable-text="user.status" e-name="status" e-form="rowform" e-ng-options="s.value as s.text for s in statuses">
@@ -122,21 +110,14 @@
                         
                         <td>
                           <!-- editable status (select-local) -->
-                          <span editable-text="user.status" e-name="status" e-form="rowform" e-ng-options="s.value as s.text for s in statuses">
-                            {{ showStatus(user) }}
-                          </span>
-            		   </td>
-                        
-                        <td>
-                          <!-- editable status (select-local) -->
-                          <span editable-text="user.status" e-name="status" e-form="rowform" e-ng-options="s.value as s.text for s in statuses">
+                          <span editable-select="user.status" e-name="status" e-form="rowform" e-ng-options="s.value as s.text for s in statuses">
                             {{ showStatus(user) }}
                           </span>
             		   </td>
                        
                        <td>
                           <!-- editable status (select-local) -->
-                          <span editable-select="user.status" e-name="status" e-form="rowform" e-ng-options="s.value as s.text for s in statuses">
+                          <span editable-text="user.status" e-name="status" e-form="rowform" e-ng-options="s.value as s.text for s in statuses">
                             {{ showStatus(user) }}
                           </span>
             		   </td>
@@ -161,9 +142,7 @@
                         </td>
                       </tr>
                     </table>
-  
-                    <button class="btn btn-default" ng-click="addUser()">Lägg till användare</button>
-                  
+          
                   </div>
                 </div>
               </div>

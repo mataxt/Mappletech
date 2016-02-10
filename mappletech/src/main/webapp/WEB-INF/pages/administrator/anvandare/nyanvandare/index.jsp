@@ -69,8 +69,8 @@
                     <div class="container">
                     <div class="row">
                         <div class="section-title text-center">
-                            <h3>AnvÃ¤ndare</h3>
-                            <p>LÃ¤gg till anvÃ¤ndare</p>
+                            <h3>Användare</h3>
+                            <p>Lägg till användare</p>
                         </div>
                     </div>
                     
@@ -78,12 +78,12 @@
 						<div ng-app="app" ng-controller="Ctrl">
                          <table class="table table-bordered table-hover table-condensed">
                           <tr style="font-weight: bold">
-                            <td style="width:17%">AnvÃ¤ndarnamn</td>
+                            <td style="width:17%">Användarnamn</td>
                             <td style="width:17%">Fullt namn</td>
-                            <td style="width:16%">LÃ¶senord</td>
+                            <td style="width:16%">Lösenord</td>
                             <td style="width:17%">Adress</td>
-                            <td style="width:17%">RÃ¤ttigheter</td>
-                            <td style="width:16%">Ã„ndra</td>
+                            <td style="width:17%">Rättigheter</td>
+                            <td style="width:16%">Ä„ndra</td>
                           </tr>
       					  <tr ng-repeat="user in users">
                           
@@ -140,7 +140,7 @@
                       </tr>
                     </table>
   
-                    <button class="btn btn-default" ng-click="addUser()">Ny anvÃ¤ndare</button>
+                    <button class="btn btn-default" ng-click="addUser()">Ny användare</button>
                   
                   </div>
                 </div>

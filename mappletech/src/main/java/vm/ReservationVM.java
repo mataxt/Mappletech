@@ -9,19 +9,21 @@ public class ReservationVM {
 	private Integer facilityID;
 	private Date timeFrom;
 	private Date timeTo;
+	private String title;
 	
 	public ReservationVM() {
 		
 	}
 	
 	public ReservationVM(Integer reservationId, String host, Integer facilityID,
-			Date timeFrom, Date timeTo) {
+			Date timeFrom, Date timeTo, String title) {
 		super();
 		this.reservationId = reservationId;
 		this.host = host;
 		this.facilityID = facilityID;
 		this.timeFrom = timeFrom;
 		this.timeTo = timeTo;
+		this.setTitle(title);
 	}
 
 	
@@ -34,6 +36,11 @@ public class ReservationVM {
 	public String getHost() {
 		return host;
 	}
+	
+	public void setHost(String host) {
+		this.host = host;
+	}
+
 
 
 	public Date getTimeFrom() {
@@ -47,5 +54,13 @@ public class ReservationVM {
 
 	public Integer getFacilityID() {
 		return facilityID;
+	}
+
+	public String getTitle() {
+		return title;
+	}
+
+	public void setTitle(String title) {
+		this.title = title;
 	}
 }

@@ -21,12 +21,33 @@
         <!-- Custom Fonts -->
         <link href="http://fonts.googleapis.com/css?family=Lobster" rel="stylesheet" type="text/css">
         
+        <!-- Bootstrap time Picker -->
+		<link rel="stylesheet" href="../../UI/css/bootstrap-timepicker.min.css">
+        
+        <!-- daterange picker -->
+		<link rel="stylesheet" href="../../UI/css/daterangepicker-bs3.css">
+        
         <!-- Template js -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.10.2/moment.min.js"></script>
+        <script src="../../UI/js/daterangepicker.js"></script>
+        <script src="../../UI/js/bootstrap-timepicker.min.js"></script>
         <script src="../../UI/js/jquery-2.1.1.min.js"></script>
         <script src="../../UI/bootstrap/js/bootstrap.min.js"></script>
         <script src="../../UI/js/jquery.appear.js"></script>
         <script src="../../UI/js/jqBootstrapValidation.js"></script>
         <script src="../../UI/js/modernizr.custom.js"></script>
+        
+        <script>
+			$(function() {
+				$('input[name="daterange"]').daterangepicker({
+					timePicker: true,
+					timePickerIncrement: 30,
+					locale: {
+						format: 'MM/DD/YYYY h:mm A'
+					}
+				});
+			});
+        </script>
         
         <!--[if lt IE 9]>
             <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
@@ -65,85 +86,29 @@
                             <div class="col-md-12">
                             	<form class="form-change" action="/admin/andra-anvandare/index.php" method="post">
                    
-                                  <label>Epost</label>
+                                  <label>Anläggning</label>
                                   <div class="form-group">
                                      
                                      <select class="form-control" name="mail">
-                                         <option value="test@test.com">test@test.com</option>
-                                         <option value="test2@test2.com">test2@test2.com</option>
-                                         <option value="test3@test3.com">test3@test3.com</option>
+                                         <option value="Tvättstuga 1A">Tvättstuga 1A</option>
+                                         <option value="Tvättstuga 2B">Tvättstuga 2B</option>
+                                         <option value="Lokal 1280">Lokal 1280</option>
+                                         <option value="Bastu">Bastu</option>
                                      </select>
                                   </div> 
                                     
                                  <div class="form-group ">
-                                 <label>Namn</label>
+                                 <label>Tid</label>
                                     
-                                     <div class="input-group input-group-sm ">
-                                       
-                                        <input type="text" class="form-control" placeholder="Förnamn och Efternamn..." name="nametext" maxlength="250">
-                                        
-                                        <span class="input-group-btn">
-                                          <button type="submit" class="btn btn-info btn-flat" name="name">Ändra</button>
-                                        </span>
-                                     </div>
-                                     
-                                     <span style="color:#f56954"></span>
-                                 </div>
-                                  
-                                  <div class="form-group ">
-                                  <label>Lösenord</label>
-                                  
-                                      <div class="input-group input-group-sm ">
-                                       
-                                        <input type="password" class="form-control" placeholder="Minst 6 tecken..." name="passwordtext1" maxlength="128">
-                                        <input type="password" class="form-control" placeholder="Bekräfta lösenord..." name="passwordtext2" maxlength="128">
-                    
-                                        <span class="input-group-btn">
-                                          <button type="submit" class="btn btn-info btn-flat" name="password">Ändra</button>
-                                        </span>
-                                      </div>
-                                      
-                                      <span style="color:#f56954"></span>
-                                      <span style="color:#f56954"></span>
-                                      <span style="color:#f56954"></span>
-                                  </div>
-                                  
-                                  <div class="form-group ">
-                                  <label>Telefon</label>
-                                    
-                                      <div class="input-group input-group-sm ">
-                                       
-                                        <input type="text" class="form-control" placeholder="Telefon..." name="phonetext" maxlength="250">
-                                        
-                                        <span class="input-group-btn">
-                                          <button type="submit" class="btn btn-info btn-flat" name="phone">Ändra</button>
-                                        </span>
-                                      </div>
-                                      
-                                      <span style="color:#f56954"></span>
-                                  </div>
-                                  
-                                  <div class="form-group">
-                                  <label>Rättigheter</label>
-                                  
-                                      <div class="input-group input-group-sm">
-                                          
-                                          <select class="form-control" name="privilegeOption">
-                                              <option value="2">Användare</option>
-                                              <option value="1">Avancerad användare</option>
-                                            <option value="0">Administratör</option>
-                                          </select>
-                                          
-                                          <span class="input-group-btn">
-                                              <button type="submit" class="btn btn-info btn-flat" name="privilege">Ändra</button>
-                                          </span>
-                                          
-                                      </div>
-                                  </div>
-                                  
-                                  <span style="color:#00a65a"></span>
-                                  
-                                  </form>
+                                 	<div class="input-group">
+                                 		<div class="input-group-addon">
+                                         	<i class="fa fa-calendar-plus"></i>
+                                    	</div>
+                                        <input type="text" class="form-control pull-right" id="daterange">
+                                    </div>
+                                </div>
+                               
+								</form>
                             </div>
                         </div>
                         
@@ -151,7 +116,7 @@
                         
                         <div class="row">
                         	<div class="col-md-12">
-                  				 <button type="submit" class="btn btn-success" name="privilege">Uppdatera profil</button>
+                  				 <button type="submit" class="btn btn-success" name="facility">Boka anläggning</button>
                   			</div>
                         </div>
                         
