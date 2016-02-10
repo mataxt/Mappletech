@@ -53,7 +53,7 @@
         
         	<div class="modal-content">
                 <div class="back-modal" data-dismiss="modal">
-                    <a href="/">
+                    <a href="/mappletech/">
                         <div class="lr">
                                 <div class="rl"></div>
                         </div>
@@ -141,7 +141,7 @@
                       </tr>
                     </table>
   					
-                    <a href="/administrator/lagg-till-anvandare/">
+                    <a href="/administrator/anvandare/lagg-till-anvandare/">
                     	<button class="btn-lg btn btn-default">Lägg till användare</button>
                   	</a>
                   </div>
