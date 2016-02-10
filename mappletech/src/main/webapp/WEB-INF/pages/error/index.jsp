@@ -46,7 +46,7 @@
         
         	<div class="modal-content">
                 <div class="back-modal" data-dismiss="modal">
-                    <a href="#" onclick="history.back(); return false;">
+                    <a href="/mappletech">
                         <div class="lr">
                                 <div class="rl"></div>
                         </div>
