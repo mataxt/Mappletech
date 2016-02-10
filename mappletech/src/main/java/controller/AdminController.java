@@ -16,34 +16,34 @@ public class AdminController {
 
 	private final String URI = "http://130.237.84.211:8080/mappletech/rest/admin";
 	
-	@RequestMapping(value = { "/administrator/anvandare/lagg-till-anvandare" }, method = RequestMethod.GET)
+	// ======================== lagg-till-anvandare ==========================
+	
+	@RequestMapping(value = { "/administrator/anvandare/nyanvandare" }, method = RequestMethod.GET)
 	public ModelAndView addUsersGet() {
 		System.out.println("In GET anvandare hantera");
-		ModelAndView mv = new ModelAndView("administrator/anvandare/lagg-till-anvandare/index");
+		ModelAndView mv = new ModelAndView("administrator/anvandare/nyanvandare/index");
 		mv.addObject("uservm", new UserVM());
 		return mv;
 	}
 
-	@RequestMapping(value = "/administrator/anvandare/lagg-till-anvandare", method = RequestMethod.POST)
+	@RequestMapping(value = "/administrator/anvandare/nyanvandare", method = RequestMethod.POST)
 	public String addUsersPost(@ModelAttribute("uservm") UserVM userVm, Model model) {
 		
-		System.out.println("In POST anvandare hantera");
 		UserVM newUser = new UserVM(userVm.getUsername(), generatePassword(), userVm.getFullName(), userVm.getPrivilege());
 		RestTemplate restTemplate = new RestTemplate();
 		boolean userExists = restTemplate.postForObject(URI, newUser, Boolean.class);
 		
-		if (userExists) {
-			System.out.println("Failed");
-			return "redirect:/administrator/anvandare/lagg-till-anvandare/index";
+		if (!userExists) {
+			return "redirect:/administrator/anvandare/nyanvandare/index";
 		}
-		System.out.println("Success!");
 		return "redirect:/administrator/anvandare";
 	}
+	// ======================================================================
 	
 	
+	// ===================== Edit anvandare =================================
 	@RequestMapping(value = { "/administrator/anvandare" }, method = RequestMethod.GET)
 	public ModelAndView editUsersGet() {
-		System.out.println("In GET anvandare Edit...");
 		ModelAndView mv = new ModelAndView("administrator/anvandare/index");
 		mv.addObject("uservm", new UserVM());
 		return mv;
@@ -52,7 +52,6 @@ public class AdminController {
 	@RequestMapping(value = "/administrator/anvandare", method = RequestMethod.POST)
 	public String editUsersPost(@ModelAttribute("uservm") UserVM userVm, Model model) {
 
-		System.out.println("In POST anvandare/editUser...");
 		UserVM newUser = new UserVM();
 		
 		newUser.setUsername(userVm.getUsername());
@@ -61,11 +60,12 @@ public class AdminController {
 		newUser.setMobileNumber(userVm.getMobileNumber());
 		newUser.setAddress(userVm.getAddress());
 		newUser.setPrivilege(userVm.getPrivilege());
-		
-		System.out.println("Edit Success!");
-		return "redirect:/administrator";
+
+		return "redirect:/administrator/anvandare";
 	}
 
+	// ======================================================================
+	
 	private String generatePassword() {
 		final String charset = "0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
 		Random rand = new Random(System.currentTimeMillis());
