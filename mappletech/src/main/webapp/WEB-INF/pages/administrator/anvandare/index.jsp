@@ -26,6 +26,13 @@
     <link href="http://fonts.googleapis.com/css?family=Lobster"
         rel="stylesheet" type="text/css">
    
+   	<!--EXTRA CSS/JS FOR TABLE-->
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.0.8/angular.min.js"></script>
+	<script src="http://vitalets.github.io/angular-xeditable/dist/js/xeditable.js"></script>
+	<script src="https://code.angularjs.org/1.0.8/angular-mocks.js"></script>
+	<link href="http://vitalets.github.io/angular-xeditable/dist/css/xeditable.css" rel="stylesheet" type="text/css">
+	<link href="<%=request.getContextPath()%>/resources/UI/css/angular-extra-table.css" rel="stylesheet">
+   
     <!-- Template js -->
     <script src="<%=request.getContextPath()%>/resources/UI/js/jquery-2.1.1.min.js"></script>
     <script src="<%=request.getContextPath()%>/resources/UI/bootstrap/js/bootstrap.min.js"></script>
