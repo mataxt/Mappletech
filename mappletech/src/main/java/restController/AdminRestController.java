@@ -15,21 +15,14 @@ public class AdminRestController {
 	public boolean addUsers(@RequestBody(required=true) UserVM user)
 	{
 		System.out.println("Password: \n"+user.getPassword()+"\n");
-		User u = UserDAO.fetchUser(user.getUsername());
-		
-		if(u == null) {
-			User newUser = new User();
+		User newUser = new User();
 			
-			newUser.setUsername(user.getUsername());
-			newUser.setFullName(user.getFullName());
-			newUser.setPassword(user.getPassword());
-			newUser.setPrivilege(user.getPrivilege());
+		newUser.setUsername(user.getUsername());
+		newUser.setFullName(user.getFullName());
+		newUser.setPassword(user.getPassword());
+		newUser.setPrivilege(user.getPrivilege());
 			
-			UserDAO.addUser(newUser);
-			
-			return false;
-		}
-		return true;
+		return UserDAO.addUser(newUser);
 	}
 	
 }
