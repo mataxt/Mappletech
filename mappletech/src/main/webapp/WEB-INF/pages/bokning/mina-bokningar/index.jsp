@@ -120,7 +120,7 @@
                       </tr>
                     </table>
   					
-                    <a href="/bokning/boka/">
+                    <a href="/mappletech/bokning/boka/">
                     	<button class="btn-lg btn btn-default">Ny bokning</button>
                   	</a>
                   </div>
