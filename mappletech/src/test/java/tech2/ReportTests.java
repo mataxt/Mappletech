@@ -19,7 +19,7 @@ public class ReportTests extends TestCase {
 
 	// assigning the values
 	protected void setUp() {
-		
+
 		user = new User();
 		user.setUsername("username");
 		user.setPassword("password");
@@ -28,18 +28,19 @@ public class ReportTests extends TestCase {
 		user.setAddress("address");
 		user.setPrivilege(0);
 		user.setPhoneNumber("phonenumber");
-		
+
 		UserDAO.addUser(user);
-		
+
 		report1 = new Report();
 		report1.setReporter(user);
 		report1.setReason("reason1");
 		report1.setDescription("description1");
 		report1.setStatus("status1");
 		report1.setDate(Date.valueOf("2001-10-10"));
-		
+
 	}
-	 protected void tearDown() {
+
+	protected void tearDown() {
 		UserDAO.removeUser(user);
 	}
 
@@ -52,38 +53,38 @@ public class ReportTests extends TestCase {
 		} catch (AssertionError e) {
 			System.out.println("Failed at testAdd report");
 			throw e;
-		} finally {
-			reportId = report1.getReportId(); 
-			//UserDAO.removeUser(user);
 		}
 	}
-	
+
 	public void testFetchReport() {
-		try {
-			System.out.println("asdasd"+reportId);
-			Report tmpReport = new Report();
-			tmpReport = ReportDAO.fetchReport(report1.getReportId());
-			
-			assertTrue(tmpReport != null);
-			assertEquals(report1.getReportId(), tmpReport.getReportId());
-			assertEquals(report1.getReporter().getUsername(), tmpReport.getReporter().getUsername());
-			assertEquals(report1.getReason(), tmpReport.getReason());
-			assertEquals(report1.getDescription(), tmpReport.getDescription());
-			assertEquals(report1.getStatus(), tmpReport.getStatus());
-			assertEquals(report1.getDate(), tmpReport.getDate());
-			
-			System.out.println("Success fetch report");
-		} catch (AssertionError e) {
-			System.out.println("Failed at testFetchReport");
-			throw e;
-		} finally {
-		
+		report1.setReportId(ReportDAO.addReport(report1));
+		if (report1.getReportId() != null) {
+			try {
+				System.out.println("asdasd" + report1.getReportId());
+				Report tmpReport = new Report();
+				tmpReport = ReportDAO.fetchReport(report1.getReportId());
+
+				assertTrue(tmpReport != null);
+				assertEquals(report1.getReportId(), tmpReport.getReportId());
+				assertEquals(report1.getReporter().getUsername(), tmpReport.getReporter().getUsername());
+				assertEquals(report1.getReason(), tmpReport.getReason());
+				assertEquals(report1.getDescription(), tmpReport.getDescription());
+				assertEquals(report1.getStatus(), tmpReport.getStatus());
+				assertEquals(report1.getDate(), tmpReport.getDate());
+
+				System.out.println("Success fetch report");
+			} catch (AssertionError e) {
+				System.out.println("Failed at testFetchReport");
+				throw e;
+			} finally {
+				ReportDAO.removeReport(report1);
+			}
+
 		}
-		
-	}	
-	
+	}
+
 	public void testGetAllReports() {
-		
+
 		try {
 			assertTrue(ReportDAO.getAllReports() != null);
 			System.out.println("Success getAllReports");
@@ -91,48 +92,36 @@ public class ReportTests extends TestCase {
 			System.out.println("Failed at testFetchReport");
 			throw e;
 		} finally {
-			
+
 		}
-		
+
 	}
-	
-	
+
 	public void testChangeReport() {
 		String newValue = "testNewValue";
-		try {
-			Report tmpReport=new Report();
-			
-			
-			assertTrue(ReportDAO.changeReport(report1, newValue, "reason"));
-			tmpReport = ReportDAO.fetchReport(4);
-			assertTrue(tmpReport != null);
-			
-			assertEquals(report1.getReportId(), tmpReport.getReportId());
-			assertEquals(report1.getReporter(), tmpReport.getReporter());
-			assertEquals(report1.getReason(), tmpReport.getReason());
-			assertEquals(report1.getDescription(), tmpReport.getDescription());
-			assertEquals(report1.getStatus(), tmpReport.getStatus());
-			assertEquals(report1.getDate(), tmpReport.getDate());
-			
-			System.out.println("Success");
-		} catch (AssertionError e) {
-			System.out.println("Failed at testChangeReport");
-			throw e;
-		} finally {
-			
-		}	
-	}
+		report1.setReportId(ReportDAO.addReport(report1));
+		if (report1.getReportId() != null) {
+			try {
+				Report tmpReport = new Report();
 	
-	public void testRemove() {
-		try {
-			
-			assertTrue(ReportDAO.removeReport(report1));
-			System.out.println("Success remove reports");
-		} catch (AssertionError e) {
-			System.out.println("Failed at testRemove");
-			throw e;
-		} finally {
-			//UserDAO.removeUser(user); 
+				assertTrue(ReportDAO.changeReport(report1, newValue, "reason"));
+				tmpReport = ReportDAO.fetchReport(report1.getReportId());
+				assertTrue(tmpReport != null);
+	
+				assertEquals(report1.getReportId(), tmpReport.getReportId());
+				assertEquals(report1.getReporter().getUsername(), tmpReport.getReporter().getUsername());
+				assertEquals(report1.getReason(), tmpReport.getReason());
+				assertEquals(report1.getDescription(), tmpReport.getDescription());
+				assertEquals(report1.getStatus(), tmpReport.getStatus());
+				assertEquals(report1.getDate(), tmpReport.getDate());
+	
+				System.out.println("Success");
+			} catch (AssertionError e) {
+				System.out.println("Failed at testChangeReport");
+				throw e;
+			} finally {
+				ReportDAO.removeReport(report1);
+			}
 		}
 	}
 }
