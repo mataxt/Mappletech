@@ -11,7 +11,7 @@ import vm.UserVM;
 @RestController
 public class AdminRestController {
 
-	@RequestMapping(value="/administrator/anvandare")
+	@RequestMapping(value="/admin/user/add")
 	public boolean addUsers(@RequestBody(required=true) UserVM user)
 	{
 		User newUser = new User();

@@ -45,7 +45,7 @@ public class AdminRestControllerTest extends TestCase {
 	public void testFetchUserThatDoesntExist() {
 		
 		try {
-			final String URI = "http://130.237.84.211:8080/mappletech/rest/administrator/anvandare";
+			final String URI = "http://130.237.84.211:8080/mappletech/rest/admin/user/add";
 			
 			UserVM newUser = new UserVM(user.getUsername(), "testFetchUserNoExist", user.getFullName(), user.getPrivilege());
 			RestTemplate restTemplate = new RestTemplate();
@@ -75,7 +75,7 @@ public class AdminRestControllerTest extends TestCase {
 			try {	
 				UserVM newUser = new UserVM(user2.getUsername(), "testFetchUserExist", user2.getFullName(), user2.getPrivilege());
 				RestTemplate restTemplate = new RestTemplate();
-				final String URI = "http://130.237.84.211:8080/mappletech/rest/administrator/anvandare";
+				final String URI = "http://130.237.84.211:8080/mappletech/rest/admin/user/add";
 				boolean userNotExist = restTemplate.postForObject(URI, newUser, Boolean.class);
 				
 				assertEquals(false , userNotExist);
