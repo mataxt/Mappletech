@@ -39,31 +39,15 @@ public class ReportTests extends TestCase {
 		report1.setDate(Date.valueOf("2001-10-10"));
 		
 	}
-	
-	public void testConnect() {
-		EntityManagerFactory emf = Persistence.createEntityManagerFactory("UserPU");
-		EntityManager em = emf.createEntityManager();
-		try {
-			em.getTransaction().begin();
-			em.getTransaction().commit();
-		} catch (Exception e) {
-			if (em.getTransaction().isActive()) {
-				em.getTransaction().rollback();
-			}
-			System.out.println("Failed at testConnect");
-		} finally {
-			if (em != null) {
-				em.close();
-			}
-			if (emf != null) {
-				emf.close();
-			}
-		}
+	 protected void tearDown() {
+		UserDAO.removeUser(user);
 	}
 
 	public void testAdd() {
 		try {
-			assertTrue(ReportDAO.addReport(report1));
+			report1.setReportId(ReportDAO.addReport(report1));
+			assertTrue(report1.getReportId() != null);
+			assertTrue(ReportDAO.removeReport(report1));
 			System.out.println("Success add report");
 		} catch (AssertionError e) {
 			System.out.println("Failed at testAdd report");
@@ -78,11 +62,11 @@ public class ReportTests extends TestCase {
 		try {
 			System.out.println("asdasd"+reportId);
 			Report tmpReport = new Report();
-			tmpReport = ReportDAO.fetchReport(reportId);
+			tmpReport = ReportDAO.fetchReport(report1.getReportId());
 			
 			assertTrue(tmpReport != null);
 			assertEquals(report1.getReportId(), tmpReport.getReportId());
-			assertEquals(report1.getReporter(), tmpReport.getReporter());
+			assertEquals(report1.getReporter().getUsername(), tmpReport.getReporter().getUsername());
 			assertEquals(report1.getReason(), tmpReport.getReason());
 			assertEquals(report1.getDescription(), tmpReport.getDescription());
 			assertEquals(report1.getStatus(), tmpReport.getStatus());

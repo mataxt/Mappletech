@@ -23,20 +23,19 @@ public class ReportDAO {
 	 *            model.Report
 	 * @return true, if successful
 	 */
-	public static boolean addReport(Report report) {
-		boolean registered = false;
+	public static Integer addReport(Report report) {
+		Integer id = null;
 		EntityManagerFactory emf = Persistence.createEntityManagerFactory("TestPU");
 		EntityManager em = emf.createEntityManager();
 		try {
 			em.getTransaction().begin();
 			em.persist(report);
 			em.getTransaction().commit();
-			registered = true;
+			id = report.getReportId();
 		} catch (Exception e) {
 			if (em.getTransaction().isActive()) {
 				em.getTransaction().rollback();
 			}
-			registered = false;
 		} finally {
 			if (em != null) {
 				em.close();
@@ -45,7 +44,7 @@ public class ReportDAO {
 				emf.close();
 			}
 		}
-		return registered;
+		return id;
 	}
 
 	public static List<Report> getAllReports() {
