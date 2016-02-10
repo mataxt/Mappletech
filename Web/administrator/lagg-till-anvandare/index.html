@@ -73,7 +73,7 @@
                     <div class="row">
                         <div class="section-title text-center">
                             <h3>Användare</h3>
-                            <p>Hantera användare här</p>
+                            <p>Lägg till användare</p>
                         </div>
                     </div>
                     
@@ -92,7 +92,7 @@
                           
         				<td>
                           <!-- editable username (text with validation) -->
-                          <span e-name="name" e-form="rowform" onbeforesave="checkName($data, user.id)" e-required>
+                          <span editable-text="user.name" e-name="name" e-form="rowform" onbeforesave="checkName($data, user.id)" e-required>
                            {{ user.name || 'empty' }}
                           </span>
                     	</td>
@@ -138,15 +138,12 @@
                                 </button>
                         </form>
                           
-                            <div class="buttons" ng-show="!rowform.$visible">
-                              <button class="btn btn-info" ng-click="rowform.$show()">Ändra</button>
-                              <button class="btn btn-danger" ng-click="removeUser($index)">Ta bort</button>
-                            </div>  
+                            
                         </td>
                       </tr>
                     </table>
   
-                    <button class="btn btn-default"><a href="../lagg-till-anvandare/index.html">Lägg till användare</a></button>
+                    <button class="btn btn-default" ng-click="addUser()">Ny användare</button>
                   
                   </div>
                 </div>

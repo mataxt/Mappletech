@@ -9,11 +9,13 @@ import junit.framework.TestCase;
 import model.Report;
 import model.User;
 import testdao.ReportDAO;
+import testdao.UserDAO;
 
 public class ReportTests extends TestCase {
 
 	Report report1;
 	User user;
+	Integer reportId;
 
 	// assigning the values
 	protected void setUp() {
@@ -27,8 +29,9 @@ public class ReportTests extends TestCase {
 		user.setPrivilege(0);
 		user.setPhoneNumber("phonenumber");
 		
+		UserDAO.addUser(user);
+		
 		report1 = new Report();
-		report1.setReportId(40);
 		report1.setReporter(user);
 		report1.setReason("reason1");
 		report1.setDescription("description1");
@@ -36,7 +39,7 @@ public class ReportTests extends TestCase {
 		report1.setDate(Date.valueOf("2001-10-10"));
 		
 	}
-
+	
 	public void testConnect() {
 		EntityManagerFactory emf = Persistence.createEntityManagerFactory("UserPU");
 		EntityManager em = emf.createEntityManager();
@@ -65,13 +68,17 @@ public class ReportTests extends TestCase {
 		} catch (AssertionError e) {
 			System.out.println("Failed at testAdd report");
 			throw e;
+		} finally {
+			reportId = report1.getReportId(); 
+			//UserDAO.removeUser(user);
 		}
 	}
 	
 	public void testFetchReport() {
 		try {
+			System.out.println("asdasd"+reportId);
 			Report tmpReport = new Report();
-			tmpReport = ReportDAO.fetchReport(4);
+			tmpReport = ReportDAO.fetchReport(reportId);
 			
 			assertTrue(tmpReport != null);
 			assertEquals(report1.getReportId(), tmpReport.getReportId());
@@ -134,11 +141,14 @@ public class ReportTests extends TestCase {
 	
 	public void testRemove() {
 		try {
+			
 			assertTrue(ReportDAO.removeReport(report1));
 			System.out.println("Success remove reports");
 		} catch (AssertionError e) {
 			System.out.println("Failed at testRemove");
 			throw e;
+		} finally {
+			//UserDAO.removeUser(user); 
 		}
 	}
 }
