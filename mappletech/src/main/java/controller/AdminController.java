@@ -17,7 +17,7 @@ public class AdminController {
 	private final String URI = "http://130.237.84.211:8080/mappletech/rest/admin";
 	
 	
-	@RequestMapping(value = { "/administrator/anvandare" }, method = RequestMethod.GET)
+	@RequestMapping(value = { "/administrator/anvandare/" }, method = RequestMethod.GET)
 	public ModelAndView addUsersGet() {
 		System.out.println("In GET anvandare hantera");
 		ModelAndView mv = new ModelAndView("administrator/anvandare");
@@ -25,7 +25,7 @@ public class AdminController {
 		return mv;
 	}
 
-	@RequestMapping(value = "/administrator/anvandare", method = RequestMethod.POST)
+	@RequestMapping(value = "/administrator/anvandare/", method = RequestMethod.POST)
 	public String addUsersPost(@ModelAttribute("uservm") UserVM userVm, Model model) {
 
 		System.out.println("In POST anvandare hantera");
@@ -35,7 +35,7 @@ public class AdminController {
 		
 		if (userExists) {
 			System.out.println("Failed");
-			return "redirect:/administrator/anvandare";
+			return "redirect:/administrator/";
 		}
 		System.out.println("Success!");
 		return "redirect:/administrator";

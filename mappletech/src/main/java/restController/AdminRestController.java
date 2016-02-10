@@ -9,7 +9,7 @@ import model.User;
 import vm.UserVM;
 
 @RestController
-public class AdminRestControler {
+public class AdminRestController {
 
 	@RequestMapping(value="/administrator/anvandare")
 	public boolean addUsers(@RequestBody(required=true) UserVM user)

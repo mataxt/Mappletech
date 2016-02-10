@@ -12,8 +12,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    
-        <title>Mappletech - Login</title>
+    <title>Mappletech - Login</title>
     
     <!-- Bootstrap Core CSS -->
     <link href="<%=request.getContextPath()%>/resources/UI/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -25,8 +24,7 @@
     <link href="<%=request.getContextPath()%>/resources/UI/css/style.css" rel="stylesheet">
     
     <!-- Custom Fonts -->
-    <link href="http://fonts.googleapis.com/css?family=Lobster"
-        rel="stylesheet" type="text/css">
+    <link href="http://fonts.googleapis.com/css?family=Lobster" rel="stylesheet" type="text/css">
    
     <!-- Template js -->
     <script src="<%=request.getContextPath()%>/resources/UI/js/jquery-2.1.1.min.js"></script>
