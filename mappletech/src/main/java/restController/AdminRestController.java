@@ -14,9 +14,10 @@ public class AdminRestController {
 	@RequestMapping(value="/administrator/anvandare")
 	public boolean addUsers(@RequestBody(required=true) UserVM user)
 	{
-		System.out.println("Password: \n"+user.getPassword()+"\n");
 		User newUser = new User();
-			
+
+		System.out.println("-------------------" + user.getUsername() +  "--------------------");
+		
 		newUser.setUsername(user.getUsername());
 		newUser.setFullName(user.getFullName());
 		newUser.setPassword(user.getPassword());
