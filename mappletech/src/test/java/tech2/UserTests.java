@@ -24,30 +24,9 @@ public class UserTests extends TestCase {
 
 	}
 
-	public void testConnect() {
-		EntityManagerFactory emf = Persistence.createEntityManagerFactory("UserPU");
-		EntityManager em = emf.createEntityManager();
-		try {
-			em.getTransaction().begin();
-			em.getTransaction().commit();
-		} catch (Exception e) {
-			if (em.getTransaction().isActive()) {
-				em.getTransaction().rollback();
-			}
-			System.out.println("Failed at testConnect");
-		} finally {
-			if (em != null) {
-				em.close();
-			}
-			if (emf != null) {
-				emf.close();
-			}
-		}
-	}
-
 	public void testAddRemove() {
+		user.setUsername("testAddRemove");
 		try {
-			user.setUsername("testAddRemove");
 			assertTrue(UserDAO.addUser(user));
 			assertTrue(UserDAO.removeUser(user));
 			System.out.println("Success");
@@ -116,15 +95,15 @@ public class UserTests extends TestCase {
 	
 	public void testChangeUser() {
 		user.setUsername("testChangeUser");
-		String password ="123";
+		user.setPassword("123");
 		if (UserDAO.addUser(user)) {
 			try {
 				User tmpUser=new User();
 				
-				assertTrue(UserDAO.changeUser(user, password,"password"));
+				assertTrue(UserDAO.changeUser(user));
 				tmpUser = UserDAO.fetchUser(user.getUsername());
 				assertTrue(tmpUser != null);
-				assertEquals(password, tmpUser.getPassword());
+				assertEquals("123", tmpUser.getPassword());
 				assertEquals(user.getUsername(), tmpUser.getUsername());
 				assertEquals(user.getAddress(), tmpUser.getAddress());
 				assertEquals(user.getEmail(), tmpUser.getEmail());
@@ -138,6 +117,8 @@ public class UserTests extends TestCase {
 				System.out.println("Failed at testChangeUser");
 				throw e;
 			} finally {
+				System.out.println("finally testChangeUser");
+				System.out.println(user.getUsername());
 				UserDAO.removeUser(user);
 			}
 		}

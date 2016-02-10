@@ -41,8 +41,6 @@ public class ReservationVM {
 		this.host = host;
 	}
 
-
-
 	public Date getTimeFrom() {
 		return timeFrom;
 	}

@@ -126,8 +126,7 @@ public class ReservationDAO {
 	 *            "privilege"}
 	 * @return true, if successful
 	 */
-	public static boolean changeReservation(Reservation reservation,
-			String value, String operation) {
+	public static boolean changeReservation(Reservation reservation) {
 		EntityManagerFactory emf = Persistence
 				.createEntityManagerFactory("TestPU");
 		EntityManager em = emf.createEntityManager();
@@ -137,31 +136,15 @@ public class ReservationDAO {
 			Reservation r = em.find(Reservation.class,
 					reservation.getReservationId());
 			if (r != null) {
-				switch (operation) {
-				case "title":
-					r.setTitle(value);
-					break;
-				case "host":
-					r.setHost(new User(value));
-					break;
-				case "facilityid":
-					Facility fac = new Facility();
-					fac.setFacilityId(Integer.parseInt(value));
-					r.setFacility(fac);
-					break;
-				case "timefrom":
-					r.setTimeFrom(Date.valueOf(value));
-					break;
-				case "timeto":
-					r.setTimeTo(Date.valueOf(value));
-					break;
-				default:
-					break;
+					r.setTitle(reservation.getTitle());
+					r.setHost(reservation.getHost());
+					r.setFacility(reservation.getFacility());
+					r.setTimeFrom(reservation.getTimeFrom());
+					r.setTimeTo(reservation.getTimeTo());
+					em.merge(r);
+					success = true;
 				}
-				em.merge(r);
 				em.getTransaction().commit();
-				success = true;
-			}
 		} catch (Exception e) {
 			e.printStackTrace();
 		} finally {
@@ -174,7 +157,8 @@ public class ReservationDAO {
 		}
 		return success;
 	}
-
+	
+	
 	/**
 	 * Removes the Reservation.
 	 *
@@ -191,6 +175,43 @@ public class ReservationDAO {
 			em.getTransaction().begin();
 			Reservation r = em.find(Reservation.class,
 					reservation.getReservationId());
+			if (r != null) {
+				em.remove(r);
+				success = true;
+			}
+			em.getTransaction().commit();
+		} catch (Exception e) {
+			if (em.getTransaction().isActive()) {
+				em.getTransaction().rollback();
+			}
+		} finally {
+			if (em != null) {
+				em.close();
+			}
+			if (emf != null) {
+				emf.close();
+			}
+		}
+		return success;
+	}
+	
+
+	/**
+	 * Removes the Reservation.
+	 *
+	 * @param model
+	 *            .Reservation
+	 * @return true, if successful
+	 */
+	public static boolean removeReservation(int reservationId) {
+		EntityManagerFactory emf = Persistence
+				.createEntityManagerFactory("TestPU");
+		EntityManager em = emf.createEntityManager();
+		boolean success = false;
+		try {
+			em.getTransaction().begin();
+			Reservation r = em.find(Reservation.class,
+					reservationId);
 			if (r != null) {
 				em.remove(r);
 				success = true;

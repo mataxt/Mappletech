@@ -136,9 +136,9 @@ public class ReservationTests extends TestCase {
 			Date TimeTo = Date.valueOf("2015-02-05");
 			if (ReservationDAO.addReservation(reservation)) {
 				try {
-					
+					reservation.setTimeTo(TimeTo);
 					Reservation tmpRes = new Reservation();
-					assertTrue(ReservationDAO.changeReservation(reservation, TimeTo.toString(),"timeto"));
+					assertTrue(ReservationDAO.changeReservation(reservation));
 					tmpRes = ReservationDAO.fetchReservation(reservation
 							.getReservationId());
 					

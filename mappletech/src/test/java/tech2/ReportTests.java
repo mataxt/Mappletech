@@ -112,8 +112,8 @@ public class ReportTests extends TestCase {
 		if (report1.getReportId() != null) {
 			try {
 				Report tmpReport = new Report();
-	
-				assertTrue(ReportDAO.changeReport(report1, newValue, "reason"));
+				report1.setReason(newValue);
+				assertTrue(ReportDAO.changeReport(report1));
 				tmpReport = ReportDAO.fetchReport(report1.getReportId());
 				assertTrue(tmpReport != null);
 	

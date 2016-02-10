@@ -13,6 +13,8 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
+import vm.ReservationVM;
+
 @Entity
 @Table(name = "Reservations")
 public class Reservation implements Serializable {
@@ -48,7 +50,7 @@ public class Reservation implements Serializable {
 	}
 
 	@ManyToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name = "Host", nullable = true)
+	@JoinColumn(name = "Host", nullable = false)
 	public User getHost() {
 		return host;
 	}

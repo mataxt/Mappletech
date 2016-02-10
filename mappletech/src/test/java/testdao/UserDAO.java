@@ -146,7 +146,7 @@ public class UserDAO {
 	 *            "privilege"}
 	 * @return true, if successful
 	 */
-	public static boolean changeUser(User user, String value, String operation) {
+	public static boolean changeUser(User user) {
 		EntityManagerFactory emf = Persistence
 				.createEntityManagerFactory("TestPU");
 		EntityManager em = emf.createEntityManager();
@@ -155,32 +155,16 @@ public class UserDAO {
 			em.getTransaction().begin();
 			User u = em.find(User.class, user.getUsername());
 			if (u != null) {
-				switch (operation) {
-				case "password":
-					u.setPassword(value);
-					break;
-				case "fullname":
-					u.setFullName(value);
-					break;
-				case "address":
-					u.setAddress(value);
-					break;
-				case "phonenumber":
-					u.setPhoneNumber(value);
-					break;
-				case "email":
-					u.setEmail(value);
-					break;
-				case "privilege":
-					u.setPrivilege(Integer.parseInt(value));
-					break;
-				default:
-					break;
-				}
+				u.setPassword(user.getPassword());
+				u.setFullName(user.getFullName());
+				u.setAddress(user.getAddress());
+				u.setPhoneNumber(user.getPhoneNumber());
+				u.setEmail(user.getEmail());
+				u.setPrivilege(user.getPrivilege());
 				em.merge(u);
-				em.getTransaction().commit();
 				success = true;
 			}
+			em.getTransaction().commit();
 		} catch (Exception e) {
 			e.printStackTrace();
 		} finally {

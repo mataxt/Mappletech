@@ -21,22 +21,21 @@ public class ReportDAO {
 	 *
 	 * @param Report
 	 *            model.Report
-	 * @return true, if successful
+	 * @return id, if successful otherwise null
 	 */
-	public static boolean addReport(Report report) {
-		boolean registered = false;
+	public static Integer addReport(Report report) {
+		Integer id = null;
 		EntityManagerFactory emf = Persistence.createEntityManagerFactory("UserPU");
 		EntityManager em = emf.createEntityManager();
 		try {
 			em.getTransaction().begin();
 			em.persist(report);
 			em.getTransaction().commit();
-			registered = true;
+			id = report.getReportId();
 		} catch (Exception e) {
 			if (em.getTransaction().isActive()) {
 				em.getTransaction().rollback();
 			}
-			registered = false;
 		} finally {
 			if (em != null) {
 				em.close();
@@ -45,7 +44,7 @@ public class ReportDAO {
 				emf.close();
 			}
 		}
-		return registered;
+		return id;
 	}
 
 	public static List<Report> getAllReports() {
@@ -111,42 +110,24 @@ public class ReportDAO {
 	 *            {"host", "description", "add", "remove}
 	 * @return true, if successful
 	 */
-	public static boolean changeReport(Report Report, String value, String operation) {
+	public static boolean changeReport(Report report) {
 		EntityManagerFactory emf = Persistence.createEntityManagerFactory("UserPU");
 		EntityManager em = emf.createEntityManager();
 		boolean success = false;
 		try {
 			em.getTransaction().begin();
-			Report u = em.find(Report.class, Report.getReportId());
+			Report u = em.find(Report.class, report.getReportId());
 			if (u != null) {
-				switch (operation) {
-				case "date":
-					u.setDate(Date.valueOf(value));
-					success = true;
-					break;
-				case "description":
-					u.setDescription(value);
-					success = true;
-					break;
-				case "reason":
-					u.setReason(value);
-					success = true;
-					break;
-				case "reporter":
-					u.setReporter(new User(value));
-					success = true;
-					break;
-				case "status":
-					u.setStatus(value);
-					success = true;
-					break;
-				default:
-					break;
-				}
+				u.setDate(report.getDate());
+				u.setDescription(report.getDescription());
+				u.setReason(report.getReason());
+				u.setReporter(report.getReporter());
+				u.setStatus(report.getStatus());
 				em.merge(u);
-				em.getTransaction().commit();
-
+				success = true;
 			}
+
+			em.getTransaction().commit();
 		} catch (Exception e) {
 			e.printStackTrace();
 		} finally {
