@@ -1,6 +1,5 @@
 package dao;
 
-import java.sql.Date;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -9,7 +8,7 @@ import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 
 import model.Event;
-import model.User;
+
 
 /**
  * The Class EventDAO.
@@ -111,36 +110,21 @@ public class EventDAO {
 	 *            {"title", "description", "date", "creator"}
 	 * @return true, if successful
 	 */
-	public static boolean changeEvent(Event Event, String value, String operation) {
+	public static boolean changeEvent(Event event) {
 		EntityManagerFactory emf = Persistence.createEntityManagerFactory("UserPU");
 		EntityManager em = emf.createEntityManager();
 		boolean success = false;
 		try {
 			em.getTransaction().begin();
-			Event e = em.find(Event.class, Event.getEventID());
+			Event e = em.find(Event.class, event.getEventID());
 			if (e != null) {
-				switch (operation) {
-				case "creator":
-					e.setCreator(new User(value));
-					success = true;
-					break;
-				case "description":
-					e.setDescription(value);
-					success = true;
-					break;
-				case "date":
-					e.setDate(Date.valueOf(value));
-					success = true;
-					break;
-				case "title":
-					e.setTitle(value);
-				default:
-					break;
-				}
+				e.setDescription(event.getDescription());
+				e.setDate(event.getDate());
+				e.setTitle(event.getTitle());
 				em.merge(e);
-				em.getTransaction().commit();
-
+				success = true;
 			}
+			em.getTransaction().commit();
 		} catch (Exception e) {
 			e.printStackTrace();
 		} finally {
