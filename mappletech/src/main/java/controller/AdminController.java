@@ -16,15 +16,15 @@ public class AdminController {
 
 	private final String URI = "http://130.237.84.211:8080/mappletech/rest/admin";
 	
-	@RequestMapping(value = { "/administrator/lagg-till-anvandare" }, method = RequestMethod.GET)
+	@RequestMapping(value = { "/administrator/anvandare/lagg-till-anvandare" }, method = RequestMethod.GET)
 	public ModelAndView addUsersGet() {
 		System.out.println("In GET anvandare hantera");
-		ModelAndView mv = new ModelAndView("administrator/lagg-till-anvandare/index");
+		ModelAndView mv = new ModelAndView("administrator/anvandare/lagg-till-anvandare/index");
 		mv.addObject("uservm", new UserVM());
 		return mv;
 	}
 
-	@RequestMapping(value = "/administrator/lagg-till-anvandare", method = RequestMethod.POST)
+	@RequestMapping(value = "/administrator/anvandare/lagg-till-anvandare", method = RequestMethod.POST)
 	public String addUsersPost(@ModelAttribute("uservm") UserVM userVm, Model model) {
 		
 		System.out.println("In POST anvandare hantera");
