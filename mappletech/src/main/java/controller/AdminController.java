@@ -21,10 +21,10 @@ public class AdminController {
 	
 	// ===================== bokningar =================================
 	
-	@RequestMapping(value = { "/administrator/bokningar" }, method = RequestMethod.GET)
+	@RequestMapping(value = { "/mappletech/administrator/bokningar" }, method = RequestMethod.GET)
 	public ModelAndView editBookingGet() {
 		
-		ModelAndView mv = new ModelAndView("administrator/bokningar/index");
+		ModelAndView mv = new ModelAndView("mappletech/administrator/bokningar/index");
 		ReservationVM reservationVm = new ReservationVM();
 		reservationVm.setHost("username");
 		mv.addObject("reservationVm", reservationVm);
@@ -32,7 +32,7 @@ public class AdminController {
 		return mv;
 	}
 
-	@RequestMapping(value = "/administrator/bokningar", method = RequestMethod.POST)
+	@RequestMapping(value = "/mappletech/administrator/bokningar", method = RequestMethod.POST)
 	public String editBookingPost(@ModelAttribute("reservationVm") ReservationVM reservationVm, Model model) {
 		
 		RestTemplate restTemplate = new RestTemplate();
@@ -40,23 +40,23 @@ public class AdminController {
 		boolean success = restTemplate.postForObject(URI, reservationVm, Boolean.class);
 		
 		if (success) {
-			return "redirect:/administrator/bokningar";
+			return "redirect:/mappletech/administrator/bokningar";
 		}
-		return "redirect:/administrator/bokningar";
+		return "redirect:/mappletech/administrator/bokningar";
 	}
 	// ======================================================================
 	
 	
 	// ===================== Edit anvandare =================================
 	
-	@RequestMapping(value = { "/administrator/anvandare" }, method = RequestMethod.GET)
+	@RequestMapping(value = { "/mappletech/administrator/anvandare" }, method = RequestMethod.GET)
 	public ModelAndView editUsersGet() {
-		ModelAndView mv = new ModelAndView("administrator/anvandare/index");
+		ModelAndView mv = new ModelAndView("mappletech/administrator/anvandare/index");
 		mv.addObject("uservm", new UserVM());
 		return mv;
 	}
 
-	@RequestMapping(value = "/administrator/anvandare", method = RequestMethod.POST)
+	@RequestMapping(value = "/mappletech/administrator/anvandare", method = RequestMethod.POST)
 	public String editUsersPost(@ModelAttribute("uservm") UserVM userVm, Model model) {
 
 		UserVM newUser = new UserVM();
@@ -68,44 +68,44 @@ public class AdminController {
 		newUser.setAddress(userVm.getAddress());
 		newUser.setPrivilege(userVm.getPrivilege());
 
-		return "redirect:/administrator/anvandare";
+		return "redirect:/mappletech/administrator/anvandare";
 	}
 
 	// ======================================================================
 	// ======================== felanmalan ================================
 	
-	@RequestMapping(value = { "/administrator/felanmalan" }, method = RequestMethod.GET)
+	@RequestMapping(value = { "/mappletech/administrator/felanmalan" }, method = RequestMethod.GET)
 	public ModelAndView errorReportGet() {
-		ModelAndView mv = new ModelAndView("administrator/felanmalan/index");
+		ModelAndView mv = new ModelAndView("mappletech/administrator/felanmalan/index");
 		mv.addObject("uservm", new UserVM());
 		return mv;
 	}
 
-	@RequestMapping(value = "/administrator/felanmalan", method = RequestMethod.POST)
+	@RequestMapping(value = "/mappletech/administrator/felanmalan", method = RequestMethod.POST)
 	public String errorReportPost(@ModelAttribute("reportVm") ReportVM reportVm, Model model) {
 		
 		RestTemplate restTemplate = new RestTemplate();
 		boolean success = restTemplate.postForObject(URI, reportVm, Boolean.class);
 		
 		if (success) {
-			return "redirect:/administrator/felanmalan/index";
+			return "redirect:/mappletech/administrator/felanmalan/index";
 		}
-		return "redirect:/administrator/felanmalan/index";
+		return "redirect:/mappletech/administrator/felanmalan/index";
 	}
 	
 	// ======================================================================
 	
 	// ======================== ny anvandare ================================
 	
-			@RequestMapping(value = { "/administrator/anvandare/nyanvandare" }, method = RequestMethod.GET)
+			@RequestMapping(value = { "/mappletech/administrator/anvandare/nyanvandare" }, method = RequestMethod.GET)
 			public ModelAndView addUsersGet() {
 				System.out.println("In GET anvandare hantera");
-				ModelAndView mv = new ModelAndView("administrator/anvandare/nyanvandare/index");
+				ModelAndView mv = new ModelAndView("mappletech/administrator/anvandare/nyanvandare/index");
 				mv.addObject("uservm", new UserVM());
 				return mv;
 			}
 
-			@RequestMapping(value = "/administrator/anvandare/nyanvandare", method = RequestMethod.POST)
+			@RequestMapping(value = "/mappletech/administrator/anvandare/nyanvandare", method = RequestMethod.POST)
 			public String addUsersPost(@ModelAttribute("uservm") UserVM userVm, Model model) {
 				
 				UserVM newUser = new UserVM(userVm.getUsername(), generatePassword(), userVm.getFullName(), userVm.getPrivilege());
@@ -113,9 +113,9 @@ public class AdminController {
 				boolean userExists = restTemplate.postForObject(URI, newUser, Boolean.class);
 				
 				if (!userExists) {
-					return "redirect:/administrator/anvandare/nyanvandare/index";
+					return "redirect:/mappletech/administrator/anvandare/nyanvandare/index";
 				}
-				return "redirect:/administrator/anvandare";
+				return "redirect:/mappletech/administrator/anvandare";
 			}
 	// ======================================================================
 			
