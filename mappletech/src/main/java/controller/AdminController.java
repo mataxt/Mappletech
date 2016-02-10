@@ -34,7 +34,7 @@ public class AdminController {
 		
 		if (userExists) {
 			System.out.println("Failed");
-			return "redirect:/administrator/lagg-till-anvandare";
+			return "redirect:/administrator/anvandare/lagg-till-anvandare/index";
 		}
 		System.out.println("Success!");
 		return "redirect:/administrator/anvandare";
