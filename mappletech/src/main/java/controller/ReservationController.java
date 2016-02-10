@@ -26,7 +26,7 @@ public class ReservationController {
 		return new ModelAndView("bokning/index","resvm", new ReservationVM());
 	}
 
-	@RequestMapping(value = "/add", method = RequestMethod.POST)
+	/*@RequestMapping(value = "/add", method = RequestMethod.POST)
 	public ModelAndView doAdd(@ModelAttribute("uservm") UserVM userVm, Model model) {
 
 		System.out.println("In POST Res...");
@@ -39,5 +39,5 @@ public class ReservationController {
 		} else {
 			return new ModelAndView("login/index","uservm", new UserVM());
 		}
-	}
+	}*/
 }
