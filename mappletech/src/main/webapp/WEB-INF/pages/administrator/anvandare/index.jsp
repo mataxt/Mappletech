@@ -1,55 +1,43 @@
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
+<%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
+
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <meta name="description" content="">
-        <meta name="author" content="">
-        	<title>Mappletech</title>
-
-        <!-- Bootstrap Core CSS -->
-        <link href="../../UI/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-
-        <!-- Font Awesome CSS -->
-        <link href="../../UI/css/font-awesome.min.css" rel="stylesheet"> 
-        
-		<!-- Custom CSS -->
-        <link href="../../UI/css/animate.css" rel="stylesheet">
-
-        <!-- OWL Carousel -->
-        <link href="../../UI/css/owl.carousel.css" rel="stylesheet">
-        <link href="../../UI/css/owl.theme.css" rel="stylesheet">
-        
-        <!-- Custom CSS -->
-        <link href="../../UI/css/style.css" rel="stylesheet">
-
-        <!-- Custom Fonts -->
-        <link href="http://fonts.googleapis.com/css?family=Lobster" rel="stylesheet" type="text/css">
-		
-        <!--EXTRA CSS/JS FOR TABLE-->
-        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.0.8/angular.min.js"></script>
-        <script src="http://vitalets.github.io/angular-xeditable/dist/js/xeditable.js"></script>
-        <script src="https://code.angularjs.org/1.0.8/angular-mocks.js"></script>
-        <link href="http://vitalets.github.io/angular-xeditable/dist/css/xeditable.css" rel="stylesheet" type="text/css">
-        <link href="../../UI/css/angular-extra-table.css" rel="stylesheet">
-        
-        <!-- Template js -->
-        <script src="../../UI/js/jquery-2.1.1.min.js"></script>
-        <script src="../../UI/bootstrap/js/bootstrap.min.js"></script>
-        <script src="../../UI/js/jquery.appear.js"></script>
-        <script src="../../UI/js/contact_me.js"></script>
-        <script src="../../UI/js/owl.carousel.min.js"></script>
-        <script src="../../UI/js/jqBootstrapValidation.js"></script>
-        <script src="../../UI/js/modernizr.custom.js"></script>
-        <script src="../../UI/js/script.js"></script>
-        
-        <!--[if lt IE 9]>
-            <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-            <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-        <![endif]-->
-    </head>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="text/html" charset="ISO-8859-1">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+        <title>Mappletech - Login</title>
+    
+    <!-- Bootstrap Core CSS -->
+    <link href="<%=request.getContextPath()%>/resources/UI/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- Font Awesome CSS -->
+    <link href="<%=request.getContextPath()%>/resources/UI/css/font-awesome.min.css" rel="stylesheet">
+    
+    <!-- Custom CSS -->
+    <link href="<%=request.getContextPath()%>/resources/UI/css/style.css" rel="stylesheet">
+    <link href="<%=request.getContextPath()%>/resources/UI/css/animate.css" rel="stylesheet">
+    
+    <!-- Custom Fonts -->
+    <link href="http://fonts.googleapis.com/css?family=Lobster"
+        rel="stylesheet" type="text/css">
+   
+    <!-- Template js -->
+    <script src="<%=request.getContextPath()%>/resources/UI/js/jquery-2.1.1.min.js"></script>
+    <script src="<%=request.getContextPath()%>/resources/UI/bootstrap/js/bootstrap.min.js"></script>
+    <script src="<%=request.getContextPath()%>/resources/UI/js/jquery.appear.js"></script>
+    <script src="<%=request.getContextPath()%>/resources/UI/js/jqBootstrapValidation.js"></script>
+    <script src="<%=request.getContextPath()%>/resources/UI/js/modernizr.custom.js"></script>
+    
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+</head>
     
     <body style="background-image:none">
         
@@ -73,7 +61,7 @@
                     <div class="row">
                         <div class="section-title text-center">
                             <h3>Användare</h3>
-                            <p>Lägg till användare</p>
+                            <p>Hantera användare här</p>
                         </div>
                     </div>
                     
@@ -92,7 +80,7 @@
                           
         				<td>
                           <!-- editable username (text with validation) -->
-                          <span editable-text="user.name" e-name="name" e-form="rowform" onbeforesave="checkName($data, user.id)" e-required>
+                          <span e-name="name" e-form="rowform" onbeforesave="checkName($data, user.id)" e-required>
                            {{ user.name || 'empty' }}
                           </span>
                     	</td>
@@ -138,13 +126,17 @@
                                 </button>
                         </form>
                           
-                            
+                            <div class="buttons" ng-show="!rowform.$visible">
+                              <button class="btn btn-info" ng-click="rowform.$show()">Ändra</button>
+                              <button class="btn btn-danger" ng-click="removeUser($index)">Ta bort</button>
+                            </div>  
                         </td>
                       </tr>
                     </table>
-  
-                    <button class="btn btn-default" ng-click="addUser()">Ny användare</button>
-                  
+  					
+                    <a href="/administrator/lagg-till-anvandare/">
+                    	<button class="btn-lg btn btn-default">Lägg till användare</button>
+                  	</a>
                   </div>
                 </div>
               </div>
