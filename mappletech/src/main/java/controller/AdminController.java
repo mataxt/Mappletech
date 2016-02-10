@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.client.RestTemplate;
 import org.springframework.web.servlet.ModelAndView;
 
+import vm.ReportVM;
 import vm.ReservationVM;
 import vm.UserVM;
 
@@ -18,6 +19,7 @@ public class AdminController {
 
 	private final String URI = "http://130.237.84.211:8080/mappletech/rest/admin";
 	
+	// ===================== bokningar =================================
 	
 	@RequestMapping(value = { "/administrator/bokningar" }, method = RequestMethod.GET)
 	public ModelAndView editBookingGet() {
@@ -42,6 +44,8 @@ public class AdminController {
 		}
 		return "redirect:/administrator/bokningar";
 	}
+	// ======================================================================
+	
 	
 	// ===================== Edit anvandare =================================
 	
@@ -68,7 +72,28 @@ public class AdminController {
 	}
 
 	// ======================================================================
+	// ======================== felanmalan ================================
 	
+	@RequestMapping(value = { "/administrator/felanmalan" }, method = RequestMethod.GET)
+	public ModelAndView errorReportGet() {
+		ModelAndView mv = new ModelAndView("administrator/felanmalan/index");
+		mv.addObject("uservm", new UserVM());
+		return mv;
+	}
+
+	@RequestMapping(value = "/administrator/felanmalan", method = RequestMethod.POST)
+	public String errorReportPost(@ModelAttribute("reportVm") ReportVM reportVm, Model model) {
+		
+		RestTemplate restTemplate = new RestTemplate();
+		boolean success = restTemplate.postForObject(URI, reportVm, Boolean.class);
+		
+		if (success) {
+			return "redirect:/administrator/felanmalan/index";
+		}
+		return "redirect:/administrator/felanmalan/index";
+	}
+	
+	// ======================================================================
 	
 	// ======================== ny anvandare ================================
 	
