@@ -18,6 +18,31 @@ public class AdminController {
 
 	private final String URI = "http://130.237.84.211:8080/mappletech/rest/admin";
 	
+	
+	@RequestMapping(value = { "/administrator/bokningar" }, method = RequestMethod.GET)
+	public ModelAndView editBookingGet() {
+		
+		ModelAndView mv = new ModelAndView("administrator/bokningar/index");
+		ReservationVM reservationVm = new ReservationVM();
+		reservationVm.setHost("username");
+		mv.addObject("reservationVm", reservationVm);
+		
+		return mv;
+	}
+
+	@RequestMapping(value = "/administrator/bokningar", method = RequestMethod.POST)
+	public String editBookingPost(@ModelAttribute("reservationVm") ReservationVM reservationVm, Model model) {
+		
+		RestTemplate restTemplate = new RestTemplate();
+		//send modified reservation -->
+		boolean success = restTemplate.postForObject(URI, reservationVm, Boolean.class);
+		
+		if (success) {
+			return "redirect:/administrator/bokningar";
+		}
+		return "redirect:/administrator/bokningar";
+	}
+	
 	// ===================== Edit anvandare =================================
 	
 	@RequestMapping(value = { "/administrator/anvandare" }, method = RequestMethod.GET)
@@ -82,30 +107,6 @@ public class AdminController {
 				return sb.toString();
 			}
 			
-	// ======================================================================
-	
-			@RequestMapping(value = { "/administrator/bokningar" }, method = RequestMethod.GET)
-			public ModelAndView editBookingGet() {
-				
-				ModelAndView mv = new ModelAndView("administrator/bokningar/index");
-				ReservationVM reservationVm = new ReservationVM();
-				reservationVm.setHost("username");
-				mv.addObject("reservationVm", reservationVm);
-				
-				return mv;
-			}
-
-			@RequestMapping(value = "/administrator/bokningar", method = RequestMethod.POST)
-			public String editBookingPost(@ModelAttribute("reservationVm") ReservationVM reservationVm, Model model) {
-				
-				RestTemplate restTemplate = new RestTemplate();
-				//send modified reservation -->
-				boolean success = restTemplate.postForObject(URI, reservationVm, Boolean.class);
-				
-				if (success) {
-					return "redirect:/administrator/bokningar";
-				}
-				return "redirect:/administrator/bokningar";
-			}	
+	// ======================================================================	
 			
 }
