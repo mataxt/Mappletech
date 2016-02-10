@@ -17,18 +17,18 @@ public class AdminController {
 	private final String URI = "http://130.237.84.211:8080/mappletech/rest/admin";
 	
 	
-	@RequestMapping(value = { "/administrator/anvandare/addUser" }, method = RequestMethod.GET)
+	@RequestMapping(value = { "/administrator/anvandare" }, method = RequestMethod.GET)
 	public ModelAndView addUsersGet() {
-		System.out.println("In GET anvandare AddUser...");
+		System.out.println("In GET anvandare hantera");
 		ModelAndView mv = new ModelAndView("administrator/anvandare");
 		mv.addObject("uservm", new UserVM());
 		return mv;
 	}
 
-	@RequestMapping(value = "/administrator/anvandare/addUser", method = RequestMethod.POST)
+	@RequestMapping(value = "/administrator/anvandare", method = RequestMethod.POST)
 	public String addUsersPost(@ModelAttribute("uservm") UserVM userVm, Model model) {
 
-		System.out.println("In POST anvandare/addUser...");
+		System.out.println("In POST anvandare hantera");
 		UserVM newUser = new UserVM(userVm.getUsername(), generatePassword(), userVm.getFullName(), userVm.getPrivilege());
 		RestTemplate restTemplate = new RestTemplate();
 		boolean userExists = restTemplate.postForObject(URI, newUser, Boolean.class);
