@@ -97,15 +97,15 @@ public class AdminController {
 	
 	// ======================== ny anvandare ================================
 	
-			@RequestMapping(value = { "/administrator/anvandare/nyanvandare" }, method = RequestMethod.GET)
+			@RequestMapping(value = { "/administrator/anvandare/lagg-till-anvandare" }, method = RequestMethod.GET)
 			public ModelAndView addUsersGet() {
 				System.out.println("In GET anvandare hantera");
-				ModelAndView mv = new ModelAndView("administrator/anvandare/nyanvandare/index");
+				ModelAndView mv = new ModelAndView("administrator/anvandare/lagg-till-anvandare/index");
 				mv.addObject("uservm", new UserVM());
 				return mv;
 			}
 
-			@RequestMapping(value = "/administrator/anvandare/nyanvandare", method = RequestMethod.POST)
+			@RequestMapping(value = "/administrator/anvandare/lagg-till-anvandare", method = RequestMethod.POST)
 			public String addUsersPost(@ModelAttribute("uservm") UserVM userVm, Model model) {
 				
 				UserVM newUser = new UserVM(userVm.getUsername(), generatePassword(), userVm.getFullName(), userVm.getPrivilege());
@@ -113,7 +113,7 @@ public class AdminController {
 				boolean userExists = restTemplate.postForObject(URI, newUser, Boolean.class);
 				
 				if (!userExists) {
-					return "redirect:/administrator/anvandare/nyanvandare/index";
+					return "redirect:/administrator/anvandare/lagg-till-anvandare/index";
 				}
 				return "redirect:/administrator/anvandare";
 			}

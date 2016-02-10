@@ -141,7 +141,7 @@
                       </tr>
                     </table>
   					
-                    <a href="/administrator/anvandare/nyanvandare/">
+                    <a href="mappletech/administrator/anvandare/lagg-till-anvandare/">
                     	<button class="btn-lg btn btn-default">Lägg till användare</button>
                   	</a>
                   </div>
