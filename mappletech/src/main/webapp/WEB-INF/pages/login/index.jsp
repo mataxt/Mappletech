@@ -76,13 +76,13 @@
 							<br />
 
 							<form:input path="username" id="inputUsername"
-								class="form-control" placeholder="AnvÃ¤ndarnamn" required=""
+								class="form-control" placeholder="Användarnamn" required=""
 								autofocus="true" />
 							
                             <br />
                             
 							<form:input path="password" type="password" id="inputPassword"
-								class="form-control" placeholder="LÃ¶senord" required="" />
+								class="form-control" placeholder="Lösenord" required="" />
 
 							<div class="checkbox">
 								<label>
