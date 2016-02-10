@@ -10,23 +10,24 @@ import junit.framework.TestCase;
 public class FacilityTests extends TestCase {
 	
 	Facility facility;
+	Reservation reservation;
 	List<Reservation> reservations;
 	
 	// assigning the values
 	protected void setUp() {
 		facility = new Facility();
+		reservation = new Reservation();
+		
 		facility.setFacilityId(1);
 		facility.setFacilityName("FacilityName");
 		facility.setDescription("FacilityDesc");
 		facility.setLocation("FacilityLoc");
 		facility.setAvailable(true);
 		facility.setReservations(reservations);
-		
-		FacilityDAO.addFacility(facility);
 	}
 	
 	protected void tearDown() {
-		FacilityDAO.removeFacility(facility);
+		
 	}
 	
 	public void testAddRemove() throws Exception {
