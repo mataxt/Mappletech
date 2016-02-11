@@ -90,21 +90,23 @@
 					<div class="row">
 						<div class="section-title text-center">
 							<h3>Boka</h3>
-							<p>Skapa ny bokning h√§r</p>
+							<p>Skapa ny bokning h‰rr</p>
 						</div>
 					</div>
 
 					<div class="row">
 						<div class="col-md-offset-3 col-md-6 col-md-offset-3">
-							<form:form modelAttribute="resvm" id="makeRes"
-								class="form-signin" method="POST" class="form-change">
+							<form:form commandName="resvm" id="res" class="form-change"
+								method="post">
+
 								<label>Lokaler</label>
 								<div class="form-group">
 
-									<form:select path="country">
+									<form:select path="facilityID">
 										<form:option value="NONE" label="--- Select ---" />
-										<form:options items="${facilities}" />
+										<form:options items="${facilities}" selected="selected" />
 									</form:select>
+
 								</div>
 
 								<div class="form-group">
@@ -115,22 +117,24 @@
 										<div class="input-group-addon">
 											<i class="fa fa-clock-o"></i>
 										</div>
+										<form:input path="timeTo" type="text" class="form-control pull-right"
+											id="reservationtime" />
 										<input type="text" class="form-control pull-right"
 											id="reservationtime">
 									</div>
 
 								</div>
 
+								<div class="row">
+									<div class="col-md-offset-3 col-md-6 col-md-offset-3">
+										<button type="submit" class="btn-lg btn btn-success"
+											name="facility">Boka anl‰ggning</button>
+									</div>
+								</div>
 							</form:form>
 						</div>
 					</div>
 
-					<div class="row">
-						<div class="col-md-offset-3 col-md-6 col-md-offset-3">
-							<button type="submit" class="btn-lg btn btn-success"
-								name="facility">Boka anl√§ggning</button>
-						</div>
-					</div>
 
 				</div>
 			</div>
