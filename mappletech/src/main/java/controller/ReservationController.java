@@ -1,21 +1,19 @@
 package controller;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.Arrays;
+import java.util.HashMap;
+import java.util.Map;
 
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.client.RestTemplate;
 import org.springframework.web.servlet.ModelAndView;
 
 import vm.FacilityVM;
 import vm.ReservationVM;
-import vm.UserVM;
 
 @Controller
 public class ReservationController {
@@ -26,8 +24,17 @@ public class ReservationController {
 	public ModelAndView reserve() {
 		System.out.println("In GET Res...");
 		RestTemplate restTemplate = new RestTemplate();
-		ResponseEntity<List> facVm = restTemplate.getForEntity(URI+"facility/getFacilities", List.class);
-		return new ModelAndView("bokning/boka/index","facilities",facVm);
+		ResponseEntity<FacilityVM[]> facVm = restTemplate.getForEntity(URI+"facility/getFacilities", FacilityVM[].class);
+		System.out.println(Arrays.asList(facVm.getBody()));
+		Map<Integer, String> hmap = new HashMap<>();
+		for (FacilityVM facilityVM : Arrays.asList(facVm.getBody())) {
+			hmap.put(facilityVM.getFacilityId(), facilityVM.getFacilityName());			
+		}
+		ModelAndView mv = new ModelAndView("bokning/boka/index");
+		mv.addObject("facilities",hmap);
+		mv.addObject("resvm",new ReservationVM());
+		return mv;
+	
 	}
 
 	@RequestMapping(value = "/bokning/boka", method = RequestMethod.POST)

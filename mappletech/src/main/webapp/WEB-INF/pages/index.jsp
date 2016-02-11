@@ -591,11 +591,12 @@
         <!-- End Administratör Section -->
    
 		<script>
-        	$function() {
+        	$(function() {
+				// Select2 Dropbown
                 $(".select2dropdown").select2()( {
                     maximumSelectionLength: 1
                 });
-            };
+            });
         </script>
     
     </body>
