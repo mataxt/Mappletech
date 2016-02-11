@@ -1,9 +1,12 @@
 package controller;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Random;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -18,31 +21,41 @@ import vm.UserVM;
 public class AdminController {
 
 	private final String URI = "http://130.237.84.211:8080/mappletech/rest/admin";
-	
+	private List<ReservationVM> reservationList = new ArrayList<>();
 	// ===================== bokningar =================================
 	
 	@RequestMapping(value = { "/administrator/bokningar" }, method = RequestMethod.GET)
-	public ModelAndView editBookingGet() {
+	public ModelAndView editBookingGet(ModelMap model) {
 		
 		ModelAndView mv = new ModelAndView("administrator/bokningar/index");
 		ReservationVM reservationVm = new ReservationVM();
-		reservationVm.setHost("username");
+		reservationVm.setHost("Olle");
+		
+		RestTemplate restTemplate = new RestTemplate();
+		//reservationList = restTemplate.postForObject(URI, null, ArrayList.class);
+		reservationList.add(reservationVm);
+		reservationList.add(reservationVm);
+		reservationList.add(reservationVm);
+		
+		 model.addAttribute("reservationVm", reservationVm);
+		 model.addAttribute("reservationList", reservationList);
+		
 		mv.addObject("reservationVm", reservationVm);
 		
 		return mv;
 	}
 
 	@RequestMapping(value = "/administrator/bokningar", method = RequestMethod.POST)
-	public String editBookingPost(@ModelAttribute("reservationVm") ReservationVM reservationVm, Model model) {
+	public String editBookingPost(@ModelAttribute ReservationVM reservationVm, Model model) {
 		
-		RestTemplate restTemplate = new RestTemplate();
-		//send modified reservation -->
-		boolean success = restTemplate.postForObject(URI, reservationVm, Boolean.class);
-		
-		if (success) {
-			return "redirect:/administrator/bokningar";
+		for(ReservationVM r : reservationList){
+			if(r.getReservationId()==reservationVm.getReservationId()){
+				reservationVm = r;
+				break;
+			}
 		}
-		return "redirect:/administrator/bokningar";
+		
+		return "redirect:/administrator/bokningar/andra-bokning";
 	}
 	// ======================================================================
 	

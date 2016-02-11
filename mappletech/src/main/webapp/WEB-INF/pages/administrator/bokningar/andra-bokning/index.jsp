@@ -127,7 +127,7 @@
 									<li>
 										<form:select path="reservationId" title="results" size="8" style="width: 300px;">
 											<form:option value="NONE" label="--- Select ---" disabled="true"/>
-											<form:options items="${reservationList}" itemValue="reservationId" itemLabel="host" selected="selected" ondblclick="onDbClickFunction()"/>
+											<form:options items="${reservationList}" itemValue="reservationId" itemLabel="facilityID" selected="selected" ondblclick="onDbClickFunction()"/>
 										</form:select>
 								<li><br><input type="submit" value="Ändra"/></li>
 								</ul>
