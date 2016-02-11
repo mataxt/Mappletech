@@ -84,7 +84,7 @@
                                          
                                          <span style="color:#f56954"></span>
                                      </div>
-                                     
+                                
                                      <div class="form-group">
                                          <label>E-post</label>
                                             
@@ -99,7 +99,7 @@
                                          
                                          <span style="color:#f56954"></span>
                                      </div>
-                                      
+                                
                                       <div class="form-group">
                                           <label>Telefon</label>
                                             
@@ -114,7 +114,7 @@
                                           
                                           <span style="color:#f56954"></span>
                                       </div>
-                                      
+                                
                                       <div class="form-group">
                                           <label>Mobil</label>
                                             
@@ -131,7 +131,7 @@
                                       </div>
                                       
                                       <br />
-                                      
+                                
                                       <div class="form-group">    
                                           <label>Lösenord</label>
                                           
