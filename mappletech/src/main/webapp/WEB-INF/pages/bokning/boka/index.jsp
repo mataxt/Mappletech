@@ -97,7 +97,7 @@
 					<div class="row">
 						<div class="section-title text-center">
 							<h3>Boka</h3>
-							<p>Skapa ny bokning här</p>
+							<p>Skapa ny bokning hï¿½r</p>
 						</div>
 					</div>
 
@@ -111,14 +111,14 @@
 									<label>Lokaler</label>
 									<form:select path="facilityID"
 										class="form-control select2list"
-										data-placeholder="Välj lokal" style="width: 100%;">
+										data-placeholder="Vï¿½lj lokal" style="width: 100%;">
 										<form:options items="${facilities}"/>
 									</form:select>
 
 								</div>
 
 								<div class="form-group">
-									<label>Tid (från)</label>
+									<label>Tid (frï¿½n)</label>
 
 									<div class="input-group">
 										<div class="input-group-addon">
@@ -146,7 +146,7 @@
 								<div class="row">
 									<div class="col-md-offset-3 col-md-6 col-md-offset-3">
 										<button type="submit" class="btn-lg btn btn-success"
-											name="facility">Boka anläggning</button>
+											name="facility">Boka anlï¿½ggning</button>
 									</div>
 								</div>
 							</form:form>
@@ -171,7 +171,13 @@
 				"timePicker24Hour" : true,
 				"timePickerIncrement" : 60,
 				"autoApply" : true,
-				format : 'YYYY-MM-DD hh:mm'
+				format: 'YYYY-MM-DD HH:MM',
+				locale: {
+					customRangeLabel: 'Custom',
+					daysOfWeek: ['SÃ¶n','MÃ¥n','Tis', 'Ons', 'Tors', 'Fre', 'LÃ¶r'],
+					monthNames: ['Januari', 'Februari', 'Mars', 'April', 'Maj', 'Juni', 'Juli', 'Augusti', 'September', 'Oktober', 'November', 'December'],
+					firstDay: 1
+				}
 			});
 
 			// Date range picker with time picker 2
@@ -182,7 +188,13 @@
 				"timePicker24Hour" : true,
 				"timePickerIncrement" : 60,
 				"autoApply" : true,
-				format : 'YYYY-MM-DD hh:mm'
+				format: 'YYYY-MM-DD',
+				locale: {
+					customRangeLabel: 'Custom',
+					daysOfWeek: ['SÃ¶n','MÃ¥n','Tis', 'Ons', 'Tors', 'Fre', 'LÃ¶r'],
+					monthNames: ['Januari', 'Februari', 'Mars', 'April', 'Maj', 'Juni', 'Juli', 'Augusti', 'September', 'Oktober', 'November', 'December'],
+					firstDay: 1
+				}
 			});
 		});
 	</script>
@@ -191,7 +203,7 @@
 		$(document).ready(function() {
 			// Select2
 			$(".select2list").select2({
-			  placeholder: "Välj lokal",
+			  placeholder: "Vï¿½lj lokal",
 			  allowClear: true
 			});
 		});
