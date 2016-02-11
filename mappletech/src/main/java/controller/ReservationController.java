@@ -9,13 +9,16 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.client.RestTemplate;
 import org.springframework.web.servlet.ModelAndView;
 
 import vm.FacilityVM;
 import vm.ReservationVM;
+import vm.UserVM;
 
 @Controller
+@SessionAttributes("sessUser")
 public class ReservationController {
 
 	private final String URI = "http://130.237.84.211:8080/mappletech/rest/";
@@ -38,8 +41,9 @@ public class ReservationController {
 	}
 
 	@RequestMapping(value = "/bokning/boka", method = RequestMethod.POST)
-	public ModelAndView doReserve(@ModelAttribute("resvm") ReservationVM resVm) {
+	public ModelAndView doReserve(@ModelAttribute("resvm") ReservationVM resVm,@ModelAttribute("sessUser") UserVM sessUser ) {
 		System.out.println("In POST Res...");
+		resVm.setHost(sessUser.getUsername());
 		RestTemplate restTemplate = new RestTemplate();
 		if (restTemplate.postForObject(URI, resVm, Boolean.class)) {
 			System.out.println("sucess");

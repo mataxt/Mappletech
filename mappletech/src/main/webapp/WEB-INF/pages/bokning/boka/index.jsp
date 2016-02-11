@@ -97,7 +97,7 @@
 					<div class="row">
 						<div class="section-title text-center">
 							<h3>Boka</h3>
-							<p>Skapa ny bokning hÃ¤r</p>
+							<p>Skapa ny bokning här</p>
 						</div>
 					</div>
 
@@ -111,21 +111,21 @@
 									<label>Lokaler</label>
 									<form:select path="facilityID"
 										class="form-control select2list"
-										data-placeholder="Vï¿½lj lokal" style="width: 100%;">
+										data-placeholder="Välj lokal" style="width: 100%;">
 										<form:options items="${facilities}"/>
 									</form:select>
 
 								</div>
 
 								<div class="form-group">
-									<label>Tid (frÃ¥n)</label>
+									<label>Tid (från)</label>
 
 									<div class="input-group">
 										<div class="input-group-addon">
 											<i class="fa fa-clock-o"></i>
 										</div>
 										<form:input path="timeFrom" type="text"
-											class="form-control pull-right" id="reservationtime2" />
+											class="form-control pull-right" id="reservationtime2" required=""/>
 									</div>
 
 								</div>
@@ -138,7 +138,7 @@
 											<i class="fa fa-clock-o"></i>
 										</div>
 										<form:input path="timeTo" type="text"
-											class="form-control pull-right" id="reservationtime1" />
+											class="form-control pull-right" id="reservationtime1" required=""/>
 									</div>
 
 								</div>
@@ -146,7 +146,7 @@
 								<div class="row">
 									<div class="col-md-offset-3 col-md-6 col-md-offset-3">
 										<button type="submit" class="btn-lg btn btn-success"
-											name="facility">Boka anlï¿½ggning</button>
+											name="facility">Boka anläggning</button>
 									</div>
 								</div>
 							</form:form>
@@ -191,7 +191,7 @@
 		$(document).ready(function() {
 			// Select2
 			$(".select2list").select2({
-			  placeholder: "VÃ¤lj lokal",
+			  placeholder: "Välj lokal",
 			  allowClear: true
 			});
 		});
