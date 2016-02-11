@@ -1,17 +1,12 @@
 package dao;
 
-import java.sql.Date;
 import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
-
-import model.Facility;
 import model.Reservation;
-import model.User;
-
 // TODO: Auto-generated Javadoc
 /**
  * The Class ReservationDAO.
@@ -25,8 +20,8 @@ public class ReservationDAO {
 	 *            model.Reservation
 	 * @return true, if successful
 	 */
-	public static boolean addReservation(Reservation reservation) {
-		boolean registered = false;
+	public static Boolean addReservation(Reservation reservation) {
+		Boolean registered = false;
 		EntityManagerFactory emf = Persistence
 				.createEntityManagerFactory("UserPU");
 		EntityManager em = emf.createEntityManager();
@@ -136,7 +131,6 @@ public class ReservationDAO {
 			Reservation r = em.find(Reservation.class,
 					reservation.getReservationId());
 			if (r != null) {
-					r.setTitle(reservation.getTitle());
 					r.setHost(reservation.getHost());
 					r.setFacility(reservation.getFacility());
 					r.setTimeFrom(reservation.getTimeFrom());

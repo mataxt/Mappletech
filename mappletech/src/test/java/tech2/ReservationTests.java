@@ -53,7 +53,6 @@ public class ReservationTests extends TestCase {
 		FacilityDAO.addFacility(fac);
 		
 		reservation = new Reservation();
-		reservation.setTitle("party");
 		
 		reservation.setHost(user);
 		reservation.setFacility(fac);

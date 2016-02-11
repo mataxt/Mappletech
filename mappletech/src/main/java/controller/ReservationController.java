@@ -22,6 +22,19 @@ public class ReservationController {
 		return new ModelAndView("bokning/boka/index","resvm", new ReservationVM());
 	}
 	
+	@RequestMapping(value = "/bokning/boka", method = RequestMethod.POST)
+	public ModelAndView doReserve(@ModelAttribute("resvm") ReservationVM resVm) {
+		System.out.println("In POST Res...");
+		RestTemplate restTemplate = new RestTemplate();
+		if (restTemplate.postForObject(URI, resVm, Boolean.class)) {
+			System.out.println("sucess");
+		} else {
+			System.out.println("failure");
+		}
+		
+		return new ModelAndView("bokning/boka/index","resvm", new ReservationVM());
+	}
+	
 	@RequestMapping(value = { "/bokning/mina-bokningar" }, method = RequestMethod.GET)
 	public ModelAndView login() {
 		System.out.println("In GET Res...");

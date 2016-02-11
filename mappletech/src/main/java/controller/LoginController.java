@@ -32,7 +32,7 @@ public class LoginController {
 	}
 
 	@RequestMapping(value = "/login", method = RequestMethod.POST)
-	public ModelAndView doLogin(@ModelAttribute("uservm") UserVM userVm, Model model) {
+	public ModelAndView doLogin(@ModelAttribute("uservm") UserVM userVm) {
 
 		System.out.println("In POST Login...");
 		UserVM loggedInUser = new UserVM(userVm.getUsername(), passwordHash(userVm.getPassword()));

@@ -24,7 +24,6 @@ public class ReservationRestController {
 		reservation.setHost(UserDAO.fetchUser(reservationVM.getHost()));
 		reservation.setTimeFrom(reservationVM.getTimeFrom());
 		reservation.setTimeTo(reservationVM.getTimeTo());
-		reservation.setTitle(reservationVM.getTitle());
 		
 		return ReservationDAO.addReservation(reservation);
 	}
@@ -46,8 +45,7 @@ public class ReservationRestController {
 					reservation.getHost().getUsername(),
 					reservation.getFacility().getFacilityId(),
 					reservation.getTimeFrom(),
-					reservation.getTimeTo(),
-					reservation.getTitle());
+					reservation.getTimeTo());
 			reservationVMList.add(rVM);
 		}
 		return reservationVMList;

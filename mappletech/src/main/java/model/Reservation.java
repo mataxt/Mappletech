@@ -13,14 +13,12 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
-import vm.ReservationVM;
 
 @Entity
 @Table(name = "Reservations")
 public class Reservation implements Serializable {
 
 	private Integer reservationId;
-	private String title;
 	private User host;
 	private Facility facility;
 	private Date timeFrom;
@@ -28,10 +26,9 @@ public class Reservation implements Serializable {
 
 	public Reservation() {}
 
-	public Reservation(Integer reservationId, String title, User host, Facility facility, Date timeFrom, Date timeTo) {
+	public Reservation(Integer reservationId, User host, Facility facility, Date timeFrom, Date timeTo) {
 		super();
 		this.reservationId = reservationId;
-		this.title = title;
 		this.host = host;
 		this.setFacility(facility);
 		this.timeFrom = timeFrom;
@@ -87,19 +84,6 @@ public class Reservation implements Serializable {
 	public void setTimeTo(Date timeTo) {
 		this.timeTo = timeTo;
 	}
-	
-	
-	@Column(name = "Title", nullable = false)
-	public String getTitle() {
-		return title;
-	}
-
-	public void setTitle(String title) {
-		this.title = title;
-	}
-
-
-
 
 	private static final long serialVersionUID = -8197501379045971105L;
 }

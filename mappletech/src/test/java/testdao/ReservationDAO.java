@@ -136,7 +136,6 @@ public class ReservationDAO {
 			Reservation r = em.find(Reservation.class,
 					reservation.getReservationId());
 			if (r != null) {
-					r.setTitle(reservation.getTitle());
 					r.setHost(reservation.getHost());
 					r.setFacility(reservation.getFacility());
 					r.setTimeFrom(reservation.getTimeFrom());
