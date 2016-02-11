@@ -68,7 +68,7 @@
                         
                         <div class="row"> 
                             <div class="col-md-offset-3 col-md-6 col-md-offset-3">
-                            	<form class="form-change" action="/profil/andra-profil/index.php" method="post">
+                            	<form class="form-change" action="" method="post">
                                         
                                      <div class="form-group">
                                          <label>Namn</label>
@@ -89,37 +89,16 @@
                                          <label>E-post</label>
                                             
                                          <div class="input-group input-group-sm ">  
-                                            <input type="text" class="form-control" placeholder="Ny epost..." name="nametext">
+                                            <input type="text" class="form-control" placeholder="Ny epost..." name="emailtext">
                         
                                             <span class="input-group-btn">
-                                              <button type="submit" class="btn btn-info btn-flat" name="name">Ändra</button>
+                                              <button type="submit" class="btn btn-info btn-flat" name="email">Ändra</button>
                                               
                                             </span>
                                          </div>
                                          
                                          <span style="color:#f56954"></span>
                                      </div>
-                                      
-                                     <div class="form-group">    
-                                          <label>Lösenord</label>
-                                          
-                                          <div class="input-group input-group-sm ">
-                                            <input type="password" class="form-control" placeholder="Nuvarande lösenord..." name="currentPassword">
-                                          </div>
-                                          <span style="color:#f56954"></span>
-                                          
-                                          <div class="form-group"></div>
-                                          
-                                          <div class="input-group input-group-sm ">
-                                            <input type="password" class="form-control" placeholder="Nytt lösenord..." name="passwordtext1">
-                                            <input type="password" class="form-control" placeholder="Bekräfta lösenord..." name="passwordtext2">
-                                            <span class="input-group-btn">
-                                              <button type="submit" class="btn btn-info btn-flat" name="password">Ändra</button>
-                                            </span>
-                                          </div>
-                                          
-                                          <span style="color:#f56954"></span>
-                                      </div>
                                       
                                       <div class="form-group">
                                           <label>Telefon</label>
@@ -140,12 +119,35 @@
                                           <label>Mobil</label>
                                             
                                           <div class="input-group input-group-sm ">
-                                            <input type="text" class="form-control" placeholder="Nytt mobil nummer..." name="phonetext">
+                                            <input type="text" class="form-control" placeholder="Nytt mobil nummer..." name="mobiletext">
                                             
                                             <span class="input-group-btn">
-                                              <button type="submit" class="btn btn-info btn-flat" name="phone">Ändra</button>
+                                              <button type="submit" class="btn btn-info btn-flat" name="mobile">Ändra</button>
                                             </span>
                                             
+                                          </div>
+                                          
+                                          <span style="color:#f56954"></span>
+                                      </div>
+                                      
+                                      <br />
+                                      
+                                      <div class="form-group">    
+                                          <label>Lösenord</label>
+                                          
+                                          <div class="input-group input-group-sm ">
+                                            <input type="password" class="form-control" placeholder="Nuvarande lösenord..." name="currentPassword">
+                                          </div>
+                                          <span style="color:#f56954"></span>
+                                          
+                                          <div class="form-group"></div>
+                                          
+                                          <div class="input-group input-group-sm ">
+                                            <input type="password" class="form-control" placeholder="Nytt lösenord..." name="passwordtext1">
+                                            <input type="password" class="form-control" placeholder="Bekräfta lösenord..." name="passwordtext2">
+                                            <span class="input-group-btn">
+                                              <button type="submit" class="btn btn-info btn-flat" name="password">Ändra</button>
+                                            </span>
                                           </div>
                                           
                                           <span style="color:#f56954"></span>

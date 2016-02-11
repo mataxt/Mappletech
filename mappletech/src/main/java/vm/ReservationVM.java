@@ -14,6 +14,22 @@ public class ReservationVM {
 		
 	}
 	
+	public void setReservationId(Integer reservationId) {
+		this.reservationId = reservationId;
+	}
+
+	public void setFacilityID(Integer facilityID) {
+		this.facilityID = facilityID;
+	}
+
+	public void setTimeFrom(Date timeFrom) {
+		this.timeFrom = timeFrom;
+	}
+
+	public void setTimeTo(Date timeTo) {
+		this.timeTo = timeTo;
+	}
+
 	public ReservationVM(Integer reservationId, String host, Integer facilityID,
 			Date timeFrom, Date timeTo) {
 		super();

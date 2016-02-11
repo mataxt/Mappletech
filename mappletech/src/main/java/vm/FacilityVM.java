@@ -6,14 +6,14 @@ public class FacilityVM {
 	private String facilityName;
 	private String description;
 	private	String location;
-	private Integer available;
+	private Boolean available;
 	
 	public FacilityVM() {
 		
 	}
 	
 	public FacilityVM(Integer facilityId, String facilityName,
-			String description, String location, Integer available) {
+			String description, String location, Boolean available) {
 		super();
 		this.facilityId = facilityId;
 		this.facilityName = facilityName;
@@ -38,7 +38,7 @@ public class FacilityVM {
 		return location;
 	}
 
-	public Integer getAvailable() {
+	public Boolean getAvailable() {
 		return available;
 	}
 }

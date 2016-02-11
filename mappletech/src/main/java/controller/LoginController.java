@@ -4,7 +4,6 @@ import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -17,8 +16,11 @@ import vm.UserVM;
 @Controller
 @SessionAttributes("sessUser")
 public class LoginController {
+	//Local
+	//private final String URI = "http://localhost:8080/tech2/rest/login";
+	//Deployment
 	private final String URI = "http://130.237.84.211:8080/mappletech/rest/login";
-
+	
 //	// Omdirigerar just nu till login
 //	@RequestMapping(value = { "/" }, method = RequestMethod.GET)
 //	public String start() {
