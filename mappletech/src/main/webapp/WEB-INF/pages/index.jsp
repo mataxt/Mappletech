@@ -54,7 +54,7 @@
                     <div class="col-md-6">
                     	<div style="text-align:left">
                             <strong>Inloggad som: </strong>
-                            <a href="profil/index.html?=Mange" style="font-size:20px">${sessUser.fullName}</a>
+                            <a href="/mappletech/profil/" style="font-size:20px">${sessUser.fullName}</a>
                         </div>
                     </div>
                     
