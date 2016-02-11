@@ -33,14 +33,12 @@
     <link href="http://vitalets.github.io/angular-xeditable/dist/css/xeditable.css" rel="stylesheet" type="text/css">
     <link href="<%=request.getContextPath()%>../../UI/css/angular-extra-table.css" rel="stylesheet">
 
-
     <!-- Template js -->
     <script src="<%=request.getContextPath()%>/resources/UI/js/jquery-2.1.1.min.js"></script>
     <script src="<%=request.getContextPath()%>/resources/UI/bootstrap/js/bootstrap.min.js"></script>
     <script src="<%=request.getContextPath()%>/resources/UI/js/jquery.appear.js"></script>
     <script src="<%=request.getContextPath()%>/resources/UI/js/jqBootstrapValidation.js"></script>
-    <script src="<%=request.getContextPath()%>/resources/UI/js/modernizr.custom.js"></script>
-    
+    <script src="<%=request.getContextPath()%>/resources/UI/js/modernizr.custom.js"></script>    
 
     <!--[if lt IE 9]>
         <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
@@ -55,7 +53,7 @@
         
         	<div class="modal-content">
                 <div class="back-modal" data-dismiss="modal">
-                    <a href="/">
+                    <a href="/mappletech/">
                         <div class="lr">
                                 <div class="rl"></div>
                         </div>
@@ -69,78 +67,67 @@
                     <div class="container">
                     <div class="row">
                         <div class="section-title text-center">
-                            <h3>Anv�ndare</h3>
-                            <p>L�gg till anv�ndare</p>
+                            <h3>Anv�ndare</h3>
+                            <p>L�gg till anv�ndare</p>
                         </div>
                     </div>
                     
                     <div class="row">
-						<div ng-app="app" ng-controller="Ctrl">
-                         <table class="table table-bordered table-hover table-condensed">
-                          <tr style="font-weight: bold">
-                            <td style="width:17%">Anv�ndarnamn</td>
-                            <td style="width:17%">Fullt namn</td>
-                            <td style="width:16%">L�senord</td>
-                            <td style="width:17%">Adress</td>
-                            <td style="width:17%">R�ttigheter</td>
-                            <td style="width:16%">Ąndra</td>
-                          </tr>
-      					  <tr ng-repeat="user in users">
-                          
-        				<td>
-                          <!-- editable username (text with validation) -->
-                          <span editable-text="user.name" e-name="name" e-form="rowform" onbeforesave="checkName($data, user.id)" e-required>
-                           {{ user.name || 'empty' }}
-                          </span>
-                    	</td>
-                        
-                        <td>
-                          <!-- editable status (select-local) -->
-                          <span editable-text="user.status" e-name="status" e-form="rowform" e-ng-options="s.value as s.text for s in statuses">
-                            {{ showStatus(user) }}
-                          </span>
-            		   </td>
-                       
-                        <td>
-                          <!-- editable group (select-remote) -->
-                          <span editable-text="user.group" e-name="group" onshow="loadGroups()" e-form="rowform" e-ng-options="g.id as g.text for g in groups">
-                            {{ showGroup(user) }}
-                          </span>
-                        </td>
-                        
-                        <td>
-                          <!-- editable status (select-local) -->
-                          <span editable-text="user.status" e-name="status" e-form="rowform" e-ng-options="s.value as s.text for s in statuses">
-                            {{ showStatus(user) }}
-                          </span>
-            		   </td>
-                       
-                       <td>
-                          <!-- editable status (select-local) -->
-                          <span editable-select="user.status" e-name="status" e-form="rowform" e-ng-options="s.value as s.text for s in statuses">
-                            {{ showStatus(user) }}
-                          </span>
-            		   </td>
-                        
-                        <!-- change and remove buttons -->
-                        <td style="white-space: nowrap">
-                        
-                        <!-- form -->
-                        <form editable-form name="rowform" onbeforesave="saveUser($data, user.id)" ng-show="rowform.$visible" class="form-buttons form-inline" shown="inserted == user">
-                                <button type="submit" ng-disabled="rowform.$waiting" class="btn btn-success">
-                                  Spara
-                                </button>
-                                <button type="button" ng-disabled="rowform.$waiting" ng-click="rowform.$cancel()" class="btn btn-default">
-                                  Avbryt
-                                </button>
-                        </form>
-                          
-                            
-                        </td>
-                      </tr>
-                    </table>
-  
-                    <button class="btn btn-default" ng-click="addUser()">Ny anv�ndare</button>
+						<form class="form-register" action="" method="post">
+                   
+                   	<div class="form-group ">
+                      <label>Anvädarnamn</label>
+                      <input type="text" class="form-control" name="name" placeholder="Användarnamn..." maxlength="250">
+                    </div>
+                    
+                    <div class="form-group ">
+                      <label>Namn</label>
+                      <input type="text" class="form-control" name="name" placeholder="Förnamn och efternamn..." maxlength="250">
+                    </div>
+                   
+                    <div class="form-group ">
+                      <label>Epost</label>
+                      <input type="text" class="form-control" name="email" placeholder="Ex. namn@epost.se" maxlength="250">
+                   	  <span style="color:#f56954"></span>
+                      <span style="color:#f56954"></span>
+                    </div>
+                    
+                    <div class="form-group ">
+                      <label>Lösenord</label>
+                      <input type="password" class="form-control" name="password" placeholder="Minst 6 tecken..." maxlength="128">
+                    </div>
+
+					<div class="form-group ">
+                      <label>Bekräfta lösenord</label>
+                      <input type="password" class="form-control" name="repassword" placeholder="Bekräfta lösenord..." maxlength="128">
+                      <span style="color:#f56954"></span>
+                      <span style="color:#f56954"></span>
+                    </div>
+                    
+					<div class="form-group ">
+                      <label>Telefon</label>
+                      <input type="text" class="form-control" name="phone" placeholder="Telefon..." maxlength="250">
+                    </div>
+
+                    <div class="form-group">
+                      <label>Rättigheter</label>
+
+                      <select class="form-control" name="priv">
+                          <option value="0">Användare</option>
+                          <option value="1">Avancerad användare</option>
+                        <option value="2">Administratör</option>
+                      </select>
+                    </div>
+                    
+                    <div class="box-footer">
+                      <button type="submit" class="btn-lg btn btn-success" name="submit">Registrera ny användare</button>
+                      
+                      <span style="color:#00a65a"></span>
+                      <span style="color:#f56954"></span>
+                      <span style="color:#f56954"></span>
+                  	</div>
+
+                  </form>
                   
                   </div>
                 </div>
