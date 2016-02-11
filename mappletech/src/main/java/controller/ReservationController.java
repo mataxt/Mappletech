@@ -18,7 +18,7 @@ import vm.ReservationVM;
 import vm.UserVM;
 
 @Controller
-@SessionAttributes("sessUser")
+ @SessionAttributes("sessUser")
 public class ReservationController {
 
 	private final String URI = "http://130.237.84.211:8080/mappletech/rest/";
