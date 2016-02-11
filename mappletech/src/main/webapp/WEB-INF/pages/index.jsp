@@ -33,7 +33,6 @@
     <script src="<%=request.getContextPath()%>/resources/UI/js/jquery-2.1.1.min.js"></script>
     <script src="<%=request.getContextPath()%>/resources/UI/bootstrap/js/bootstrap.min.js"></script>
     <script src="<%=request.getContextPath()%>/resources/UI/js/jquery.appear.js"></script>
-    <script src="<%=request.getContextPath()%>/resources/UI/js/contact_me.js"></script>
     <script src="<%=request.getContextPath()%>/resources/UI/js/jqBootstrapValidation.js"></script>
     <script src="<%=request.getContextPath()%>/resources/UI/js/modernizr.custom.js"></script>
     <script src="<%=request.getContextPath()%>/resources/UI/js/script.js"></script>
