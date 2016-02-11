@@ -125,21 +125,17 @@
 								<ul style="list-style: none;">
 									<li><br>Bokningar:</li>
 									<li>
-										<form:select path="reservationId" title="results" size="8" style="width: 300px;">
-											<form:option value="NONE" label="--- Select ---" disabled="true"/>
+										<form:select path="reservationId" title="results" size="8" style="width: 350px;">
+											<form:option value="NONE" label="--- Välj bokning ---" disabled="true"/>
 											<form:options items="${reservationList}" itemValue="reservationId" itemLabel="host" selected="selected" ondblclick="onDbClickFunction()"/>
 										</form:select>
-								<li><br><input type="submit" value="Ändra"/></li>
+								<li><br><input type="submit" value="Ta bort"/></li>
 								</ul>
 							</nav><!-- end navigation menu -->
 						</fieldset>
 					</div>
 				</form:form>
                        
-                            <div class="buttons" ng-show="!rowform.$visible">
-                              <button class="btn btn-info" ng-click="rowform.$show()">Ä„ndra</button>
-                              <button class="btn btn-danger" ng-click="removeUser($index)">Ta bort</button>
-                            </div>  
                         </td>
                       </tr>
                     </table>

@@ -9,6 +9,7 @@ public class ReservationVM {
 	private Integer facilityID;
 	private Date timeFrom;
 	private Date timeTo;
+	private String title;
 	
 	public ReservationVM() {
 		
@@ -28,6 +29,15 @@ public class ReservationVM {
 
 	public void setTimeTo(Date timeTo) {
 		this.timeTo = timeTo;
+	}
+
+	public String getTitle() {
+		title = "Användare: "+host+" Bokat: "+facilityID+" Tid: "+timeFrom.toString()+" - "+timeTo.toString();
+		return title;
+	}
+
+	public void setTitle(String title) {
+		this.title = title;
 	}
 
 	public ReservationVM(Integer reservationId, String host, Integer facilityID,

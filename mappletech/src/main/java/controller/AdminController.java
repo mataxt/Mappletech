@@ -29,10 +29,11 @@ public class AdminController {
 		
 		ModelAndView mv = new ModelAndView("administrator/bokningar/index");
 		ReservationVM reservationVm = new ReservationVM();
-		reservationVm.setHost("Olle");
+		reservationVm.setHost("Rami");
 		
 		RestTemplate restTemplate = new RestTemplate();
 		//reservationList = restTemplate.postForObject(URI, null, ArrayList.class);
+		reservationList.clear();
 		reservationList.add(reservationVm);
 		reservationList.add(reservationVm);
 		reservationList.add(reservationVm);
