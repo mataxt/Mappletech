@@ -590,7 +590,8 @@
             </div>
         </div>
         <!-- End Administratör Section -->
-        
+    
+    <!--
     <script>
 		$(document).ready(function() {
 			$(".select2dropdown").select2()({
@@ -598,6 +599,15 @@
 			});
 		});
     </script>
+    -->
+    
+    	<script>
+		  $(function () {
+				$(".select2dropdown").select2()({
+					maximumSelectionLength: 1
+			});
+		  });
+		</script>
     
     </body>
 </html>
