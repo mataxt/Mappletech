@@ -67,7 +67,8 @@
                         </div>
                         
                         <div class="row">
-                        	<div class="col-md-offset-3 col-md-6 col-md-offset-3">                 
+                        	<div class="col-md-offset-3 col-md-6 col-md-offset-3">
+                            	<form class="form-change" action="" method="post">           
                        				<div class="form-group">
                                     	<label>Användarnamn</label>
                                     	<input type="text" class="form-control" placeholder="testtest" value="testtest" disabled>
@@ -96,8 +97,10 @@
                                     <div class="form-group">
                                     	<label>Adress</label>
                                     	<input type="text" class="form-control" placeholder="Föreningsvägen 12 tr1" value="Föreningsvägen 12 tr1" disabled>
-                                 	</div>                   
-                            	</div>
+                                 	</div> 
+                                    
+                                </form>                  
+                               </div>
 
                             </div>
                         </div>

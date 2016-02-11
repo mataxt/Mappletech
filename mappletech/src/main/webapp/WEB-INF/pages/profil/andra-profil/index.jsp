@@ -68,7 +68,7 @@
                         
                         <div class="row"> 
                             <div class="col-md-offset-3 col-md-6 col-md-offset-3">
-                            	<form class="form-change" action="/profil/andra-profil/index.php" method="post">
+                            	<form class="form-change" action="" method="post">
                                         
                                      <div class="form-group">
                                          <label>Namn</label>
