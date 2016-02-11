@@ -24,7 +24,7 @@ public class AdminController {
 	// ===================== bokningar =================================
 	
 	@RequestMapping(value = { "/administrator/bokningar" }, method = RequestMethod.GET)
-	public ModelAndView editBookingGet(ModelMap model) {
+	public ModelAndView removeBookingGet(ModelMap model) {
 		
 		ModelAndView mv = new ModelAndView("administrator/bokningar/index");
 		ReservationVM reservationVm = new ReservationVM();
@@ -43,7 +43,7 @@ public class AdminController {
 	}
 
 	@RequestMapping(value = "/administrator/bokningar", method = RequestMethod.POST)
-	public String editBookingPost(@ModelAttribute ReservationVM reservationVm, Model model) {
+	public String removeBookingPost(@ModelAttribute ReservationVM reservationVm, Model model) {
 		
 		if(reservationVm==null){
 			return "redirect:/administrator/bokningar/index";

@@ -13,6 +13,7 @@ public class ReservationVM {
 	
 	public ReservationVM() {
 
+		this.reservationId = 0;
 		this.host = "";
 		this.facilityID = 0;
 		this.timeFrom = Date.valueOf("2000-01-01");
