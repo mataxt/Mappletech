@@ -1,5 +1,6 @@
 package controller;
 
+import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -10,11 +11,12 @@ import org.springframework.web.servlet.ModelAndView;
 import vm.ReservationVM;
 import vm.UserVM;
 
+@Controller
 public class ReservationController {
 	
 	private final String URI = "http://130.237.84.211:8080/mappletech/rest/reservation/add";
 	
-	@RequestMapping(value = { "/bokning/boka" }, method = RequestMethod.GET)
+	@RequestMapping(value = "/bokning/boka", method = RequestMethod.GET)
 	public ModelAndView reserve() {
 		System.out.println("In GET Res...");
 		return new ModelAndView("bokning/boka/index","resvm", new ReservationVM());

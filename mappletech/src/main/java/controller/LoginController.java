@@ -19,11 +19,11 @@ import vm.UserVM;
 public class LoginController {
 	private final String URI = "http://130.237.84.211:8080/mappletech/rest/login";
 
-	// Omdirigerar just nu till login
-	@RequestMapping(value = { "/" }, method = RequestMethod.GET)
-	public String start() {
-		return "redirect:/login";
-	}
+//	// Omdirigerar just nu till login
+//	@RequestMapping(value = { "/" }, method = RequestMethod.GET)
+//	public String start() {
+//		return "redirect:/login";
+//	}
 
 	@RequestMapping(value = { "/login" }, method = RequestMethod.GET)
 	public ModelAndView login() {
