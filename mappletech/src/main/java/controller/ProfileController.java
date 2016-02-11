@@ -73,7 +73,7 @@ public class ProfileController {
 			System.out.println("mobileButton");
 		}else if(passwordButton != null)
 		{
-			sessionUser.setPassword(passwordHash(sessionUser.getPassword()));
+			sessionUser.setPassword(passwordHash(userChange.getPassword()));
 			System.out.println("passwordButton");
 		}
 		restTemplate.postForObject(URI + "/updateProfil", sessionUser, Boolean.class);
