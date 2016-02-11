@@ -24,7 +24,9 @@
 	rel="stylesheet">
 
 <!-- Select2-->
-<link href="<%=request.getContextPath()%>/resources/UI/css/select2.min.css" rel="stylesheet">
+<link
+	href="<%=request.getContextPath()%>/resources/UI/css/select2.min.css"
+	rel="stylesheet">
 
 <!-- Custom CSS -->
 <link href="<%=request.getContextPath()%>/resources/UI/css/style.css"
@@ -63,7 +65,7 @@
 	src="<%=request.getContextPath()%>/resources/UI/js/jqBootstrapValidation.js"></script>
 <script
 	src="<%=request.getContextPath()%>/resources/UI/js/modernizr.custom.js"></script>
-<script 
+<script
 	src="<%=request.getContextPath()%>/resources/UI/js/select2.full.min.js"></script>
 
 <!--[if lt IE 9]>
@@ -104,23 +106,18 @@
 							<form:form commandName="resvm" id="res" class="form-change"
 								method="post">
 
-								<label>Lokaler</label>
-								<div class="form-group">
 
-									<form:select path="facilityID">
+								<div class="form-group">
+									<label>Lokaler</label>
+									<form:select path="facilityID"
+										class="form-control select2dropdown"
+										data-placeholder="V�lj lokal" style="width: 100%;">
 										<form:option value="NONE" label="--- Select ---" />
 										<form:options items="${facilities}" selected="selected" />
 									</form:select>
 
 								</div>
-								
-                                <div class="form-group">
-                                	<label>Lokaler</label>
-                                    <select class="form-control select2dropdown" data-placeholder="Välj lokal" style="width: 100%;">
-                                    	<option>${facilities}</option>
-                                    </select>
-                                </div>
-                                
+
 								<div class="form-group">
 									<label>Tid (från)</label>
 
@@ -128,21 +125,21 @@
 										<div class="input-group-addon">
 											<i class="fa fa-clock-o"></i>
 										</div>
-										<form:input path="timeFrom" type="text" class="form-control pull-right"
-											id="reservationtime2" />
+										<form:input path="timeFrom" type="text"
+											class="form-control pull-right" id="reservationtime2" />
 									</div>
 
 								</div>
-                                
-                                <div class="form-group">
+
+								<div class="form-group">
 									<label>Tid (till)</label>
 
 									<div class="input-group">
 										<div class="input-group-addon">
 											<i class="fa fa-clock-o"></i>
 										</div>
-										<form:input path="timeTo" type="text" class="form-control pull-right"
-											id="reservationtime1" />
+										<form:input path="timeTo" type="text"
+											class="form-control pull-right" id="reservationtime1" />
 									</div>
 
 								</div>
@@ -168,31 +165,29 @@
 	<script>
 		$(function() {
 			// Select2 Dropbown
-        	$(function() {
-                $(".select2dropdown").select2()( {
-                    maximumSelectionLength: 1
-                });
-            };
-			
+			$(".select2dropdown").select2()({
+				maximumSelectionLength : 1
+			});
+
 			//Date range picker with time picker 1
 			$('#reservationtime1').daterangepicker({
-				"singleDatePicker": true,
-				"showWeekNumbers": true,
-				"timePicker": true,
-				"timePicker24Hour": true,
-				"timePickerIncrement": 60,
-				"autoApply": true,
+				"singleDatePicker" : true,
+				"showWeekNumbers" : true,
+				"timePicker" : true,
+				"timePicker24Hour" : true,
+				"timePickerIncrement" : 60,
+				"autoApply" : true,
 				format : 'MM/DD/YYYY h:mm A'
 			});
-			
+
 			//Date range picker with time picker 2
 			$('#reservationtime2').daterangepicker({
-				"singleDatePicker": true,
-				"showWeekNumbers": true,
-				"timePicker": true,
-				"timePicker24Hour": true,
-				"timePickerIncrement": 60,
-				"autoApply": true,
+				"singleDatePicker" : true,
+				"showWeekNumbers" : true,
+				"timePicker" : true,
+				"timePicker24Hour" : true,
+				"timePickerIncrement" : 60,
+				"autoApply" : true,
 				format : 'MM/DD/YYYY h:mm A'
 			});
 		});
