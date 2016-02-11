@@ -90,7 +90,7 @@
 					<div class="row">
 						<div class="section-title text-center">
 							<h3>Boka</h3>
-							<p>Skapa ny bokning härr</p>
+							<p>Skapa ny bokning hï¿½rr</p>
 						</div>
 					</div>
 
@@ -110,7 +110,23 @@
 								</div>
 
 								<div class="form-group">
-									<label>Tid</label>
+									<label>Tid (frÃ¥n)</label>
+
+
+									<div class="input-group">
+										<div class="input-group-addon">
+											<i class="fa fa-clock-o"></i>
+										</div>
+										<form:input path="timeFrom" type="text" class="form-control pull-right"
+											id="reservationtime2" />
+										<input type="text" class="form-control pull-right"
+											id="reservationtime2">
+									</div>
+
+								</div>
+                                
+                                <div class="form-group">
+									<label>Tid (till)</label>
 
 
 									<div class="input-group">
@@ -118,9 +134,9 @@
 											<i class="fa fa-clock-o"></i>
 										</div>
 										<form:input path="timeTo" type="text" class="form-control pull-right"
-											id="reservationtime" />
+											id="reservationtime1" />
 										<input type="text" class="form-control pull-right"
-											id="reservationtime">
+											id="reservationtime1">
 									</div>
 
 								</div>
@@ -128,7 +144,7 @@
 								<div class="row">
 									<div class="col-md-offset-3 col-md-6 col-md-offset-3">
 										<button type="submit" class="btn-lg btn btn-success"
-											name="facility">Boka anläggning</button>
+											name="facility">Boka anlï¿½ggning</button>
 									</div>
 								</div>
 							</form:form>
@@ -145,10 +161,25 @@
 
 	<script>
 		$(function() {
-			//Date range picker with time picker
+			//Date range picker with time picker 1
 			$('#reservationtime').daterangepicker({
-				timePicker : true,
-				timePickerIncrement : 30,
+				"singleDatePicker": true,
+				"showWeekNumbers": true,
+				"timePicker": true,
+				"timePicker24Hour": true,
+				"timePickerIncrement": 60,
+				"autoApply": true,
+				format : 'MM/DD/YYYY h:mm A'
+			});
+			
+			//Date range picker with time picker 2
+			$('#reservationtime').daterangepicker({
+				"singleDatePicker": true,
+				"showWeekNumbers": true,
+				"timePicker": true,
+				"timePicker24Hour": true,
+				"timePickerIncrement": 60,
+				"autoApply": true,
 				format : 'MM/DD/YYYY h:mm A'
 			});
 		});
