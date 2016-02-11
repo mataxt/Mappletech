@@ -32,7 +32,7 @@ public class ReservationVM {
 	}
 
 	public String getTitle() {
-		title = "Användare: "+host+" Bokat: "+facilityID+" Tid: "+timeFrom.toString()+" - "+timeTo.toString();
+		title = "Medlem: "+host+" Bokat: "+facilityID+" Tid: "+timeFrom.toString()+" - "+timeTo.toString();
 		return title;
 	}
 
