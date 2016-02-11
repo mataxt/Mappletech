@@ -17,7 +17,7 @@ public class ReservationController {
 	@RequestMapping(value = { "/bokning/boka" }, method = RequestMethod.GET)
 	public ModelAndView reserve() {
 		System.out.println("In GET Res...");
-		return new ModelAndView("bokning/index","resvm", new ReservationVM());
+		return new ModelAndView("bokning/boka/index","resvm", new ReservationVM());
 	}
 	
 	@RequestMapping(value = { "/bokning/mina-bokningar" }, method = RequestMethod.GET)
