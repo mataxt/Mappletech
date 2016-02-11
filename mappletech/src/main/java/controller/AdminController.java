@@ -1,5 +1,6 @@
 package controller;
 
+import java.sql.Date;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
@@ -29,17 +30,23 @@ public class AdminController {
 		
 		ModelAndView mv = new ModelAndView("administrator/bokningar/index");
 		ReservationVM reservationVm = new ReservationVM();
-		reservationVm.setHost("Rami");
 		
-		RestTemplate restTemplate = new RestTemplate();
+		reservationVm.setHost("Rami");
+		reservationVm.setTimeFrom(Date.valueOf("2000-11-01"));
+		reservationVm.setTimeTo(Date.valueOf("2000-11-03"));
+		reservationVm.setFacilityID(3);
+		
+	//	RestTemplate restTemplate = new RestTemplate();
 		//reservationList = restTemplate.postForObject(URI, null, ArrayList.class);
 		reservationList.clear();
 		reservationList.add(reservationVm);
+		reservationVm.setHost("Sv");
 		reservationList.add(reservationVm);
+		reservationVm.setHost("ferre");
 		reservationList.add(reservationVm);
 		
-		 model.addAttribute("reservationVm", reservationVm);
-		 model.addAttribute("reservationList", reservationList);
+		model.addAttribute("reservationVm", reservationVm);
+		model.addAttribute("reservationList", reservationList);
 		
 		mv.addObject("reservationVm", reservationVm);
 		
