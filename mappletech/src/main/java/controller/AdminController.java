@@ -15,7 +15,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import vm.ReportVM;
 import vm.ReservationVM;
-import vm.UserVM;
+import vm.UserVM; 
 
 @Controller
 public class AdminController {
