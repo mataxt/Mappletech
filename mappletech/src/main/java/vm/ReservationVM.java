@@ -15,8 +15,8 @@ public class ReservationVM {
 
 		this.host = "";
 		this.facilityID = 0;
-		this.timeFrom = Date.valueOf("");
-		this.timeTo = Date.valueOf("");
+		this.timeFrom = Date.valueOf("2000-01-01");
+		this.timeTo = Date.valueOf("2000-01-01");
 		this.title = "";
 	}
 

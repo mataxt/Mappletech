@@ -1,6 +1,5 @@
 package controller;
 
-import java.sql.Date;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
@@ -33,7 +32,7 @@ public class AdminController {
 		List<ReservationVM> reservationList = new ArrayList<>();
 		
 		RestTemplate restTemplate = new RestTemplate();
-		reservationList = restTemplate.postForObject( URI + "/reservation/getReservations", null, ArrayList.class);
+		reservationList = restTemplate.postForObject( URI + "/reservation/getReservations",null, List.class);
 	
 		model.addAttribute("reservationVm", reservationVm);
 		model.addAttribute("reservationList", reservationList);
