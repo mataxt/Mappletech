@@ -45,7 +45,7 @@ public class ReservationController {
 		System.out.println("In POST Res...");
 		resVm.setHost(sessUser.getUsername());
 		RestTemplate restTemplate = new RestTemplate();
-		if (restTemplate.postForObject(URI, resVm, Boolean.class)) {
+		if (restTemplate.postForObject(URI+"reservation/add", resVm, Boolean.class)) {
 			System.out.println("sucess");
 		} else {
 			System.out.println("failure");
