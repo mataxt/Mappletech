@@ -82,6 +82,8 @@
 							<form:input path="password" type="password" id="inputPassword"
 								class="form-control" placeholder="L�senord" required="" />
 
+							<br />
+                            
 							<button type="submit" value="Submit"
 								class="btn btn-lg btn-default btn-block">Logga in</button>
 							<br />
