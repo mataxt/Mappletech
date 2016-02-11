@@ -126,7 +126,7 @@
 									<li><br>Bokningar:</li>
 									<li>
 										<form:select path="reservationId" title="results" size="8" style="width: 350px;">
-											<form:options items="${reservationList}" itemValue="host" itemLabel="title" selected="selected" ondblclick="onDbClickFunction()"/>
+											<form:options items="${reservationList}" itemValue="reservationId" itemLabel="title" selected="selected" ondblclick="onDbClickFunction()"/>
 										</form:select>
 								<li><br><input type="submit" value="Ta bort"/></li>
 								</ul>
