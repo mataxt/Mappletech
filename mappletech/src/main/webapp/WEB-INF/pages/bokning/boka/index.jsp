@@ -112,7 +112,7 @@
 									<form:select path="facilityID"
 										class="form-control select2list"
 										data-placeholder="V�lj lokal" style="width: 100%;">
-										<form:options items="${facilities}" selected="selected" />
+										<form:options items="${facilities}"/>
 									</form:select>
 
 								</div>
@@ -171,7 +171,7 @@
 				"timePicker24Hour" : true,
 				"timePickerIncrement" : 60,
 				"autoApply" : true,
-				format : 'MM/DD/YYYY h:mm A'
+				format : 'YYYY-MM-DD hh:mm'
 			});
 
 			// Date range picker with time picker 2
@@ -182,7 +182,7 @@
 				"timePicker24Hour" : true,
 				"timePickerIncrement" : 60,
 				"autoApply" : true,
-				format : 'MM/DD/YYYY h:mm A'
+				format : 'YYYY-MM-DD hh:mm'
 			});
 		});
 	</script>
