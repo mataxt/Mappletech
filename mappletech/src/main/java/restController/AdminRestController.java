@@ -1,12 +1,16 @@
 package restController;
 
+import java.util.List;
+
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import dao.ReservationDAO;
 import dao.UserDAO;
 import model.User;
 import vm.UserVM;
+import vm.ReservationVM;
 
 @RestController
 public class AdminRestController {
@@ -25,5 +29,6 @@ public class AdminRestController {
 			
 		return UserDAO.addUser(newUser);
 	}
+	
 	
 }

@@ -12,9 +12,14 @@ public class ReservationVM {
 	private String title;
 	
 	public ReservationVM() {
-		
+
+		this.host = "";
+		this.facilityID = 0;
+		this.timeFrom = Date.valueOf("");
+		this.timeTo = Date.valueOf("");
+		this.title = "";
 	}
-	
+
 	public void setReservationId(Integer reservationId) {
 		this.reservationId = reservationId;
 	}

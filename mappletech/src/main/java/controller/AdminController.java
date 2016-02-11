@@ -21,8 +21,7 @@ import vm.UserVM;
 @Controller
 public class AdminController {
 
-	private final String URI = "http://130.237.84.211:8080/mappletech/rest/admin";
-	private List<ReservationVM> reservationList = new ArrayList<>();
+	private final String URI = "http://130.237.84.211:8080/mappletech/rest";
 	// ===================== bokningar =================================
 	
 	@RequestMapping(value = { "/administrator/bokningar" }, method = RequestMethod.GET)
@@ -30,21 +29,12 @@ public class AdminController {
 		
 		ModelAndView mv = new ModelAndView("administrator/bokningar/index");
 		ReservationVM reservationVm = new ReservationVM();
+
+		List<ReservationVM> reservationList = new ArrayList<>();
 		
-		reservationVm.setHost("Rami");
-		reservationVm.setTimeFrom(Date.valueOf("2000-11-01"));
-		reservationVm.setTimeTo(Date.valueOf("2000-11-03"));
-		reservationVm.setFacilityID(3);
-		
-	//	RestTemplate restTemplate = new RestTemplate();
-		//reservationList = restTemplate.postForObject(URI, null, ArrayList.class);
-		reservationList.clear();
-		reservationList.add(reservationVm);
-		reservationVm.setHost("Sv");
-		reservationList.add(reservationVm);
-		reservationVm.setHost("ferre");
-		reservationList.add(reservationVm);
-		
+		RestTemplate restTemplate = new RestTemplate();
+		reservationList = restTemplate.postForObject( URI + "/reservation/getReservations", null, ArrayList.class);
+	
 		model.addAttribute("reservationVm", reservationVm);
 		model.addAttribute("reservationList", reservationList);
 		
@@ -56,14 +46,10 @@ public class AdminController {
 	@RequestMapping(value = "/administrator/bokningar", method = RequestMethod.POST)
 	public String editBookingPost(@ModelAttribute ReservationVM reservationVm, Model model) {
 		
-		for(ReservationVM r : reservationList){
-			if(r.getReservationId()==reservationVm.getReservationId()){
-				reservationVm = r;
-				break;
-			}
-		}
+		RestTemplate restTemplate = new RestTemplate();
+		restTemplate.postForObject(URI + "/reservation/removeReservation", reservationVm, Boolean.class);
 		
-		return "redirect:/administrator/bokningar/andra-bokning";
+		return "redirect:/administrator/bokningar/index";
 	}
 	// ======================================================================
 	
