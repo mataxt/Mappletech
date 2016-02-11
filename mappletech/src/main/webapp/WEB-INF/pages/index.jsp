@@ -593,7 +593,7 @@
 		<script>
 			$(document).ready(function() {
 				// Select2
-				$(".select2dropdown").select2()({
+				$("#select2dropdown").select2()({
 				  maximumSelectionLength: 1
 				});
 			});

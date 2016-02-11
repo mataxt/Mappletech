@@ -162,14 +162,7 @@
 	</div>
 	<!-- End Main Body Section -->
 
-	<script>
-		$(document).ready(function() {
-			// Select2
-			$(".select2dropdown").select2();
-		});
-    </script>
-	
-	<script>
+		<script>
 		$(function() {
 			// Date range picker with time picker 1
 			$('#reservationtime1').daterangepicker({
@@ -194,6 +187,13 @@
 			});
 		});
 	</script>
+
+	<script>
+		$(document).ready(function() {
+			// Select2
+			$("#select2dropdown").select2();
+		});
+    </script>
 
 </body>
 </html>
