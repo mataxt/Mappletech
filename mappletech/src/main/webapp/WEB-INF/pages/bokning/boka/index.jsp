@@ -130,8 +130,6 @@
 										</div>
 										<form:input path="timeFrom" type="text" class="form-control pull-right"
 											id="reservationtime2" />
-										<input type="text" class="form-control pull-right"
-											id="reservationtime2">
 									</div>
 
 								</div>
@@ -145,8 +143,6 @@
 										</div>
 										<form:input path="timeTo" type="text" class="form-control pull-right"
 											id="reservationtime1" />
-										<input type="text" class="form-control pull-right"
-											id="reservationtime1">
 									</div>
 
 								</div>
