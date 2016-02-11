@@ -110,10 +110,9 @@
 								<div class="form-group">
 									<label>Lokaler</label>
 									<form:select path="facilityID"
-										class="form-control select2dropdown"
+										class="form-control select2list"
 										data-placeholder="V�lj lokal" style="width: 100%;">
-										<form:option value="NONE" label="--- Select ---" />
-										<form:options items="${facilities}" selected="selected" />
+										<form:options items="${facilities}"/>
 									</form:select>
 
 								</div>
@@ -162,14 +161,7 @@
 	</div>
 	<!-- End Main Body Section -->
 
-	<script>
-		$(document).ready(function() {
-			// Select2
-			$(".select2dropdown").select2();
-		});
-    </script>
-	
-	<script>
+		<script>
 		$(function() {
 			// Date range picker with time picker 1
 			$('#reservationtime1').daterangepicker({
@@ -179,7 +171,7 @@
 				"timePicker24Hour" : true,
 				"timePickerIncrement" : 60,
 				"autoApply" : true,
-				format : 'MM/DD/YYYY h:mm A'
+				format : 'YYYY-MM-DD hh:mm'
 			});
 
 			// Date range picker with time picker 2
@@ -190,10 +182,20 @@
 				"timePicker24Hour" : true,
 				"timePickerIncrement" : 60,
 				"autoApply" : true,
-				format : 'MM/DD/YYYY h:mm A'
+				format : 'YYYY-MM-DD hh:mm'
 			});
 		});
 	</script>
+
+	<script>
+		$(document).ready(function() {
+			// Select2
+			$(".select2list").select2({
+			  placeholder: "Välj lokal",
+			  allowClear: true
+			});
+		});
+    </script>
 
 </body>
 </html>
