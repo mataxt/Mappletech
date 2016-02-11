@@ -12,8 +12,6 @@ import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.client.RestTemplate;
 import org.springframework.web.servlet.ModelAndView;
 
-import model.User;
-import testdao.UserDAO;
 import vm.UserVM;
 
 @Controller
