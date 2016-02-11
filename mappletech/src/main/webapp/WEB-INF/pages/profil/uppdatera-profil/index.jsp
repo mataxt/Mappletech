@@ -85,6 +85,9 @@
                                          <span style="color:#f56954"></span>
                                      </div>
                                      
+                                </form>
+								<form class="form-change" action="" method="post">
+                                
                                      <div class="form-group">
                                          <label>E-post</label>
                                             
@@ -99,7 +102,10 @@
                                          
                                          <span style="color:#f56954"></span>
                                      </div>
-                                      
+                                     
+                                </form>
+								<form class="form-change" action="" method="post">
+                                
                                       <div class="form-group">
                                           <label>Telefon</label>
                                             
@@ -114,7 +120,10 @@
                                           
                                           <span style="color:#f56954"></span>
                                       </div>
-                                      
+                                
+                                </form>
+								<form class="form-change" action="" method="post">
+                                
                                       <div class="form-group">
                                           <label>Mobil</label>
                                             
@@ -132,6 +141,9 @@
                                       
                                       <br />
                                       
+                                </form>
+								<form class="form-change" action="" method="post">
+                                
                                       <div class="form-group">    
                                           <label>Lösenord</label>
                                           

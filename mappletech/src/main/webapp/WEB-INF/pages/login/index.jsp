@@ -51,7 +51,7 @@
 					<div class="logo text-center">
 						<h1>Mappletech</h1>
 						<p>
-							<span style="color: #eee">Föreningsplattform</span>
+							<span style="color: #eee">Fï¿½reningsplattform</span>
 						</p>
 						<p>&nbsp;</p>
 					</div>
@@ -74,21 +74,13 @@
 							<br />
 
 							<form:input path="username" id="inputUsername"
-								class="form-control" placeholder="Användarnamn" required=""
+								class="form-control" placeholder="Anvï¿½ndarnamn" required=""
 								autofocus="true" />
 							
                             <br />
                             
 							<form:input path="password" type="password" id="inputPassword"
-								class="form-control" placeholder="Lösenord" required="" />
-
-							<div class="checkbox">
-								<label>
-                                	<p style="color:#eee">
-                                		<input type="checkbox" value="remember-me">Kom ihåg mig
-                                	</p>
-                            	</label>
-							</div>
+								class="form-control" placeholder="Lï¿½senord" required="" />
 
 							<button type="submit" value="Submit"
 								class="btn btn-lg btn-default btn-block">Logga in</button>
@@ -97,7 +89,7 @@
                         
                         <a href="/login/glomt-losenord/">
                             <button type="submit" value="Submit"
-								class="btn btn-sm btn-info btn-block">Glömt lösenord</button>
+								class="btn btn-sm btn-info btn-block">Glï¿½mt lï¿½senord</button>
                         </a>
                         <br />
                         
