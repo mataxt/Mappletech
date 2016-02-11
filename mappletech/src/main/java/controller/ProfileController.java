@@ -21,9 +21,9 @@ import vm.UserVM;
 @SessionAttributes("sessUser")
 public class ProfileController {
 	//Local RUN
-	private final String URI = "http://localhost:8080/tech2/rest/profil/";
+	//private final String URI = "http://localhost:8080/tech2/rest/profil/";
 	//Deployment RUN
-	//private final String URI = "http://130.237.84.211:8080/mappletech/rest/profil";
+	private final String URI = "http://130.237.84.211:8080/mappletech/rest/profil";
 	
 	
 	@RequestMapping("/")
