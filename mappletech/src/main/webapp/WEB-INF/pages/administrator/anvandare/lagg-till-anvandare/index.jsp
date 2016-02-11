@@ -78,7 +78,7 @@
                        
                             <div class="form-group ">
                               <label>Anvädarnamn</label>
-                              <input type="text" class="form-control" name="name" placeholder="Användarnamn..." maxlength="250">
+                              <input type="text" class="form-control" name="username" placeholder="Användarnamn..." maxlength="250">
                             </div>
                             
                             <div class="form-group ">
@@ -94,20 +94,18 @@
                             </div>
                             
                             <div class="form-group ">
-                              <label>Lösenord</label>
-                              <input type="password" class="form-control" name="password" placeholder="Minst 6 tecken..." maxlength="128">
-                            </div>
-        
-                            <div class="form-group ">
-                              <label>Bekräfta lösenord</label>
-                              <input type="password" class="form-control" name="repassword" placeholder="Bekräfta lösenord..." maxlength="128">
-                              <span style="color:#f56954"></span>
-                              <span style="color:#f56954"></span>
+                              <label>Telefon</label>
+                              <input type="text" class="form-control" name="phone" placeholder="Telefon..." maxlength="250">
                             </div>
                             
                             <div class="form-group ">
-                              <label>Telefon</label>
-                              <input type="text" class="form-control" name="phone" placeholder="Telefon..." maxlength="250">
+                              <label>Mobil</label>
+                              <input type="text" class="form-control" name="mobile" placeholder="Mobil..." maxlength="250">
+                            </div>
+                            
+                            <div class="form-group ">
+                              <label>Adress</label>
+                              <input type="text" class="form-control" name="address" placeholder="Adress..." maxlength="250">
                             </div>
         
                             <div class="form-group">
