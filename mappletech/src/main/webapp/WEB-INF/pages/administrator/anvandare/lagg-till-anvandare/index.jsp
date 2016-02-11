@@ -73,62 +73,64 @@
                     </div>
                     
                     <div class="row">
-						<form class="form-register" action="" method="post">
-                   
-                   	<div class="form-group ">
-                      <label>Anvädarnamn</label>
-                      <input type="text" class="form-control" name="name" placeholder="Användarnamn..." maxlength="250">
-                    </div>
-                    
-                    <div class="form-group ">
-                      <label>Namn</label>
-                      <input type="text" class="form-control" name="name" placeholder="Förnamn och efternamn..." maxlength="250">
-                    </div>
-                   
-                    <div class="form-group ">
-                      <label>Epost</label>
-                      <input type="text" class="form-control" name="email" placeholder="Ex. namn@epost.se" maxlength="250">
-                   	  <span style="color:#f56954"></span>
-                      <span style="color:#f56954"></span>
-                    </div>
-                    
-                    <div class="form-group ">
-                      <label>Lösenord</label>
-                      <input type="password" class="form-control" name="password" placeholder="Minst 6 tecken..." maxlength="128">
-                    </div>
-
-					<div class="form-group ">
-                      <label>Bekräfta lösenord</label>
-                      <input type="password" class="form-control" name="repassword" placeholder="Bekräfta lösenord..." maxlength="128">
-                      <span style="color:#f56954"></span>
-                      <span style="color:#f56954"></span>
-                    </div>
-                    
-					<div class="form-group ">
-                      <label>Telefon</label>
-                      <input type="text" class="form-control" name="phone" placeholder="Telefon..." maxlength="250">
-                    </div>
-
-                    <div class="form-group">
-                      <label>Rättigheter</label>
-
-                      <select class="form-control" name="priv">
-                          <option value="0">Användare</option>
-                          <option value="1">Avancerad användare</option>
-                        <option value="2">Administratör</option>
-                      </select>
-                    </div>
-                    
-                    <div class="box-footer">
-                      <button type="submit" class="btn-lg btn btn-success" name="submit">Registrera ny användare</button>
-                      
-                      <span style="color:#00a65a"></span>
-                      <span style="color:#f56954"></span>
-                      <span style="color:#f56954"></span>
+                    	<div class="col-md-offset-3 col-md-6 col-md-offset-3">
+                            <form class="form-register" action="" method="post">
+                       
+                            <div class="form-group ">
+                              <label>Anvädarnamn</label>
+                              <input type="text" class="form-control" name="name" placeholder="Användarnamn..." maxlength="250">
+                            </div>
+                            
+                            <div class="form-group ">
+                              <label>Namn</label>
+                              <input type="text" class="form-control" name="name" placeholder="Förnamn och efternamn..." maxlength="250">
+                            </div>
+                           
+                            <div class="form-group ">
+                              <label>Epost</label>
+                              <input type="text" class="form-control" name="email" placeholder="Ex. namn@epost.se" maxlength="250">
+                              <span style="color:#f56954"></span>
+                              <span style="color:#f56954"></span>
+                            </div>
+                            
+                            <div class="form-group ">
+                              <label>Lösenord</label>
+                              <input type="password" class="form-control" name="password" placeholder="Minst 6 tecken..." maxlength="128">
+                            </div>
+        
+                            <div class="form-group ">
+                              <label>Bekräfta lösenord</label>
+                              <input type="password" class="form-control" name="repassword" placeholder="Bekräfta lösenord..." maxlength="128">
+                              <span style="color:#f56954"></span>
+                              <span style="color:#f56954"></span>
+                            </div>
+                            
+                            <div class="form-group ">
+                              <label>Telefon</label>
+                              <input type="text" class="form-control" name="phone" placeholder="Telefon..." maxlength="250">
+                            </div>
+        
+                            <div class="form-group">
+                              <label>Rättigheter</label>
+        
+                              <select class="form-control" name="priv">
+                                  <option value="0">Användare</option>
+                                  <option value="1">Avancerad användare</option>
+                                <option value="2">Administratör</option>
+                              </select>
+                            </div>
+                            
+                            <div class="box-footer">
+                              <button type="submit" class="btn-lg btn btn-success" name="submit">Registrera ny användare</button>
+                              
+                              <span style="color:#00a65a"></span>
+                              <span style="color:#f56954"></span>
+                              <span style="color:#f56954"></span>
+                            </div>
+        
+                          </form>
                   	</div>
-
-                  </form>
-                  
+                    
                   </div>
                 </div>
               </div>
