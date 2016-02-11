@@ -112,7 +112,6 @@
 									<form:select path="facilityID"
 										class="form-control select2dropdown"
 										data-placeholder="V�lj lokal" style="width: 100%;">
-										<form:option value="NONE" label="--- Select ---" />
 										<form:options items="${facilities}" selected="selected" />
 									</form:select>
 
