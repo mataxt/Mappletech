@@ -65,7 +65,7 @@ public class ReservationVM {
 		this.timeTo = timeTo;
 	}
 
-	public Integer getReservationId() {
+	public int getReservationId() {
 		return reservationId;
 	}
 
