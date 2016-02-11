@@ -46,7 +46,7 @@
         
         	<div class="modal-content">
                 <div class="back-modal" data-dismiss="modal">
-                    <a href="/">
+                    <a href="/mappletech/">
                         <div class="lr">
                                 <div class="rl"></div>
                         </div>
@@ -62,14 +62,17 @@
                         <div class="row">
                             <div class="section-title text-center">
                                 <h3>Profil</h3>
-                                <p>Hantera din profil här</p>
+                                <p>Se över din profil här</p>
                             </div>
                         </div>
                         
                         <div class="row">
-                        	<div class="col-md-6">
-                                <form class="form-change" action="/profil/index.php" method="post">
-                       
+                        	<div class="col-md-offset-3 col-md-6 col-md-offset-3">                 
+                       				<div class="form-group">
+                                    	<label>Användarnamn</label>
+                                    	<input type="text" class="form-control" placeholder="testtest" value="testtest" disabled>
+                                 	</div>
+                                    
                             		<div class="form-group">
                                     	<label>Namn</label>
                                     	<input type="text" class="form-control" placeholder="Test Test" value="Test Test" disabled>
@@ -93,102 +96,20 @@
                                     <div class="form-group">
                                     	<label>Adress</label>
                                     	<input type="text" class="form-control" placeholder="Föreningsvägen 12 tr1" value="Föreningsvägen 12 tr1" disabled>
-                                 	</div>  
-                                </form>
-                                
-                            </div>
-                            
-                            <div class="col-md-6">
-                            	<form class="form-change" action="/admin/andra-anvandare/index.php" method="post">
-                   
-                                  <label>Epost</label>
-                                  <div class="form-group">
-                                     
-                                     <select class="form-control" name="mail">
-                                         <option value="test@test.com">test@test.com</option>
-                                         <option value="test2@test2.com">test2@test2.com</option>
-                                         <option value="test3@test3.com">test3@test3.com</option>
-                                     </select>
-                                  </div> 
-                                    
-                                 <div class="form-group ">
-                                 <label>Namn</label>
-                                    
-                                     <div class="input-group input-group-sm ">
-                                       
-                                        <input type="text" class="form-control" placeholder="Förnamn och Efternamn..." name="nametext" maxlength="250">
-                                        
-                                        <span class="input-group-btn">
-                                          <button type="submit" class="btn btn-info btn-flat" name="name">Ändra</button>
-                                        </span>
-                                     </div>
-                                     
-                                     <span style="color:#f56954"></span>
-                                 </div>
-                                  
-                                  <div class="form-group ">
-                                  <label>Lösenord</label>
-                                  
-                                      <div class="input-group input-group-sm ">
-                                       
-                                        <input type="password" class="form-control" placeholder="Minst 6 tecken..." name="passwordtext1" maxlength="128">
-                                        <input type="password" class="form-control" placeholder="Bekräfta lösenord..." name="passwordtext2" maxlength="128">
-                    
-                                        <span class="input-group-btn">
-                                          <button type="submit" class="btn btn-info btn-flat" name="password">Ändra</button>
-                                        </span>
-                                      </div>
-                                      
-                                      <span style="color:#f56954"></span>
-                                      <span style="color:#f56954"></span>
-                                      <span style="color:#f56954"></span>
-                                  </div>
-                                  
-                                  <div class="form-group ">
-                                  <label>Telefon</label>
-                                    
-                                      <div class="input-group input-group-sm ">
-                                       
-                                        <input type="text" class="form-control" placeholder="Telefon..." name="phonetext" maxlength="250">
-                                        
-                                        <span class="input-group-btn">
-                                          <button type="submit" class="btn btn-info btn-flat" name="phone">Ändra</button>
-                                        </span>
-                                      </div>
-                                      
-                                      <span style="color:#f56954"></span>
-                                  </div>
-                                  
-                                  <div class="form-group">
-                                  <label>Rättigheter</label>
-                                  
-                                      <div class="input-group input-group-sm">
-                                          
-                                          <select class="form-control" name="privilegeOption">
-                                              <option value="2">Användare</option>
-                                              <option value="1">Avancerad användare</option>
-                                            <option value="0">Administratör</option>
-                                          </select>
-                                          
-                                          <span class="input-group-btn">
-                                              <button type="submit" class="btn btn-info btn-flat" name="privilege">Ändra</button>
-                                          </span>
-                                          
-                                      </div>
-                                  </div>
-                                  
-                                  <span style="color:#00a65a"></span>
-                                  
-                                  </form>
+                                 	</div>                   
+                            	</div>
+
                             </div>
                         </div>
                         
                         <p>&nbsp;</p>
                         
                         <div class="row">
-                        	<div class="col-md-12">
-                  				 <button type="submit" class="btn btn-success" name="privilege">Uppdatera profil</button>
-                  			</div>
+                        	<div class="col-md-offset-3 col-md-6 col-md-offset-3">
+                            	<a href="/mappletech/profil/uppdatera-profil/">
+                  				 <button type="submit" class="btn-lg btn btn-success" name="privilege">Uppdatera profil</button>
+                  				</a>
+                            </div>
                         </div>
                         
                   </div>
