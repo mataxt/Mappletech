@@ -148,13 +148,13 @@ public class FacilityDAO {
 	 *            .Facility
 	 * @return true, if successful
 	 */
-	public static boolean removeFacility(Facility facility) {
+	public static boolean removeFacility(Integer id) {
 		EntityManagerFactory emf = Persistence.createEntityManagerFactory("UserPU");
 		EntityManager em = emf.createEntityManager();
 		boolean success = false;
 		try {
 			em.getTransaction().begin();
-			Facility f = em.find(Facility.class, facility.getFacilityId());
+			Facility f = em.find(Facility.class, id);
 			if (f != null) {
 				em.remove(f);
 				success = true;
