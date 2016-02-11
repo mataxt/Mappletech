@@ -45,6 +45,10 @@ public class AdminController {
 	@RequestMapping(value = "/administrator/bokningar", method = RequestMethod.POST)
 	public String editBookingPost(@ModelAttribute ReservationVM reservationVm, Model model) {
 		
+		if(reservationVm==null){
+			return "redirect:/administrator/bokningar/index";
+		}
+		
 		RestTemplate restTemplate = new RestTemplate();
 		restTemplate.postForObject(URI + "/reservation/removeReservation", reservationVm, Boolean.class);
 		
