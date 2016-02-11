@@ -21,7 +21,7 @@ public class ReservationVM {
 		this.title = "";
 	}
 
-	public void setReservationId(Integer reservationId) {
+	public void setReservationId(int reservationId) {
 		this.reservationId = reservationId;
 	}
 
@@ -65,7 +65,7 @@ public class ReservationVM {
 		this.timeTo = timeTo;
 	}
 
-	public Integer getReservationId() {
+	public int getReservationId() {
 		return reservationId;
 	}
 

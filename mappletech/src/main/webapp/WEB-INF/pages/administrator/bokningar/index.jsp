@@ -118,7 +118,7 @@
                         
                         <!-- form -->
                     
-                <form:form commandName="reservationVm" method="POST">
+                <form:form commandName="reservationVM" method="POST">
 					<div class="fieldset">
 						<fieldset>
 							<nav>
