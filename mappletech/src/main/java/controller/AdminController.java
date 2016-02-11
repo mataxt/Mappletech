@@ -35,7 +35,7 @@ public class AdminController {
 		reservationList = restTemplate.postForObject( URI + "/reservation/getReservations",null, List.class);
 	
 		model.addAttribute("reservationVm", reservationVm);
-		model.addAttribute("reservationList", reservationList);
+		model.addAttribute("reservList", reservationList);
 		
 		mv.addObject("reservationVm", reservationVm);
 		
