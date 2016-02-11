@@ -591,7 +591,8 @@
         <!-- End Administratör Section -->
    
 		<script>
-        	$function() {
+			// Select2 Dropbown
+        	$(function() {
                 $(".select2dropdown").select2()( {
                     maximumSelectionLength: 1
                 });

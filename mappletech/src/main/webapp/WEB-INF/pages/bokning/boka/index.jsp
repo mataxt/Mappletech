@@ -23,6 +23,9 @@
 	href="<%=request.getContextPath()%>/resources/UI/css/font-awesome.min.css"
 	rel="stylesheet">
 
+<!-- Select2-->
+<link href="<%=request.getContextPath()%>/resources/UI/css/select2.min.css" rel="stylesheet">
+
 <!-- Custom CSS -->
 <link href="<%=request.getContextPath()%>/resources/UI/css/style.css"
 	rel="stylesheet">
@@ -60,6 +63,8 @@
 	src="<%=request.getContextPath()%>/resources/UI/js/jqBootstrapValidation.js"></script>
 <script
 	src="<%=request.getContextPath()%>/resources/UI/js/modernizr.custom.js"></script>
+<script 
+	src="<%=request.getContextPath()%>/resources/UI/js/select2.full.min.js"></script>
 
 <!--[if lt IE 9]>
         <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
@@ -90,7 +95,7 @@
 					<div class="row">
 						<div class="section-title text-center">
 							<h3>Boka</h3>
-							<p>Skapa ny bokning h�rr</p>
+							<p>Skapa ny bokning här</p>
 						</div>
 					</div>
 
@@ -108,10 +113,16 @@
 									</form:select>
 
 								</div>
-
+								
+                                <div class="form-group">
+                                	<label>Lokaler</label>
+                                    <select class="form-control select2dropdown" data-placeholder="Välj lokal" style="width: 100%;">
+                                    	<option>${facilities}</option>
+                                    </select>
+                                </div>
+                                
 								<div class="form-group">
 									<label>Tid (från)</label>
-
 
 									<div class="input-group">
 										<div class="input-group-addon">
@@ -127,7 +138,6 @@
                                 
                                 <div class="form-group">
 									<label>Tid (till)</label>
-
 
 									<div class="input-group">
 										<div class="input-group-addon">
@@ -161,8 +171,15 @@
 
 	<script>
 		$(function() {
+			// Select2 Dropbown
+        	$(function() {
+                $(".select2dropdown").select2()( {
+                    maximumSelectionLength: 1
+                });
+            };
+			
 			//Date range picker with time picker 1
-			$('#reservationtime').daterangepicker({
+			$('#reservationtime1').daterangepicker({
 				"singleDatePicker": true,
 				"showWeekNumbers": true,
 				"timePicker": true,
@@ -173,7 +190,7 @@
 			});
 			
 			//Date range picker with time picker 2
-			$('#reservationtime').daterangepicker({
+			$('#reservationtime2').daterangepicker({
 				"singleDatePicker": true,
 				"showWeekNumbers": true,
 				"timePicker": true,
