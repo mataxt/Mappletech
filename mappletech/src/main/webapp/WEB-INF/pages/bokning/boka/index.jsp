@@ -111,7 +111,7 @@
 									<label>Lokaler</label>
 									<form:select path="facilityID"
 										class="form-control select2dropdown"
-										data-placeholder="Välj lokal" style="width: 100%;">
+										data-placeholder="Vï¿½lj lokal" style="width: 100%;">
 										<form:option value="NONE" label="--- Select ---" />
 										<form:options items="${facilities}" selected="selected" />
 									</form:select>
@@ -163,13 +163,15 @@
 	<!-- End Main Body Section -->
 
 	<script>
+		$(document).ready(function() {
+			// Select2
+			$(".select2dropdown").select2();
+		});
+    </script>
+	
+	<script>
 		$(function() {
-			// Select2 Dropbown
-			$(".select2dropdown").select2()({
-				maximumSelectionLength : 1
-			});
-
-			//Date range picker with time picker 1
+			// Date range picker with time picker 1
 			$('#reservationtime1').daterangepicker({
 				"singleDatePicker" : true,
 				"showWeekNumbers" : true,
@@ -180,7 +182,7 @@
 				format : 'MM/DD/YYYY h:mm A'
 			});
 
-			//Date range picker with time picker 2
+			// Date range picker with time picker 2
 			$('#reservationtime2').daterangepicker({
 				"singleDatePicker" : true,
 				"showWeekNumbers" : true,
