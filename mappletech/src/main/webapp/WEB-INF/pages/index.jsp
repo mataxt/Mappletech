@@ -593,8 +593,9 @@
 		<script>
 			$(document).ready(function() {
 				// Select2
-				$("#select2dropdown").select2()({
-				  maximumSelectionLength: 1
+				$(".select2dropdown").select2({
+				  placeholder: "Välj kategori",
+				  allowClear: true
 				});
 			});
         </script>

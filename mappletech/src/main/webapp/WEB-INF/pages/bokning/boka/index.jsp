@@ -110,7 +110,7 @@
 								<div class="form-group">
 									<label>Lokaler</label>
 									<form:select path="facilityID"
-										class="form-control select2dropdown"
+										class="form-control select2list"
 										data-placeholder="V�lj lokal" style="width: 100%;">
 										<form:options items="${facilities}" selected="selected" />
 									</form:select>
@@ -190,7 +190,10 @@
 	<script>
 		$(document).ready(function() {
 			// Select2
-			$("#select2dropdown").select2();
+			$(".select2list").select2({
+			  placeholder: "Välj lokal",
+			  allowClear: true
+			});
 		});
     </script>
 
