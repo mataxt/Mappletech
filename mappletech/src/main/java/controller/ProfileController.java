@@ -12,8 +12,6 @@ import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.client.RestTemplate;
 import org.springframework.web.servlet.ModelAndView;
 
-import model.User;
-import testdao.UserDAO;
 import vm.UserVM;
 
 @Controller
@@ -75,7 +73,7 @@ public class ProfileController {
 			System.out.println("mobileButton");
 		}else if(passwordButton != null)
 		{
-			sessionUser.setPassword(passwordHash(sessionUser.getPassword()));
+			sessionUser.setPassword(passwordHash(userChange.getPassword()));
 			System.out.println("passwordButton");
 		}
 		restTemplate.postForObject(URI + "/updateProfil", sessionUser, Boolean.class);
