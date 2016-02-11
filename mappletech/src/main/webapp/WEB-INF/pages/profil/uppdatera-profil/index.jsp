@@ -37,6 +37,39 @@
         <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
         <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
+    <script type="text/javascript">
+    function checkPass()
+    {
+        //Store the password field objects into variables ...
+        var pass1 = document.getElementById('passwordtext1');
+        var pass2 = document.getElementById('passwordtext2');
+        //Store the Confimation Message Object ...
+        var message = document.getElementById('confirmMessage');
+        var button = document.getElementById('passwordButton');
+        //Set the colors we will be using ...
+        var goodColor = "#66cc66";
+        var badColor = "#ff6666";
+        //Compare the values in the password field 
+        //and the confirmation field
+        if(pass1.value == pass2.value){
+            //The passwords match. 
+            //Set the color to the good color and inform
+            //the user that they have entered the correct password 
+            pass2.style.backgroundColor = goodColor;
+            message.style.color = goodColor;
+            message.innerHTML = "Passwords Match!"
+            $("#passwordButton").prop('disabled', false)
+        }else{
+            //The passwords do not match.
+            //Set the color to the bad color and
+            //notify the user.
+            pass2.style.backgroundColor = badColor;
+            message.style.color = badColor;
+            message.innerHTML = "Passwords Do Not Match!"
+            $("#passwordButton").prop('disabled', true)
+        }
+    } 
+    </script>
 </head>
     
     <body style="background-image:none">
@@ -68,13 +101,14 @@
                         
                         <div class="row"> 
                             <div class="col-md-offset-3 col-md-6 col-md-offset-3">
-                            	<form class="form-change" action="" method="post">
+                            	<form:form modelAttribute="uservm" id="user" class="form-group"
+							method="POST">
                                         
                                      <div class="form-group">
                                          <label>Namn</label>
                                             
                                          <div class="input-group input-group-sm ">  
-                                            <input type="text" class="form-control" placeholder="Nytt namn..." name="nametext">
+                                            <form:input path="fullName" type="text" class="form-control" />
                         
                                             <span class="input-group-btn">
                                               <button type="submit" class="btn btn-info btn-flat" name="name">Ändra</button>
@@ -89,10 +123,10 @@
                                          <label>E-post</label>
                                             
                                          <div class="input-group input-group-sm ">  
-                                            <input type="text" class="form-control" placeholder="Ny epost..." name="emailtext">
+                                            <form:input path="email" type="text" class="form-control" />
                         
                                             <span class="input-group-btn">
-                                              <button type="submit" class="btn btn-info btn-flat" name="email">Ändra</button>
+                                              <button type="submit" class="btn btn-info btn-flat" name="emailButton">Ändra</button>
                                               
                                             </span>
                                          </div>
@@ -104,7 +138,7 @@
                                           <label>Telefon</label>
                                             
                                           <div class="input-group input-group-sm ">
-                                            <input type="text" class="form-control" placeholder="Nytt telefon nummer..." name="phonetext">
+                                            <form:input path="phoneNumber" type="text" class="form-control" />
                                             
                                             <span class="input-group-btn">
                                               <button type="submit" class="btn btn-info btn-flat" name="phone">Ändra</button>
@@ -119,7 +153,7 @@
                                           <label>Mobil</label>
                                             
                                           <div class="input-group input-group-sm ">
-                                            <input type="text" class="form-control" placeholder="Nytt mobil nummer..." name="mobiletext">
+                                            <form:input path="mobileNumber" type="text" class="form-control" placeholder="Nytt mobil nummer..." name="mobiletext"/>
                                             
                                             <span class="input-group-btn">
                                               <button type="submit" class="btn btn-info btn-flat" name="mobile">Ändra</button>
@@ -135,25 +169,21 @@
                                       <div class="form-group">    
                                           <label>Lösenord</label>
                                           
-                                          <div class="input-group input-group-sm ">
-                                            <input type="password" class="form-control" placeholder="Nuvarande lösenord..." name="currentPassword">
-                                          </div>
-                                          <span style="color:#f56954"></span>
-                                          
                                           <div class="form-group"></div>
                                           
                                           <div class="input-group input-group-sm ">
-                                            <input type="password" class="form-control" placeholder="Nytt lösenord..." name="passwordtext1">
-                                            <input type="password" class="form-control" placeholder="Bekräfta lösenord..." name="passwordtext2">
+                                            <input type="password" class="form-control" placeholder="Nytt lösenord..." name="passwordtext1" id="passwordtext1">
+                                            <form:input path="password" type="password" class="form-control" placeholder="Bekräfta lösenord..." name="passwordtext2" id="passwordtext2" onkeyup="checkPass(); return false;"/>
+                                            <span id="confirmMessage" class="confirmMessage"></span>
                                             <span class="input-group-btn">
-                                              <button type="submit" class="btn btn-info btn-flat" name="password">Ändra</button>
+                                              <button type="submit" class="btn btn-info btn-flat" name="passwordButton" id="passwordButton" disabled>Ändra</button>
                                             </span>
                                           </div>
                                           
                                           <span style="color:#f56954"></span>
                                       </div>
 
-                                  </form>
+                                  </form:form>
                             </div>
                         </div>
                         

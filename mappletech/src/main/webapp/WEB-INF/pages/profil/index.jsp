@@ -68,38 +68,39 @@
                         
                         <div class="row">
                         	<div class="col-md-offset-3 col-md-6 col-md-offset-3">
-                            	<form class="form-change" action="" method="post">           
+                            	<form:form modelAttribute="uservm" id="user" class="form-group"
+							method="POST">           
                        				<div class="form-group">
                                     	<label>Användarnamn</label>
-                                    	<input type="text" class="form-control" placeholder="testtest" value="testtest" disabled>
+                                    	<form:input path="username" type="text" class="form-control" disabled="true"/>
                                  	</div>
                                     
                             		<div class="form-group">
                                     	<label>Namn</label>
-                                    	<input type="text" class="form-control" placeholder="Test Test" value="Test Test" disabled>
+                                    	<form:input path="fullName" type="text" class="form-control" disabled="true"/>
                                  	</div>
                                     
                                     <div class="form-group">
                                     	<label>E-post</label>
-                                    	<input type="text" class="form-control" placeholder="test@test.se" value="test@test.se" disabled>
+                                    	<form:input path="email" type="text" class="form-control" disabled="true"/>
                                  	</div>
                                     
                                     <div class="form-group">
                                     	<label>Telefon</label>
-                                    	<input type="text" class="form-control" placeholder="08-1234567" value="08-1234567" disabled>
+                                    	<form:input path="phoneNumber" type="text" class="form-control" disabled="true"/>
                                  	</div>
                                     
                                     <div class="form-group">
                                     	<label>Mobil</label>
-                                    	<input type="text" class="form-control" placeholder="+4612345678" value="+4612345678" disabled>
+                                    	<form:input path="mobileNumber" type="text" class="form-control" disabled="true"/>
                                  	</div>
                                     
                                     <div class="form-group">
                                     	<label>Adress</label>
-                                    	<input type="text" class="form-control" placeholder="Föreningsvägen 12 tr1" value="Föreningsvägen 12 tr1" disabled>
+                                    	<form:input path="address" type="text" class="form-control" disabled="true"/>
                                  	</div> 
                                     
-                                </form>                  
+                                </form:form>                  
                                </div>
 
                             </div>

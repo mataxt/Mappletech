@@ -20,10 +20,26 @@ public class ProfileRestController {
 		UserVM userVM = null;
 		if(u != null)
 		{
-			userVM = new UserVM(u.getUsername(),u.getFullName(),u.getEmail(),
-				u.getPhoneNumber(),u.getAddress(),u.getPrivilege());
+			userVM = new UserVM(u.getUsername(),u.getPassword(),u.getFullName(),u.getEmail(),
+				u.getPhoneNumber(),u.getMobileNumber(),u.getAddress(),u.getPrivilege());
 		}
 		return userVM;
+	}
+	
+	@RequestMapping(value="/updateProfil", method = RequestMethod.POST)
+	public Boolean updateUser(@RequestBody(required=true) UserVM user)
+	{
+		System.out.println(user.getEmail());
+		User u = UserDAO.fetchUser(user.getUsername());
+		if(u != null)
+		{
+			u.setFullName(user.getFullName());
+			u.setEmail(user.getEmail());
+			u.setPhoneNumber(user.getPhoneNumber());
+			u.setMobileNumber(user.getMobileNumber());
+			u.setPassword(user.getPassword());
+		}
+		return UserDAO.changeUser(u);
 	}
 
 }
