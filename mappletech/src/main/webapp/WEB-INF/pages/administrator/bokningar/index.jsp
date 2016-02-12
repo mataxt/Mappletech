@@ -73,50 +73,8 @@
                             <p>Hantera bokningar här</p>
                         </div>
                     </div>
-                    
-                    <div class="row">
-						<div ng-app="app" ng-controller="Ctrl">
-                         <table class="table table-bordered table-hover table-condensed">
-                          <tr style="font-weight: bold">
-                            <td style="width:17%">Bokare</td>
-                            <td style="width:25%">Lokal</td>
-                            <td style="width:18%">Tid (från)</td>
-                            <td style="width:18%">Tid (till)</td>
-                          </tr>
-      					  <tr ng-repeat="user in users">
-                          
-        				<td>
-                          <!-- editable username (text with validation) -->
-                          <span e-name="name" e-form="rowform" onbeforesave="checkName($data, user.id)" e-required>
-                           {{ user.name || 'empty' }}
-                          </span>
-                    	</td>
                         
-                        <td>
-                          <!-- editable status (select-local) -->
-                          <span editable-text="user.status" e-name="status" e-form="rowform" e-ng-options="s.value as s.text for s in statuses">
-                            {{ showStatus(user) }}
-                          </span>
-            		   </td>
-                       
-                        <td>
-                          <!-- editable group (select-remote) -->
-                          <span editable-text="user.group" e-name="group" onshow="loadGroups()" e-form="rowform" e-ng-options="g.id as g.text for g in groups">
-                            {{ showGroup(user) }}
-                          </span>
-                        </td>
-                        
-                        <td>
-                          <!-- editable status (select-local) -->
-                          <span editable-text="user.status" e-name="status" e-form="rowform" e-ng-options="s.value as s.text for s in statuses">
-                            {{ showStatus(user) }}
-                          </span>
-            		   </td>
-                        
-                        <!-- change and remove buttons -->
-                        <td style="white-space: nowrap">
-                        
-                        <!-- form -->
+                        <!-- form:form -->
                     
                 <form:form commandName="reservationVM" method="POST">
 					<div class="fieldset">
@@ -125,7 +83,7 @@
 								<ul style="list-style: none;">
 									<li><br>Bokningar:</li>
 									<li>
-										<form:select path="reservationId" title="results" size="8" style="width: 350px;">
+										<form:select path="reservationId" title="results" size="8" style="width: 500px;">
 											<form:options items="${reservList}" itemValue="reservationId" itemLabel="title"  selected="selected" ondblclick="onDbClickFunction()"/>
 										</form:select>
 								<li><br><input type="submit" value="Ta bort"/></li>
@@ -135,22 +93,19 @@
 					</div>
 				</form:form>
                        
-                        </td> 
-                      </tr>
-                    </table>
+                     
                   </div>
                 </div>
               </div>
               
             </div>
-          </div>
-        </div>
+ 
         <!-- End Main Body Section -->
         
       <!-- Script for table-->
     <script>
 		function onDbClickFunction() {
-			document.forms["modifyForm"].submit();
+			document.forms["reservationVM"].submit();
 		}
 	</script>
       

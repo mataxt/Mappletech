@@ -1,5 +1,6 @@
 package controller;
 
+import java.sql.Date;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
@@ -27,17 +28,14 @@ public class AdminController {
 	public ModelAndView removeBookingGet(ModelMap model) {
 		
 		ModelAndView mv = new ModelAndView("administrator/bokningar/index");
-		ReservationVM reservationVm = new ReservationVM();
-
-		List<ReservationVM> reservationList = new ArrayList<>();
 		
 		RestTemplate restTemplate = new RestTemplate();
-		reservationList = restTemplate.postForObject( URI + "/reservation/getReservations",null, List.class);
-	
-		model.addAttribute("reservationVM", reservationVm);
-		model.addAttribute("reservList", reservationList);
+		List<ReservationVM> reservationList = restTemplate.postForObject( URI + "/reservation/getReservations",null, List.class);
+		reservationList.add(new ReservationVM(2,"Hassan Al-Sistani",4,Date.valueOf("2000-08-08"),Date.valueOf("2000-09-09")));
+		reservationList.add(new ReservationVM(3,"Raji Hussein",2,Date.valueOf("2013-11-12"),Date.valueOf("2013-11-14")));
 		
-		mv.addObject("reservationVm", reservationVm);
+		model.addAttribute("reservationVM", new ReservationVM());
+		model.addAttribute("reservList", reservationList);
 		
 		return mv;
 	}
