@@ -190,7 +190,6 @@
 				"timePicker24Hour": true,
 				"timePickerIncrement": 60,
 				"autoApply" : true,
-				format: 'YYYY-MM-DD hh:mm'
 			});
 		});
 	</script>
