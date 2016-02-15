@@ -83,8 +83,8 @@
 								<ul style="list-style: none;">
 									<li><br>Bokningar:</li>
 									<li>
-										<form:select path="reservationList" title="results" size="8" style="width: 500px;">
-											<form:options items="${reservList}" itemValue="reservationId" itemLabel="title"  selected="selected" ondblclick="onDbClickFunction()"/>
+										<form:select path="reservations" title="results" size="8" style="width: 500px;">
+											<form:options items="${reservList}" selected="selected" ondblclick="onDbClickFunction()"/>
 										</form:select>
 								<li><br><input type="submit" value="Ta bort"/></li>
 								</ul>

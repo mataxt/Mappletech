@@ -1,10 +1,9 @@
 package controller;
 
-import java.sql.Date;
-import java.util.ArrayList;
+import java.util.LinkedHashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.Random;
-
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
@@ -13,7 +12,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.client.RestTemplate;
 import org.springframework.web.servlet.ModelAndView;
-
 import vm.GroupVM;
 import vm.ReportVM;
 import vm.ReservationVM;
@@ -32,11 +30,13 @@ public class AdminController {
 		
 		RestTemplate restTemplate = new RestTemplate();
 		List<ReservationVM> reservationList = restTemplate.postForObject(URI + "/reservation/getReservations",null, List.class);
-		reservationList.add(new ReservationVM(2,"Hassan Al-Sistani",4,Date.valueOf("2000-08-08"),Date.valueOf("2000-09-09")));
-		reservationList.add(new ReservationVM(3,"Raji Hussein",2,Date.valueOf("2013-11-12"),Date.valueOf("2013-11-14")));
 		
+		
+		Map<String,String> reservations = new LinkedHashMap<String,String>();
+		reservations.put("2", "Hassan Al-Sistani");
+		reservations.put("3", "Raji Hussein");
 		model.addAttribute("reservationVM", new ReservationVM());
-		model.addAttribute("reservList", reservationList);
+		model.addAttribute("reservList", reservations);
 		
 		return mv;
 	}
