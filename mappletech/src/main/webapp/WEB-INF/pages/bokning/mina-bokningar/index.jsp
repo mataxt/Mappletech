@@ -93,7 +93,6 @@
 					<div class="row">
 						<div class="box-body pad table-responsive">
 							<form:form method="post" action="removeRes" modelAttribute="resRem">
-							<c:if test="${not empty reservs}">
                   
                                 <table id="thetable" class="table table-bordered table-striped">
                               
@@ -103,14 +102,15 @@
                                     <th>Artikelnamn</th>
                                   </tr>
                                 </thead>
-                                <tbody>
                                 
-                                <ul>
-                                    <c:forEach var="r" items="${reservs}">
-                                        <li>${r.title}</li>
-                                    </c:forEach>
-                                </ul>
-                                                    
+                                <tbody>
+                                <c:if test="${not empty reservs}">
+                                    <ul>
+                                        <c:forEach var="r" items="${reservs}">
+                                            <li>${r.title}</li>
+                                        </c:forEach>
+                                    </ul>
+                                </c:if>           
                                 </tbody>
                               </table>
                               
