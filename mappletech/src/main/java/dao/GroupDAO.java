@@ -198,4 +198,31 @@ public class GroupDAO {
 		return success;
 	}
 
+	public static List<Group> getAllGroups(String username) {
+		EntityManagerFactory emf = Persistence.createEntityManagerFactory("UserPU");
+		EntityManager em = emf.createEntityManager();
+		List<Group> groups = new ArrayList<Group>();
+		try {
+			em.getTransaction().begin();
+			User usr = em.find(User.class, username);
+			groups = em.createQuery("from Group where host = ?1", Group.class).setParameter(1, usr).getResultList();
+			em.getTransaction().commit();
+
+		} catch (Exception e) {
+			if (em.getTransaction().isActive()) {
+				em.getTransaction().rollback();
+			}
+
+		} finally {
+			if (em != null) {
+				em.close();
+			}
+			if (emf != null) {
+				emf.close();
+			}
+		}
+
+		return groups;
+	}
+
 }
