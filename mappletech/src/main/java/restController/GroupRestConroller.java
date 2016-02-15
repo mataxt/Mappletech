@@ -8,8 +8,6 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.mysql.fabric.xmlrpc.base.Array;
-
 import dao.GroupDAO;
 import model.Group;
 import model.User;
@@ -24,10 +22,12 @@ public class GroupRestConroller {
 		Group group = new Group();
 		group.setGroupName(groupVM.getGroupName());
 		group.setHost(UserDAO.fetchUser(groupVM.getHost()));
-		group.setDescription(groupVM.getDescription());
-		List<User> a = new ArrayList<User>();
-		a.add(UserDAO.fetchUser(groupVM.getHost()));
-		group.setUsers(a);
+		if (groupVM.getDescription().length() > 0) {
+			group.setDescription(groupVM.getDescription());
+		}
+//		List<User> a = new ArrayList<User>();
+//		a.add(UserDAO.fetchUser(groupVM.getHost()));
+//		group.setUsers(a);
 
 		return GroupDAO.addGroup(group);
 	}
