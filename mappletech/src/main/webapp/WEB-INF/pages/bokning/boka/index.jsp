@@ -171,7 +171,7 @@
 				"timePicker24Hour" : true,
 				"timePickerIncrement" : 60,
 				"autoApply" : true,
-				format: 'YYYY-MM-DD',
+				format: 'YYYY-MM-DD hh:mm',
 				locale: {
 					customRangeLabel: 'Custom',
 					daysOfWeek: ['Sön','Mån','Tis', 'Ons', 'Tors', 'Fre', 'Lör'],
@@ -183,12 +183,12 @@
 			// Date range picker with time picker 2
 			$('#reservationtime2').daterangepicker({
 				"singleDatePicker" : true,
-				"showDropdowns" : true,
+				"showWeekNumbers" : true,
 				"timePicker" : true,
 				"timePicker24Hour" : true,
 				"timePickerIncrement" : 60,
 				"autoApply" : true,
-				format: 'YYYY-MM-DD HH:MM',
+				format: 'YYYY-MM-DD hh:mm',
 				locale: {
 					customRangeLabel: 'Custom',
 					daysOfWeek: ['Sön','Mån','Tis', 'Ons', 'Tors', 'Fre', 'Lör'],
