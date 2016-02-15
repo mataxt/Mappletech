@@ -121,7 +121,7 @@
                                     	<td>${r.timeFrom}</td>
                                     	<td>${r.timeTo}</td>
                                         <td>
-                                        	<button class="btn-sm btn btn-danger">Ta bort</button>
+                                        	<button class="btn-md btn btn-danger">Ta bort</button>
                                         </td>
                                     </tr>
                                     </c:forEach>
