@@ -58,16 +58,15 @@ public class ReservationController {
 
 
 	@RequestMapping(value = "/bokning/mina-bokningar", method = RequestMethod.GET)
-	public ModelAndView viewAll() {
+	public ModelAndView viewAll(@ModelAttribute("sessUser") UserVM sessUser) {
 		System.out.println("In GET RVes...");
 		RestTemplate restTemplate = new RestTemplate();
 		@SuppressWarnings("unchecked")
-		ArrayList<ReservationVM> resVm = restTemplate.getForObject(URI + "reservation/getReservations", ArrayList.class);
+		ArrayList<ReservationVM> resVm = restTemplate.getForObject(URI + "reservation/getReservations/{user}", ArrayList.class, sessUser.getUsername());
 		System.out.println(resVm.toString());
 		ModelAndView mv = new ModelAndView("bokning/mina-bokningar/index");
 		mv.addObject("resRem", new ReservationVM());
 		mv.addObject("reservs", resVm);
 		return mv;
-
 	}
 }

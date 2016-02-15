@@ -82,6 +82,42 @@ public class ReservationDAO {
 	}
 
 	/**
+	 * Retrieves all the Reservations.
+	 *
+	 * @param
+	 * @return List<Reservation>
+	 */
+	public static List<Reservation> getAllReservations(String username) {
+		EntityManagerFactory emf = Persistence
+				.createEntityManagerFactory("UserPU");
+		EntityManager em = emf.createEntityManager();
+		List<Reservation> reservations = new ArrayList<Reservation>();
+		try {
+			em.getTransaction().begin();
+			reservations = em
+					.createQuery("from Reservation where host = ?1", Reservation.class)
+					.setParameter(1, username)
+					.getResultList();
+			em.getTransaction().commit();
+
+		} catch (Exception e) {
+			if (em.getTransaction().isActive()) {
+				em.getTransaction().rollback();
+			}
+
+		} finally {
+			if (em != null) {
+				em.close();
+			}
+			if (emf != null) {
+				emf.close();
+			}
+		}
+
+		return reservations;
+	}
+	
+	/**
 	 * Gets the Reservation info.
 	 *
 	 * @param reservationID
