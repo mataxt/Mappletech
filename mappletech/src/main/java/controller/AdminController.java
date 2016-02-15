@@ -1,5 +1,6 @@
 package controller;
 
+import java.util.HashMap;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
@@ -31,12 +32,13 @@ public class AdminController {
 		RestTemplate restTemplate = new RestTemplate();
 		List<ReservationVM> reservationList = restTemplate.postForObject(URI + "/reservation/getReservations",null, List.class);
 		
-		
+		Map referenceData = new HashMap();
 		Map<String,String> reservations = new LinkedHashMap<String,String>();
 		reservations.put("2", "Hassan Al-Sistani");
 		reservations.put("3", "Raji Hussein");
+		referenceData.put("list", reservations);
 		model.addAttribute("reservationVM", new ReservationVM());
-		model.addAttribute("reservList", reservations);
+		model.addAttribute("reservList", referenceData);
 		
 		return mv;
 	}
