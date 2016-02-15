@@ -95,7 +95,7 @@ public class ReservationDAO {
 		try {
 			em.getTransaction().begin();
 			reservations = em
-					.createQuery("from Reservation where host = ?1", Reservation.class)
+					.createQuery("from Reservation where host.username = ?1", Reservation.class)
 					.setParameter(1, username)
 					.getResultList();
 			em.getTransaction().commit();
