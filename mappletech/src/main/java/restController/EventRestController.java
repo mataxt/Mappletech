@@ -39,6 +39,20 @@ public class EventRestController {
 		return eventVMList;
 	}
 	
+	@RequestMapping(value="/event/getLatest",method = RequestMethod.GET)
+	public List<EventVM> getLatestEvents()
+	{
+		List<Event> eventList = EventDAO.getLatestEvents();
+		List<EventVM> eventVMList = new ArrayList<>();
+		for(Event event:eventList)
+		{
+			eventVMList.add(new EventVM(event.getEventID(),event.getTitle(),
+					event.getDescription(),event.getCreator().getUsername(),
+					event.getDate()));
+		}
+		return eventVMList;
+	}
+	
 	@RequestMapping(value="/event/get",method = RequestMethod.POST)
 	public Event getEvent(@RequestBody(required=true)int eventId)
 	{

@@ -1,5 +1,6 @@
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
@@ -484,18 +485,13 @@
                         <div class="col-md-12">
                             <div class="footer-contact-info purple">
                                 <h4>Senaste nytt</h4>
-                                
-                                <ul>
-                                    <li><strong>2016-01-29: </strong>Just nu �r det problem med avloppssystemen. Avvaktar med mer information kring detta.</li>
-                                </ul>
-                                
-                                <ul>
-                                    <li><strong>2015-12-24: </strong>God Jul!</li>
-                                </ul>
-                                
-                                <ul>
-                                    <li><strong>2016-10-26: </strong>Just nu �r det problem med internetf�rbindelsen. Det �r ber�knat vara klart kl 20:00.</li>
-                                </ul>
+                                <c:if test="${not empty lists}">
+									<ul>
+										<c:forEach var="eventList" items="${list}">
+											<li>${res.date} ${res.title}</li>
+										</c:forEach>
+									</ul>
+								</c:if>
                             </div>
                         </div>
             

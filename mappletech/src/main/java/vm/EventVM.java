@@ -60,4 +60,8 @@ public class EventVM {
 	public String getImage() {
 		return image;
 	}
+
+	public void setCreator(String username) {
+		this.creator = username;
+	}
 }

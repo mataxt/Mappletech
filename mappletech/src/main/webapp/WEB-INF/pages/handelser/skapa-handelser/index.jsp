@@ -74,28 +74,30 @@
                         </div>
                         
                         <div class="row">
-                        	<div class="col-md-offset-3 col-md-6 col-md-offset-3">                 
+                        	<div class="col-md-offset-3 col-md-6 col-md-offset-3"> 
+                        	<form:form modelAttribute="eventVM" id="event" class="form-group"
+							method="POST">                    
                        				<div class="form-group">
                                     	<label>Title</label>
-                                    	<input type="text" class="form-control" placeholder="titleTest" value="TitleTest" disabled>
+                                    	<form:input path="title" type="text" class="form-control" placeholder="titleTest" value="TitleTest" />
                                  	</div>
                                     
                             		<div class="form-group">
                                     	<label>Beskrivning</label>
-                                    	<input type="text" class="form-control" placeholder="beskrivningTest" value="BeskrivningTest" disabled>
+                                    	<form:input path="description" type="text" class="form-control" placeholder="beskrivningTest" value="BeskrivningTest" />
                                  	</div>
                                     
                                     <div class="form-group">
                                     	<label>Skapare</label>
-                                    	<input type="text" class="form-control" placeholder="skapareTest" value="skapareTest" disabled>
+                                    	<form:input path="creator" type="text" class="form-control" placeholder="skapareTest" value="skapareTest" disabled="true"/>
                                  	</div>
                                     
                                     <div class="form-group">
                                     	<label>Datum</label>
-                                    	<input type="text" class="form-control" placeholder="2010-10-10" value="2010-10-10" disabled>
-                                 	</div>                 
+                                    	<form:input path="date" type="text" class="form-control" placeholder="2010-10-10" value="2010-10-10"/>
+                                 	</div>
+                                 	</form:form>                 
                             	</div>
-
                             </div>
                         </div>
                         
@@ -103,18 +105,14 @@
                         
                         <div class="row">
                         	<div class="col-md-offset-3 col-md-6 col-md-offset-3">
-                            	<a href="/mappletech/profil/uppdatera-profil/">
+                            	<a href="/tech2/handelser/skapa-ny-handelse">
                   				 <button type="submit" class="btn-lg btn btn-success" name="event">Lägg till händelse</button>
                   				</a>
                             </div>
                         </div>
                         
                   </div>
-                </div>
-                </div>
-              </div>
               
-            </div>
         <!-- End Main Body Section -->
      	 
 		<script>

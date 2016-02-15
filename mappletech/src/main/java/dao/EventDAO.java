@@ -72,6 +72,32 @@ public class EventDAO {
 
 		return events;
 	}
+	
+	public static List<Event> getLatestEvents() {
+		EntityManagerFactory emf = Persistence.createEntityManagerFactory("UserPU");
+		EntityManager em = emf.createEntityManager();
+		List<Event> events = new ArrayList<Event>();
+		try {
+			em.getTransaction().begin();
+			events = em.createQuery("from Event", Event.class).setMaxResults(5).getResultList();
+			em.getTransaction().commit();
+
+		} catch (Exception e) {
+			if (em.getTransaction().isActive()) {
+				em.getTransaction().rollback();
+			}
+
+		} finally {
+			if (em != null) {
+				em.close();
+			}
+			if (emf != null) {
+				emf.close();
+			}
+		}
+
+		return events;
+	}
 
 	/**
 	 * Gets the Event info.
