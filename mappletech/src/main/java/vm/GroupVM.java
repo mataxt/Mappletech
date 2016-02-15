@@ -6,6 +6,7 @@ public class GroupVM {
 	private String description;
 	private String host;
 	
+	
 	public GroupVM() {
 		
 	}

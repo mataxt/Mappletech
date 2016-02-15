@@ -48,11 +48,11 @@
 
 <!-- Template js -->
 <script
-	src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.10.2/moment.min.js"></script>
-<script
 	src="<%=request.getContextPath()%>/resources/UI/js/jquery-2.1.1.min.js"></script>
 <script
 	src="<%=request.getContextPath()%>/resources/UI/js/jquery.appear.js"></script>
+<script
+	src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.10.3/moment.min.js"></script>
 <script
 	src="<%=request.getContextPath()%>/resources/UI/js/daterangepicker.js"></script>
 <script
@@ -97,7 +97,7 @@
 					<div class="row">
 						<div class="section-title text-center">
 							<h3>Boka</h3>
-							<p>Skapa ny bokning här</p>
+							<p>Skapa ny bokning hï¿½r</p>
 						</div>
 					</div>
 
@@ -111,14 +111,14 @@
 									<label>Lokaler</label>
 									<form:select path="facilityID"
 										class="form-control select2list"
-										data-placeholder="Välj lokal" style="width: 100%;">
+										data-placeholder="Vï¿½lj lokal" style="width: 100%;">
 										<form:options items="${facilities}"/>
 									</form:select>
 
 								</div>
 
 								<div class="form-group">
-									<label>Tid (från)</label>
+									<label>Tid (frï¿½n)</label>
 
 									<div class="input-group">
 										<div class="input-group-addon">
@@ -146,7 +146,7 @@
 								<div class="row">
 									<div class="col-md-offset-3 col-md-6 col-md-offset-3">
 										<button type="submit" class="btn-lg btn btn-success"
-											name="facility">Boka anläggning</button>
+											name="facility">Boka anlï¿½ggning</button>
 									</div>
 								</div>
 							</form:form>
@@ -166,23 +166,30 @@
 			// Date range picker with time picker 1
 			$('#reservationtime1').daterangepicker({
 				"singleDatePicker" : true,
-				"showWeekNumbers" : true,
-				"timePicker" : true,
-				"timePicker24Hour" : true,
-				"timePickerIncrement" : 60,
+				"showDropdowns": true,
+				"showWeekNumbers": true,
+				"timePicker": true,
+				"timePicker24Hour": true,
+				"timePickerIncrement": 60,
 				"autoApply" : true,
-				format : 'YYYY-MM-DD hh:mm'
+				format: 'YYYY-MM-DD hh:mm',
+				locale: {
+					customRangeLabel: 'Custom',
+					daysOfWeek: ['SÃ¶n','MÃ¥n','Tis', 'Ons', 'Tors', 'Fre', 'LÃ¶r'],
+					monthNames: ['Januari', 'Februari', 'Mars', 'April', 'Maj', 'Juni', 'Juli', 'Augusti', 'September', 'Oktober', 'November', 'December'],
+					firstDay: 1
+				}
 			});
 
 			// Date range picker with time picker 2
 			$('#reservationtime2').daterangepicker({
 				"singleDatePicker" : true,
-				"showWeekNumbers" : true,
-				"timePicker" : true,
-				"timePicker24Hour" : true,
-				"timePickerIncrement" : 60,
+				"showDropdowns": true,
+				"showWeekNumbers": true,
+				"timePicker": true,
+				"timePicker24Hour": true,
+				"timePickerIncrement": 60,
 				"autoApply" : true,
-				format : 'YYYY-MM-DD hh:mm'
 			});
 		});
 	</script>
@@ -191,7 +198,7 @@
 		$(document).ready(function() {
 			// Select2
 			$(".select2list").select2({
-			  placeholder: "Välj lokal",
+			  placeholder: "Vï¿½lj lokal",
 			  allowClear: true
 			});
 		});

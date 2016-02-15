@@ -1,9 +1,10 @@
 package controller;
 
-import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.LinkedHashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.Random;
-
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
@@ -12,7 +13,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.client.RestTemplate;
 import org.springframework.web.servlet.ModelAndView;
-
+import vm.GroupVM;
 import vm.ReportVM;
 import vm.ReservationVM;
 import vm.UserVM; 
@@ -20,24 +21,18 @@ import vm.UserVM;
 @Controller
 public class AdminController {
 
-	private final String URI = "http://130.237.84.211:8080/mappletech/rest";
+	private final String URI = "http://http://130.237.84.211:8080/mappletech/rest";
 	// ===================== bokningar =================================
 	
 	@RequestMapping(value = { "/administrator/bokningar" }, method = RequestMethod.GET)
 	public ModelAndView removeBookingGet(ModelMap model) {
 		
 		ModelAndView mv = new ModelAndView("administrator/bokningar/index");
-		ReservationVM reservationVm = new ReservationVM();
-
-		List<ReservationVM> reservationList = new ArrayList<>();
 		
 		RestTemplate restTemplate = new RestTemplate();
-		reservationList = restTemplate.postForObject( URI + "/reservation/getReservations",null, List.class);
-	
-		model.addAttribute("reservationVm", reservationVm);
-		model.addAttribute("reservationList", reservationList);
+		List<ReservationVM> reservationList = restTemplate.postForObject(URI + "/reservation/getReservations",null, List.class);
 		
-		mv.addObject("reservationVm", reservationVm);
+		mv.addObject("list",reservationList);
 		
 		return mv;
 	}
@@ -58,7 +53,7 @@ public class AdminController {
 	
 	
 	// ===================== Edit anvandare =================================
-	
+	/*
 	@RequestMapping(value = { "/administrator/anvandare" }, method = RequestMethod.GET)
 	public ModelAndView editUsersGet() {
 		ModelAndView mv = new ModelAndView("administrator/anvandare/index");
@@ -80,7 +75,7 @@ public class AdminController {
 
 		return "redirect:/administrator/anvandare";
 	}
-
+*/
 	// ======================================================================
 	// ======================== felanmalan ================================
 	
@@ -95,7 +90,7 @@ public class AdminController {
 	public String errorReportPost(@ModelAttribute("reportVm") ReportVM reportVm, Model model) {
 		
 		RestTemplate restTemplate = new RestTemplate();
-		boolean success = restTemplate.postForObject(URI, reportVm, Boolean.class);
+		boolean success = restTemplate.postForObject(URI+"/felanmalan", reportVm, Boolean.class);
 		
 		if (success) {
 			return "redirect:/administrator/felanmalan/index";
@@ -120,13 +115,39 @@ public class AdminController {
 				
 				UserVM newUser = new UserVM(userVm.getUsername(), generatePassword(), userVm.getFullName(), userVm.getPrivilege());
 				RestTemplate restTemplate = new RestTemplate();
-				boolean userExists = restTemplate.postForObject(URI, newUser, Boolean.class);
+				boolean userExists = restTemplate.postForObject(URI+"/lagg-till-anvandare", newUser, Boolean.class);
 				
 				if (!userExists) {
 					return "redirect:/administrator/anvandare/lagg-till-anvandare/index";
 				}
 				return "redirect:/administrator/anvandare";
 			}
+			
+			// ======================== Groups ================================
+			
+			@RequestMapping(value = { "/administrator/grupper" }, method = RequestMethod.GET)
+			public ModelAndView removeGroupGet() {
+				
+				ModelAndView mv = new ModelAndView("administrator/grupper/index");
+				mv.addObject("groupVm", new GroupVM());
+				return mv;
+			}
+
+			@RequestMapping(value = "/administrator/grupper", method = RequestMethod.POST)
+			public String removeGroupPost(@ModelAttribute GroupVM groupVm, Model model) {
+				
+				
+				RestTemplate restTemplate = new RestTemplate();
+				boolean success = restTemplate.postForObject(URI+"/grupper", groupVm, Boolean.class);
+				
+				if (!success) {
+					return "redirect:/administrator/";
+				}
+				return "redirect:/administrator/grupper/index";
+			}
+	// ======================================================================
+			
+			
 	// ======================================================================
 			
 			// Generate a password for the new user created by admin

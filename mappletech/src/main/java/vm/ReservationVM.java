@@ -21,7 +21,7 @@ public class ReservationVM {
 		this.title = "";
 	}
 
-	public void setReservationId(Integer reservationId) {
+	public void setReservationId(int reservationId) {
 		this.reservationId = reservationId;
 	}
 
