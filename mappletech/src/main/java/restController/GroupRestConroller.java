@@ -25,9 +25,9 @@ public class GroupRestConroller {
 		if (groupVM.getDescription().length() > 0) {
 			group.setDescription(groupVM.getDescription());
 		}
-//		List<User> a = new ArrayList<User>();
-//		a.add(UserDAO.fetchUser(groupVM.getHost()));
-//		group.setUsers(a);
+		
+		GroupDAO.changeGroup(group, groupVM.getHost(), "add");
+		
 
 		return GroupDAO.addGroup(group);
 	}
