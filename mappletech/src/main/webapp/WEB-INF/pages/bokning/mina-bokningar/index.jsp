@@ -120,6 +120,9 @@
                                     	<td>${r.facilityID}</td>
                                     	<td>${r.timeFrom}</td>
                                     	<td>${r.timeTo}</td>
+                                        <td>
+                                        	<button class="btn-sm btn btn-danger">Ta bort</button>
+                                        </td>
                                     </tr>
                                     </c:forEach>
                                 </c:if>           
