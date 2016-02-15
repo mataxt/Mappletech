@@ -166,12 +166,13 @@
 			// Date range picker with time picker 1
 			$('#reservationtime1').daterangepicker({
 				"singleDatePicker" : true,
-				"showWeekNumbers" : false,
-				"timePicker" : true,
-				"timePicker24Hour" : true,
-				"timePickerIncrement" : 60,
+				"showDropdowns": true,
+				"showWeekNumbers": true,
+				"timePicker": true,
+				"timePicker24Hour": true,
+				"timePickerIncrement": 60,
 				"autoApply" : true,
-				"startDate": "02/15/2016 00:00",
+				"startDate": "01/01/2016",
 				format: 'YYYY-MM-DD hh:mm',
 				locale: {
 					customRangeLabel: 'Custom',
@@ -184,12 +185,13 @@
 			// Date range picker with time picker 2
 			$('#reservationtime2').daterangepicker({
 				"singleDatePicker" : true,
-				"showWeekNumbers" : false,
-				"timePicker" : true,
-				"timePicker24Hour" : true,
-				"timePickerIncrement" : 60,
+				"showDropdowns": true,
+				"showWeekNumbers": true,
+				"timePicker": true,
+				"timePicker24Hour": true,
+				"timePickerIncrement": 60,
 				"autoApply" : true,
-				"startDate": "02/15/2016 00:00",
+				"startDate": "01/01/2016",
 				format: 'YYYY-MM-DD hh:mm',
 				locale: {
 					customRangeLabel: 'Custom',
