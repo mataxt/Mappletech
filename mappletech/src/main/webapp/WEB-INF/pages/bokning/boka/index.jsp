@@ -172,7 +172,7 @@
 				"timePicker24Hour": true,
 				"timePickerIncrement": 60,
 				"autoApply" : true,
-				"startDate": "01/01/2016",
+				"startDate": "01-01-2016 00:00",
 				format: 'YYYY-MM-DD hh:mm',
 				locale: {
 					customRangeLabel: 'Custom',
@@ -191,7 +191,7 @@
 				"timePicker24Hour": true,
 				"timePickerIncrement": 60,
 				"autoApply" : true,
-				"startDate": "01/01/2016",
+				"startDate": "01-01-2016 00:00",
 				format: 'YYYY-MM-DD hh:mm',
 				locale: {
 					customRangeLabel: 'Custom',
