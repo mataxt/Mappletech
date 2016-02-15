@@ -19,7 +19,7 @@ public class GroupController {
 
 	private final String URI = "http://130.237.84.211:8080/mappletech/rest/login";
 	
-	@RequestMapping(value = { "/grupper/visa-alla-grupper/" }, method = RequestMethod.GET)
+	@RequestMapping(value = { "/grupper/mina-grupper/" }, method = RequestMethod.GET)
 	public ModelAndView viewAll(@ModelAttribute("sessUser") UserVM sessUser) {
 		System.out.println("In GET mygrp...");
 		RestTemplate restTemplate = new RestTemplate();
