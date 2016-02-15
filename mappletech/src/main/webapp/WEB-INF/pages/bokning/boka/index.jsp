@@ -183,12 +183,12 @@
 			// Date range picker with time picker 2
 			$('#reservationtime2').daterangepicker({
 				"singleDatePicker" : true,
-				"showWeekNumbers" : true,
+				"showDropdowns" : true,
 				"timePicker" : true,
 				"timePicker24Hour" : true,
 				"timePickerIncrement" : 60,
 				"autoApply" : true,
-				format: 'YYYY-MM-DD',
+				format: 'YYYY-MM-DD HH:MM',
 				locale: {
 					customRangeLabel: 'Custom',
 					daysOfWeek: ['Sön','Mån','Tis', 'Ons', 'Tors', 'Fre', 'Lör'],
