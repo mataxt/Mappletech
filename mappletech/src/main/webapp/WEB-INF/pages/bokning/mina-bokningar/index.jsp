@@ -105,17 +105,21 @@
                                 <table id="thetable" class="table table-bordered table-striped">
                               
                                 <thead>
-                                  <tr>
-                                    <th>Artikelnummer</th>
-                                    <th>Artikelnamn</th>
-                                  </tr>
+                                    <tr>
+                                    	<th>Lokal</th>
+                                        <th>Tid (från)</th>
+                                        <th>Tid (till)</th>
+                                        <th></th>
+                                    </tr>
                                 </thead>
                                 
                                 <tbody>
                                 <c:if test="${not empty reservs}">
                                     <tr>
                                         <c:forEach var="r" items="${reservs}">
-                                            <td>${r.title}</td>
+                                            <td>${r.facilityID}</td>
+                                            <td>${r.timeFrom}</td>
+                                            <td>${r.timeTo}</td>
                                         </c:forEach>
                                     </tr>
                                 </c:if>           
