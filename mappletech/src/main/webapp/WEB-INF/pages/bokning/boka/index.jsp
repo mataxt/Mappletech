@@ -183,7 +183,7 @@
 			// Date range picker with time picker 2
 			$('#reservationtime2').daterangepicker({
 				"singleDatePicker" : true,
-				"showWeekNumbers" : true,
+				"showWeekNumbers" : false,
 				"timePicker" : true,
 				"timePicker24Hour" : true,
 				"timePickerIncrement" : 60,
