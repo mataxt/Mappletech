@@ -115,16 +115,18 @@
                                 
                                 <tbody>
                                 <c:if test="${not empty reservs}">
-                                    <tr>
-                                        <c:forEach var="r" items="${reservs}">
-                                            <td>${r.facilityID}</td>
-                                            <td>${r.timeFrom}</td>
-                                            <td>${r.timeTo}</td>
-                                        </c:forEach>
+									<c:forEach var="r" items="${reservs}">
+                                    <tr>   
+                                    	<td>${r.facilityID}</td>
+                                    	<td>${r.timeFrom}</td>
+                                    	<td>${r.timeTo}</td>
                                     </tr>
+                                    </c:forEach>
                                 </c:if>           
                                 </tbody>
                               </table>
+                              
+                             <br />
                               
                              <a href="/mappletech/bokning/boka/">
 								<button class="btn-lg btn btn-default">Ny bokning</button>
