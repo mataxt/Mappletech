@@ -34,7 +34,13 @@ public class Event implements Serializable {
 		this.description = description;
 		this.creator = creator;
 		this.date = date;
-
+	}
+	
+	public Event(String title, String description, User creator, Date date) {
+		this.title = title;
+		this.description = description;
+		this.creator = creator;
+		this.date = date;
 	}
 
 	@Id

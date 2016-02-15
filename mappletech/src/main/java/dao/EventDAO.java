@@ -171,5 +171,39 @@ public class EventDAO {
 		}
 		return success;
 	}
+	
+	/**
+	 * Removes the Event.
+	 *
+	 * @param int
+	 *            eventId
+	 * @return true, if successful
+	 */
+	public static boolean removeEvent(int eventId) {
+		EntityManagerFactory emf = Persistence.createEntityManagerFactory("UserPU");
+		EntityManager em = emf.createEntityManager();
+		boolean success = false;
+		try {
+			em.getTransaction().begin();
+			Event e = em.find(Event.class, eventId);
+			if (e != null) {
+				em.remove(e);
+				success = true;
+			}
+			em.getTransaction().commit();
+		} catch (Exception e) {
+			if (em.getTransaction().isActive()) {
+				em.getTransaction().rollback();
+			}
+		} finally {
+			if (em != null) {
+				em.close();
+			}
+			if (emf != null) {
+				emf.close();
+			}
+		}
+		return success;
+	}
 
 }

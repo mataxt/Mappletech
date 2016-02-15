@@ -26,6 +26,16 @@ public class EventVM {
 		this.image = image;
 	}
 	
+	public EventVM(Integer eventID, String title, String description,
+			String creator, Date date) {
+		super();
+		this.eventID = eventID;
+		this.title = title;
+		this.description = description;
+		this.creator = creator;
+		this.date = date;
+	}
+	
 
 	public Integer getEventID() {
 		return eventID;
