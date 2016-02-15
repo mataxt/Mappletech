@@ -172,7 +172,6 @@
 				"timePicker24Hour": true,
 				"timePickerIncrement": 60,
 				"autoApply" : true,
-				format: 'YYYY-MM-DD hh:mm',
 				locale: {
 					customRangeLabel: 'Custom',
 					daysOfWeek: ['Sön','Mån','Tis', 'Ons', 'Tors', 'Fre', 'Lör'],
@@ -190,6 +189,12 @@
 				"timePicker24Hour": true,
 				"timePickerIncrement": 60,
 				"autoApply" : true,
+				locale: {
+					customRangeLabel: 'Custom',
+					daysOfWeek: ['Sön','Mån','Tis', 'Ons', 'Tors', 'Fre', 'Lör'],
+					monthNames: ['Januari', 'Februari', 'Mars', 'April', 'Maj', 'Juni', 'Juli', 'Augusti', 'September', 'Oktober', 'November', 'December'],
+					firstDay: 1
+				}
 			});
 		});
 	</script>
