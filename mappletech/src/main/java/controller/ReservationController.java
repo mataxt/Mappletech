@@ -1,5 +1,6 @@
 package controller;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
@@ -55,26 +56,18 @@ public class ReservationController {
 		return new ModelAndView("bokning/boka/index", "resvm", new ReservationVM());
 	}
 
-	@RequestMapping(value = { "/bokning/mina-bokningar" }, method = RequestMethod.GET)
-	public ModelAndView login() {
-		System.out.println("In GET Res...");
-		return new ModelAndView("bokning/index", "resvm", new ReservationVM());
-	}
 
-//	@RequestMapping(value = "/bokning/mina-bokningar", method = RequestMethod.GET)
-//	public ModelAndView viewAll() {
-//		System.out.println("In GET RVes...");
-//		RestTemplate restTemplate = new RestTemplate();
-//		ResponseEntity<ReservationVM[]> resVm = restTemplate.getForEntity(URI + "reservation/getReservations",
-//				ReservationVM[].class);
-//		Map<Integer, String> hmap = new HashMap<>();
-//		for (ReservationVM reservationVM : Arrays.asList(resVm.getBody())) {
-//			hmap.put(reservationVM.getReservationId(), reservationVM.getTitle());
-//		}
-//		ModelAndView mv = new ModelAndView("bokning/mina-bokningar/index");
-//		mv.addObject("reservs", hmap);
-//		mv.addObject("resvm", new ReservationVM());
-//		return mv;
-//
-//	}
+	@RequestMapping(value = "/bokning/mina-bokningar", method = RequestMethod.GET)
+	public ModelAndView viewAll() {
+		System.out.println("In GET RVes...");
+		RestTemplate restTemplate = new RestTemplate();
+		@SuppressWarnings("unchecked")
+		ArrayList<ReservationVM> resVm = restTemplate.getForObject(URI + "reservation/getReservations", ArrayList.class);
+		System.out.println(resVm.toString());
+		ModelAndView mv = new ModelAndView("bokning/mina-bokningar/index");
+		mv.addObject("resRem", new ReservationVM());
+		mv.addObject("reservs", resVm);
+		return mv;
+
+	}
 }
