@@ -91,30 +91,41 @@
 					</div>
 
 					<div class="row">
-						<form:form method="post" action="removeRes"
-							modelAttribute="resRem">
+						<div class="box-body pad table-responsive">
+							<form:form method="post" action="removeRes" modelAttribute="resRem">
 							<c:if test="${not empty reservs}">
-
-								<ul>
-									<c:forEach var="r" items="${reservs}">
-										<li>${r.title}</li>
-									</c:forEach>
-								</ul>
-
-							</c:if>
-
-							<a href="/mappletech/bokning/boka/">
+                  
+                                <table id="thetable" class="table table-bordered table-striped">
+                              
+                                <thead>
+                                  <tr>
+                                    <th>Artikelnummer</th>
+                                    <th>Artikelnamn</th>
+                                  </tr>
+                                </thead>
+                                <tbody>
+                                
+                                <ul>
+                                    <c:forEach var="r" items="${reservs}">
+                                        <li>${r.title}</li>
+                                    </c:forEach>
+                                </ul>
+                                                    
+                                </tbody>
+                              </table>
+                              
+                             <a href="/mappletech/bokning/boka/">
 								<button class="btn-lg btn btn-default">Ny bokning</button>
-							</a>
+							 </a>
 						</form:form>
+                 
+						</div>
 					</div>
-				</div>
 
 			</div>
 		</div>
 	</div>
 	<!-- End Main Body Section -->
-
 
 </body>
 </html>
