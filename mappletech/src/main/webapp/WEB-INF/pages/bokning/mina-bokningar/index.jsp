@@ -29,6 +29,10 @@
 <link href="<%=request.getContextPath()%>/resources/UI/css/animate.css"
 	rel="stylesheet">
 
+<!-- dataTables -->
+<link href="<%=request.getContextPath()%>/resources/UI/css/dataTables.bootstrap.css"
+	rel="stylesheet">
+
 <!-- Custom Fonts -->
 <link href="http://fonts.googleapis.com/css?family=Lobster"
 	rel="stylesheet" type="text/css">
@@ -57,6 +61,10 @@
 	src="<%=request.getContextPath()%>/resources/UI/js/jqBootstrapValidation.js"></script>
 <script
 	src="<%=request.getContextPath()%>/resources/UI/js/modernizr.custom.js"></script>
+<script
+	src="<%=request.getContextPath()%>/resources/UI/js/dataTables.bootstrap.min.js"></script>
+<script
+	src="<%=request.getContextPath()%>/resources/UI/js/jquery.dataTables.min.js"></script>
 
 <!--[if lt IE 9]>
         <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
@@ -126,6 +134,12 @@
 		</div>
 	</div>
 	<!-- End Main Body Section -->
-
+    
+    <script>
+      $(function () {
+        $('#thetable').dataTable();
+      });
+	</script>
+    
 </body>
 </html>
