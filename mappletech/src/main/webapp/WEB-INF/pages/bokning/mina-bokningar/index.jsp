@@ -113,11 +113,11 @@
                                 
                                 <tbody>
                                 <c:if test="${not empty reservs}">
-                                    <ul>
+                                    <tr>
                                         <c:forEach var="r" items="${reservs}">
-                                            <li>${r.title}</li>
+                                            <td>${r.title}</td>
                                         </c:forEach>
-                                    </ul>
+                                    </tr>
                                 </c:if>           
                                 </tbody>
                               </table>
