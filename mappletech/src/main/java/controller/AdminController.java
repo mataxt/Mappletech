@@ -21,7 +21,7 @@ import vm.UserVM;
 @Controller
 public class AdminController {
 
-	private final String URI = "http://localhost:8080/tech2/rest";
+	private final String URI = "http://http://130.237.84.211:8080/mappletech/rest";
 	// ===================== bokningar =================================
 	
 	@RequestMapping(value = { "/administrator/bokningar" }, method = RequestMethod.GET)
