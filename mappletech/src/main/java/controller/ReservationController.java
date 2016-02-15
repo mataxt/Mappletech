@@ -18,7 +18,7 @@ import vm.ReservationVM;
 import vm.UserVM;
 
 @Controller
- @SessionAttributes("sessUser")
+@SessionAttributes("sessUser")
 public class ReservationController {
 
 	private final String URI = "http://130.237.84.211:8080/mappletech/rest/";
@@ -27,25 +27,26 @@ public class ReservationController {
 	public ModelAndView reserve() {
 		System.out.println("In GET Res...");
 		RestTemplate restTemplate = new RestTemplate();
-		ResponseEntity<FacilityVM[]> facVm = restTemplate.getForEntity(URI+"facility/getFacilities", FacilityVM[].class);
-		System.out.println(Arrays.asList(facVm.getBody()));
+		ResponseEntity<FacilityVM[]> facVm = restTemplate.getForEntity(URI + "facility/getFacilities",
+				FacilityVM[].class);
 		Map<Integer, String> hmap = new HashMap<>();
 		for (FacilityVM facilityVM : Arrays.asList(facVm.getBody())) {
-			hmap.put(facilityVM.getFacilityId(), facilityVM.getFacilityName());			
+			hmap.put(facilityVM.getFacilityId(), facilityVM.getFacilityName());
 		}
 		ModelAndView mv = new ModelAndView("bokning/boka/index");
-		mv.addObject("facilities",hmap);
-		mv.addObject("resvm",new ReservationVM());
+		mv.addObject("facilities", hmap);
+		mv.addObject("resvm", new ReservationVM());
 		return mv;
-	
+
 	}
 
 	@RequestMapping(value = "/bokning/boka", method = RequestMethod.POST)
-	public ModelAndView doReserve(@ModelAttribute("resvm") ReservationVM resVm,@ModelAttribute("sessUser") UserVM sessUser ) {
+	public ModelAndView doReserve(@ModelAttribute("resvm") ReservationVM resVm,
+			@ModelAttribute("sessUser") UserVM sessUser) {
 		System.out.println("In POST Res...");
 		resVm.setHost(sessUser.getUsername());
 		RestTemplate restTemplate = new RestTemplate();
-		if (restTemplate.postForObject(URI+"reservation/add", resVm, Boolean.class)) {
+		if (restTemplate.postForObject(URI + "reservation/add", resVm, Boolean.class)) {
 			System.out.println("sucess");
 		} else {
 			System.out.println("failure");
@@ -60,17 +61,20 @@ public class ReservationController {
 		return new ModelAndView("bokning/index", "resvm", new ReservationVM());
 	}
 
-	/*
-	 * @RequestMapping(value = "/add", method = RequestMethod.POST) public
-	 * ModelAndView doAdd(@ModelAttribute("uservm") UserVM userVm, Model model)
-	 * {
-	 * 
-	 * System.out.println("In POST Res..."); UserVM loggedInUser = new
-	 * UserVM(userVm.getUsername(), passwordHash(userVm.getPassword()));
-	 * RestTemplate restTemplate = new RestTemplate();
-	 * System.out.println(loggedInUser.getUsername()); UserVM u =
-	 * restTemplate.postForObject(URI, loggedInUser, UserVM.class); if (u !=
-	 * null) { return new ModelAndView("index","sessUser", u); } else { return
-	 * new ModelAndView("login/index","uservm", new UserVM()); } }
-	 */
+//	@RequestMapping(value = "/bokning/mina-bokningar", method = RequestMethod.GET)
+//	public ModelAndView viewAll() {
+//		System.out.println("In GET RVes...");
+//		RestTemplate restTemplate = new RestTemplate();
+//		ResponseEntity<ReservationVM[]> resVm = restTemplate.getForEntity(URI + "reservation/getReservations",
+//				ReservationVM[].class);
+//		Map<Integer, String> hmap = new HashMap<>();
+//		for (ReservationVM reservationVM : Arrays.asList(resVm.getBody())) {
+//			hmap.put(reservationVM.getReservationId(), reservationVM.getTitle());
+//		}
+//		ModelAndView mv = new ModelAndView("bokning/mina-bokningar/index");
+//		mv.addObject("reservs", hmap);
+//		mv.addObject("resvm", new ReservationVM());
+//		return mv;
+//
+//	}
 }
