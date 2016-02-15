@@ -48,11 +48,11 @@
 
 <!-- Template js -->
 <script
-	src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.10.2/moment.min.js"></script>
-<script
 	src="<%=request.getContextPath()%>/resources/UI/js/jquery-2.1.1.min.js"></script>
 <script
 	src="<%=request.getContextPath()%>/resources/UI/js/jquery.appear.js"></script>
+<script
+	src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.10.3/moment.min.js"></script>
 <script
 	src="<%=request.getContextPath()%>/resources/UI/js/daterangepicker.js"></script>
 <script
@@ -190,13 +190,7 @@
 				"timePicker24Hour": true,
 				"timePickerIncrement": 60,
 				"autoApply" : true,
-				format: 'YYYY-MM-DD hh:mm',
-				locale: {
-					customRangeLabel: 'Custom',
-					daysOfWeek: ['Sön','Mån','Tis', 'Ons', 'Tors', 'Fre', 'Lör'],
-					monthNames: ['Januari', 'Februari', 'Mars', 'April', 'Maj', 'Juni', 'Juli', 'Augusti', 'September', 'Oktober', 'November', 'December'],
-					firstDay: 1
-				}
+				format: 'YYYY-MM-DD hh:mm'
 			});
 		});
 	</script>
