@@ -21,7 +21,7 @@ import vm.UserVM;
 @Controller
 public class AdminController {
 
-	private final String URI = "http://130.237.84.211:8080/mappletech/rest";
+	private final String URI = "http://localhost:8080/tech2/rest";
 	// ===================== bokningar =================================
 	
 	@RequestMapping(value = { "/administrator/bokningar" }, method = RequestMethod.GET)
@@ -32,13 +32,7 @@ public class AdminController {
 		RestTemplate restTemplate = new RestTemplate();
 		List<ReservationVM> reservationList = restTemplate.postForObject(URI + "/reservation/getReservations",null, List.class);
 		
-		Map referenceData = new HashMap();
-		Map<String,String> reservations = new LinkedHashMap<String,String>();
-		reservations.put("2", "Hassan Al-Sistani");
-		reservations.put("3", "Raji Hussein");
-		referenceData.put("list", reservations);
-		model.addAttribute("reservationVM", new ReservationVM());
-		model.addAttribute("reservList", referenceData);
+		mv.addObject("list",reservationList);
 		
 		return mv;
 	}

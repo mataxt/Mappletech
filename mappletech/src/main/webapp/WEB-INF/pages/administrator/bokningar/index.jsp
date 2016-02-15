@@ -1,5 +1,6 @@
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
@@ -76,23 +77,14 @@
                         
                         <!-- form:form -->
                     
-                <form:form commandName="reservationVM" method="POST">
-					<div class="fieldset">
-						<fieldset>
-							<nav>
-								<ul style="list-style: none;">
-									<li><br>Bokningar:</li>
-									<li>
-										<form:select path="commandAttribute" title="results" size="8" style="width: 500px;">
-											<form:option value="-" label="Välj bokning"/>
-											<form:options items="${reservList}"  selected="selected" ondblclick="onDbClickFunction()"/>
-										</form:select>
-								<li><br><input type="submit" value="Ta bort"/></li>
-								</ul>
-							</nav><!-- end navigation menu -->
-						</fieldset>
-					</div>
-				</form:form>
+              <c:if test="${not empty lists}">
+
+					<ul>
+						<c:forEach var="res" items="${list}">
+							<li>${res.title}</li>
+						</c:forEach>
+					</ul>
+			</c:if>
                        
                   </div>
                 </div>
