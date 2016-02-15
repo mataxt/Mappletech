@@ -10,7 +10,6 @@ import org.springframework.web.bind.annotation.RestController;
 
 import dao.GroupDAO;
 import model.Group;
-import model.User;
 import dao.UserDAO;
 import vm.GroupVM;
 
@@ -25,11 +24,11 @@ public class GroupRestConroller {
 		if (groupVM.getDescription().length() > 0) {
 			group.setDescription(groupVM.getDescription());
 		}
-		
+		Boolean success = GroupDAO.addGroup(group);
 		GroupDAO.changeGroup(group, groupVM.getHost(), "add");
 		
 
-		return GroupDAO.addGroup(group);
+		return success;
 	}
 
 	@RequestMapping(value = "/group/remove")
