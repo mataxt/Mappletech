@@ -171,7 +171,7 @@
 				"timePicker24Hour" : true,
 				"timePickerIncrement" : 60,
 				"autoApply" : true,
-				format: 'YYYY-MM-DD HH:MM',
+				format: 'YYYY-MM-DD',
 				locale: {
 					customRangeLabel: 'Custom',
 					daysOfWeek: ['Sön','Mån','Tis', 'Ons', 'Tors', 'Fre', 'Lör'],
