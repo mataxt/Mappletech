@@ -106,19 +106,13 @@
 							<form:textarea path="description" rows="5" cols="30" type="text"
 								class="form-control" placeholder="Beskrivning..." required="" />
 						</div>
-					</form:form>
+					
+                    	<br />
+                    
+                    	<button type="submit" class="btn-lg btn btn-success" name="event">Lägg till grupp</button>
+                    </form:form>
 				</div>
 
-			</div>
-			<p>&nbsp;</p>
-
-			<div class="row">
-				<div class="col-md-offset-3 col-md-6 col-md-offset-3">
-					<a href="/mappletech/profil/uppdatera-profil/">
-						<button type="submit" class="btn-lg btn btn-success" name="event">Lägg
-							till grupp</button>
-					</a>
-				</div>
 			</div>
 		</div>
 
