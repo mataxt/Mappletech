@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.client.RestTemplate;
 import org.springframework.web.servlet.ModelAndView;
 
+import vm.GroupVM;
 import vm.ReportVM;
 import vm.ReservationVM;
 import vm.UserVM; 
@@ -30,7 +31,7 @@ public class AdminController {
 		ModelAndView mv = new ModelAndView("administrator/bokningar/index");
 		
 		RestTemplate restTemplate = new RestTemplate();
-		List<ReservationVM> reservationList = restTemplate.postForObject( URI + "/reservation/getReservations",null, List.class);
+		List<ReservationVM> reservationList = restTemplate.postForObject(URI + "/reservation/getReservations",null, List.class);
 		reservationList.add(new ReservationVM(2,"Hassan Al-Sistani",4,Date.valueOf("2000-08-08"),Date.valueOf("2000-09-09")));
 		reservationList.add(new ReservationVM(3,"Raji Hussein",2,Date.valueOf("2013-11-12"),Date.valueOf("2013-11-14")));
 		
@@ -56,7 +57,7 @@ public class AdminController {
 	
 	
 	// ===================== Edit anvandare =================================
-	
+	/*
 	@RequestMapping(value = { "/administrator/anvandare" }, method = RequestMethod.GET)
 	public ModelAndView editUsersGet() {
 		ModelAndView mv = new ModelAndView("administrator/anvandare/index");
@@ -78,7 +79,7 @@ public class AdminController {
 
 		return "redirect:/administrator/anvandare";
 	}
-
+*/
 	// ======================================================================
 	// ======================== felanmalan ================================
 	
@@ -93,7 +94,7 @@ public class AdminController {
 	public String errorReportPost(@ModelAttribute("reportVm") ReportVM reportVm, Model model) {
 		
 		RestTemplate restTemplate = new RestTemplate();
-		boolean success = restTemplate.postForObject(URI, reportVm, Boolean.class);
+		boolean success = restTemplate.postForObject(URI+"/felanmalan", reportVm, Boolean.class);
 		
 		if (success) {
 			return "redirect:/administrator/felanmalan/index";
@@ -118,13 +119,39 @@ public class AdminController {
 				
 				UserVM newUser = new UserVM(userVm.getUsername(), generatePassword(), userVm.getFullName(), userVm.getPrivilege());
 				RestTemplate restTemplate = new RestTemplate();
-				boolean userExists = restTemplate.postForObject(URI, newUser, Boolean.class);
+				boolean userExists = restTemplate.postForObject(URI+"/lagg-till-anvandare", newUser, Boolean.class);
 				
 				if (!userExists) {
 					return "redirect:/administrator/anvandare/lagg-till-anvandare/index";
 				}
 				return "redirect:/administrator/anvandare";
 			}
+			
+			// ======================== Groups ================================
+			
+			@RequestMapping(value = { "/administrator/grupper" }, method = RequestMethod.GET)
+			public ModelAndView removeGroupGet() {
+				
+				ModelAndView mv = new ModelAndView("administrator/grupper/index");
+				mv.addObject("groupVm", new GroupVM());
+				return mv;
+			}
+
+			@RequestMapping(value = "/administrator/grupper", method = RequestMethod.POST)
+			public String removeGroupPost(@ModelAttribute GroupVM groupVm, Model model) {
+				
+				
+				RestTemplate restTemplate = new RestTemplate();
+				boolean success = restTemplate.postForObject(URI+"/grupper", groupVm, Boolean.class);
+				
+				if (!success) {
+					return "redirect:/administrator/";
+				}
+				return "redirect:/administrator/grupper/index";
+			}
+	// ======================================================================
+			
+			
 	// ======================================================================
 			
 			// Generate a password for the new user created by admin

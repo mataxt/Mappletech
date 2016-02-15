@@ -84,7 +84,7 @@
 									<li><br>Bokningar:</li>
 									<li>
 										<form:select path="reservationId" title="results" size="8" style="width: 500px;">
-											<form:options items="${reservList}" itemValue="reservationId" itemLabel="title"  selected="selected" ondblclick="onDbClickFunction()"/>
+											<form:options items="${reservList}" itemValue="reservationId" itemLabel="host"  selected="selected" ondblclick="onDbClickFunction()"/>
 										</form:select>
 								<li><br><input type="submit" value="Ta bort"/></li>
 								</ul>
@@ -93,7 +93,6 @@
 					</div>
 				</form:form>
                        
-                     
                   </div>
                 </div>
               </div>
