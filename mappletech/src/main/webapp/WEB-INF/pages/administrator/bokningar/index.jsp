@@ -114,8 +114,10 @@
                                     	<td>${r.timeFrom}</td>
                                     	<td>${r.timeTo}</td>
                                         <td>
-                                        	<input type="hidden" value="${res.reservationId}" name="CurrentDelete">
-											<input type="submit" value="Ta bort" />
+                                            <label>
+                                           	  <input type="hidden" value="${res.reservationId}" name="CurrentDelete">
+                                              <input type="checkbox" class="flat-red">
+                                            </label>
                                         </td>
 
                                     </tr>
@@ -123,6 +125,8 @@
                                 </c:if>           
                                 </tbody>
                               </table>
+                              
+                              <input type="submit" value="Ta bort" />
                               
 						</form:form>
 						</div>
