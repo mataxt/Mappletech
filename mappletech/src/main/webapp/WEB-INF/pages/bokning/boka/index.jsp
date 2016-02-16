@@ -164,7 +164,7 @@
 		<script>
 		$(function() {
 			// Date range picker with time picker 1
-			$('#reservationtime1').daterangepicker({
+			$('#reservationtimeFirst').daterangepicker({
 				"singleDatePicker" : true,
 				"showDropdowns": true,
 				"showWeekNumbers": true,
@@ -182,7 +182,7 @@
 			});
 
 			// Date range picker with time picker 2
-			$('#reservationtime2').daterangepicker({
+			$('#reservationtimeSecond').daterangepicker({
 				"singleDatePicker" : true,
 				"showDropdowns": true,
 				"showWeekNumbers": true,
