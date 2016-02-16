@@ -87,6 +87,10 @@ public class ReservationVM {
 	}
 
 
+	public void setReservationId(Integer reservationId) {
+		this.reservationId = reservationId;
+	}
+
 	public Integer getFacilityID() {
 		return facilityID;
 	}

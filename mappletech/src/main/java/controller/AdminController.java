@@ -1,5 +1,7 @@
 package controller;
 
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.LinkedHashMap;
 import java.util.List;
@@ -11,74 +13,79 @@ import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.client.RestTemplate;
 import org.springframework.web.servlet.ModelAndView;
 import vm.GroupVM;
 import vm.ReportVM;
 import vm.ReservationVM;
-import vm.UserVM; 
+import vm.UserVM;
 
 @Controller
 public class AdminController {
 
-	private final String URI = "http://http://130.237.84.211:8080/mappletech/rest";
+	private final String URI = "http://130.237.84.211:8080/mappletech/rest";
 	// ===================== bokningar =================================
-	
+
 	@RequestMapping(value = { "/administrator/bokningar" }, method = RequestMethod.GET)
 	public ModelAndView removeBookingGet(ModelMap model) {
-		
+
 		ModelAndView mv = new ModelAndView("administrator/bokningar/index");
-		
+
 		RestTemplate restTemplate = new RestTemplate();
-		List<ReservationVM> reservationList = restTemplate.postForObject(URI + "/reservation/getReservations",null, List.class);
+		ArrayList<ReservationVM> reservationList = restTemplate.getForObject(URI + "/reservation/getReservations", ArrayList.class);
 		
-		mv.addObject("list",reservationList);
 		
+		System.out.println("reservationlist SIZE: " + Arrays.toString(reservationList.toArray()));
+		
+		
+		//mv.addObject("list", reservationList);
+		model.addAttribute("list", reservationList);
+		model.addAttribute("reservationVM", new ReservationVM());
 		return mv;
 	}
 
 	@RequestMapping(value = "/administrator/bokningar", method = RequestMethod.POST)
-	public String removeBookingPost(@ModelAttribute ReservationVM reservationVm, Model model) {
+	public String removeBookingPost(@ModelAttribute ReservationVM reservationVm, Model model, @RequestParam("CurrentDelete") String CurrentDelete) {
+
 		
-		if(reservationVm==null){
+		System.out.println("VALT ID: "+CurrentDelete+" radiobtn: "+reservationVm.getReservationId());
+		if (reservationVm == null) {
 			return "redirect:/administrator/bokningar/index";
 		}
-		
+
 		RestTemplate restTemplate = new RestTemplate();
-		restTemplate.postForObject(URI + "/reservation/removeReservation", reservationVm, Boolean.class);
-		
+		//restTemplate.postForObject(URI + "/reservation/removeReservation", reservationVm, Boolean.class);
+
 		return "redirect:/administrator/bokningar/index";
 	}
 	// ======================================================================
-	
-	
+
 	// ===================== Edit anvandare =================================
 	/*
-	@RequestMapping(value = { "/administrator/anvandare" }, method = RequestMethod.GET)
-	public ModelAndView editUsersGet() {
-		ModelAndView mv = new ModelAndView("administrator/anvandare/index");
-		mv.addObject("uservm", new UserVM());
-		return mv;
-	}
-
-	@RequestMapping(value = "/administrator/anvandare", method = RequestMethod.POST)
-	public String editUsersPost(@ModelAttribute("uservm") UserVM userVm, Model model) {
-
-		UserVM newUser = new UserVM();
-		
-		newUser.setUsername(userVm.getUsername());
-		newUser.setFullName(userVm.getFullName());
-		newUser.setPhoneNumber(userVm.getPhoneNumber());
-		newUser.setMobileNumber(userVm.getMobileNumber());
-		newUser.setAddress(userVm.getAddress());
-		newUser.setPrivilege(userVm.getPrivilege());
-
-		return "redirect:/administrator/anvandare";
-	}
-*/
+	 * @RequestMapping(value = { "/administrator/anvandare" }, method =
+	 * RequestMethod.GET) public ModelAndView editUsersGet() { ModelAndView mv =
+	 * new ModelAndView("administrator/anvandare/index"); mv.addObject("uservm",
+	 * new UserVM()); return mv; }
+	 * 
+	 * @RequestMapping(value = "/administrator/anvandare", method =
+	 * RequestMethod.POST) public String editUsersPost(@ModelAttribute("uservm")
+	 * UserVM userVm, Model model) {
+	 * 
+	 * UserVM newUser = new UserVM();
+	 * 
+	 * newUser.setUsername(userVm.getUsername());
+	 * newUser.setFullName(userVm.getFullName());
+	 * newUser.setPhoneNumber(userVm.getPhoneNumber());
+	 * newUser.setMobileNumber(userVm.getMobileNumber());
+	 * newUser.setAddress(userVm.getAddress());
+	 * newUser.setPrivilege(userVm.getPrivilege());
+	 * 
+	 * return "redirect:/administrator/anvandare"; }
+	 */
 	// ======================================================================
 	// ======================== felanmalan ================================
-	
+
 	@RequestMapping(value = { "/administrator/felanmalan" }, method = RequestMethod.GET)
 	public ModelAndView errorReportGet() {
 		ModelAndView mv = new ModelAndView("administrator/felanmalan/index");
@@ -88,81 +95,80 @@ public class AdminController {
 
 	@RequestMapping(value = "/administrator/felanmalan", method = RequestMethod.POST)
 	public String errorReportPost(@ModelAttribute("reportVm") ReportVM reportVm, Model model) {
-		
+
 		RestTemplate restTemplate = new RestTemplate();
-		boolean success = restTemplate.postForObject(URI+"/felanmalan", reportVm, Boolean.class);
-		
+		boolean success = restTemplate.postForObject(URI + "/felanmalan", reportVm, Boolean.class);
+
 		if (success) {
 			return "redirect:/administrator/felanmalan/index";
 		}
 		return "redirect:/administrator/felanmalan/index";
 	}
-	
+
 	// ======================================================================
-	
+
 	// ======================== ny anvandare ================================
-	
-			@RequestMapping(value = { "/administrator/anvandare/lagg-till-anvandare" }, method = RequestMethod.GET)
-			public ModelAndView addUsersGet() {
-				System.out.println("In GET anvandare hantera");
-				ModelAndView mv = new ModelAndView("administrator/anvandare/lagg-till-anvandare/index");
-				mv.addObject("uservm", new UserVM());
-				return mv;
-			}
 
-			@RequestMapping(value = "/administrator/anvandare/lagg-till-anvandare", method = RequestMethod.POST)
-			public String addUsersPost(@ModelAttribute("uservm") UserVM userVm, Model model) {
-				
-				UserVM newUser = new UserVM(userVm.getUsername(), generatePassword(), userVm.getFullName(), userVm.getPrivilege());
-				RestTemplate restTemplate = new RestTemplate();
-				boolean userExists = restTemplate.postForObject(URI+"/lagg-till-anvandare", newUser, Boolean.class);
-				
-				if (!userExists) {
-					return "redirect:/administrator/anvandare/lagg-till-anvandare/index";
-				}
-				return "redirect:/administrator/anvandare";
-			}
-			
-			// ======================== Groups ================================
-			
-			@RequestMapping(value = { "/administrator/grupper" }, method = RequestMethod.GET)
-			public ModelAndView removeGroupGet() {
-				
-				ModelAndView mv = new ModelAndView("administrator/grupper/index");
-				mv.addObject("groupVm", new GroupVM());
-				return mv;
-			}
+	@RequestMapping(value = { "/administrator/anvandare/lagg-till-anvandare" }, method = RequestMethod.GET)
+	public ModelAndView addUsersGet() {
+		System.out.println("In GET anvandare hantera");
+		ModelAndView mv = new ModelAndView("administrator/anvandare/lagg-till-anvandare/index");
+		mv.addObject("uservm", new UserVM());
+		return mv;
+	}
 
-			@RequestMapping(value = "/administrator/grupper", method = RequestMethod.POST)
-			public String removeGroupPost(@ModelAttribute GroupVM groupVm, Model model) {
-				
-				
-				RestTemplate restTemplate = new RestTemplate();
-				boolean success = restTemplate.postForObject(URI+"/grupper", groupVm, Boolean.class);
-				
-				if (!success) {
-					return "redirect:/administrator/";
-				}
-				return "redirect:/administrator/grupper/index";
-			}
+	@RequestMapping(value = "/administrator/anvandare/lagg-till-anvandare", method = RequestMethod.POST)
+	public String addUsersPost(@ModelAttribute("uservm") UserVM userVm, Model model) {
+
+		UserVM newUser = new UserVM(userVm.getUsername(), generatePassword(), userVm.getFullName(),
+				userVm.getPrivilege());
+		RestTemplate restTemplate = new RestTemplate();
+		boolean userExists = restTemplate.postForObject(URI + "/lagg-till-anvandare", newUser, Boolean.class);
+
+		if (!userExists) {
+			return "redirect:/administrator/anvandare/lagg-till-anvandare/index";
+		}
+		return "redirect:/administrator/anvandare";
+	}
+
+	// ======================== Groups ================================
+
+	@RequestMapping(value = { "/administrator/grupper" }, method = RequestMethod.GET)
+	public ModelAndView removeGroupGet() {
+
+		ModelAndView mv = new ModelAndView("administrator/grupper/index");
+		mv.addObject("groupVm", new GroupVM());
+		return mv;
+	}
+
+	@RequestMapping(value = "/administrator/grupper", method = RequestMethod.POST)
+	public String removeGroupPost(@ModelAttribute GroupVM groupVm, Model model) {
+
+		RestTemplate restTemplate = new RestTemplate();
+		boolean success = restTemplate.postForObject(URI + "/grupper", groupVm, Boolean.class);
+
+		if (!success) {
+			return "redirect:/administrator/";
+		}
+		return "redirect:/administrator/grupper/index";
+	}
 	// ======================================================================
-			
-			
+
 	// ======================================================================
-			
-			// Generate a password for the new user created by admin
-			
-			private String generatePassword() {
-				final String charset = "0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
-				Random rand = new Random(System.currentTimeMillis());
-				StringBuilder sb = new StringBuilder();
-				for (int i = 0; i < 6; i++) {
-					int pos = rand.nextInt(charset.length());
-					sb.append(charset.charAt(pos));
-				}
-				return sb.toString();
-			}
-			
-	// ======================================================================	
-			
+
+	// Generate a password for the new user created by admin
+
+	private String generatePassword() {
+		final String charset = "0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
+		Random rand = new Random(System.currentTimeMillis());
+		StringBuilder sb = new StringBuilder();
+		for (int i = 0; i < 6; i++) {
+			int pos = rand.nextInt(charset.length());
+			sb.append(charset.charAt(pos));
+		}
+		return sb.toString();
+	}
+
+	// ======================================================================
+
 }

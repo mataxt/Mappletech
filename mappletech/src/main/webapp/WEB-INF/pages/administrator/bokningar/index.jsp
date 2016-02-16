@@ -76,16 +76,21 @@
                     </div>
                         
                         <!-- form:form -->
-                    
-              <c:if test="${not empty lists}">
-
-					<ul>
-						<c:forEach var="res" items="${list}">
-							<li>${res.title}</li>
-						</c:forEach>
-					</ul>
-			</c:if>
-                       
+	<form:form modelAttribute="reservationVM" method="POST">
+ 					<c:if test="${not empty list}">
+						<ul>
+							 	<c:forEach var="res" items="${list}">
+								<li>
+									<c:out value="${res.title}"/>
+									<input type="hidden" value="${res.reservationId}" name="CurrentDelete">
+									<input type="submit" value="Ta bort" />
+									<br>
+								</li>
+								</c:forEach>
+								
+						</ul>
+					</c:if>
+					</form:form>
                   </div>
                 </div>
               </div>
