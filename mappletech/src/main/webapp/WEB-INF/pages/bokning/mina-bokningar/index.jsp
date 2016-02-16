@@ -116,14 +116,14 @@
 										</c:if>
 									</tbody>
 								</table>
-
-								<br />
+								</form:form>
+								
+                                <br />
 
 								<a href="/mappletech/bokning/boka/">
 									<button class="btn-lg btn btn-default">Ny bokning</button>
 								</a>
-							</form:form>
-
+							
 						</div>
 					</div>
 
