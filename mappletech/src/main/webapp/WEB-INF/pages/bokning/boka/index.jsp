@@ -125,7 +125,7 @@
 											<i class="fa fa-clock-o"></i>
 										</div>
 										<form:input path="timeFrom" type="text"
-											class="form-control pull-right" id="reservationtimeFirst" required=""/>
+											class="form-control pull-right" id="reservationtimeFirst" required="" value=""/>
 									</div>
 
 								</div>
@@ -138,7 +138,7 @@
 											<i class="fa fa-clock-o"></i>
 										</div>
 										<form:input path="timeTo" type="text"
-											class="form-control pull-right" id="reservationtimeSecond" required=""/>
+											class="form-control pull-right" id="reservationtimeSecond" required="" value=""/>
 									</div>
 
 								</div>
@@ -172,7 +172,6 @@
 				"timePicker24Hour": true,
 				"timePickerIncrement": 60,
 				"autoApply" : true,
-				format: 'YYYY-MM-DD h:mm'
 				locale: {
 					customRangeLabel: 'Custom',
 					daysOfWeek: ['Sön','Mån','Tis', 'Ons', 'Tors', 'Fre', 'Lör'],
@@ -189,14 +188,7 @@
 				"timePicker": true,
 				"timePicker24Hour": true,
 				"timePickerIncrement": 60,
-				"autoApply" : true,
-				format: 'YYYY-MM-DD h:mm'
-				locale: {
-					customRangeLabel: 'Custom',
-					daysOfWeek: ['Sön','Mån','Tis', 'Ons', 'Tors', 'Fre', 'Lör'],
-					monthNames: ['Januari', 'Februari', 'Mars', 'April', 'Maj', 'Juni', 'Juli', 'Augusti', 'September', 'Oktober', 'November', 'December'],
-					firstDay: 1
-				}
+				"autoApply" : true
 			});
 		});
 	</script>
