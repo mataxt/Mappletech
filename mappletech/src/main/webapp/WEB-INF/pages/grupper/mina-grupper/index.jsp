@@ -118,7 +118,7 @@
                                     	<td>${g.description}</td>
                                     	<td>${g.host}</td>
                                         <td>
-                                        	<button class="btn-md btn btn-default">Redigera</button>
+                                        	<button class="btn-md btn btn-primary">Redigera</button>
                                         	<button class="btn-md btn btn-danger">Ta bort</button>
                                         </td>
                                     </tr>
