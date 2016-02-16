@@ -18,9 +18,6 @@ import vm.ReportVM;
 public class ReportRestController {
 
 	
-	private final String URI = "http://130.237.84.211:8080/mappletech/rest/";
-	
-	
 	@RequestMapping(value="/report/remove")
 	public Boolean removeReport(@RequestBody(required=true) ReportVM reportVM)
 	{

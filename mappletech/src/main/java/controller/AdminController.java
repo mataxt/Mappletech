@@ -78,7 +78,7 @@ public class AdminController {
 		
 		RestTemplate rest = new RestTemplate();
 		@SuppressWarnings("unchecked")
-		ArrayList<ReportVM> list = rest.getForObject(URI + "/reservation/getAllReports", ArrayList.class);
+		ArrayList<ReportVM> list = rest.getForObject(URI + "/report/getAllReports", ArrayList.class);
 		
 		ModelAndView mv = new ModelAndView("administrator/felanmalan/index");
 		mv.addObject("list", list);
@@ -93,7 +93,7 @@ public class AdminController {
 		
 		
 		RestTemplate restTemplate = new RestTemplate();
-		boolean success = restTemplate.postForObject(URI + "/felanmalan/remove", reportVm, Boolean.class);
+		boolean success = restTemplate.postForObject(URI + "/report/remove", reportVm, Boolean.class);
 
 		if (success) {
 			return "redirect:/administrator";
