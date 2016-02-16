@@ -125,7 +125,7 @@
 											<i class="fa fa-clock-o"></i>
 										</div>
 										<form:input path="timeFrom" type="text"
-											class="form-control pull-right" id="reservationtimeFirst" required=""/>
+											class="form-control pull-right" id="reservationtimeFirst" required="" value=""/>
 									</div>
 
 								</div>
@@ -138,7 +138,7 @@
 											<i class="fa fa-clock-o"></i>
 										</div>
 										<form:input path="timeTo" type="text"
-											class="form-control pull-right" id="reservationtimeSecond" required=""/>
+											class="form-control pull-right" id="reservationtimeSecond" required="" value=""/>
 									</div>
 
 								</div>
