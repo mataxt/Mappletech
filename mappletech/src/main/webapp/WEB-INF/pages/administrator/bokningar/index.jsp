@@ -87,38 +87,41 @@
                         
                 	<div class="row">
 						<div class="box-body pad table-responsive">
-							<form:form modelAttribute="reservationVM" method="POST">
+						
+						
+						
+					<form:form modelAttribute="reservationVM" method="POST" action=".">
                   
                                 <table id="thetable" class="table table-bordered table-striped">
                               
                                 <thead>
                                     <tr>
                                     	<th>Lokal</th>
-                                        <th>Tid (frÃ¥n)</th>
+                                        <th>Tid (från)</th>
                                         <th>Tid (till)</th>
                                         <th></th>
                                     </tr>
                                 </thead>
-                                
-                                <tbody>
-                                <c:if test="${not empty list}">
-									<c:forEach var="r" items="${list}">
-                                    <tr>   
-                                    	<td>${r.facilityID}</td>
-                                    	<td>${r.timeFrom}</td>
-                                    	<td>${r.timeTo}</td>
-                                        <td>
-                                        	<input type="hidden" value="${res.reservationId}" name="CurrentDelete">
-                                        	<input type="submit" class="btn-md btn btn-danger" name="${res.reservationId}" value="Ta bort">
-                                        </td>
 
-                                    </tr>
-                                    </c:forEach>
-                                </c:if>           
-                                </tbody>
-                              </table>
-                              
-						</form:form>
+									<tbody>
+										<c:if test="${not empty list}">
+											<c:forEach var="r" items="${list}">
+												<tr>
+													<td>${r.facility}</td>
+													<td>${r.timeFrom}</td>
+													<td>${r.timeTo}</td>
+													
+													<td><button type="submit" name="remove" value="${r.reservationId }"
+															class="btn-md btn btn-danger">Ta bort</button></td>
+												</tr>
+											</c:forEach>
+										</c:if>
+									</tbody>
+								</table>
+								<br />
+
+							</form:form>
+						
 						</div>
                     </div>
 				</div>

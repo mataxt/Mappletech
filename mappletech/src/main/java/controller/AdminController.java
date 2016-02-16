@@ -2,18 +2,14 @@ package controller;
 
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.HashMap;
-import java.util.LinkedHashMap;
-import java.util.List;
-import java.util.Map;
 import java.util.Random;
+import javax.servlet.http.HttpServletRequest;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.client.RestTemplate;
 import org.springframework.web.servlet.ModelAndView;
 import vm.GroupVM;
@@ -30,34 +26,28 @@ public class AdminController {
 	@RequestMapping(value = { "/administrator/bokningar" }, method = RequestMethod.GET)
 	public ModelAndView removeBookingGet(ModelMap model) {
 
-		ModelAndView mv = new ModelAndView("administrator/bokningar/index");
-
 		RestTemplate restTemplate = new RestTemplate();
 		ArrayList<ReservationVM> reservationList = restTemplate.getForObject(URI + "/reservation/getReservations", ArrayList.class);
 		
-		
 		System.out.println("reservationlist SIZE: " + Arrays.toString(reservationList.toArray()));
 		
-		
-		//mv.addObject("list", reservationList);
-		model.addAttribute("list", reservationList);
-		model.addAttribute("reservationVM", new ReservationVM());
+		ModelAndView mv = new ModelAndView("administrator/bokningar/index");
+		mv.addObject("reservationVM", new ReservationVM());
+		mv.addObject("list", reservationList);
+	
 		return mv;
 	}
 
 	@RequestMapping(value = "/administrator/bokningar", method = RequestMethod.POST)
-	public String removeBookingPost(@ModelAttribute ReservationVM reservationVm, Model model, @RequestParam("CurrentDelete") String CurrentDelete) {
+	public String removeBookingPost(HttpServletRequest request) {
 
-		
-		System.out.println("VALT ID: "+CurrentDelete+" radiobtn: "+reservationVm.getReservationId());
-		if (reservationVm == null) {
-			return "redirect:/administrator/bokningar/index";
-		}
-
+		ReservationVM r = new ReservationVM();
+		r.setReservationId(Integer.parseInt(request.getParameter("remove")));
+		System.out.println("REsID: "+r.getReservationId());
 		RestTemplate restTemplate = new RestTemplate();
-		//restTemplate.postForObject(URI + "/reservation/removeReservation", reservationVm, Boolean.class);
+		restTemplate.postForObject(URI + "/reservation/remove",r, Boolean.class);
 
-		return "redirect:/administrator/bokningar/index";
+		return "redirect:/";
 	}
 	// ======================================================================
 
