@@ -172,8 +172,8 @@
 				"timePicker24Hour": true,
 				"timePickerIncrement": 60,
 				"autoApply" : true,
+				format: 'YYYY-MM-DD h:mm'
 				locale: {
-					format: 'YYYY-MM-DD h:mm'
 					customRangeLabel: 'Custom',
 					daysOfWeek: ['Sön','Mån','Tis', 'Ons', 'Tors', 'Fre', 'Lör'],
 					monthNames: ['Januari', 'Februari', 'Mars', 'April', 'Maj', 'Juni', 'Juli', 'Augusti', 'September', 'Oktober', 'November', 'December'],
@@ -190,8 +190,8 @@
 				"timePicker24Hour": true,
 				"timePickerIncrement": 60,
 				"autoApply" : true,
+				format: 'YYYY-MM-DD h:mm'
 				locale: {
-					format: 'YYYY-MM-DD h:mm'
 					customRangeLabel: 'Custom',
 					daysOfWeek: ['Sön','Mån','Tis', 'Ons', 'Tors', 'Fre', 'Lör'],
 					monthNames: ['Januari', 'Februari', 'Mars', 'April', 'Maj', 'Juni', 'Juli', 'Augusti', 'September', 'Oktober', 'November', 'December'],
@@ -205,7 +205,7 @@
 		$(document).ready(function() {
 			// Select2
 			$(".select2list").select2({
-			  placeholder: "V�lj lokal",
+			  placeholder: "Välj lokal",
 			  allowClear: true
 			});
 		});
