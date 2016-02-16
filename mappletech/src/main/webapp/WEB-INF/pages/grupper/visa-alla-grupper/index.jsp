@@ -100,7 +100,7 @@
                                 </thead>
                                 
                                 <tbody>
-                                <c:if test="${not empty reservs}">
+                                <c:if test="${not empty mygroups}">
 									<c:forEach var="g" items="${mygroups}">
                                     <tr>   
                                     	<td>${g.groupName}</td>
@@ -112,11 +112,6 @@
                                 </tbody>
                               </table>
                               
-                             <br />
-                              
-                             <a href="/mappletech/bokning/boka/">
-								<button class="btn-lg btn btn-default">Ny bokning</button>
-							 </a>
 						</form:form>
                  
 						</div>
