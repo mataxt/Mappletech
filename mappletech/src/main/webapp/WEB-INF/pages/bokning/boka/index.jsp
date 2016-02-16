@@ -174,6 +174,7 @@
 				"autoApply" : true,
 				locale: {
 					customRangeLabel: 'Custom',
+					format: 'MM/DD/YYYY h:mm A'
 					daysOfWeek: ['Sön','Mån','Tis', 'Ons', 'Tors', 'Fre', 'Lör'],
 					monthNames: ['Januari', 'Februari', 'Mars', 'April', 'Maj', 'Juni', 'Juli', 'Augusti', 'September', 'Oktober', 'November', 'December'],
 					firstDay: 1
@@ -189,6 +190,9 @@
 				"timePicker24Hour": true,
 				"timePickerIncrement": 60,
 				"autoApply" : true
+				locale: {
+					format: 'MM/DD/YYYY h:mm A'
+				}
 			});
 		});
 	</script>
