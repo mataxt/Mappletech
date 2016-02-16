@@ -116,7 +116,7 @@
                                         <td>
                                             <label>
                                            	  <input type="hidden" value="${res.reservationId}" name="CurrentDelete">
-                                              <input type="checkbox" class="flat-red">
+                                              <input type="radio" name="${res.reservationId}" class="flat-red">
                                             </label>
                                         </td>
 
