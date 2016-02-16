@@ -7,6 +7,7 @@ public class ReservationVM {
 	private Integer reservationId;
 	private String host;
 	private Integer facilityID;
+	private String facility;
 	private Date timeFrom;
 	private Date timeTo;
 	private String title;
@@ -15,7 +16,7 @@ public class ReservationVM {
 
 		this.reservationId = 0;
 		this.host = "";
-		this.facilityID = 0;
+		this.facility = "";
 		this.timeFrom = Date.valueOf("2000-01-01");
 		this.timeTo = Date.valueOf("2000-01-01");
 		this.title = "";
@@ -25,8 +26,8 @@ public class ReservationVM {
 		this.reservationId = reservationId;
 	}
 
-	public void setFacilityID(Integer facilityID) {
-		this.facilityID = facilityID;
+	public void setFacility(String facility) {
+		this.facility = facility;
 	}
 
 	public void setTimeFrom(Date timeFrom) {
@@ -38,7 +39,7 @@ public class ReservationVM {
 	}
 
 	public String getTitle() {
-		title = "Medlem: "+host+" Bokat: "+facilityID+" Tid: "+timeFrom.toString()+" - "+timeTo.toString();
+		title = "Medlem: "+host+" Bokat: "+facility+" Tid: "+timeFrom.toString()+" - "+timeTo.toString();
 		return title;
 	}
 
@@ -46,21 +47,23 @@ public class ReservationVM {
 		this.title = title;
 	}
 
-	public ReservationVM(Integer reservationId, String host, Integer facilityID,
+	public ReservationVM(Integer reservationId, String host, Integer facilityId,String facility,
 			Date timeFrom, Date timeTo) {
 		super();
 		this.reservationId = reservationId;
 		this.host = host;
-		this.facilityID = facilityID;
+		this.facilityID = facilityId;
+		this.facility = facility;
 		this.timeFrom = timeFrom;
 		this.timeTo = timeTo;
 	}
 
-	public ReservationVM(String host, Integer facilityID,
+	public ReservationVM(String host, Integer facilityId,String facility,
 			Date timeFrom, Date timeTo) {
 		super();
 		this.host = host;
-		this.facilityID = facilityID;
+		this.facilityID = facilityId;
+		this.facility = facility;
 		this.timeFrom = timeFrom;
 		this.timeTo = timeTo;
 	}
@@ -87,11 +90,15 @@ public class ReservationVM {
 	}
 
 
-	public void setReservationId(Integer reservationId) {
-		this.reservationId = reservationId;
+	public String getFacility() {
+		return facility;
 	}
 
 	public Integer getFacilityID() {
 		return facilityID;
+	}
+
+	public void setFacilityID(Integer facilityID) {
+		this.facilityID = facilityID;
 	}
 }

@@ -29,7 +29,7 @@ public class ReservationRestController {
 		return ReservationDAO.addReservation(reservation);
 	}
 	
-	@RequestMapping(value="/reservation/removeReservation")
+	@RequestMapping(value="/reservation/remove")
 	public Boolean deleteReservation(@RequestBody(required=true) ReservationVM reservationVM)
 	{
 		return ReservationDAO.removeReservation(reservationVM.getReservationId());
@@ -45,6 +45,7 @@ public class ReservationRestController {
 			ReservationVM rVM = new ReservationVM(reservation.getReservationId(),
 					reservation.getHost().getUsername(),
 					reservation.getFacility().getFacilityId(),
+					reservation.getFacility().getFacilityName(),
 					reservation.getTimeFrom(),
 					reservation.getTimeTo());
 			reservationVMList.add(rVM);
@@ -62,6 +63,7 @@ public class ReservationRestController {
 			ReservationVM rVM = new ReservationVM(reservation.getReservationId(),
 					reservation.getHost().getUsername(),
 					reservation.getFacility().getFacilityId(),
+					reservation.getFacility().getFacilityName(),
 					reservation.getTimeFrom(),
 					reservation.getTimeTo());
 			reservationVMList.add(rVM);

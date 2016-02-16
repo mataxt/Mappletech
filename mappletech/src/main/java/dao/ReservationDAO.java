@@ -233,11 +233,11 @@ public class ReservationDAO {
 	 *            .Reservation
 	 * @return true, if successful
 	 */
-	public static boolean removeReservation(int reservationId) {
+	public static Boolean removeReservation(int reservationId) {
 		EntityManagerFactory emf = Persistence
 				.createEntityManagerFactory("UserPU");
 		EntityManager em = emf.createEntityManager();
-		boolean success = false;
+		Boolean success = false;
 		try {
 			em.getTransaction().begin();
 			Reservation r = em.find(Reservation.class,

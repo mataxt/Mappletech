@@ -1,9 +1,12 @@
 package controller;
 
+import java.lang.ProcessBuilder.Redirect;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
+
+import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
@@ -23,7 +26,7 @@ import vm.UserVM;
 public class ReservationController {
 
 	private final String URI = "http://130.237.84.211:8080/mappletech/rest/";
-
+	
 	@RequestMapping(value = "/bokning/boka", method = RequestMethod.GET)
 	public ModelAndView reserve() {
 		System.out.println("In GET Res...");
@@ -68,5 +71,16 @@ public class ReservationController {
 		mv.addObject("resRem", new ReservationVM());
 		mv.addObject("reservs", resVm);
 		return mv;
+	}
+	
+	@RequestMapping(value = "/bokning/mina-bokningar", method = RequestMethod.POST)
+	public String removeRes(HttpServletRequest request) {
+		System.out.println("In POST RVes...");
+		RestTemplate restTemplate = new RestTemplate();
+		ReservationVM r = new ReservationVM();
+		r.setReservationId(Integer.parseInt(request.getParameter("remove")));
+		restTemplate.postForObject(URI + "reservation/remove", r, Boolean.class);
+		return "redirect:/bokning/mina-bokningar";
+
 	}
 }

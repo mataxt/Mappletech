@@ -46,7 +46,7 @@ public class Reservation implements Serializable {
 		this.reservationId = reservationId;
 	}
 
-	@ManyToOne(fetch = FetchType.LAZY)
+	@ManyToOne(fetch = FetchType.EAGER)
 	@JoinColumn(name = "Host", nullable = false)
 	public User getHost() {
 		return host;
@@ -56,7 +56,7 @@ public class Reservation implements Serializable {
 		this.host = host;
 	}
 	
-	@ManyToOne(fetch = FetchType.LAZY)
+	@ManyToOne(fetch = FetchType.EAGER)
 	@JoinColumn(name = "FacilityId", nullable = false)
 	public Facility getFacility() {
 		return facility;

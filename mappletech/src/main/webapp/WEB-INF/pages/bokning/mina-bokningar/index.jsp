@@ -30,7 +30,8 @@
 	rel="stylesheet">
 
 <!-- dataTables -->
-<link href="<%=request.getContextPath()%>/resources/UI/css/dataTables.bootstrap.css"
+<link
+	href="<%=request.getContextPath()%>/resources/UI/css/dataTables.bootstrap.css"
 	rel="stylesheet">
 
 <!-- Custom Fonts -->
@@ -87,55 +88,54 @@
 
 					<div class="row">
 						<div class="box-body pad table-responsive">
-							<form:form method="post" action="removeRes" modelAttribute="resRem">
-                  
-                                <table id="thetable" class="table table-bordered table-striped">
-                              
-                                <thead>
-                                    <tr>
-                                    	<th>Lokal</th>
-                                        <th>Tid (från)</th>
-                                        <th>Tid (till)</th>
-                                        <th></th>
-                                    </tr>
-                                </thead>
-                                
-                                <tbody>
-                                <c:if test="${not empty reservs}">
-									<c:forEach var="r" items="${reservs}">
-                                    <tr>   
-                                    	<td>${r.facilityID}</td>
-                                    	<td>${r.timeFrom}</td>
-                                    	<td>${r.timeTo}</td>
-                                        <td>
-                                        	<button class="btn-md btn btn-danger">Ta bort</button>
-                                        </td>
-                                    </tr>
-                                    </c:forEach>
-                                </c:if>           
-                                </tbody>
-                              </table>
-                              
-                             <br />
-                              
-                             <a href="/mappletech/bokning/boka/">
-								<button class="btn-lg btn btn-default">Ny bokning</button>
-							 </a>
-						</form:form>
-                 
+							<form:form method="post" action="." modelAttribute="resRem">
+
+								<table id="thetable" class="table table-bordered table-striped">
+
+									<thead>
+										<tr>
+											<th>Lokal</th>
+											<th>Tid (från)</th>
+											<th>Tid (till)</th>
+											<th></th>
+										</tr>
+									</thead>
+
+									<tbody>
+										<c:if test="${not empty reservs}">
+											<c:forEach var="r" items="${reservs}">
+												<tr>
+													<td>${r.facility}</td>
+													<td>${r.timeFrom}</td>
+													<td>${r.timeTo}</td>
+													
+													<td><button type="submit" name="remove" value="${r.reservationId }"
+															class="btn-md btn btn-danger">Ta bort</button></td>
+												</tr>
+											</c:forEach>
+										</c:if>
+									</tbody>
+								</table>
+
+								<br />
+
+								<a href="/mappletech/bokning/boka/">
+									<button class="btn-lg btn btn-default">Ny bokning</button>
+								</a>
+							</form:form>
+
 						</div>
 					</div>
 
+				</div>
 			</div>
 		</div>
-	</div>
-	<!-- End Main Body Section -->
-    
-    <script>
-      $(function () {
-        $('#thetable').dataTable();
-      });
-	</script>
-    
+		<!-- End Main Body Section -->
+
+		<script>
+			$(function() {
+				$('#thetable').dataTable();
+			});
+		</script>
 </body>
 </html>
