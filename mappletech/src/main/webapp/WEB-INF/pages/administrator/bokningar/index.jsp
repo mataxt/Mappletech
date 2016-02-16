@@ -13,35 +13,51 @@
     <meta name="author" content="">
         <title>Mappletech - Bokning</title>
     
-    <!-- Bootstrap Core CSS -->
-    <link href="<%=request.getContextPath()%>/resources/UI/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-    
-    <!-- Font Awesome CSS -->
-    <link href="<%=request.getContextPath()%>/resources/UI/css/font-awesome.min.css" rel="stylesheet">
-    
-    <!-- Custom CSS -->
-    <link href="<%=request.getContextPath()%>/resources/UI/css/style.css" rel="stylesheet">
-    <link href="<%=request.getContextPath()%>/resources/UI/css/animate.css" rel="stylesheet">
-    
-    <!-- Custom Fonts -->
-    <link href="http://fonts.googleapis.com/css?family=Lobster"
-        rel="stylesheet" type="text/css">
-   
-    <!--EXTRA CSS/JS FOR TABLE-->
-    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.0.8/angular.min.js"></script>
-    <script src="http://vitalets.github.io/angular-xeditable/dist/js/xeditable.js"></script>
-    <script src="https://code.angularjs.org/1.0.8/angular-mocks.js"></script>
-    <link href="http://vitalets.github.io/angular-xeditable/dist/css/xeditable.css" rel="stylesheet" type="text/css">
-    <link href="<%=request.getContextPath()%>/resources/UI/css/angular-extra-table.css" rel="stylesheet">
+<!-- Bootstrap Core CSS -->
+<link
+	href="<%=request.getContextPath()%>/resources/UI/bootstrap/css/bootstrap.min.css"
+	rel="stylesheet">
 
+<!-- Font Awesome CSS -->
+<link
+	href="<%=request.getContextPath()%>/resources/UI/css/font-awesome.min.css"
+	rel="stylesheet">
 
-    <!-- Template js -->
-    <script src="<%=request.getContextPath()%>/resources/UI/js/jquery-2.1.1.min.js"></script>
-    <script src="<%=request.getContextPath()%>/resources/UI/bootstrap/js/bootstrap.min.js"></script>
-    <script src="<%=request.getContextPath()%>/resources/UI/js/jquery.appear.js"></script>
-    <script src="<%=request.getContextPath()%>/resources/UI/js/jqBootstrapValidation.js"></script>
-    <script src="<%=request.getContextPath()%>/resources/UI/js/modernizr.custom.js"></script>
-   
+<!-- Custom CSS -->
+<link href="<%=request.getContextPath()%>/resources/UI/css/style.css"
+	rel="stylesheet">
+<link href="<%=request.getContextPath()%>/resources/UI/css/animate.css"
+	rel="stylesheet">
+
+<!-- dataTables -->
+<link href="<%=request.getContextPath()%>/resources/UI/css/dataTables.bootstrap.css"
+	rel="stylesheet">
+    
+<!-- iCheck -->
+<link href="<%=request.getContextPath()%>/resources/UI/css/all.css"
+	rel="stylesheet">
+
+<!-- Custom Fonts -->
+<link href="http://fonts.googleapis.com/css?family=Lobster"
+	rel="stylesheet" type="text/css">
+
+<!-- Template js -->
+<script
+	src="<%=request.getContextPath()%>/resources/UI/js/jquery-2.1.1.min.js"></script>
+<script
+	src="<%=request.getContextPath()%>/resources/UI/bootstrap/js/bootstrap.min.js"></script>
+<script
+	src="<%=request.getContextPath()%>/resources/UI/js/jquery.appear.js"></script>
+<script
+	src="<%=request.getContextPath()%>/resources/UI/js/jqBootstrapValidation.js"></script>
+<script
+	src="<%=request.getContextPath()%>/resources/UI/js/modernizr.custom.js"></script>
+<script
+	src="<%=request.getContextPath()%>/resources/UI/js/dataTables.bootstrap.min.js"></script>
+<script
+	src="<%=request.getContextPath()%>/resources/UI/js/icheck.min.js"></script>
+<script
+	src="<%=request.getContextPath()%>/resources/UI/js/jquery.dataTables.min.js"></script>
 
     <!--[if lt IE 9]>
         <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
@@ -71,39 +87,79 @@
                     <div class="row">
                         <div class="section-title text-center">
                             <h3>Bokningar</h3>
-                            <p>Hantera bokningar här</p>
+                            <p>Hantera bokningar hï¿½r</p>
                         </div>
                     </div>
                         
-                        <!-- form:form -->
-	<form:form modelAttribute="reservationVM" method="POST">
- 					<c:if test="${not empty list}">
-						<ul>
-							 	<c:forEach var="res" items="${list}">
-								<li>
-									<c:out value="${res.title}"/>
-									<input type="hidden" value="${res.reservationId}" name="CurrentDelete">
-									<input type="submit" value="Ta bort" />
-									<br>
-								</li>
-								</c:forEach>
-								
-						</ul>
-					</c:if>
-					</form:form>
-                  </div>
-                </div>
+                	<div class="row">
+						<div class="box-body pad table-responsive">
+							<form:form modelAttribute="reservationVM" method="POST">
+                  
+                                <table id="thetable" class="table table-bordered table-striped">
+                              
+                                <thead>
+                                    <tr>
+                                    	<th>Lokal</th>
+                                        <th>Tid (frÃ¥n)</th>
+                                        <th>Tid (till)</th>
+                                        <th></th>
+                                    </tr>
+                                </thead>
+                                
+                                <tbody>
+                                <c:if test="${not empty list}">
+									<c:forEach var="r" items="${list}">
+                                    <tr>   
+                                    	<td>${r.facilityID}</td>
+                                    	<td>${r.timeFrom}</td>
+                                    	<td>${r.timeTo}</td>
+                                        <td>
+                                        	<input type="hidden" value="${res.reservationId}" name="CurrentDelete">
+											<input type="submit" value="Ta bort" />
+                                        </td>
+
+                                    </tr>
+                                    </c:forEach>
+                                </c:if>           
+                                </tbody>
+                              </table>
+                              
+						</form:form>
+						</div>
+                    </div>
+				</div>
+                
               </div>
-              
             </div>
  
         <!-- End Main Body Section -->
         
-      <!-- Script for table-->
+    <!-- JavaScripts-->
     <script>
 		function onDbClickFunction() {
 			document.forms["reservationVM"].submit();
 		}
+	</script>
+    <script>
+      $(function () {
+        $('#thetable').dataTable();
+		
+		//iCheck for checkbox and radio inputs
+		$('input[type="checkbox"].minimal, input[type="radio"].minimal').iCheck({
+		  checkboxClass: 'icheckbox_minimal-blue',
+		  radioClass: 'iradio_minimal-blue'
+		});
+		//Red color scheme for iCheck
+		$('input[type="checkbox"].minimal-red, input[type="radio"].minimal-red').iCheck({
+		  checkboxClass: 'icheckbox_minimal-red',
+		  radioClass: 'iradio_minimal-red'
+		});
+		//Flat red color scheme for iCheck
+		$('input[type="checkbox"].flat-red, input[type="radio"].flat-red').iCheck({
+		  checkboxClass: 'icheckbox_flat-green',
+		  radioClass: 'iradio_flat-green'
+		});
+      });
 	</script>
       
     </body>
