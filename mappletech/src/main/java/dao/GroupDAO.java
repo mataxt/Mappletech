@@ -205,7 +205,9 @@ public class GroupDAO {
 		try {
 			em.getTransaction().begin();
 			User usr = em.find(User.class, username);
+			System.out.println("here");
 			groups = em.createQuery("from Group where host = ?1", Group.class).setParameter(1, usr).getResultList();
+			groups.addAll(em.createQuery("from Group g join g.users u where u.username = ?2",Group.class).setParameter(1, usr).setParameter(2, usr.getUsername()).getResultList());
 			em.getTransaction().commit();
 
 		} catch (Exception e) {

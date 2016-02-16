@@ -1,6 +1,12 @@
 package vm;
 
-public class UserVM{
+import java.io.Serializable;
+
+import org.springframework.context.annotation.Scope;
+
+@Scope("session")
+public class UserVM implements Serializable{
+	private static final long serialVersionUID = 1L;
 	private String username = "";
 	private String password = "";
 	private String fullName = "";

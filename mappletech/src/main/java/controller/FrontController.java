@@ -1,10 +1,10 @@
 package controller;
 
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.SessionAttributes;
-import org.springframework.web.servlet.ModelAndView;
 
 
 @Controller
@@ -12,8 +12,11 @@ import org.springframework.web.servlet.ModelAndView;
 public class FrontController {
 
 	@RequestMapping(value = { "/" }, method = RequestMethod.GET)
-	public ModelAndView login() {
+	public String main(Model model) {
 		System.out.println("In GET Main...");
-		return new ModelAndView("index");
+		if (model.containsAttribute("sessUser"))
+			return "index";
+		else
+			return "redirect:login";
 	}
 }
