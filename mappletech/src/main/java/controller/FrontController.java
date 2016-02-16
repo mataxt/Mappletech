@@ -17,6 +17,6 @@ public class FrontController {
 		if (model.containsAttribute("sessUser"))
 			return "index";
 		else
-			return "redirect:login/index";
+			return "redirect:login";
 	}
 }
