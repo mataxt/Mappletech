@@ -126,14 +126,42 @@
                         <td style="white-space: nowrap">
                         
                         <!-- form -->
-                        <form editable-form name="rowform" onbeforesave="saveUser($data, user.id)" ng-show="rowform.$visible" class="form-buttons form-inline" shown="inserted == user">
-                                <button type="submit" ng-disabled="rowform.$waiting" class="btn btn-success">
-                                  Spara
-                                </button>
-                                <button type="button" ng-disabled="rowform.$waiting" ng-click="rowform.$cancel()" class="btn btn-default">
-                                  Avbryt
-                                </button>
-                        </form>
+                        <form:form method="POST" action=".">
+                  
+                                <table id="thetable" class="table table-bordered table-striped">
+                              
+                                <thead>
+                                    <tr>
+                                    	<th>Anmäld av</th>
+                                        <th>Orsak</th>
+                                        <th>Beskrivning</th>
+                                         <th>Status</th>
+                                          <th>Datum</th>
+                                           <th>Ta bort</th>
+                                        <th></th>
+                                    </tr>
+                                </thead>
+
+									<tbody>
+										<c:if test="${not empty list}">
+											<c:forEach var="r" items="${list}">
+												<tr>
+													<td>${r.reporter}</td>
+													<td>${r.reason}</td>
+													<td>${r.description}</td>
+													<td>${r.status}</td>
+													<td>${r.date}</td>
+													
+													<td><button type="submit" name="remove" value="${r.reportId }"
+															class="btn-md btn btn-danger">Ta bort</button></td>
+												</tr>
+											</c:forEach>
+										</c:if>
+									</tbody>
+								</table>
+								<br />
+
+							</form:form>
                           
                             <div class="buttons" ng-show="!rowform.$visible">
                               <button class="btn btn-info" ng-click="rowform.$show()">Ã„ndra</button>

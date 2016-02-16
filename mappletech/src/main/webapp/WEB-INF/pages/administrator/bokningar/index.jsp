@@ -90,7 +90,7 @@
 						
 						
 						
-					<form:form modelAttribute="reservationVM" method="POST" action=".">
+					<form:form method="POST" action=".">
                   
                                 <table id="thetable" class="table table-bordered table-striped">
                               

@@ -29,10 +29,7 @@ public class AdminController {
 		RestTemplate restTemplate = new RestTemplate();
 		ArrayList<ReservationVM> reservationList = restTemplate.getForObject(URI + "/reservation/getReservations", ArrayList.class);
 		
-		System.out.println("reservationlist SIZE: " + Arrays.toString(reservationList.toArray()));
-		
 		ModelAndView mv = new ModelAndView("administrator/bokningar/index");
-		mv.addObject("reservationVM", new ReservationVM());
 		mv.addObject("list", reservationList);
 	
 		return mv;
@@ -78,19 +75,28 @@ public class AdminController {
 
 	@RequestMapping(value = { "/administrator/felanmalan" }, method = RequestMethod.GET)
 	public ModelAndView errorReportGet() {
+		
+		RestTemplate rest = new RestTemplate();
+		@SuppressWarnings("unchecked")
+		ArrayList<ReportVM> list = rest.getForObject(URI + "/reservation/getAllReports", ArrayList.class);
+		
 		ModelAndView mv = new ModelAndView("administrator/felanmalan/index");
-		mv.addObject("uservm", new UserVM());
+		mv.addObject("list", list);
 		return mv;
 	}
 
 	@RequestMapping(value = "/administrator/felanmalan", method = RequestMethod.POST)
-	public String errorReportPost(@ModelAttribute("reportVm") ReportVM reportVm, Model model) {
+	public String errorReportPost(HttpServletRequest request) {
 
+		ReportVM reportVm = new ReportVM();
+		reportVm.setReportId(Integer.parseInt(request.getParameter("remove")));
+		
+		
 		RestTemplate restTemplate = new RestTemplate();
-		boolean success = restTemplate.postForObject(URI + "/felanmalan", reportVm, Boolean.class);
+		boolean success = restTemplate.postForObject(URI + "/felanmalan/remove", reportVm, Boolean.class);
 
 		if (success) {
-			return "redirect:/administrator/felanmalan/index";
+			return "redirect:/administrator";
 		}
 		return "redirect:/administrator/felanmalan/index";
 	}
