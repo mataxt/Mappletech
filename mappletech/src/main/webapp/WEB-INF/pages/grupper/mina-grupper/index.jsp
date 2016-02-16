@@ -114,11 +114,10 @@
                                 <c:if test="${not empty mygroups}">
 									<c:forEach var="g" items="${mygroups}">
                                     <tr>   
-                                    	<td>${g.groupName}</td>
+                                    	<td><button class="btn-md btn btn-primary">${g.groupName}</button></td>
                                     	<td>${g.description}</td>
                                     	<td>${g.host}</td>
                                         <td>
-                                        	<button class="btn-md btn btn-primary">Redigera</button>
                                         	<button class="btn-md btn btn-danger">Ta bort</button>
                                         </td>
                                     </tr>
