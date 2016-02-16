@@ -189,7 +189,7 @@
 				"timePicker": true,
 				"timePicker24Hour": true,
 				"timePickerIncrement": 60,
-				"autoApply" : true
+				"autoApply" : true,
 				locale: {
 					format: 'YYYY-MM-DD HH:mm',
 					customRangeLabel: 'Custom',
