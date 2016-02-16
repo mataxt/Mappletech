@@ -1,7 +1,6 @@
 package controller;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Random;
 import javax.servlet.http.HttpServletRequest;
 import org.springframework.stereotype.Controller;
@@ -21,6 +20,8 @@ import vm.UserVM;
 public class AdminController {
 
 	private final String URI = "http://130.237.84.211:8080/mappletech/rest";
+	
+	
 	// ===================== bokningar =================================
 
 	@RequestMapping(value = { "/administrator/bokningar" }, method = RequestMethod.GET)
@@ -46,7 +47,6 @@ public class AdminController {
 
 		return "redirect:/";
 	}
-	// ======================================================================
 
 	// ===================== Edit anvandare =================================
 	/*
@@ -70,16 +70,16 @@ public class AdminController {
 	 * 
 	 * return "redirect:/administrator/anvandare"; }
 	 */
-	// ======================================================================
+	
 	// ======================== felanmalan ================================
 
 	@RequestMapping(value = { "/administrator/felanmalan" }, method = RequestMethod.GET)
 	public ModelAndView errorReportGet() {
 		
+		
 		RestTemplate rest = new RestTemplate();
 		@SuppressWarnings("unchecked")
 		ArrayList<ReportVM> list = rest.getForObject(URI + "/report/getAllReports", ArrayList.class);
-		
 		ModelAndView mv = new ModelAndView("administrator/felanmalan/index");
 		mv.addObject("list", list);
 		return mv;
@@ -100,8 +100,6 @@ public class AdminController {
 		}
 		return "redirect:/administrator/felanmalan/index";
 	}
-
-	// ======================================================================
 
 	// ======================== ny anvandare ================================
 
@@ -148,7 +146,6 @@ public class AdminController {
 		}
 		return "redirect:/administrator/grupper/index";
 	}
-	// ======================================================================
 
 	// ======================================================================
 
