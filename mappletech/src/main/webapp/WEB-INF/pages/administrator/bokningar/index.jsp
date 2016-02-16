@@ -107,7 +107,6 @@
                                 </thead>
                                 
                                 <tbody>
-                                <label>
                                 <c:if test="${not empty list}">
 									<c:forEach var="r" items="${list}">
                                     <tr>   
@@ -116,17 +115,14 @@
                                     	<td>${r.timeTo}</td>
                                         <td>
                                         	<input type="hidden" value="${res.reservationId}" name="CurrentDelete">
-                                        	<input type="radio" name="${res.reservationId}" class="flat-red">
+                                        	<input type="submit" class="btn-md btn btn-danger" name="${res.reservationId}" value="Ta bort">
                                         </td>
 
                                     </tr>
                                     </c:forEach>
                                 </c:if>           
-                                </label>
                                 </tbody>
                               </table>
-                              
-                              <input type="submit" value="Ta bort" />
                               
 						</form:form>
 						</div>
