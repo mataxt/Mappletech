@@ -52,7 +52,7 @@
 <script
 	src="<%=request.getContextPath()%>/resources/UI/js/jquery.appear.js"></script>
 <script
-	src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.10.3/moment.min.js"></script>
+	src="<%=request.getContextPath()%>/resources/UI/js/moment.min.js"></script>
 <script
 	src="<%=request.getContextPath()%>/resources/UI/js/daterangepicker.js"></script>
 <script
