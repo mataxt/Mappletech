@@ -125,7 +125,7 @@
 											<i class="fa fa-clock-o"></i>
 										</div>
 										<form:input path="timeFrom" type="text"
-											class="form-control pull-right" id="reservationtime2" required=""/>
+											class="form-control pull-right" id="reservationtime2" required="" value=""/>
 									</div>
 
 								</div>
@@ -138,7 +138,7 @@
 											<i class="fa fa-clock-o"></i>
 										</div>
 										<form:input path="timeTo" type="text"
-											class="form-control pull-right" id="reservationtime1" required=""/>
+											class="form-control pull-right" id="reservationtime1" required="" value=""/>
 									</div>
 
 								</div>
@@ -173,7 +173,7 @@
 				"timePickerIncrement": 60,
 				"autoApply" : true,
 				locale: {
-					format: 'YYYY-MM-DD h:mm'
+					format: 'YYYY-MM-DD h:mm',
 					customRangeLabel: 'Custom',
 					daysOfWeek: ['Sön','Mån','Tis', 'Ons', 'Tors', 'Fre', 'Lör'],
 					monthNames: ['Januari', 'Februari', 'Mars', 'April', 'Maj', 'Juni', 'Juli', 'Augusti', 'September', 'Oktober', 'November', 'December'],
@@ -191,7 +191,7 @@
 				"timePickerIncrement": 60,
 				"autoApply" : true,
 				locale: {
-					format: 'YYYY-MM-DD h:mm'
+					format: 'YYYY-MM-DD h:mm',
 					customRangeLabel: 'Custom',
 					daysOfWeek: ['Sön','Mån','Tis', 'Ons', 'Tors', 'Fre', 'Lör'],
 					monthNames: ['Januari', 'Februari', 'Mars', 'April', 'Maj', 'Juni', 'Juli', 'Augusti', 'September', 'Oktober', 'November', 'December'],
