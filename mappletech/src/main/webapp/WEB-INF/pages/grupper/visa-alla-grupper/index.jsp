@@ -96,7 +96,6 @@
                                     	<th>Namn</th>
                                         <th>Beskrivning</th>
                                         <th>Skapare</th>
-                                        <th></th>
                                     </tr>
                                 </thead>
                                 
@@ -106,10 +105,7 @@
                                     <tr>   
                                     	<td>${g.groupName}</td>
                                     	<td>${g.description}</td>
-                                    	<td>${g.creator}</td>
-                                        <td>
-                                        	<button class="btn-md btn btn-danger">Ta bort</button>
-                                        </td>
+                                    	<td>${g.host}</td>
                                     </tr>
                                     </c:forEach>
                                 </c:if>           
@@ -131,6 +127,12 @@
 		</div>
 	</div>
 	<!-- End Main Body Section -->
-
+    
+	<script>
+      $(function () {
+        $('#thetable').dataTable();
+      });
+	</script>
+    
 </body>
 </html>
