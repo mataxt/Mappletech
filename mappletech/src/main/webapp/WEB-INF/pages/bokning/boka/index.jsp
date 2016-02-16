@@ -165,6 +165,7 @@
 		$(function() {
 			// Date range picker with time picker 1
 			$('#reservationtimeFirst').daterangepicker({
+				"opens": "center",
 				"singleDatePicker" : true,
 				"showDropdowns": true,
 				"showWeekNumbers": true,
@@ -183,6 +184,7 @@
 
 			// Date range picker with time picker 2
 			$('#reservationtimeSecond').daterangepicker({
+				"opens": "center",
 				"singleDatePicker" : true,
 				"showDropdowns": true,
 				"showWeekNumbers": true,
