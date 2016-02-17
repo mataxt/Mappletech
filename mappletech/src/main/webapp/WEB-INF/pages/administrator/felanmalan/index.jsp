@@ -67,62 +67,7 @@
             <div class="container">
                 <div class="row">
 
-                    <div class="container">
-                    <div class="row">
-                        <div class="section-title text-center">
-                            <h3>Felanmälning</h3>
-                            <p>Hantera felanmälningar här</p>
-                        </div>
-                    </div>
-                    
-                    <div class="row">
-						<div ng-app="app" ng-controller="Ctrl">
-                         <table class="table table-bordered table-hover table-condensed">
-                          <tr style="font-weight: bold">
-                            <td style="width:16%">Rapporterare</td>
-                            <td style="width:17%">Orsak</td>
-                            <td style="width:17%">Beskrivning</td>
-                            <td style="width:17%">Status</td>
-                            <td style="width:17%">Datum</td>
-                            <td style="width:16%">Ändra</td>
-                          </tr>
-      					  <tr ng-repeat="user in users">
-                          
-                        <td>
-                          <!-- editable status (select-local) -->
-                          <span editable-text="user.status" e-name="status" e-form="rowform" e-ng-options="s.value as s.text for s in statuses">
-                            {{ showStatus(user) }}
-                          </span>
-            		   </td>
-                       
-                        <td>
-                          <!-- editable group (select-remote) -->
-                          <span editable-text="user.group" e-name="group" onshow="loadGroups()" e-form="rowform" e-ng-options="g.id as g.text for g in groups">
-                            {{ showGroup(user) }}
-                          </span>
-                        </td>
-                        
-                        <td>
-                          <!-- editable status (select-local) -->
-                          <span editable-text="user.status" e-name="status" e-form="rowform" e-ng-options="s.value as s.text for s in statuses">
-                            {{ showStatus(user) }}
-                          </span>
-            		   </td>
-                        
-                        <td>
-                          <!-- editable status (select-local) -->
-                          <span editable-select="user.status" e-name="status" e-form="rowform" e-ng-options="s.value as s.text for s in statuses">
-                            {{ showStatus(user) }}
-                          </span>
-            		   </td>
-                       
-                       <td>
-                          <!-- editable status (select-local) -->
-                          <span editable-text="user.status" e-name="status" e-form="rowform" e-ng-options="s.value as s.text for s in statuses">
-                            {{ showStatus(user) }}
-                          </span>
-            		   </td>
-                        
+                         
                         <!-- change and remove buttons -->
                         <td style="white-space: nowrap">
                         
