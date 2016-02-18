@@ -106,7 +106,6 @@
 							<form:form commandName="resvm" id="res" class="form-change"
 								method="post">
 
-
 								<div class="form-group">
 									<label>Lokaler</label>
 									<form:select path="facilityID"
@@ -124,7 +123,7 @@
 										<div class="input-group-addon">
 											<i class="fa fa-clock-o"></i>
 										</div>
-										<form:input path="timeFrom" type="text"
+										<form:input path="dateFrom" type="text"
 											class="form-control pull-right" id="reservationtimeFirst" required="" />	
 									</div>
 
@@ -138,7 +137,7 @@
                                         <i class="fa fa-clock-o"></i>
                                       </div>
                                    
-                                      <form:input type="text" class="form-control" name="time" id="timepicker" placeholder="hh:mm" />
+                                      <form:input type="text" class="form-control" path="timeFrom" id="timepickerFirst" placeholder="hh:mm" />
                                       
                                     </div>
                                   </div>
@@ -151,11 +150,25 @@
 										<div class="input-group-addon">
 											<i class="fa fa-clock-o"></i>
 										</div>
-										<form:input path="timeTo" type="text"
+										<form:input path="dateTo" type="text"
 											class="form-control pull-right" id="reservationtimeSecond" required=""/>
 									</div>
 
 								</div>
+                                
+								<div class="bootstrap-timepicker">     
+                                  <div class="form-group">
+                                    <label>Starttid</label>
+                                    <div class="input-group">
+                                      <div class="input-group-addon">
+                                        <i class="fa fa-clock-o"></i>
+                                      </div>
+                                   
+                                      <form:input type="text" class="form-control" path="timeFrom" id="timepickerSecond" placeholder="hh:mm" />
+                                      
+                                    </div>
+                                  </div>
+                                </div>
 
 								<div class="row">
 									<div class="col-md-offset-3 col-md-6 col-md-offset-3">
@@ -215,8 +228,16 @@
 				}
 			});
 			
-			// Timepicker
-			$("#timepicker").timepicker({
+			// Timepicker 1
+			$("#timepickerFirst").timepicker({
+			  minuteStep: 15, 
+			  showMeridian: false,
+			  defaultTime: false,
+			  showInputs: false
+			});
+			
+			// Timepicker 2
+			$("#timepickerSecond").timepicker({
 			  minuteStep: 15, 
 			  showMeridian: false,
 			  defaultTime: false,
