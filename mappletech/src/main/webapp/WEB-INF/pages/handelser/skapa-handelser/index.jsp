@@ -135,7 +135,7 @@
 				"showDropdowns": true,
 				"showWeekNumbers": true,
 				"autoApply": true,
-			    "opens": "center",
+			    "opens": "left",
 				locale: {
 					format: 'YYYY-MM-DD',
 					customRangeLabel: 'Custom',
