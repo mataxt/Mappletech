@@ -16,14 +16,14 @@ public class ReportRestController {
 	@RequestMapping(value = "/report/add")
 	public Boolean addReport(@RequestBody(required = true) ReportVM reportVM){
 		Report report = new Report();
-		report.setReportId(reportVM.getReportId());
 		report.setDescription(reportVM.getDescription());
 		report.setReason(reportVM.getReason());
 		report.setReporter(UserDAO.fetchUser(reportVM.getReporter()));
 		report.setDate(reportVM.getDate());
 		report.setStatus(reportVM.getStatus());
-		int i = ReportDAO.addReport(report);
-		if(i != 0)
+		Integer i = ReportDAO.addReport(report);
+	
+		if(i != null)
 			return true;
 		else
 			return false;

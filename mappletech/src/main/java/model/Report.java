@@ -39,6 +39,12 @@ public class Report implements Serializable {
 		this.date = date;
 	}
 
+	@Override
+	public String toString() {
+		return "Report [reportId=" + reportId + ", reporter=" + reporter + ", reason=" + reason + ", status=" + status
+				+ ", date=" + date + ", description=" + description + "]";
+	}
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "ReportId", nullable = false)

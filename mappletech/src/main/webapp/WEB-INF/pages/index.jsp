@@ -352,7 +352,7 @@
 								<div class="col-md-12">
 									<div class="form-group">
 										<form:select path="reason" class="form-control select2dropdown"
-											multiple="multiple" data-placeholder="Välj kategori"
+											data-placeholder="Välj kategori"
 											style="width: 100%;">
 											<option>Trapphus</option>
 											<option>Soprum</option>
