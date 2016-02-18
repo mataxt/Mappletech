@@ -79,17 +79,17 @@
 							method="POST">                    
                        				<div class="form-group">
                                     	<label>Title</label>
-                                    	<form:input path="title" type="text" class="form-control" placeholder="titleTest" value="TitleTest" />
+                                    	<form:input path="title" type="text" class="form-control" placeholder="titleTest" value="" />
                                  	</div>
                                     
                             		<div class="form-group">
                                     	<label>Beskrivning</label>
-                                    	<form:input path="description" type="text" class="form-control" placeholder="beskrivningTest" value="BeskrivningTest" />
+                                    	<form:input path="description" type="text" class="form-control" placeholder="beskrivningTest" value="" />
                                  	</div>
                                     
                                     <div class="form-group">
                                     	<label>Skapare</label>
-                                    	<form:input path="creator" type="text" class="form-control" placeholder="skapareTest" value="skapareTest" disabled="true"/>
+                                    	<form:input path="creator" type="text" class="form-control" placeholder="skapareTest" value="" disabled="true"/>
                                  	</div>
                                     
                                     <div class="form-group">
