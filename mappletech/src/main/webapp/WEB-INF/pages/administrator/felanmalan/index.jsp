@@ -13,35 +13,45 @@
     <meta name="author" content="">
         <title>Mappletech - Felanmälning</title>
     
-    <!-- Bootstrap Core CSS -->
-    <link href="<%=request.getContextPath()%>/resources/UI/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-    
-    <!-- Font Awesome CSS -->
-    <link href="<%=request.getContextPath()%>/resources/UI/css/font-awesome.min.css" rel="stylesheet">
-    
-    <!-- Custom CSS -->
-    <link href="<%=request.getContextPath()%>/resources/UI/css/style.css" rel="stylesheet">
-    <link href="<%=request.getContextPath()%>/resources/UI/css/animate.css" rel="stylesheet">
-    
-    <!-- Custom Fonts -->
-    <link href="http://fonts.googleapis.com/css?family=Lobster"
-        rel="stylesheet" type="text/css">
-   
-    <!--EXTRA CSS/JS FOR TABLE-->
-    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.0.8/angular.min.js"></script>
-    <script src="http://vitalets.github.io/angular-xeditable/dist/js/xeditable.js"></script>
-    <script src="https://code.angularjs.org/1.0.8/angular-mocks.js"></script>
-    <link href="http://vitalets.github.io/angular-xeditable/dist/css/xeditable.css" rel="stylesheet" type="text/css">
-    <link href="<%=request.getContextPath()%>/resources/UI/css/angular-extra-table.css" rel="stylesheet">
+<!-- Bootstrap Core CSS -->
+<link
+	href="<%=request.getContextPath()%>/resources/UI/bootstrap/css/bootstrap.min.css"
+	rel="stylesheet">
 
+<!-- Font Awesome CSS -->
+<link
+	href="<%=request.getContextPath()%>/resources/UI/css/font-awesome.min.css"
+	rel="stylesheet">
 
-    <!-- Template js -->
-    <script src="<%=request.getContextPath()%>/resources/UI/js/jquery-2.1.1.min.js"></script>
-    <script src="<%=request.getContextPath()%>/resources/UI/bootstrap/js/bootstrap.min.js"></script>
-    <script src="<%=request.getContextPath()%>/resources/UI/js/jquery.appear.js"></script>
-    <script src="<%=request.getContextPath()%>/resources/UI/js/jqBootstrapValidation.js"></script>
-    <script src="<%=request.getContextPath()%>/resources/UI/js/modernizr.custom.js"></script>
-    
+<!-- Custom CSS -->
+<link href="<%=request.getContextPath()%>/resources/UI/css/style.css"
+	rel="stylesheet">
+<link href="<%=request.getContextPath()%>/resources/UI/css/animate.css"
+	rel="stylesheet">
+
+<!-- dataTables -->
+<link href="<%=request.getContextPath()%>/resources/UI/css/dataTables.bootstrap.css"
+	rel="stylesheet">
+
+<!-- Custom Fonts -->
+<link href="http://fonts.googleapis.com/css?family=Lobster"
+	rel="stylesheet" type="text/css">
+
+<!-- Template js -->
+<script
+	src="<%=request.getContextPath()%>/resources/UI/js/jquery-2.1.1.min.js"></script>
+<script
+	src="<%=request.getContextPath()%>/resources/UI/bootstrap/js/bootstrap.min.js"></script>
+<script
+	src="<%=request.getContextPath()%>/resources/UI/js/jquery.appear.js"></script>
+<script
+	src="<%=request.getContextPath()%>/resources/UI/js/jqBootstrapValidation.js"></script>
+<script
+	src="<%=request.getContextPath()%>/resources/UI/js/modernizr.custom.js"></script>
+<script
+	src="<%=request.getContextPath()%>/resources/UI/js/dataTables.bootstrap.min.js"></script>
+<script
+	src="<%=request.getContextPath()%>/resources/UI/js/jquery.dataTables.min.js"></script>
 
     <!--[if lt IE 9]>
         <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
@@ -63,30 +73,35 @@
                     </a>
                 </div>
             </div>
-            
-            <div class="container">
+    
+		<div class="container">
                 <div class="row">
 
-                         
-                        <!-- change and remove buttons -->
-                        <td style="white-space: nowrap">
+                    <div class="container">
+                    <div class="row">
+                        <div class="section-title text-center">
+                            <h3>Felanmälan</h3>
+                            <p>Hantera felmälningar här</p>
+                        </div>
+                    </div>
                         
-                        <!-- form -->
-                        <form:form method="POST" action=".">
+                	<div class="row">
+						<div class="box-body pad table-responsive">
+	
+					<form:form method="POST" action=".">
                   
                                 <table id="thetable" class="table table-bordered table-striped">
                               
                                 <thead>
                                     <tr>
-                                    	<th>Anm�ld av</th>
+                                    	<th>Anm�ld av</th>
                                         <th>Orsak</th>
                                         <th>Beskrivning</th>
-                                         <th>Status</th>
-                                          <th>Datum</th>
-                                           <th>Ta bort</th>
+                                        <th>Status</th>
+                                        <th>Datum</th>
                                         <th></th>
                                     </tr>
-                                </thead> 
+                                </thead>
 
 									<tbody>
 										<c:if test="${not empty list}">
@@ -97,35 +112,31 @@
 													<td>${r.description}</td>
 													<td>${r.status}</td>
 													<td>${r.date}</td>
-													
-													<td><button type="submit" name="remove" value="${r.reportId}"
-															class="btn-md btn btn-danger">Ta bort</button></td>
+													<td>
+                                                    	<button type="submit" name="remove" value="${r.reportId}" class="btn-md btn btn-danger">Ta bort</button>
+                                                    </td>
 												</tr>
 											</c:forEach>
 										</c:if>
 									</tbody>
-								</table>
-								<br />
-
+								</table>				
 							</form:form>
-                          
-                            <div class="buttons" ng-show="!rowform.$visible">
-                              <button class="btn btn-info" ng-click="rowform.$show()">Ändra</button>
-                              <button class="btn btn-danger" ng-click="removeUser($index)">Ta bort</button>
-                            </div>  
-                        </td>
-                      </tr>
-                    </table>
-          
-                  </div>
-                </div>
+                        
+						</div>
+                    </div>
+				</div>
+                
               </div>
-              
             </div>
-          </div>
-        </div>
-        <!-- End Main Body Section -->
+ 
+    <!-- End Main Body Section -->
+        
+    <!-- JavaScripts-->
+    <script>
+      $(function () {
+        $('#thetable').dataTable();
+      });
+	</script>
     
-      
     </body>
 </html>
