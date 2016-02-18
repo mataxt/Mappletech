@@ -196,9 +196,6 @@
 			$('#reservationtimeFirst').daterangepicker({
 			    "singleDatePicker": true,
 			    "showDropdowns": true,
-			    "timePicker": true,
-			    "timePicker24Hour": true,
-			    "timePickerIncrement": 60,
 			    "autoApply": true,
 			    "opens": "center",
 				locale: {
@@ -214,9 +211,6 @@
 			$('#reservationtimeSecond').daterangepicker({
 			    "singleDatePicker": true,
 			    "showDropdowns": true,
-			    "timePicker": true,
-			    "timePicker24Hour": true,
-			    "timePickerIncrement": 60,
 			    "autoApply": true,
 			    "opens": "center",
 				locale: {
@@ -230,7 +224,7 @@
 			
 			// Timepicker 1
 			$("#timepickerFirst").timepicker({
-			  minuteStep: 15, 
+			  minuteStep: 30, 
 			  showMeridian: false,
 			  defaultTime: false,
 			  showInputs: false
@@ -238,7 +232,7 @@
 			
 			// Timepicker 2
 			$("#timepickerSecond").timepicker({
-			  minuteStep: 15, 
+			  minuteStep: 30, 
 			  showMeridian: false,
 			  defaultTime: false,
 			  showInputs: false
@@ -260,18 +254,12 @@
     <script type="text/javascript">
     function getCurrentDate(){
     	var date = new Date();
-    	var s = date.getUTCSeconds();
-    	var m = date.getUTCMinutes();
-    	var h = date.getUTCHours();
     	var d = date.getUTCDate();
     	var month = date.getUTCMonth();
     	var y = date.getUTCFullYear();
     	
     	h = h+1;
     	month = month+1;
-    	if(s<10){s = "0"+s;}
-    	if(m<10){m = "0"+m;}
-    	if(h<10){h = "0"+h;}
     	if(d<10){d = "0"+d;}
     	if(month<10){month = "0"+month;}
     	
