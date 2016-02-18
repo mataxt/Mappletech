@@ -124,8 +124,9 @@
 										<div class="input-group-addon">
 											<i class="fa fa-clock-o"></i>
 										</div>
-										<form:input path="timeFrom" type="text"
+										<form:input path="dateFrom" type="text"
 											class="form-control pull-right" id="reservationtimeFirst" required="" />
+                                        <form:input type="text" class="form-control" name="timeFrom" id="timepicker" placeholder="hh:mm" />	
 									</div>
 
 								</div>
@@ -177,7 +178,7 @@
 				locale: {
 					format: 'YYYY-MM-DD',
 					customRangeLabel: 'Custom',
-					daysOfWeek: ['Mån','Tis', 'Ons', 'Tors', 'Fre', 'Lör','Sön'],
+					daysOfWeek: ['Mï¿½n','Tis', 'Ons', 'Tors', 'Fre', 'Lï¿½r','Sï¿½n'],
 					monthNames: ['Januari', 'Februari', 'Mars', 'April', 'Maj', 'Juni', 'Juli', 'Augusti', 'September', 'Oktober', 'November', 'December'],
 					firstDay: 1
 				}
@@ -195,10 +196,18 @@
 				locale: {
 					format: 'YYYY-MM-DD HH:mm',
 					customRangeLabel: 'Custom',
-					daysOfWeek: ['Mån','Tis', 'Ons', 'Tors', 'Fre', 'Lör','Sön'],
+					daysOfWeek: ['Mï¿½n','Tis', 'Ons', 'Tors', 'Fre', 'Lï¿½r','Sï¿½n'],
 					monthNames: ['Januari', 'Februari', 'Mars', 'April', 'Maj', 'Juni', 'Juli', 'Augusti', 'September', 'Oktober', 'November', 'December'],
 					firstDay: 1
 				}
+			});
+			
+			// Timepicker
+			$("#timepicker").timepicker({
+			  minuteStep: 15, 
+			  showMeridian: false,
+			  defaultTime: false,
+			  showInputs: false
 			});
 		});
 	</script>
@@ -207,7 +216,7 @@
 		$(document).ready(function() {
 			// Select2
 			$(".select2list").select2({
-			  placeholder: "Välj lokal",
+			  placeholder: "Vï¿½lj lokal",
 			  allowClear: true
 			});
 		});
