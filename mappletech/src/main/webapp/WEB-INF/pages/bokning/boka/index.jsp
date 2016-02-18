@@ -125,11 +125,24 @@
 											<i class="fa fa-clock-o"></i>
 										</div>
 										<form:input path="dateFrom" type="text"
-											class="form-control pull-right" id="reservationtimeFirst" required="" />
-                                        <form:input type="text" class="form-control pull-left" name="timeFrom" id="timepicker" placeholder="hh:mm" />	
+											class="form-control pull-right" id="reservationtimeFirst" required="" />	
 									</div>
 
 								</div>
+                                
+                                <div class="bootstrap-timepicker">     
+                                  <div class="form-group">
+                                    <label>Starttid</label>
+                                    <div class="input-group">
+                                      <div class="input-group-addon">
+                                        <i class="fa fa-clock-o"></i>
+                                      </div>
+                                   
+                                      <input type="text" class="form-control" name="time" id="timepicker" placeholder="hh:mm">
+                                      
+                                    </div>
+                                  </div>
+                                </div>
 
 								<div class="form-group">
 									<label>Tid (till)</label>
