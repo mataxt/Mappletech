@@ -485,13 +485,11 @@
                         <div class="col-md-12">
                             <div class="footer-contact-info purple">
                                 <h4>Senaste nytt</h4>
-                                <c:if test="${not empty lists}">
 									<ul>
-										<c:forEach var="eventList" items="${list}">
-											<li>${res.date} ${res.title}</li>
+										<c:forEach var="event" items="${eventlist}">
+											<li>${event.date} ${event.title}</li>
 										</c:forEach>
 									</ul>
-								</c:if>
                             </div>
                         </div>
             
