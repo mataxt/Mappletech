@@ -175,7 +175,7 @@
 			    "autoApply": true,
 			    "opens": "center",
 				locale: {
-					format: 'YYYY-MM-DD hh:mm',
+					format: 'YYYY-MM-DD',
 					customRangeLabel: 'Custom',
 					daysOfWeek: ['Mån','Tis', 'Ons', 'Tors', 'Fre', 'Lör','Sön'],
 					monthNames: ['Januari', 'Februari', 'Mars', 'April', 'Maj', 'Juni', 'Juli', 'Augusti', 'September', 'Oktober', 'November', 'December'],
@@ -193,7 +193,7 @@
 			    "autoApply": true,
 			    "opens": "center",
 				locale: {
-					format: 'YYYY-MM-DD hh:mm',
+					format: 'YYYY-MM-DD',
 					customRangeLabel: 'Custom',
 					daysOfWeek: ['Mån','Tis', 'Ons', 'Tors', 'Fre', 'Lör','Sön'],
 					monthNames: ['Januari', 'Februari', 'Mars', 'April', 'Maj', 'Juni', 'Juli', 'Augusti', 'September', 'Oktober', 'November', 'December'],
@@ -207,7 +207,7 @@
 		$(document).ready(function() {
 			// Select2
 			$(".select2list").select2({
-			  placeholder: "VÃ¤lj lokal",
+			  placeholder: "Välj lokal",
 			  allowClear: true
 			});
 		});
