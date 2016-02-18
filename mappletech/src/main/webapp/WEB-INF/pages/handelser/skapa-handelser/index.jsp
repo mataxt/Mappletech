@@ -96,12 +96,12 @@
 							method="POST">                    
                        				<div class="form-group">
                                     	<label>Title</label>
-                                    	<form:input path="title" type="text" class="form-control" placeholder="titleTest" value="" />
+                                    	<form:input path="title" type="text" class="form-control" placeholder="Title..." value="" />
                                  	</div>
                                     
                             		<div class="form-group">
                                     	<label>Beskrivning</label>
-                                    	<form:input path="description" type="text" class="form-control" placeholder="beskrivningTest" value="" />
+                                    	<form:input path="description" type="text" class="form-control" placeholder="Beskrivning..." value="" />
                                  	</div>
                                     
                                     <div class="form-group">
