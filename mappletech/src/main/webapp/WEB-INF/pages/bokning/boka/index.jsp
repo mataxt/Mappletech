@@ -124,7 +124,7 @@
 										<div class="input-group-addon">
 											<i class="fa fa-clock-o"></i>
 										</div>
-										<form:input path="dateFrom" type="text"
+										<form:input path="timeFrom" type="text"
 											class="form-control pull-right" id="reservationtimeFirst" required="" />	
 									</div>
 
@@ -138,7 +138,7 @@
                                         <i class="fa fa-clock-o"></i>
                                       </div>
                                    
-                                      <input type="text" class="form-control" name="time" id="timepicker" placeholder="hh:mm">
+                                      <form:input type="text" class="form-control" name="time" id="timepicker" placeholder="hh:mm" />
                                       
                                     </div>
                                   </div>
