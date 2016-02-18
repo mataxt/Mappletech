@@ -20,9 +20,9 @@ import vm.UserVM;
 @SessionAttributes("sessUser")
 public class LoginController {
 	//Local
-	private final String URI = "http://localhost:8080/tech2/rest/login";
+	//private final String URI = "http://localhost:8080/tech2/rest/login";
 	//Deployment
-	//private final String URI = "http://130.237.84.211:8080/mappletech/rest/login";
+	private final String URI = "http://130.237.84.211:8080/mappletech/rest/login";
 	
 //	// Omdirigerar just nu till login
 //	@RequestMapping(value = { "/" }, method = RequestMethod.GET)
@@ -34,7 +34,7 @@ public class LoginController {
 	public ModelAndView login() {
 		System.out.println("In GET Login...");
 		RestTemplate restTemplate = new RestTemplate();
-		EventVM[] eventVMArray = restTemplate.getForObject("http://localhost:8080/tech2/rest/event/getLatest", EventVM[].class);
+		EventVM[] eventVMArray = restTemplate.getForObject("http://130.237.84.211:8080/mappletech/rest/event/getLatest", EventVM[].class);
 		List<EventVM> eventVMList = Arrays.asList(eventVMArray);
 		ModelAndView modelAndView = new ModelAndView("login/index","uservm", new UserVM());
 		modelAndView.addObject("eventlist", eventVMList);
