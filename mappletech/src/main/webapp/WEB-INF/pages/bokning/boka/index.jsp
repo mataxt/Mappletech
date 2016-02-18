@@ -126,7 +126,7 @@
 										</div>
 										<form:input path="dateFrom" type="text"
 											class="form-control pull-right" id="reservationtimeFirst" required="" />
-                                        <form:input type="text" class="form-control" name="timeFrom" id="timepicker" placeholder="hh:mm" />	
+                                        <form:input type="text" class="form-control pull-left" name="timeFrom" id="timepicker" placeholder="hh:mm" />	
 									</div>
 
 								</div>
@@ -146,7 +146,7 @@
 
 								<div class="row">
 									<div class="col-md-offset-3 col-md-6 col-md-offset-3">
-									<p id="testdate" onclick="getCurrentDate()">asd</p>
+									<p id="testdate" onclick="getCurrentDate()"></p>
 										<button type="submit" class="btn-lg btn btn-success"
 											name="facility">Boka anl�ggning</button>
 									</div>
