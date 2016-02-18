@@ -197,7 +197,7 @@
 			    "singleDatePicker": true,
 			    "showDropdowns": true,
 			    "autoApply": true,
-			    "opens": "center",
+			    "opens": "left",
 				locale: {
 					format: 'YYYY-MM-DD',
 					customRangeLabel: 'Custom',
@@ -212,7 +212,7 @@
 			    "singleDatePicker": true,
 			    "showDropdowns": true,
 			    "autoApply": true,
-			    "opens": "center",
+			    "opens": "left",
 				locale: {
 					format: 'YYYY-MM-DD',
 					customRangeLabel: 'Custom',
