@@ -1,7 +1,6 @@
 package controller;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Random;
 import javax.servlet.http.HttpServletRequest;
 import org.springframework.stereotype.Controller;
@@ -21,8 +20,7 @@ import vm.UserVM;
 public class AdminController {
 
 	private final String URI = "http://130.237.84.211:8080/mappletech/rest";
-	
-	
+
 	// ===================== bokningar =================================
 
 	@RequestMapping(value = { "/administrator/bokningar" }, method = RequestMethod.GET)
@@ -30,11 +28,12 @@ public class AdminController {
 
 		RestTemplate restTemplate = new RestTemplate();
 		@SuppressWarnings("unchecked")
-		ArrayList<ReservationVM> reservationList = restTemplate.getForObject(URI + "/reservation/getReservations", ArrayList.class);
-		
+		ArrayList<ReservationVM> reservationList = restTemplate.getForObject(URI + "/reservation/getReservations",
+				ArrayList.class);
+
 		ModelAndView mv = new ModelAndView("administrator/bokningar/index");
 		mv.addObject("list", reservationList);
-	
+
 		return mv;
 	}
 
@@ -43,42 +42,43 @@ public class AdminController {
 
 		ReservationVM r = new ReservationVM();
 		r.setReservationId(Integer.parseInt(request.getParameter("remove")));
-		System.out.println("REsID: "+r.getReservationId());
+		System.out.println("REsID: " + r.getReservationId());
 		RestTemplate restTemplate = new RestTemplate();
-		restTemplate.postForObject(URI + "/reservation/remove",r, Boolean.class);
+		restTemplate.postForObject(URI + "/reservation/remove", r, Boolean.class);
 
 		return "redirect:/";
 	}
 
-	// ===================== Edit anvandare =================================
-	/*
-	 * @RequestMapping(value = { "/administrator/anvandare" }, method =
-	 * RequestMethod.GET) public ModelAndView editUsersGet() { ModelAndView mv =
-	 * new ModelAndView("administrator/anvandare/index"); mv.addObject("uservm",
-	 * new UserVM()); return mv; }
-	 * 
-	 * @RequestMapping(value = "/administrator/anvandare", method =
-	 * RequestMethod.POST) public String editUsersPost(@ModelAttribute("uservm")
-	 * UserVM userVm, Model model) {
-	 * 
-	 * UserVM newUser = new UserVM();
-	 * 
-	 * newUser.setUsername(userVm.getUsername());
-	 * newUser.setFullName(userVm.getFullName());
-	 * newUser.setPhoneNumber(userVm.getPhoneNumber());
-	 * newUser.setMobileNumber(userVm.getMobileNumber());
-	 * newUser.setAddress(userVm.getAddress());
-	 * newUser.setPrivilege(userVm.getPrivilege());
-	 * 
-	 * return "redirect:/administrator/anvandare"; }
-	 */
-	
+	// ===================== ta bort anvandare =================================
+
+	@RequestMapping(value = { "/administrator/anvandare" }, method = RequestMethod.GET)
+	public ModelAndView allUsersGet() {
+		
+		RestTemplate rest = new RestTemplate();
+		ArrayList<UserVM> list = rest.getForObject(URI+"/administrator/getAllUsers", ArrayList.class);
+		
+		ModelAndView mv = new ModelAndView("administrator/anvandare/index");
+		mv.addObject("list",list);
+		
+		return mv;
+	}
+
+	@RequestMapping(value = "/administrator/anvandare", method = RequestMethod.POST)
+	public String allUsersPost(HttpServletRequest request) {
+
+		UserVM newUser = new UserVM();
+		newUser.setUsername(request.getParameter("remove"));
+		RestTemplate rest = new RestTemplate();
+		rest.postForObject(URI+"/administrator/removeUser",newUser, Boolean.class);
+
+		return "redirect:/";
+	}
+
 	// ======================== felanmalan ================================
 
 	@RequestMapping(value = { "/administrator/felanmalan" }, method = RequestMethod.GET)
 	public ModelAndView errorReportGet() {
-		
-		
+
 		RestTemplate rest = new RestTemplate();
 		ArrayList<ReportVM> list = rest.getForObject(URI + "/report/getAllReports", ArrayList.class);
 
@@ -92,7 +92,7 @@ public class AdminController {
 
 		ReportVM reportVm = new ReportVM();
 		reportVm.setReportId(Integer.parseInt(request.getParameter("remove")));
-		
+
 		RestTemplate restTemplate = new RestTemplate();
 		boolean success = restTemplate.postForObject(URI + "/report/remove", reportVm, Boolean.class);
 

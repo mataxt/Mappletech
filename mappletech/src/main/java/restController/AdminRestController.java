@@ -1,5 +1,8 @@
 package restController;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -39,8 +42,28 @@ public class AdminRestController {
 		group.setHost(new User(groupVm.getHost()));
 		group.setUsers(GroupDAO.fetchGroup(groupVm.getGroupName()).getUsers());
 		
-		
 		return GroupDAO.removeGroup(group);
+	}
+	
+	@RequestMapping(value="/administrator/getAllUsers")
+	public List<UserVM> getAllUsers()
+	{
+		List<User> list = UserDAO.getAllUsers();
+		List<UserVM> vmList = new ArrayList<>();
+		for(User u:list){
+			vmList.add(new UserVM(u.getUsername(),"****",u.getFullName(), u.getEmail(), u.getPhoneNumber(),u.getMobileNumber(),u.getAddress(),u.getPrivilege()));
+		}
+		
+		return vmList;
+	}
+	
+	
+	@RequestMapping(value="/administrator/removeUser")
+	public Boolean removeUser(@RequestBody(required=true) UserVM userVm)
+	{
+		User u = new User();
+		u.setUsername(userVm.getUsername());
+		return UserDAO.removeUser(u);
 	}
 	
 	

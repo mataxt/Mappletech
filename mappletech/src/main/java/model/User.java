@@ -135,7 +135,7 @@ public class User implements Serializable {
 		this.privilege = privilege;
 	}
 
-	@ManyToMany(fetch = FetchType.LAZY, mappedBy = "users")
+	@ManyToMany(fetch = FetchType.EAGER, mappedBy = "users")
 	public List<Group> getGroups() {
 		return groups;
 	}
@@ -144,7 +144,7 @@ public class User implements Serializable {
 		this.groups = groups;
 	}
 	
-	@OneToMany(fetch = FetchType.LAZY, mappedBy = "reporter", cascade=CascadeType.ALL)
+	@OneToMany(fetch = FetchType.EAGER, mappedBy = "reporter", cascade=CascadeType.ALL)
 	public List<Report> getReports() {
 		return reports;
 	}
@@ -153,7 +153,7 @@ public class User implements Serializable {
 		this.reports = reports;
 	}
 
-	@OneToMany(fetch = FetchType.LAZY, mappedBy = "host", cascade = CascadeType.ALL)
+	@OneToMany(fetch = FetchType.EAGER, mappedBy = "host", cascade = CascadeType.ALL)
 	public List<Reservation> getReservations() {
 		return reservations;
 	}
@@ -162,7 +162,7 @@ public class User implements Serializable {
 		this.reservations = reservations;
 	}
 
-	@OneToMany(fetch = FetchType.LAZY, mappedBy = "creator", cascade = CascadeType.ALL)
+	@OneToMany(fetch = FetchType.EAGER, mappedBy = "creator", cascade = CascadeType.ALL)
 	public List<Event> getEvents() {
 		return events;
 	}

@@ -106,7 +106,6 @@
 							<form:form commandName="resvm" id="res" class="form-change"
 								method="post">
 
-
 								<div class="form-group">
 									<label>Lokaler</label>
 									<form:select path="facilityID"
@@ -125,10 +124,24 @@
 											<i class="fa fa-clock-o"></i>
 										</div>
 										<form:input path="timeFrom" type="text"
-											class="form-control pull-right" id="reservationtimeFirst" required="" />
+											class="form-control pull-right" id="reservationtimeFirst" required="" />	
 									</div>
 
 								</div>
+                                
+                                <div class="bootstrap-timepicker">     
+                                  <div class="form-group">
+                                    <label>Starttid</label>
+                                    <div class="input-group">
+                                      <div class="input-group-addon">
+                                        <i class="fa fa-clock-o"></i>
+                                      </div>
+                                   
+                                      <form:input type="text" class="form-control" path="timeFrom" id="timepickerFirst" placeholder="hh:mm" />
+                                      
+                                    </div>
+                                  </div>
+                                </div>
 
 								<div class="form-group">
 									<label>Tid (till)</label>
@@ -142,10 +155,24 @@
 									</div>
 
 								</div>
+                                
+								<div class="bootstrap-timepicker">     
+                                  <div class="form-group">
+                                    <label>Starttid</label>
+                                    <div class="input-group">
+                                      <div class="input-group-addon">
+                                        <i class="fa fa-clock-o"></i>
+                                      </div>
+                                   
+                                      <form:input type="text" class="form-control" path="timeFrom" id="timepickerSecond" placeholder="hh:mm" />
+                                      
+                                    </div>
+                                  </div>
+                                </div>
 
 								<div class="row">
 									<div class="col-md-offset-3 col-md-6 col-md-offset-3">
-									<p id="testdate" onclick="getCurrentDate()">asd</p>
+									<p id="testdate" onclick="getCurrentDate()"></p>
 										<button type="submit" class="btn-lg btn btn-success"
 											name="facility">Boka anlï¿½ggning</button>
 									</div>
@@ -169,15 +196,12 @@
 			$('#reservationtimeFirst').daterangepicker({
 			    "singleDatePicker": true,
 			    "showDropdowns": true,
-			    "timePicker": true,
-			    "timePicker24Hour": true,
-			    "timePickerIncrement": 60,
 			    "autoApply": true,
-			    "opens": "center",
+			    "opens": "left",
 				locale: {
 					format: 'YYYY-MM-DD',
 					customRangeLabel: 'Custom',
-					daysOfWeek: ['Mån','Tis', 'Ons', 'Tors', 'Fre', 'Lör','Sön'],
+					daysOfWeek: ['Mï¿½n','Tis', 'Ons', 'Tors', 'Fre', 'Lï¿½r','Sï¿½n'],
 					monthNames: ['Januari', 'Februari', 'Mars', 'April', 'Maj', 'Juni', 'Juli', 'Augusti', 'September', 'Oktober', 'November', 'December'],
 					firstDay: 1
 				}
@@ -187,18 +211,31 @@
 			$('#reservationtimeSecond').daterangepicker({
 			    "singleDatePicker": true,
 			    "showDropdowns": true,
-			    "timePicker": true,
-			    "timePicker24Hour": true,
-			    "timePickerIncrement": 60,
 			    "autoApply": true,
-			    "opens": "center",
+			    "opens": "left",
 				locale: {
-					format: 'YYYY-MM-DD HH:mm',
+					format: 'YYYY-MM-DD',
 					customRangeLabel: 'Custom',
-					daysOfWeek: ['Mån','Tis', 'Ons', 'Tors', 'Fre', 'Lör','Sön'],
+					daysOfWeek: ['Mï¿½n','Tis', 'Ons', 'Tors', 'Fre', 'Lï¿½r','Sï¿½n'],
 					monthNames: ['Januari', 'Februari', 'Mars', 'April', 'Maj', 'Juni', 'Juli', 'Augusti', 'September', 'Oktober', 'November', 'December'],
 					firstDay: 1
 				}
+			});
+			
+			// Timepicker 1
+			$("#timepickerFirst").timepicker({
+			  minuteStep: 30, 
+			  showMeridian: false,
+			  defaultTime: false,
+			  showInputs: false
+			});
+			
+			// Timepicker 2
+			$("#timepickerSecond").timepicker({
+			  minuteStep: 30, 
+			  showMeridian: false,
+			  defaultTime: false,
+			  showInputs: false
 			});
 		});
 	</script>
@@ -207,7 +244,7 @@
 		$(document).ready(function() {
 			// Select2
 			$(".select2list").select2({
-			  placeholder: "Välj lokal",
+			  placeholder: "Vï¿½lj lokal",
 			  allowClear: true
 			});
 		});
@@ -217,18 +254,12 @@
     <script type="text/javascript">
     function getCurrentDate(){
     	var date = new Date();
-    	var s = date.getUTCSeconds();
-    	var m = date.getUTCMinutes();
-    	var h = date.getUTCHours();
     	var d = date.getUTCDate();
     	var month = date.getUTCMonth();
     	var y = date.getUTCFullYear();
     	
     	h = h+1;
     	month = month+1;
-    	if(s<10){s = "0"+s;}
-    	if(m<10){m = "0"+m;}
-    	if(h<10){h = "0"+h;}
     	if(d<10){d = "0"+d;}
     	if(month<10){month = "0"+month;}
     	
