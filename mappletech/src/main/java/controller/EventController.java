@@ -18,9 +18,9 @@ import vm.UserVM;
 @SessionAttributes("sessUser")
 public class EventController {
 	//Deployment
-	//private final String URI = "http://130.237.84.211:8080/mappletech/rest/event";
+	private final String URI = "http://130.237.84.211:8080/mappletech/rest/event";
 	//Local
-	private final String URI = "http://localhost:8080/tech2/rest/event";
+	//private final String URI = "http://localhost:8080/tech2/rest/event";
 	
 	@RequestMapping(value="/handelser/mina-handelser", method = RequestMethod.GET)
 	public ModelAndView getEvent()
