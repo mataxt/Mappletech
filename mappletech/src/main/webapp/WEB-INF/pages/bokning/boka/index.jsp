@@ -125,10 +125,24 @@
 											<i class="fa fa-clock-o"></i>
 										</div>
 										<form:input path="timeFrom" type="text"
-											class="form-control pull-right" id="reservationtimeFirst" required="" />
+											class="form-control pull-right" id="reservationtimeFirst" required="" />	
 									</div>
 
 								</div>
+                                
+                                <div class="bootstrap-timepicker">     
+                                  <div class="form-group">
+                                    <label>Starttid</label>
+                                    <div class="input-group">
+                                      <div class="input-group-addon">
+                                        <i class="fa fa-clock-o"></i>
+                                      </div>
+                                   
+                                      <form:input type="text" class="form-control" name="time" id="timepicker" placeholder="hh:mm" />
+                                      
+                                    </div>
+                                  </div>
+                                </div>
 
 								<div class="form-group">
 									<label>Tid (till)</label>
@@ -145,7 +159,7 @@
 
 								<div class="row">
 									<div class="col-md-offset-3 col-md-6 col-md-offset-3">
-									<p id="testdate" onclick="getCurrentDate()">asd</p>
+									<p id="testdate" onclick="getCurrentDate()"></p>
 										<button type="submit" class="btn-lg btn btn-success"
 											name="facility">Boka anl�ggning</button>
 									</div>
@@ -163,22 +177,21 @@
 	</div>
 	<!-- End Main Body Section -->
 
-		<script>
+	<script>
 		$(function() {
 			// Date range picker with time picker 1
 			$('#reservationtimeFirst').daterangepicker({
-				"opens": "center",
-				"singleDatePicker" : true,
-				"showDropdowns": true,
-				"showWeekNumbers": true,
-				"timePicker": true,
-				"timePicker24Hour": true,
-				"timePickerIncrement": 60,
-				"autoApply" : true,
+			    "singleDatePicker": true,
+			    "showDropdowns": true,
+			    "timePicker": true,
+			    "timePicker24Hour": true,
+			    "timePickerIncrement": 60,
+			    "autoApply": true,
+			    "opens": "center",
 				locale: {
-					format: 'YYYY-MM-DD HH:mm:ss',
+					format: 'YYYY-MM-DD',
 					customRangeLabel: 'Custom',
-					daysOfWeek: ['Sön','Mån','Tis', 'Ons', 'Tors', 'Fre', 'Lör'],
+					daysOfWeek: ['M�n','Tis', 'Ons', 'Tors', 'Fre', 'L�r','S�n'],
 					monthNames: ['Januari', 'Februari', 'Mars', 'April', 'Maj', 'Juni', 'Juli', 'Augusti', 'September', 'Oktober', 'November', 'December'],
 					firstDay: 1
 				}
@@ -186,21 +199,28 @@
 
 			// Date range picker with time picker 2
 			$('#reservationtimeSecond').daterangepicker({
-				"opens": "center",
-				"singleDatePicker" : true,
-				"showDropdowns": true,
-				"showWeekNumbers": true,
-				"timePicker": true,
-				"timePicker24Hour": true,
-				"timePickerIncrement": 60,
-				"autoApply" : true,
+			    "singleDatePicker": true,
+			    "showDropdowns": true,
+			    "timePicker": true,
+			    "timePicker24Hour": true,
+			    "timePickerIncrement": 60,
+			    "autoApply": true,
+			    "opens": "center",
 				locale: {
-					format: 'YYYY-MM-DD HH:mm:ss',
+					format: 'YYYY-MM-DD HH:mm',
 					customRangeLabel: 'Custom',
-					daysOfWeek: ['Sön','Mån','Tis', 'Ons', 'Tors', 'Fre', 'Lör'],
+					daysOfWeek: ['M�n','Tis', 'Ons', 'Tors', 'Fre', 'L�r','S�n'],
 					monthNames: ['Januari', 'Februari', 'Mars', 'April', 'Maj', 'Juni', 'Juli', 'Augusti', 'September', 'Oktober', 'November', 'December'],
 					firstDay: 1
 				}
+			});
+			
+			// Timepicker
+			$("#timepicker").timepicker({
+			  minuteStep: 15, 
+			  showMeridian: false,
+			  defaultTime: false,
+			  showInputs: false
 			});
 		});
 	</script>
@@ -209,7 +229,7 @@
 		$(document).ready(function() {
 			// Select2
 			$(".select2list").select2({
-			  placeholder: "Välj lokal",
+			  placeholder: "V�lj lokal",
 			  allowClear: true
 			});
 		});

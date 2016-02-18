@@ -33,7 +33,12 @@ public class LoginController {
 	@RequestMapping(value = { "/login" }, method = RequestMethod.GET)
 	public ModelAndView login() {
 		System.out.println("In GET Login...");
-		return new ModelAndView("login/index","uservm", new UserVM());
+		RestTemplate restTemplate = new RestTemplate();
+		EventVM[] eventVMArray = restTemplate.getForObject("http://130.237.84.211:8080/mappletech/rest/event/getLatest", EventVM[].class);
+		List<EventVM> eventVMList = Arrays.asList(eventVMArray);
+		ModelAndView modelAndView = new ModelAndView("login/index","uservm", new UserVM());
+		modelAndView.addObject("eventlist", eventVMList);
+		return modelAndView;
 	}
 
 	@RequestMapping(value = "/login", method = RequestMethod.POST)
@@ -44,14 +49,15 @@ public class LoginController {
 		RestTemplate restTemplate = new RestTemplate();
 		System.out.println(loggedInUser.getUsername());
 		UserVM u = restTemplate.postForObject(URI, loggedInUser, UserVM.class);
-		EventVM[] eventVMArray = restTemplate.getForObject("http://130.237.84.211:8080/mappletech/rest/event/getLatest", EventVM[].class);
+		EventVM[] eventVMArray = restTemplate.getForObject("http://130.237.84.211:8080/mappletech/rest/event/getAll", EventVM[].class);
 		List<EventVM> eventVMList = Arrays.asList(eventVMArray);
-		ModelAndView modelAndView = new ModelAndView("login/index","uservm", new UserVM());
-		modelAndView.addObject("eventList", eventVMList);
+		ModelAndView modelAndView = new ModelAndView("index");
+		modelAndView.addObject("eventlist", eventVMList);
 		if (u != null) {
-			return new ModelAndView("index","sessUser", u);
-		} else {
+			modelAndView.addObject("sessUser", u);
 			return modelAndView;
+		} else {
+			return new ModelAndView("login/index","uservm", new UserVM());
 		}
 	}
 

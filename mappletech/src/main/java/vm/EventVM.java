@@ -64,4 +64,25 @@ public class EventVM {
 	public void setCreator(String username) {
 		this.creator = username;
 	}
+
+	public void setEventID(Integer eventID) {
+		this.eventID = eventID;
+	}
+
+	public void setTitle(String title) {
+		this.title = title;
+	}
+
+	public void setDescription(String description) {
+		this.description = description;
+	}
+
+	public void setDate(Date date) {
+		this.date = date;
+	}
+
+	public void setImage(String image) {
+		this.image = image;
+	}
+	
 }

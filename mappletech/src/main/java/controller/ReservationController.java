@@ -44,6 +44,7 @@ public class ReservationController {
 	public ModelAndView doReserve(@ModelAttribute("resvm") ReservationVM resVm,
 			@ModelAttribute("sessUser") UserVM sessUser) {
 		System.out.println("In POST Res...");
+		System.out.println("FROM: " + resVm.getTimeFrom() + "  TO: " + resVm.getTimeTo());
 		resVm.setHost(sessUser.getUsername());
 		RestTemplate restTemplate = new RestTemplate();
 		if (restTemplate.postForObject(URI + "reservation/add", resVm, Boolean.class)) {

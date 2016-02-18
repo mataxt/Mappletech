@@ -22,31 +22,40 @@ public class EventController {
 	//Local
 	//private final String URI = "http://localhost:8080/tech2/rest/event";
 	
-	@RequestMapping(value="/handelser/mina-handelser")
+	@RequestMapping(value="/handelser/mina-handelser", method = RequestMethod.GET)
 	public ModelAndView getEvent()
 	{
+		System.out.println("get mina handelser");
 		RestTemplate restTemplate = new RestTemplate();
-		EventVM[] eventVMArray = restTemplate.getForObject(URI + "/getLatest", EventVM[].class);
+		EventVM[] eventVMArray = restTemplate.getForObject(URI + "/getAllFromToday", EventVM[].class);
 		List<EventVM> eventVMList = Arrays.asList(eventVMArray);
 		System.out.println(eventVMList.size());
 		ModelAndView modelAndView = new ModelAndView("handelser/mina-handelser/index");
+		modelAndView.addObject("eventlist",eventVMList);
 		return modelAndView;
 	}
 	
 	@RequestMapping(value="/handelser/skapa-ny-handelse",method = RequestMethod.GET)
 	public ModelAndView createEvent()
 	{
-		return new ModelAndView("/handelser/skapa-handelser/index","eventVM",new EventVM());
+		System.out.println("create event GET");
+		return new ModelAndView("/handelser/skapa-handelser/index","eventvm",new EventVM());
 	}
 	
 	@RequestMapping(value="/handelser/skapa-ny-handelse",method = RequestMethod.POST)
-	public ModelAndView createEventPost(@ModelAttribute("eventVM")EventVM eventVM,
+	public String createEventPost(@ModelAttribute("eventvm")EventVM eventVM,
 			@ModelAttribute("sessUser")UserVM user)
 	{
 		System.out.println("Post Handelse");
 		System.out.println(eventVM.getTitle() + " " + eventVM.getDescription());
 		eventVM.setCreator(user.getUsername());
-		return new ModelAndView("/handelser/mina-handelser/index");
+		RestTemplate restTemplate = new RestTemplate();
+		if(restTemplate.postForObject(URI + "/add", eventVM, Boolean.class))
+			System.out.println("True");
+		else
+			System.out.println("False");
+		
+		return "redirect:/handelser/mina-handelser";
 	}
 
 }

@@ -1,11 +1,15 @@
 package dao;
 
+import java.sql.Date;
 import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
+import javax.persistence.TypedQuery;
+
+import org.hibernate.Query;
 
 import model.Event;
 
@@ -73,13 +77,45 @@ public class EventDAO {
 		return events;
 	}
 	
+	public static List<Event> getAllEventsFromTodayDate() {
+		EntityManagerFactory emf = Persistence.createEntityManagerFactory("UserPU");
+		EntityManager em = emf.createEntityManager();
+		List<Event> events = new ArrayList<Event>();
+		try {
+			em.getTransaction().begin();
+			TypedQuery<Event> query = em.createQuery("from Event e where e.date >=?1", Event.class);
+			query.setParameter(1, new Date(System.currentTimeMillis()));
+			events = query.getResultList();
+			em.getTransaction().commit();
+
+		} catch (Exception e) {
+			e.printStackTrace();
+			if (em.getTransaction().isActive()) {
+				em.getTransaction().rollback();
+			}
+
+		} finally {
+			if (em != null) {
+				em.close();
+			}
+			if (emf != null) {
+				emf.close();
+			}
+		}
+
+		return events;
+	}
+	
 	public static List<Event> getLatestEvents() {
 		EntityManagerFactory emf = Persistence.createEntityManagerFactory("UserPU");
 		EntityManager em = emf.createEntityManager();
 		List<Event> events = new ArrayList<Event>();
 		try {
 			em.getTransaction().begin();
-			events = em.createQuery("from Event", Event.class).setMaxResults(5).getResultList();
+			TypedQuery<Event> q = em.createQuery("from Event", Event.class);
+			q.setFirstResult(1);
+			q.setMaxResults(5);
+			events = q.getResultList();
 			em.getTransaction().commit();
 
 		} catch (Exception e) {

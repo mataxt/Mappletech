@@ -1,5 +1,6 @@
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
@@ -96,25 +97,21 @@
 										<tr>
 											<th>Titel</th>
                                             <th>Beskrivning</th>
-											<th>Skapare</th>
 											<th>Datum</th>
 											<th></th>
 										</tr>
 									</thead>
         
 									<tbody>
-										<c:if test="${not empty evenlist}">
 											<c:forEach var="e" items="${eventlist}">
 												<tr>
 													<td>${e.title}</td>
 													<td>${e.description}</td>
-													<td>${e.creator}</td>
 													<td>${e.date}</td>
 													<td><button type="submit" name="remove" value="${e.eventID}"
 															class="btn-md btn btn-danger">Ta bort</button></td>
 												</tr>
 											</c:forEach>
-										</c:if>
 									</tbody>
 								</table>
 								</form:form>
