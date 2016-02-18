@@ -197,7 +197,6 @@
 			    "singleDatePicker": true,
 			    "showDropdowns": true,
 			    "autoApply": true,
-			    "opens": "center",
 				locale: {
 					format: 'YYYY-MM-DD',
 					customRangeLabel: 'Custom',
@@ -212,9 +211,8 @@
 			    "singleDatePicker": true,
 			    "showDropdowns": true,
 			    "autoApply": true,
-			    "opens": "center",
 				locale: {
-					format: 'YYYY-MM-DD HH:mm',
+					format: 'YYYY-MM-DD',
 					customRangeLabel: 'Custom',
 					daysOfWeek: ['M�n','Tis', 'Ons', 'Tors', 'Fre', 'L�r','S�n'],
 					monthNames: ['Januari', 'Februari', 'Mars', 'April', 'Maj', 'Juni', 'Juli', 'Augusti', 'September', 'Oktober', 'November', 'December'],
