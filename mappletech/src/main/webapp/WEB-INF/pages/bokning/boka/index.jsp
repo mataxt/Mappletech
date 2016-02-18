@@ -176,7 +176,7 @@
 				"timePickerIncrement": 60,
 				"autoApply" : true,
 				locale: {
-					format: 'YYYY-MM-DD HH:mm:ss',
+					format: 'yy-mm-dd hh:mm',
 					customRangeLabel: 'Custom',
 					daysOfWeek: ['Sön','Mån','Tis', 'Ons', 'Tors', 'Fre', 'Lör'],
 					monthNames: ['Januari', 'Februari', 'Mars', 'April', 'Maj', 'Juni', 'Juli', 'Augusti', 'September', 'Oktober', 'November', 'December'],
@@ -195,7 +195,7 @@
 				"timePickerIncrement": 60,
 				"autoApply" : true,
 				locale: {
-					format: 'YYYY-MM-DD HH:mm:ss',
+					format: 'yy-mm-dd hh:mm',
 					customRangeLabel: 'Custom',
 					daysOfWeek: ['Sön','Mån','Tis', 'Ons', 'Tors', 'Fre', 'Lör'],
 					monthNames: ['Januari', 'Februari', 'Mars', 'April', 'Maj', 'Juni', 'Juli', 'Augusti', 'September', 'Oktober', 'November', 'December'],
