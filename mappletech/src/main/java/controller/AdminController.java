@@ -128,18 +128,27 @@ public class AdminController {
 	// ======================== Groups ================================
 
 	@RequestMapping(value = { "/administrator/grupper" }, method = RequestMethod.GET)
-	public ModelAndView removeGroupGet() {
+	public ModelAndView allGroupsGet() {
 
+		RestTemplate rest = new RestTemplate();
+		ArrayList<GroupVM> list = rest.getForObject(URI + "/group/getAll", ArrayList.class);
+		
+		
 		ModelAndView mv = new ModelAndView("administrator/grupper/index");
-		mv.addObject("groupVm", new GroupVM());
+		mv.addObject("list", list);
 		return mv;
 	}
 
+	
+	
 	@RequestMapping(value = "/administrator/grupper", method = RequestMethod.POST)
-	public String removeGroupPost(@ModelAttribute GroupVM groupVm, Model model) {
+	public String removeGroupPost(HttpServletRequest request) {
 
+		GroupVM groupVm = new GroupVM();
+		groupVm.setGroupName(request.getParameter("remove"));
+		
 		RestTemplate restTemplate = new RestTemplate();
-		boolean success = restTemplate.postForObject(URI + "/grupper", groupVm, Boolean.class);
+		boolean success = restTemplate.postForObject(URI + "/group/remove", groupVm, Boolean.class);
 
 		if (!success) {
 			return "redirect:/administrator/";
