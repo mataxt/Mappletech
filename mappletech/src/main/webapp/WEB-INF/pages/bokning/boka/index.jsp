@@ -125,7 +125,7 @@
 											<i class="fa fa-clock-o"></i>
 										</div>
 										<form:input path="timeFrom" type="text"
-											class="form-control pull-right" id="reservationtimeFirst" required="" value=""/>
+											class="form-control pull-right" id="reservationtimeFirst" required="" />
 									</div>
 
 								</div>
@@ -138,16 +138,18 @@
 											<i class="fa fa-clock-o"></i>
 										</div>
 										<form:input path="timeTo" type="text"
-											class="form-control pull-right" id="reservationtimeSecond" required="" value=""/>
+											class="form-control pull-right" id="reservationtimeSecond" required=""/>
 									</div>
 
 								</div>
 
 								<div class="row">
 									<div class="col-md-offset-3 col-md-6 col-md-offset-3">
+									<p id="testdate" onclick="getCurrentDate()">asd</p>
 										<button type="submit" class="btn-lg btn btn-success"
 											name="facility">Boka anl�ggning</button>
 									</div>
+									
 								</div>
 							</form:form>
 						</div>
@@ -211,6 +213,32 @@
 			  allowClear: true
 			});
 		});
+    </script>
+    
+    <!-- Function for getting current time and date in format YYYY-MM-DD HH:MM:DD -->
+    <script type="text/javascript">
+    function getCurrentDate(){
+    	var date = new Date();
+    	var s = date.getUTCSeconds();
+    	var m = date.getUTCMinutes();
+    	var h = date.getUTCHours();
+    	var d = date.getUTCDate();
+    	var month = date.getUTCMonth();
+    	var y = date.getUTCFullYear();
+    	
+    	h = h+1;
+    	month = month+1;
+    	if(s<10){s = "0"+s;}
+    	if(m<10){m = "0"+m;}
+    	if(h<10){h = "0"+h;}
+    	if(d<10){d = "0"+d;}
+    	if(month<10){month = "0"+month;}
+    	
+    	
+    	return y+"-"+month+"-"+d+" "+h+":"+m+":"+s;
+    }
+    document.getElementById("reservationtimeFirst").value = getCurrentDate();
+	document.getElementById("reservationtimeSecond").value = getCurrentDate();
     </script>
 
 </body>
