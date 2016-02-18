@@ -1,6 +1,7 @@
 package controller;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Random;
 import javax.servlet.http.HttpServletRequest;
 import org.springframework.stereotype.Controller;
@@ -28,6 +29,7 @@ public class AdminController {
 	public ModelAndView removeBookingGet(ModelMap model) {
 
 		RestTemplate restTemplate = new RestTemplate();
+		@SuppressWarnings("unchecked")
 		ArrayList<ReservationVM> reservationList = restTemplate.getForObject(URI + "/reservation/getReservations", ArrayList.class);
 		
 		ModelAndView mv = new ModelAndView("administrator/bokningar/index");
@@ -80,6 +82,7 @@ public class AdminController {
 		RestTemplate rest = new RestTemplate();
 		@SuppressWarnings("unchecked")
 		ArrayList<ReportVM> list = rest.getForObject(URI + "/report/getAllReports", ArrayList.class);
+		System.out.println(Arrays.toString(list.toArray()));
 		ModelAndView mv = new ModelAndView("administrator/felanmalan/index");
 		mv.addObject("list", list);
 		return mv;

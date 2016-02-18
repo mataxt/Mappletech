@@ -23,7 +23,7 @@ public class ReportRestController {
 	
 	
 	@RequestMapping(value="/report/getAllReports")
-	public ArrayList<ReportVM> getAllReports()
+	public List<ReportVM> getAllReports()
 	{
 		List<Report> list=ReportDAO.getAllReports();
 		ArrayList<ReportVM> vmList = new ArrayList<>();
