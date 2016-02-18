@@ -189,6 +189,7 @@ public class UserDAO {
 				.createEntityManagerFactory("UserPU");
 		EntityManager em = emf.createEntityManager();
 		boolean success = false;
+		
 		try {
 			em.getTransaction().begin();
 			User u = em.find(User.class, user.getUsername());

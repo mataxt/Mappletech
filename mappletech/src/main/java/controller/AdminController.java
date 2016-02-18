@@ -71,7 +71,7 @@ public class AdminController {
 		RestTemplate rest = new RestTemplate();
 		rest.postForObject(URI+"/administrator/removeUser",newUser, Boolean.class);
 
-		return "redirect:/administrator/anvandare";
+		return "redirect:/";
 	}
 
 	// ======================== felanmalan ================================
