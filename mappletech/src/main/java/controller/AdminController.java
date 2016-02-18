@@ -11,6 +11,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.client.RestTemplate;
 import org.springframework.web.servlet.ModelAndView;
+
+import vm.EventVM;
 import vm.GroupVM;
 import vm.ReportVM;
 import vm.ReservationVM;
@@ -145,6 +147,31 @@ public class AdminController {
 		restTemplate.postForObject(URI + "/group/remove", groupVm, Boolean.class);
 
 		return "redirect:/administrator/grupper/index";
+	}
+	
+	// ======================== Events ================================
+
+	@RequestMapping(value = { "/administrator/handelser" }, method = RequestMethod.GET)
+	public ModelAndView allEventsGet() {
+
+		RestTemplate rest = new RestTemplate();
+		ArrayList<EventVM> list = rest.getForObject(URI + "/event/getAll", ArrayList.class);
+		
+		ModelAndView mv = new ModelAndView("administrator/handelser/index");
+		mv.addObject("list", list);
+		return mv;
+	}
+	
+	@RequestMapping(value = "/administrator/handelser", method = RequestMethod.POST)
+	public String removeEventPost(HttpServletRequest request) {
+
+		EventVM eventVm = new EventVM();
+		eventVm.setEventID(Integer.parseInt(request.getParameter("remove")));
+		
+		RestTemplate restTemplate = new RestTemplate();
+		restTemplate.postForObject(URI + "/event/delete", eventVm, Boolean.class);
+
+		return "redirect:/administrator/handelser/index";
 	}
 
 	// ======================================================================

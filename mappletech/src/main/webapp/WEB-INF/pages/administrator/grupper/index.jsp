@@ -80,7 +80,7 @@
 						<table id="thetable" class="table table-bordered table-striped">
                     
                     
-                  <thead>
+                 	 <thead>
 							<tr>
 								<th>Gruppnamn</th>
 								<th>Beskrivning</th>
@@ -105,6 +105,9 @@
 							</tbody>
 						</form:form>
 					</table>
-      
+      </div>
+      </div>
+       </div>
+        </div>
     </body>
 </html>
