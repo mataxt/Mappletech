@@ -193,7 +193,7 @@
 			    "autoApply": true,
 			    "opens": "center",
 				locale: {
-					format: 'YYYY-MM-DD hh:ii',
+					format: 'YYYY-MM-DD HH:II',
 					customRangeLabel: 'Custom',
 					daysOfWeek: ['Mån','Tis', 'Ons', 'Tors', 'Fre', 'Lör','Sön'],
 					monthNames: ['Januari', 'Februari', 'Mars', 'April', 'Maj', 'Juni', 'Juli', 'Augusti', 'September', 'Oktober', 'November', 'December'],
