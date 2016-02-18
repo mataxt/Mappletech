@@ -49,7 +49,7 @@ public class LoginController {
 		RestTemplate restTemplate = new RestTemplate();
 		System.out.println(loggedInUser.getUsername());
 		UserVM u = restTemplate.postForObject(URI, loggedInUser, UserVM.class);
-		EventVM[] eventVMArray = restTemplate.getForObject("http://localhost:8080/tech2/rest/event/getAll", EventVM[].class);
+		EventVM[] eventVMArray = restTemplate.getForObject("http://130.237.84.211:8080/mappletech/rest/event/getAll", EventVM[].class);
 		List<EventVM> eventVMList = Arrays.asList(eventVMArray);
 		ModelAndView modelAndView = new ModelAndView("index");
 		modelAndView.addObject("eventlist", eventVMList);
