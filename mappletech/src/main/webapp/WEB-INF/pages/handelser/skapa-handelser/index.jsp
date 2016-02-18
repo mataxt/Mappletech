@@ -152,12 +152,10 @@
 		});
 	</script>
     
-    <!-- Function for getting current time and date in format YYYY-MM-DD HH:MM:DD -->
+    <!-- Function for getting current time and date in format YYYY-MM-DD -->
     <script type="text/javascript">
     function getCurrentDate(){
     	var date = new Date();
-    	var s = date.getUTCSeconds();
-    	var m = date.getUTCMinutes();
     	var h = date.getUTCHours();
     	var d = date.getUTCDate();
     	var month = date.getUTCMonth();
@@ -165,14 +163,12 @@
     	
     	h = h+1;
     	month = month+1;
-    	if(s<10){s = "0"+s;}
-    	if(m<10){m = "0"+m;}
     	if(h<10){h = "0"+h;}
     	if(d<10){d = "0"+d;}
     	if(month<10){month = "0"+month;}
     	
     	
-    	return y+"-"+month+"-"+d+" "+h+":"+m+":"+s;
+    	return y+"-"+month+"-"+d+" "+h;
     }
     document.getElementById("reservationtime").value = getCurrentDate();
     </script>
