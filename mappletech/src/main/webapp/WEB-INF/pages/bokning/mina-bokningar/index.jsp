@@ -109,7 +109,7 @@
 													<td>${r.timeFrom}</td>
 													<td>${r.timeTo}</td>
 													
-													<td><button type="submit" name="remove" value="${r.reservationId }"
+													<td><button type="submit" name="remove" value="${r.reservationId}"
 															class="btn-md btn btn-danger">Ta bort</button></td>
 												</tr>
 											</c:forEach>
