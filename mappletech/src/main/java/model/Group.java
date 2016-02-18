@@ -54,7 +54,7 @@ public class Group implements Serializable {
 		this.description = description;
 	}
 
-	@ManyToOne(fetch = FetchType.LAZY)
+	@ManyToOne(fetch = FetchType.EAGER)
 	@JoinColumn(name = "Host", nullable = true)
 	public User getHost() {
 		return host;
