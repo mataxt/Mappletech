@@ -43,7 +43,7 @@ public class EventController {
 	}
 	
 	@RequestMapping(value="/handelser/skapa-ny-handelse",method = RequestMethod.POST)
-	public ModelAndView createEventPost(@ModelAttribute("eventvm")EventVM eventVM,
+	public String createEventPost(@ModelAttribute("eventvm")EventVM eventVM,
 			@ModelAttribute("sessUser")UserVM user)
 	{
 		System.out.println("Post Handelse");
@@ -55,7 +55,7 @@ public class EventController {
 		else
 			System.out.println("False");
 		
-		return new ModelAndView("/handelser/mina-handelser/index");
+		return "redirect:/handelser/mina-handelser";
 	}
 
 }
