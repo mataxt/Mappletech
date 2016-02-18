@@ -131,11 +131,11 @@
 		$(function() {
 			// Date range picker with time picker
 			$('#reservationtime').daterangepicker({
-				"opens": "center",
 				"singleDatePicker": true,
 				"showDropdowns": true,
 				"showWeekNumbers": true,
 				"autoApply": true,
+			    "opens": "center",
 				locale: {
 					format: 'YYYY-MM-DD',
 					customRangeLabel: 'Custom',
