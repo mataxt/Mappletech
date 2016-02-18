@@ -116,7 +116,7 @@
                                                     <td>${r.mobileNumber}</td>
                                                     <td>${r.email}</td>
                                                     <td>
-                                                    	<button type="submit" name="remove" value="${r.username}" class="glyphicon glyphicon-trash"></button>
+                                                    	<button type="submit" name="remove" value="${r.username}" class="glyphicon glyphicon-trash">Ta bort</button>
                                                     </td>
                                                 </tr>
                                             </c:forEach>
