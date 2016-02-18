@@ -80,9 +80,8 @@ public class AdminController {
 		
 		
 		RestTemplate rest = new RestTemplate();
-		@SuppressWarnings("unchecked")
 		ArrayList<ReportVM> list = rest.getForObject(URI + "/report/getAllReports", ArrayList.class);
-		System.out.println(Arrays.toString(list.toArray()));
+
 		ModelAndView mv = new ModelAndView("administrator/felanmalan/index");
 		mv.addObject("list", list);
 		return mv;
@@ -93,7 +92,6 @@ public class AdminController {
 
 		ReportVM reportVm = new ReportVM();
 		reportVm.setReportId(Integer.parseInt(request.getParameter("remove")));
-		
 		
 		RestTemplate restTemplate = new RestTemplate();
 		boolean success = restTemplate.postForObject(URI + "/report/remove", reportVm, Boolean.class);
@@ -108,7 +106,6 @@ public class AdminController {
 
 	@RequestMapping(value = { "/administrator/anvandare/lagg-till-anvandare" }, method = RequestMethod.GET)
 	public ModelAndView addUsersGet() {
-		System.out.println("In GET anvandare hantera");
 		ModelAndView mv = new ModelAndView("administrator/anvandare/lagg-till-anvandare/index");
 		mv.addObject("uservm", new UserVM());
 		return mv;

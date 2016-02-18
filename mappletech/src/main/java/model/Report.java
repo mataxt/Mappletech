@@ -49,7 +49,7 @@ public class Report implements Serializable {
 	public void setReportId(Integer reportId) {
 		this.reportId = reportId;
 	}
-	@ManyToOne(fetch = FetchType.LAZY)
+	@ManyToOne(fetch = FetchType.EAGER)
 	@JoinColumn(name = "Reporter", nullable = true)
 	public User getReporter() {
 		return reporter;

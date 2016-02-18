@@ -12,27 +12,24 @@ import vm.ReportVM;
 @RestController
 public class ReportRestController {
 
-	
-	@RequestMapping(value="/report/remove")
-	public Boolean removeReport(@RequestBody(required=true) ReportVM reportVM)
-	{
+	@RequestMapping(value = "/report/remove")
+	public Boolean removeReport(@RequestBody(required = true) ReportVM reportVM) {
 		Report report = new Report();
 		report.setReportId(reportVM.getReportId());
 		return ReportDAO.removeReport(report);
 	}
-	
-	
-	@RequestMapping(value="/report/getAllReports")
-	public List<ReportVM> getAllReports()
-	{
-		List<Report> list=ReportDAO.getAllReports();
+
+	@RequestMapping(value = "/report/getAllReports")
+	public List<ReportVM> getAllReports() {
+		List<Report> list = ReportDAO.getAllReports();
 		ArrayList<ReportVM> vmList = new ArrayList<>();
-	
-		for(Report r: list){
-			vmList.add(new ReportVM(r.getReportId(),r.getReporter().getFullName(),r.getReason(),r.getStatus(),r.getDate(),r.getDescription()));
+
+		for (Report r : list) {
+			vmList.add(new ReportVM(r.getReportId(), r.getReporter().getFullName(), r.getReason(), r.getStatus(),
+					r.getDate(), r.getDescription()));
 		}
-		
+
 		return vmList;
 	}
-	
+
 }
