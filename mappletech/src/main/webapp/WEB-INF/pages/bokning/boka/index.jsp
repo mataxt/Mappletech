@@ -163,7 +163,7 @@
 	</div>
 	<!-- End Main Body Section -->
 
-		<script>
+	<script>
 		$(function() {
 			// Date range picker with time picker 1
 			$('#reservationtimeFirst').daterangepicker({
