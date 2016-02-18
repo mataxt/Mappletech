@@ -71,7 +71,7 @@ public class AdminController {
 		RestTemplate rest = new RestTemplate();
 		rest.postForObject(URI+"/administrator/removeUser",newUser, Boolean.class);
 
-		return "redirect:/";
+		return "redirect:/administrator/anvandare/index";
 	}
 
 	// ======================== felanmalan ================================
@@ -94,11 +94,8 @@ public class AdminController {
 		reportVm.setReportId(Integer.parseInt(request.getParameter("remove")));
 
 		RestTemplate restTemplate = new RestTemplate();
-		boolean success = restTemplate.postForObject(URI + "/report/remove", reportVm, Boolean.class);
+		restTemplate.postForObject(URI + "/report/remove", reportVm, Boolean.class);
 
-		if (success) {
-			return "redirect:/administrator";
-		}
 		return "redirect:/administrator/felanmalan/index";
 	}
 
@@ -133,13 +130,10 @@ public class AdminController {
 		RestTemplate rest = new RestTemplate();
 		ArrayList<GroupVM> list = rest.getForObject(URI + "/group/getAll", ArrayList.class);
 		
-		
 		ModelAndView mv = new ModelAndView("administrator/grupper/index");
 		mv.addObject("list", list);
 		return mv;
 	}
-
-	
 	
 	@RequestMapping(value = "/administrator/grupper", method = RequestMethod.POST)
 	public String removeGroupPost(HttpServletRequest request) {
@@ -148,11 +142,8 @@ public class AdminController {
 		groupVm.setGroupName(request.getParameter("remove"));
 		
 		RestTemplate restTemplate = new RestTemplate();
-		boolean success = restTemplate.postForObject(URI + "/group/remove", groupVm, Boolean.class);
+		restTemplate.postForObject(URI + "/group/remove", groupVm, Boolean.class);
 
-		if (!success) {
-			return "redirect:/administrator/";
-		}
 		return "redirect:/administrator/grupper/index";
 	}
 
