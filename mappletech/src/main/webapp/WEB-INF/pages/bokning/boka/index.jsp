@@ -167,16 +167,16 @@
 		$(function() {
 			// Date range picker with time picker 1
 			$('#reservationtimeFirst').daterangepicker({
-				"opens": "center",
-				"singleDatePicker" : true,
-				"showDropdowns": true,
-				"showWeekNumbers": true,
-				"timePicker": true,
-				"timePicker24Hour": true,
-				"timePickerIncrement": 60,
-				"autoApply" : true,
+				opens: 'center',
+				singleDatePicker : true,
+				showDropdowns: true,
+				showWeekNumbers: true,
+				timePicker: true,
+				timePicker24Hour: true,
+				timePickerIncrement: 60,
+				autoApply : true,
 				locale: {
-					format: 'yy-mm-dd hh:mm',
+					format: 'YYYY-MM-DD hh:mm',
 					customRangeLabel: 'Custom',
 					daysOfWeek: ['Sön','Mån','Tis', 'Ons', 'Tors', 'Fre', 'Lör'],
 					monthNames: ['Januari', 'Februari', 'Mars', 'April', 'Maj', 'Juni', 'Juli', 'Augusti', 'September', 'Oktober', 'November', 'December'],
@@ -186,16 +186,16 @@
 
 			// Date range picker with time picker 2
 			$('#reservationtimeSecond').daterangepicker({
-				"opens": "center",
-				"singleDatePicker" : true,
-				"showDropdowns": true,
-				"showWeekNumbers": true,
-				"timePicker": true,
-				"timePicker24Hour": true,
-				"timePickerIncrement": 60,
-				"autoApply" : true,
+				opens: 'center',
+				singleDatePicker : true,
+				showDropdowns: true,
+				showWeekNumbers: true,
+				timePicker: true,
+				timePicker24Hour: true,
+				timePickerIncrement: 60,
+				autoApply : true,
 				locale: {
-					format: 'yy-mm-dd hh:mm',
+					format: 'YYYY-MM-DD hh:mm',
 					customRangeLabel: 'Custom',
 					daysOfWeek: ['Sön','Mån','Tis', 'Ons', 'Tors', 'Fre', 'Lör'],
 					monthNames: ['Januari', 'Februari', 'Mars', 'April', 'Maj', 'Juni', 'Juli', 'Augusti', 'September', 'Oktober', 'November', 'December'],
