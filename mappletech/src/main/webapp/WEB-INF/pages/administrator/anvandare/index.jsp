@@ -30,22 +30,13 @@
 <link href="<%=request.getContextPath()%>/resources/UI/css/animate.css"
 	rel="stylesheet">
 
+<!-- dataTables -->
+<link href="<%=request.getContextPath()%>/resources/UI/css/dataTables.bootstrap.css"
+	rel="stylesheet">
+
 <!-- Custom Fonts -->
 <link href="http://fonts.googleapis.com/css?family=Lobster"
 	rel="stylesheet" type="text/css">
-
-<!--EXTRA CSS/JS FOR TABLE-->
-<script
-	src="https://ajax.googleapis.com/ajax/libs/angularjs/1.0.8/angular.min.js"></script>
-<script
-	src="http://vitalets.github.io/angular-xeditable/dist/js/xeditable.js"></script>
-<script src="https://code.angularjs.org/1.0.8/angular-mocks.js"></script>
-<link
-	href="http://vitalets.github.io/angular-xeditable/dist/css/xeditable.css"
-	rel="stylesheet" type="text/css">
-<link
-	href="<%=request.getContextPath()%>/resources/UI/css/angular-extra-table.css"
-	rel="stylesheet">
 
 <!-- Template js -->
 <script
@@ -58,6 +49,10 @@
 	src="<%=request.getContextPath()%>/resources/UI/js/jqBootstrapValidation.js"></script>
 <script
 	src="<%=request.getContextPath()%>/resources/UI/js/modernizr.custom.js"></script>
+<script
+	src="<%=request.getContextPath()%>/resources/UI/js/dataTables.bootstrap.min.js"></script>
+<script
+	src="<%=request.getContextPath()%>/resources/UI/js/jquery.dataTables.min.js"></script>
 
 <!--[if lt IE 9]>
         <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
@@ -79,52 +74,78 @@
 				</a>
 			</div>
 		</div>
-
+       
 		<div class="container">
-			<div class="row">
+                <div class="row">
 
-				<div class="container">
-					<div class="row">
-						<div class="section-title text-center">
-							<h3>Användare</h3>
-							<p>Hantera användare här</p>
+                    <div class="container">
+                    <div class="row">
+                        <div class="section-title text-center">
+                            <h3>AnvÃ¤ndare</h3>
+                            <p>Hantera anvÃ¤ndare hï¿½r</p>
+                        </div>
+                    </div>
+                        
+                	<div class="row">
+						<div class="box-body pad table-responsive">
+	
+					<form:form method="POST" action=".">
+                  
+                                <table id="thetable" class="table table-bordered table-striped">
+                              
+                                <thead>
+                                    <tr>
+                                        <th>Anvï¿½ndarnamn</th>
+                                        <th>Namn</th>
+                                        <th>Adress</th>
+                                        <th>Telefon</th>
+                                        <th>Mobil</th>
+                                        <th>E-post</th>
+                                        <th></th>
+                                    </tr>
+                                </thead>
+
+                                    <tbody>
+                                        <c:if test="${not empty list}">
+                                            <c:forEach var="r" items="${list}">
+                                                <tr>
+                                                    <td>${r.username}</td>
+                                                    <td>${r.fullName}</td>
+                                                    <td>${r.address}</td>
+                                                    <td>${r.phoneNumber}</td>
+                                                    <td>${r.mobileNumber}</td>
+                                                    <td>${r.email}</td>
+                                                    <td>
+                                                    	<button type="submit" name="remove" value="${r.username}" class="glyphicon glyphicon-trash"></button>
+                                                    </td>
+                                                </tr>
+                                            </c:forEach>
+                                        </c:if>
+                                    </tbody>
+								</table>				
+							</form:form>
+						
+                        	<br />
+                            
+                            <a href="/mappletech/administrator/anvandare/lagg-till-anvandare">
+                  				 <button type="submit" class="btn-lg btn btn-default" name="privilege">Skapa ny anvÃ¤ndare</button>
+                  			</a>
+                        
 						</div>
-					</div>
-					
-						<form:form method="POST" action=".">
-
-						<table id="thetable" class="table table-bordered table-striped">
-
-						<thead>
-							<tr>
-								<th>Användarnamn</th>
-								<th>Namn</th>
-								<th>Adress</th>
-								<th>Tel.nummer</th>
-								<th>Mobilnummer</th>
-								<th>e-post</th>
-								<th>Ta bort</th>
-								<th></th>
-							</tr>
-						</thead>
-
-							<tbody>
-								<c:if test="${not empty list}">
-									<c:forEach var="r" items="${list}">
-										<tr>
-											<td>${r.username}</td>
-											<td>${r.fullName}</td>
-											<td>${r.address}</td>
-											<td>${r.phoneNumber}</td>
-											<td>${r.mobileNumber}</td>
-											<td>${r.email}</td>
-
-											<td><button type="submit" name="remove" value="${r.username}" class="glyphicon glyphicon-trash"></button></td>
-										</tr>
-									</c:forEach>
-								</c:if>
-							</tbody>
-						</form:form>
-					</table>
-</body>
+                    </div>
+				</div>
+                
+              </div>
+            </div>
+ 
+    <!-- End Main Body Section -->
+        
+    <!-- JavaScripts-->
+    <script>
+      $(function () {
+        $('#thetable').dataTable();
+      });
+	</script>
+      
+    </body>
 </html>

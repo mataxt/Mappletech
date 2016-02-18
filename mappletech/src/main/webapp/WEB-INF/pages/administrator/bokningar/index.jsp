@@ -87,9 +87,7 @@
                         
                 	<div class="row">
 						<div class="box-body pad table-responsive">
-						
-						
-						
+								
 					<form:form method="POST" action=".">
                   
                                 <table id="thetable" class="table table-bordered table-striped">
@@ -97,7 +95,7 @@
                                 <thead>
                                     <tr>
                                     	<th>Lokal</th>
-                                        <th>Tid (från)</th>
+                                        <th>Tid (frï¿½n)</th>
                                         <th>Tid (till)</th>
                                         <th></th>
                                     </tr>
