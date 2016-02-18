@@ -73,7 +73,9 @@
                             <p>Hantera händelser här</p>
                         </div>
                     </div>
-                    
+                    <c:forEach var="event" items="${eventlist}">
+									<li>${event.date} ${event.title}</li>
+					</c:forEach>
                     <div class="row">
 						<div ng-app="app" ng-controller="Ctrl">
                          <table class="table table-bordered table-hover table-condensed">
