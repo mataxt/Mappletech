@@ -50,14 +50,12 @@ public class LoginController {
 		System.out.println(loggedInUser.getUsername());
 		UserVM u = restTemplate.postForObject(URI, loggedInUser, UserVM.class);
 		EventVM[] eventVMArray = restTemplate.getForObject("http://130.237.84.211:8080/mappletech/rest/event/getAll", EventVM[].class);
-		List<EventVM> eventVMList = Arrays.asList(eventVMArray);
-		ModelAndView modelAndView = new ModelAndView("index");
-		modelAndView.addObject("eventlist", eventVMList);
+//		List<EventVM> eventVMList = Arrays.asList(eventVMArray);
+//		modelAndView.addObject("eventlist", eventVMList);
 		if (u != null) {
-			modelAndView.addObject("sessUser", u);
-			return modelAndView;
+			return new ModelAndView("redirect:/","sessUser",u);
 		} else {
-			return new ModelAndView("login/index","uservm", new UserVM());
+			return new ModelAndView("redirect:login","uservm", new UserVM());
 		}
 	}
 
