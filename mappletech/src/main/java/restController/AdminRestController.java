@@ -2,11 +2,9 @@ package restController;
 
 import java.util.ArrayList;
 import java.util.List;
-
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-
 import dao.GroupDAO;
 import dao.UserDAO;
 import model.Group;
@@ -17,15 +15,17 @@ import vm.UserVM;
 @RestController
 public class AdminRestController {
 
-	@RequestMapping(value="/administrator/anvandare/nyanvandare")
+	@RequestMapping(value="/administrator/lagg-till-anvandare")
 	public boolean addUsers(@RequestBody(required=true) UserVM user)
 	{
 		User newUser = new User();
 
-		System.out.println("-------------------" + user.getUsername() +  "--------------------");
-		
 		newUser.setUsername(user.getUsername());
 		newUser.setFullName(user.getFullName());
+		newUser.setAddress(user.getAddress());
+		newUser.setEmail(user.getEmail());
+		newUser.setPhoneNumber(user.getPhoneNumber());
+		newUser.setMobileNumber(user.getMobileNumber());
 		newUser.setPassword(user.getPassword());
 		newUser.setPrivilege(user.getPrivilege());
 			

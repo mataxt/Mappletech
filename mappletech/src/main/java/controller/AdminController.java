@@ -26,7 +26,7 @@ public class AdminController {
 	// ===================== bokningar =================================
 
 	@RequestMapping(value = { "/administrator/bokningar" }, method = RequestMethod.GET)
-	public ModelAndView removeBookingGet(ModelMap model) {
+	public ModelAndView removeBookingGet() {
 
 		RestTemplate restTemplate = new RestTemplate();
 		@SuppressWarnings("unchecked")
@@ -114,7 +114,7 @@ public class AdminController {
 	public String addUsersPost(@ModelAttribute("uservm") UserVM newUser) {
 
 		RestTemplate restTemplate = new RestTemplate();
-		boolean userExists = restTemplate.postForObject(URI + "/lagg-till-anvandare", newUser, Boolean.class);
+		boolean userExists = restTemplate.postForObject(URI + "/administrator/lagg-till-anvandare", newUser, Boolean.class);
 
 		if (!userExists) {
 			return "redirect:/administrator/anvandare/index";
