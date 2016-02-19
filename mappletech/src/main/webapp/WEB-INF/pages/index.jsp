@@ -167,12 +167,27 @@
 						</a>
 					</div>
 
-					<div class="menu-item color">
-						<a href="#administrator-modal" data-toggle="modal"> <i
-							class="fa fa-cog"></i>
-							<p>Administratör</p>
-						</a>
-					</div>
+<c:choose>
+						<c:when test="${sessUser.privilege < '2'}">
+							<div id="disabledDiv" class="menu-item red">
+								<a> <i
+									class="fa fa-cog"></i>
+									<p>Administratör</p>
+								</a>
+							</div>
+							<br />
+
+						</c:when>
+						<c:otherwise>
+							<div id="adminDiv" class="menu-item color">
+								<a href="#administrator-modal" data-toggle="modal"> <i
+									class="fa fa-cog"></i>
+									<p>Administratör</p>
+								</a>
+							</div>
+							<br />
+						</c:otherwise>
+					</c:choose>
 
 				</div>
 			</div>
