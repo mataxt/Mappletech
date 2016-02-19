@@ -74,13 +74,13 @@
 							<br />
 
 							<form:input path="username" id="inputUsername"
-								class="form-control" placeholder="Anvï¿½ndarnamn" required=""
+								class="form-control" placeholder="Användarnamn" required=""
 								autofocus="true" />
 							
                             <br />
                             
 							<form:input path="password" type="password" id="inputPassword"
-								class="form-control" placeholder="Lï¿½senord" required="" />
+								class="form-control" placeholder="Lösenord" required="" />
 
 							<br />
                             

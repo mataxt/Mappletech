@@ -369,9 +369,9 @@
 								<div class="col-md-12">
 									<div class="form-group">
 										<form:textarea path="description" class="form-control"
-											placeholder="UtfÃ¶rlig beskrivning" id="message"
+											placeholder="Utförlig beskrivning" id="message"
 											style="height: 150px" required=""
-											data-validation-required-message="Skriva in en utfÃ¶rlig beskrivning."></form:textarea>
+											data-validation-required-message="Skriva in en utförlig beskrivning."></form:textarea>
 										<p class="help-block text-danger"></p>
 									</div>
 								</div>
