@@ -81,7 +81,7 @@
                     <div class="row">
                         <div class="section-title text-center">
                             <h3>Bokningar</h3>
-                            <p>Hantera bokningar hï¿½r</p>
+                            <p>Hantera bokningar här</p>
                         </div>
                     </div>
                         

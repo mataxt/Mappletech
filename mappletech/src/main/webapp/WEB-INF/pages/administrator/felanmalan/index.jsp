@@ -80,8 +80,8 @@
                     <div class="container">
                     <div class="row">
                         <div class="section-title text-center">
-                            <h3>Felanm√§lan</h3>
-                            <p>Hantera felm√§lningar h√§r</p>
+                            <h3>Felanm‰lan</h3>
+                            <p>Hantera felm‰lningar h‰r</p>
                         </div>
                     </div>
                         
@@ -94,7 +94,7 @@
                               
                                 <thead>
                                     <tr>
-                                    	<th>AnmÔøΩld av</th>
+                                    	<th>Anm‰ld av</th>
                                         <th>Orsak</th>
                                         <th>Beskrivning</th>
                                         <th>Status</th>

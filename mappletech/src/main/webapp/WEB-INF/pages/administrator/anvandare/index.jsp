@@ -81,8 +81,8 @@
                     <div class="container">
                     <div class="row">
                         <div class="section-title text-center">
-                            <h3>AnvÃ¤ndare</h3>
-                            <p>Hantera anvÃ¤ndare hï¿½r</p>
+                            <h3>Användare</h3>
+                            <p>Hantera användare här</p>
                         </div>
                     </div>
                         
@@ -95,7 +95,7 @@
                               
                                 <thead>
                                     <tr>
-                                        <th>Anvï¿½ndarnamn</th>
+                                        <th>Användarnamn</th>
                                         <th>Namn</th>
                                         <th>Adress</th>
                                         <th>Telefon</th>
@@ -128,7 +128,7 @@
                         	<br />
                             
                             <a href="/mappletech/administrator/anvandare/lagg-till-anvandare">
-                  				 <button type="submit" class="btn-lg btn btn-default" name="privilege">Skapa ny anvÃ¤ndare</button>
+                  				 <button type="submit" class="btn-lg btn btn-default" name="privilege">Skapa ny användare</button>
                   			</a>
                         
 						</div>
