@@ -95,7 +95,6 @@
 									<th>Beskrivning</th>
 									<th>Skapare</th>
 									<th>Datum</th>
-									<th>Ta bort</th>
 									<th></th>
 								</tr>
 							</thead>
@@ -108,7 +107,6 @@
 											<td>${r.description}</td>
 											<td>${r.creator}</td>
 											<td>${r.date}</td>
-
 											<td>
 												<button type="submit" name="remove" value="${r.eventID}" class="btn-md btn btn-danger">Ta bort</button>
 											</td>
