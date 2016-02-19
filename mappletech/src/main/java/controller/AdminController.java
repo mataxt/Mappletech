@@ -111,17 +111,15 @@ public class AdminController {
 	}
 
 	@RequestMapping(value = "/administrator/anvandare/lagg-till-anvandare", method = RequestMethod.POST)
-	public String addUsersPost(@ModelAttribute("uservm") UserVM userVm, Model model) {
+	public String addUsersPost(@ModelAttribute("uservm") UserVM newUser) {
 
-		UserVM newUser = new UserVM(userVm.getUsername(), generatePassword(), userVm.getFullName(),
-				userVm.getPrivilege());
 		RestTemplate restTemplate = new RestTemplate();
 		boolean userExists = restTemplate.postForObject(URI + "/lagg-till-anvandare", newUser, Boolean.class);
 
 		if (!userExists) {
-			return "redirect:/administrator/anvandare/lagg-till-anvandare/index";
+			return "redirect:/administrator/anvandare/index";
 		}
-		return "redirect:/administrator/anvandare";
+		return "redirect:/administrator/anvandare/lagg-till-anvandare/index";
 	}
 
 	// ======================== Groups ================================
