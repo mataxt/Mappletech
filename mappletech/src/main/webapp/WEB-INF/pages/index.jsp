@@ -99,7 +99,7 @@
 						<div class="logo text-center">
 							<h1>Mappletech</h1>
 							<p>
-								<span style="color: #eee">Fï¿½reningsplattform</span>
+								<span style="color: #eee">Föreningsplattform</span>
 							</p>
 
 							<p>&nbsp;</p>
@@ -145,7 +145,7 @@
 					<div class="menu-item light-red">
 						<a href="#felanmalan-modal" data-toggle="modal"> <i
 							class="fa fa-exclamation-triangle"></i>
-							<p>Felanmï¿½lan</p>
+							<p>Felanmälan</p>
 						</a>
 					</div>
 
@@ -163,14 +163,14 @@
 					<div class="menu-item purple">
 						<a href="#handalser-modal" data-toggle="modal"> <i
 							class="fa fa-file-text"></i>
-							<p>Hï¿½ndelser</p>
+							<p>Händelser</p>
 						</a>
 					</div>
 
 					<div class="menu-item color">
 						<a href="#administrator-modal" data-toggle="modal"> <i
 							class="fa fa-cog"></i>
-							<p>Administratï¿½r</p>
+							<p>Administratör</p>
 						</a>
 					</div>
 
@@ -206,7 +206,7 @@
 				<div class="row">
 					<div class="section-title text-center">
 						<h3>Bokning</h3>
-						<p>Hantera och skapa bokningar hï¿½r</p>
+						<p>Hantera och skapa bokningar här</p>
 					</div>
 				</div>
 
@@ -216,7 +216,7 @@
 							<a href="bokning/boka/"> <i class="fa fa-calendar blue"></i>
 								<div class="feature-content">
 									<h4>Boka</h4>
-									<p>Boka tid hï¿½r</p>
+									<p>Boka tid här</p>
 								</div>
 							</a>
 						</div>
@@ -228,7 +228,7 @@
 								class="fa fa-pencil-square-o blue"></i>
 								<div class="feature-content">
 									<h4>Mina bokningar</h4>
-									<p>Hantera dina bokningar hï¿½r</p>
+									<p>Hantera dina bokningar här</p>
 								</div>
 							</a>
 						</div>
@@ -256,7 +256,7 @@
 				<div class="row">
 					<div class="section-title text-center">
 						<h3>Grupper</h3>
-						<p>Hantera och skapa grupper hï¿½r</p>
+						<p>Hantera och skapa grupper här</p>
 					</div>
 				</div>
 
@@ -267,7 +267,7 @@
 								class="fa fa-users green"></i>
 								<div class="feature-content">
 									<h4>Visa alla grupper</h4>
-									<p>Lista ï¿½ver grupper hï¿½r</p>
+									<p>Lista över grupper här</p>
 								</div>
 							</a>
 						</div>
@@ -278,7 +278,7 @@
 							<a href="grupper/mina-grupper/"> <i class="fa fa-bars green"></i>
 								<div class="feature-content">
 									<h4>Mina grupper</h4>
-									<p>Hantera dina grupper hï¿½r</p>
+									<p>Hantera dina grupper här</p>
 								</div>
 							</a>
 						</div>
@@ -290,7 +290,7 @@
 								class="fa fa-plus-circle green"></i>
 								<div class="feature-content">
 									<h4>Skapa grupp</h4>
-									<p>Skapa ny grupp hï¿½r</p>
+									<p>Skapa ny grupp här</p>
 								</div>
 							</a>
 						</div>
@@ -318,8 +318,8 @@
 			<div class="container">
 				<div class="row">
 					<div class="section-title text-center">
-						<h3>Felanmï¿½lan</h3>
-						<p>Felanmï¿½lan hï¿½r</p>
+						<h3>Felanmälan</h3>
+						<p>Felanmälan här</p>
 					</div>
 				</div>
 
@@ -330,12 +330,12 @@
 							<h4>Information</h4>
 
 							<ul>
-								<li><strong>2016-01-29: </strong>Just nu ï¿½r det problem
+								<li><strong>2016-01-29: </strong>Just nu är det problem
 									med avloppssystemen.</li>
 							</ul>
 
 							<ul>
-								<li><strong>2016-01-01: </strong>Gott nytt ï¿½r.</li>
+								<li><strong>2016-01-01: </strong>Gott nytt år.</li>
 							</ul>
 						</div>
 					</div>
@@ -356,12 +356,12 @@
 											style="width: 100%;">
 											<option>Trapphus</option>
 											<option>Soprum</option>
-											<option>Tvï¿½ttstuga</option>
+											<option>Tvättstuga</option>
 											<option>Lokaler</option>
-											<option>Hushï¿½ll</option>
+											<option>Hushåll</option>
 											<option>Parkering</option>
-											<option>Fï¿½rrï¿½d</option>
-											<option>övrigt</option>
+											<option>Förråd</option>
+											<option>Övrigt</option>
 										</form:select>
 									</div>
 								</div>
@@ -381,7 +381,7 @@
 								<div class="col-lg-12 text-center">
 									<div id="success"></div>
 									<button type="submit" class="btn btn-primary light-red">Skicka
-										felanmï¿½lan</button>
+										felanmälan</button>
 								</div>
 							</div>
 						</form:form>
@@ -408,8 +408,8 @@
 			<div class="container">
 				<div class="row">
 					<div class="section-title text-center">
-						<h3>Kontakta Oss</h3>
-						<p>Kontakta oss hï¿½r</p>
+						<h3>Kontakta oss</h3>
+						<p>Kontakta oss här</p>
 					</div>
 				</div>
 
@@ -421,7 +421,7 @@
 							<ul>
 								<li><strong>E-post: </strong>mail@epost.se</li>
 								<li><strong>Telefon: </strong>+46-234567896</li>
-								<li><strong>Adress: </strong>Fï¿½reningsvï¿½gen 1</li>
+								<li><strong>Adress: </strong>Föreningsvägen 1</li>
 							</ul>
 						</div>
 					</div>
@@ -430,9 +430,9 @@
 						<div class="footer-contact-info light-orange">
 							<h4>Ö–ppettider</h4>
 							<ul>
-								<li><strong>Mï¿½ndag-Fredag: </strong>9 - 15</li>
-								<li><strong>Lï¿½rdag: </strong>12 - 15</li>
-								<li><strong>Sï¿½ndag: </strong>Stï¿½ngt</li>
+								<li><strong>Måndag-Fredag: </strong>9 - 15</li>
+								<li><strong>Lördag: </strong>12 - 15</li>
+								<li><strong>Söndag: </strong>Stängt</li>
 							</ul>
 						</div>
 					</div>
@@ -484,8 +484,8 @@
 			<div class="container">
 				<div class="row">
 					<div class="section-title text-center">
-						<h3>Hï¿½ndelser</h3>
-						<p>Hï¿½ndelser hï¿½r</p>
+						<h3>Händelser</h3>
+						<p>Händelser här</p>
 					</div>
 				</div>
 
@@ -495,8 +495,8 @@
 							<a href="handelser/mina-handelser/"> <i
 								class="fa fa-bars purple"></i>
 								<div class="feature-content">
-									<h4>Mina hï¿½ndelse</h4>
-									<p>Hantera dina hï¿½ndelse hï¿½r</p>
+									<h4>Mina händelse</h4>
+									<p>Hantera dina händelse här</p>
 								</div>
 							</a>
 						</div>
@@ -507,8 +507,8 @@
 							<a href="handelser/skapa-ny-handelse/"> <i
 								class="fa fa-rss purple"></i>
 								<div class="feature-content">
-									<h4>Skapa hï¿½ndelse</h4>
-									<p>Skapa ny hï¿½ndelse hï¿½r</p>
+									<h4>Skapa händelse</h4>
+									<p>Skapa ny händelse här</p>
 								</div>
 							</a>
 						</div>
@@ -550,8 +550,8 @@
 			<div class="container">
 				<div class="row">
 					<div class="section-title text-center">
-						<h3>Administratï¿½r</h3>
-						<p>Administratï¿½r instï¿½llningar hï¿½r</p>
+						<h3>Administratör</h3>
+						<p>Administratör inställningar här</p>
 					</div>
 				</div>
 
@@ -561,8 +561,8 @@
 							<a href="administrator/anvandare/"> <i
 								class="fa fa-user color"></i>
 								<div class="feature-content">
-									<h4>Anvï¿½ndare</h4>
-									<p>Skapa och hantera anvï¿½ndare hï¿½r</p>
+									<h4>Användare</h4>
+									<p>Skapa och hantera användare här</p>
 								</div>
 							</a>
 						</div>
@@ -574,7 +574,7 @@
 								class="fa fa-users color"></i>
 								<div class="feature-content">
 									<h4>Grupper</h4>
-									<p>Skapa och hantera grupper hï¿½r</p>
+									<p>Skapa och hantera grupper här</p>
 								</div>
 							</a>
 						</div>
@@ -586,7 +586,7 @@
 								class="fa fa-calendar color"></i>
 								<div class="feature-content">
 									<h4>Bokningar</h4>
-									<p>Hantera bokningar hï¿½r</p>
+									<p>Hantera bokningar här</p>
 								</div>
 							</a>
 						</div>
@@ -597,8 +597,8 @@
 							<a href="administrator/handelser/"> <i
 								class="fa fa-file-text color"></i>
 								<div class="feature-content">
-									<h4>Hï¿½ndelser</h4>
-									<p>Skapa och hantera hï¿½ndelser hï¿½r</p>
+									<h4>Händelser</h4>
+									<p>Skapa och hantera händelser här</p>
 								</div>
 							</a>
 						</div>
@@ -609,8 +609,8 @@
 							<a href="administrator/felanmalan/"> <i
 								class="fa fa-exclamation-triangle color"></i>
 								<div class="feature-content">
-									<h4>Felanmï¿½lan</h4>
-									<p>Hantera felanï¿½lningar hï¿½r</p>
+									<h4>Felanmälan</h4>
+									<p>Hantera felanmälningar här</p>
 								</div>
 							</a>
 						</div>
@@ -630,7 +630,7 @@
 		$(document).ready(function() {
 			// Select2
 			$(".select2dropdown").select2({
-				placeholder : "VÃ¤lj kategori",
+				placeholder : "Välj kategori",
 				allowClear : true
 			});
 		});

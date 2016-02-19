@@ -109,7 +109,7 @@
 					
                     	<br />
                     
-                    	<button type="submit" class="btn-lg btn btn-success" name="event">LÃ¤gg till grupp</button>
+                    	<button type="submit" class="btn-lg btn btn-success" name="event">Lägg till grupp</button>
                     </form:form>
 				</div>
 

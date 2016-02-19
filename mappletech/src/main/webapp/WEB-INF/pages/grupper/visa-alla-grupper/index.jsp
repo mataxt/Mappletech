@@ -81,7 +81,7 @@
 					<div class="row">
 						<div class="section-title text-center">
 							<h3>Grupper</h3>
-							<p>H√§r visas alla tillg√§ngliga grupper</p>
+							<p>H‰r visas alla tillg‰ngliga grupper</p>
 						</div>
 					</div>
                     

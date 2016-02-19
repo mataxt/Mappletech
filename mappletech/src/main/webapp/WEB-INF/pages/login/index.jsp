@@ -51,7 +51,7 @@
 					<div class="logo text-center">
 						<h1>Mappletech</h1>
 						<p>
-							<span style="color: #eee">Fï¿½reningsplattform</span>
+							<span style="color: #eee">Föreningsplattform</span>
 						</p>
 						<p>&nbsp;</p>
 					</div>
@@ -91,7 +91,7 @@
                         
                         <a href="/login/glomt-losenord/">
                             <button type="submit" value="Submit"
-								class="btn btn-sm btn-info btn-block">Glï¿½mt lï¿½senord</button>
+								class="btn btn-sm btn-info btn-block">Glömt lösenord</button>
                         </a>
                         <br />
                         

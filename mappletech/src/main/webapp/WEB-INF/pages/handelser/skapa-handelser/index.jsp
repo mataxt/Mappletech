@@ -10,7 +10,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
     <meta name="author" content="">
-        <title>Mappletech - Skapa hÃ¤ndelser</title>
+        <title>Mappletech - Skapa händelser</title>
     
 <!-- Bootstrap Core CSS -->
 <link
@@ -85,8 +85,8 @@
                     
                         <div class="row">
                             <div class="section-title text-center">
-                                <h3>HÃ¤ndelser</h3>
-                                <p>Skapa ny hÃ¤ndelse</p>
+                                <h3>Händelser</h3>
+                                <p>Skapa ny händelse</p>
                             </div>
                         </div>
                         
@@ -117,7 +117,7 @@
                                     
                                     <br />
                                     
-                  				 	<button type="submit" class="btn-lg btn btn-success" name="eventSubmit">LÃ¤gg till hÃ¤ndelse</button>
+                  				 	<button type="submit" class="btn-lg btn btn-success" name="eventSubmit">Lägg till händelse</button>
                                     
                                  	</form:form>                 
                             	</div>
@@ -139,7 +139,7 @@
 				locale: {
 					format: 'YYYY-MM-DD',
 					customRangeLabel: 'Custom',
-					daysOfWeek: ['SÃ¶n','MÃ¥n','Tis', 'Ons', 'Tors', 'Fre', 'LÃ¶r'],
+					daysOfWeek: ['Mån','Tis', 'Ons', 'Tors', 'Fre', 'Lör','Sön'],
 					monthNames: ['Januari', 'Februari', 'Mars', 'April', 'Maj', 'Juni', 'Juli', 'Augusti', 'September', 'Oktober', 'November', 'December'],
 					firstDay: 1
 				}

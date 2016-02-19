@@ -82,7 +82,7 @@
 					<div class="row">
 						<div class="section-title text-center">
 							<h3>Mina bokningar</h3>
-							<p>Hantera dina bokningar h√§r</p>
+							<p>Hantera dina bokningar h‰r</p>
 						</div>
 					</div>
 
@@ -95,7 +95,7 @@
 									<thead>
 										<tr>
 											<th>Lokal</th>
-											<th>Tid (fr√•n)</th>
+											<th>Tid (frÂn)</th>
 											<th>Tid (till)</th>
 											<th></th>
 										</tr>

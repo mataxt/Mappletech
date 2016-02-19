@@ -61,7 +61,7 @@
                         <div class="row">
                             <div class="section-title text-center">
                                 <h3>Felmeddelande</h3>
-                                <p>Du har inga rÃ¤ttigheter fÃ¶r den hÃ¤r sidan/tjÃ¤nsten</p>
+                                <p>Du har inga rättigheter för den här sidan/tjänsten</p>
                             </div>
                         </div>
               		</div>

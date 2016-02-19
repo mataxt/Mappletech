@@ -97,7 +97,7 @@
 					<div class="row">
 						<div class="section-title text-center">
 							<h3>Boka</h3>
-							<p>Skapa ny bokning hï¿½r</p>
+							<p>Skapa ny bokning här</p>
 						</div>
 					</div>
 
@@ -117,7 +117,7 @@
 								</div>
 
 								<div class="form-group">
-									<label>Tid (frï¿½n)</label>
+									<label>Tid (från)</label>
 
 									<div class="input-group">
 										<div class="input-group-addon">
@@ -174,7 +174,7 @@
 									<div class="col-md-offset-3 col-md-6 col-md-offset-3">
 									<p id="testdate" onclick="getCurrentDate()"></p>
 										<button type="submit" class="btn-lg btn btn-success"
-											name="facility">Boka anlï¿½ggning</button>
+											name="facility">Boka anläggning</button>
 									</div>
 									
 								</div>
@@ -201,7 +201,7 @@
 				locale: {
 					format: 'YYYY-MM-DD',
 					customRangeLabel: 'Custom',
-					daysOfWeek: ['Mï¿½n','Tis', 'Ons', 'Tors', 'Fre', 'Lï¿½r','Sï¿½n'],
+					daysOfWeek: ['Mån','Tis', 'Ons', 'Tors', 'Fre', 'Lör','Sön'],
 					monthNames: ['Januari', 'Februari', 'Mars', 'April', 'Maj', 'Juni', 'Juli', 'Augusti', 'September', 'Oktober', 'November', 'December'],
 					firstDay: 1
 				}
@@ -216,7 +216,7 @@
 				locale: {
 					format: 'YYYY-MM-DD',
 					customRangeLabel: 'Custom',
-					daysOfWeek: ['Mï¿½n','Tis', 'Ons', 'Tors', 'Fre', 'Lï¿½r','Sï¿½n'],
+					daysOfWeek: ['Mån','Tis', 'Ons', 'Tors', 'Fre', 'Lör','Sön'],
 					monthNames: ['Januari', 'Februari', 'Mars', 'April', 'Maj', 'Juni', 'Juli', 'Augusti', 'September', 'Oktober', 'November', 'December'],
 					firstDay: 1
 				}

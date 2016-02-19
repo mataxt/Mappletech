@@ -11,7 +11,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
     <meta name="author" content="">
-        <title>Mappletech - H√§ndelser</title>
+        <title>Mappletech - H‰ndelser</title>
     
 <!-- Bootstrap Core CSS -->
 <link
@@ -82,8 +82,8 @@
                     <div class="container">
                         <div class="row">
                             <div class="section-title text-center">
-                                <h3>H√§ndelser</h3>
-                                <p>Hantera h√§ndelser h√§r</p>
+                                <h3>H‰ndelser</h3>
+                                <p>Hantera h‰ndelser h‰r</p>
                             </div>
                         </div>
                     
@@ -119,7 +119,7 @@
                                 <br />
 
 								<a href="/mappletech/handelser/skapa-ny-handelse/">
-									<button class="btn-lg btn btn-default">Ny h√§ndelse</button>
+									<button class="btn-lg btn btn-default">Ny h‰ndelse</button>
 								</a>
 							
 						</div>

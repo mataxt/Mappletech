@@ -95,7 +95,7 @@
                         <div class="row">
                             <div class="section-title text-center">
                                 <h3>Profil</h3>
-                                <p>Ã„ndra din profil hÃ¤r</p>
+                                <p>Ändra din profil här</p>
                             </div>
                         </div>
                         
@@ -111,7 +111,7 @@
                                             <form:input path="fullName" type="text" class="form-control" />
                         
                                             <span class="input-group-btn">
-                                              <button type="submit" class="btn btn-info btn-flat" name="name">Ã„ndra</button>
+                                              <button type="submit" class="btn btn-info btn-flat" name="name">Ändra</button>
                                               
                                             </span>
                                          </div>
@@ -141,7 +141,7 @@
                                             <form:input path="phoneNumber" type="text" class="form-control" />
                                             
                                             <span class="input-group-btn">
-                                              <button type="submit" class="btn btn-info btn-flat" name="phone">Ã„ndra</button>
+                                              <button type="submit" class="btn btn-info btn-flat" name="phone">ÃÄndra</button>
                                             </span>
                                             
                                           </div>
@@ -156,7 +156,7 @@
                                             <form:input path="mobileNumber" type="text" class="form-control" placeholder="Nytt mobil nummer..." name="mobiletext"/>
                                             
                                             <span class="input-group-btn">
-                                              <button type="submit" class="btn btn-info btn-flat" name="mobile">Ã„ndra</button>
+                                              <button type="submit" class="btn btn-info btn-flat" name="mobile">Ändra</button>
                                             </span>
                                             
                                           </div>
@@ -167,7 +167,7 @@
                                       <br />
                                 
                                       <div class="form-group">    
-                                          <label>LÃ¶senord</label>
+                                          <label>Lösenord</label>
                                           
                                           <div class="form-group"></div>
                                           

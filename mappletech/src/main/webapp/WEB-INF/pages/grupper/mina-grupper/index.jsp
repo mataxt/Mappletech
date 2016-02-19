@@ -81,7 +81,7 @@
 					<div class="row">
 						<div class="section-title text-center">
 							<h3>Mina grupper</h3>
-							<p>Hantera dina grupper hÃ¤r</p>
+							<p>Hantera dina grupper här</p>
 						</div>
 					</div>
 

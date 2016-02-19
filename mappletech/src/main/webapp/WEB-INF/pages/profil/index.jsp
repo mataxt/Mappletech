@@ -62,7 +62,7 @@
                         <div class="row">
                             <div class="section-title text-center">
                                 <h3>Profil</h3>
-                                <p>Se Ã¶ver din profil hÃ¤r</p>
+                                <p>Se över din profil här</p>
                             </div>
                         </div>
                         
@@ -71,7 +71,7 @@
                             	<form:form modelAttribute="uservm" id="user" class="form-group"
 							method="POST">           
                        				<div class="form-group">
-                                    	<label>AnvÃ¤ndarnamn</label>
+                                    	<label>Användarnamn</label>
                                     	<form:input path="username" type="text" class="form-control" disabled="true"/>
                                  	</div>
                                     
