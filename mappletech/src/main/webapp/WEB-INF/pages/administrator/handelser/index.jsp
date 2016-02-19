@@ -11,7 +11,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="description" content="">
 <meta name="author" content="">
-<title>Mappletech - Händelser</title>
+<title>Mappletech</title>
 
 <!-- Bootstrap Core CSS -->
 <link
