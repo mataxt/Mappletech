@@ -107,8 +107,9 @@
 											<td>${r.description}</td>
 											<td>${r.host}</td>
 
-											<td><button type="submit" name="remove"
-													value="${r.groupName}" class="glyphicon glyphicon-trash"></button></td>
+											<td>
+												<button type="submit" name="remove" value="${r.groupName}" class="btn-md btn btn-danger">Ta bort</button>
+											</td>
 										</tr>
 									</c:forEach>
 								</c:if>
