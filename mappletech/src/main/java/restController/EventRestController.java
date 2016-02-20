@@ -75,9 +75,10 @@ public class EventRestController {
 	}
 	
 	@RequestMapping(value="/event/delete",method = RequestMethod.POST)
-	public Boolean deleteEvent(@RequestBody(required=true)int eventId)
+	public Boolean deleteEvent(@RequestBody(required=true)EventVM eventVm)
 	{
-		return EventDAO.removeEvent(eventId);
+		
+		return EventDAO.removeEvent(eventVm.getEventID());
 	}
 
 	@RequestMapping(value="/event/update",method = RequestMethod.POST)

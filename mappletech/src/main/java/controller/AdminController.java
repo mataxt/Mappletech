@@ -107,12 +107,15 @@ public class AdminController {
 	public ModelAndView addUsersGet() {
 		ModelAndView mv = new ModelAndView("administrator/anvandare/lagg-till-anvandare/index");
 		mv.addObject("uservm", new UserVM());
+		mv.addObject("tmpPwd",generatePassword());
 		return mv;
 	}
 
 	@RequestMapping(value = "/administrator/anvandare/lagg-till-anvandare", method = RequestMethod.POST)
 	public String addUsersPost(@ModelAttribute("uservm") UserVM newUser) {
 
+		System.out.println(newUser.getAddress());
+		
 		RestTemplate restTemplate = new RestTemplate();
 		boolean userExists = restTemplate.postForObject(URI + "/administrator/lagg-till-anvandare", newUser, Boolean.class);
 

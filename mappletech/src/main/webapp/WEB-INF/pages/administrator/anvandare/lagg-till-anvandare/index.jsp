@@ -98,13 +98,13 @@
 								<div class="form-group ">
 									<label>Användarnamn</label>
 									<form:input path="username" type="text" class="form-control"
-										name="username" placeholder="Användarnamn..." maxlength="250" />
+										name="username" placeholder="Användarnamn" maxlength="250" />
 								</div>
 
 								<div class="form-group ">
 									<label>Namn</label>
 									<form:input path="fullName" type="text" class="form-control"
-										name="name" placeholder="Förnamn och efternamn..."
+										name="name" placeholder="Förnamn och efternamn"
 										maxlength="250" />
 								</div>
 
@@ -115,32 +115,40 @@
 									<span style="color: #f56954"></span> <span
 										style="color: #f56954"></span>
 								</div>
+								
+								<div class="form-group ">
+									<label>Lösenord</label>
+									<form:input path="email" type="text" class="form-control"
+										name="email" placeholder="temporärt lösenord" value="<%request.getAttribute("tmpPwd"); %>" maxlength="250" />
+									<span style="color: #f56954"></span> <span
+										style="color: #f56954"></span>
+								</div>
 
 								<div class="form-group ">
 									<label>Telefon</label>
 									<form:input path="phoneNumber" type="text" class="form-control"
-										name="phone" placeholder="Telefon..." maxlength="250" />
+										name="phone" placeholder="Telefonnummer" maxlength="250" />
 								</div>
 
 								<div class="form-group ">
 									<label>Mobil</label>
 									<form:input path="mobileNumber" type="text"
-										class="form-control" name="mobile" placeholder="Mobil..."
+										class="form-control" name="mobile" placeholder="Mobilnummer"
 										maxlength="250" />
 								</div>
 
 								<div class="form-group ">
 									<label>Adress</label>
 									<form:input path="address" type="text" class="form-control"
-										name="address" placeholder="Adress..." maxlength="250" />
+										name="address" placeholder="Gatuadress" maxlength="250" />
 								</div>
 
 								<div class="form-group">
 									<label>Rättigheter</label>
 
 									<form:select path="privilege" class="form-control" name="priv">
-										<form:option value="0">Användare</form:option>
-										<form:option value="1">Avancerad användare</form:option>
+										<form:option value="0">Normal</form:option>
+										<form:option value="1">Avancerad</form:option>
 										<form:option value="2">Administratör</form:option>
 									</form:select>
 								</div>
