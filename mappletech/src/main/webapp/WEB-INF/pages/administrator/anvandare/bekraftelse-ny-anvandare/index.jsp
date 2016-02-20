@@ -118,12 +118,11 @@
                             	 <a href="#" class="btn btn-success btn-lg" onClick="window.print()">
     								<span class="glyphicon glyphicon-print"></span> Skriv ut 
   								</a>
-  								<form:form method="Post"></form>
-	  								<button type="submit" class="btn btn-primary">
-	    								<span class="glyphicon glyphicon-envelope"></span> Skicka mail 
-	  								</button>
-	  								<form:input path="email" value="${newUser.email}"/>
-  								</form:form>
+  								
+  								<button type="submit" class="btn btn-primary">
+    								<span class="glyphicon glyphicon-envelope"></span> Skicka mail -> ${newUser.email}
+  								</button>
+	  								
                             </div>
                         </div>
                         
