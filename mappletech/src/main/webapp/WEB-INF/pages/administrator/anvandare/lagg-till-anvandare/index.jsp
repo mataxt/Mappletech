@@ -93,7 +93,7 @@
 					<div class="row">
 						<div class="col-md-offset-3 col-md-6 col-md-offset-3">
 							<form:form modelAttribute="uservm" class="form-register"
-								action="." method="post">
+								method="post">
 
 								<div class="form-group ">
 									<label>Användarnamn</label>
