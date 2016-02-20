@@ -119,7 +119,7 @@
 								<div class="form-group ">
 									<label>Lösenord</label>
 									<form:input path="email" type="text" class="form-control"
-										name="email" placeholder="temporärt lösenord" value="<%request.getAttribute("tmpPwd"); %>" maxlength="250" />
+										name="email" placeholder="temporärt lösenord" value="${pwd}" maxlength="250" />
 									<span style="color: #f56954"></span> <span
 										style="color: #f56954"></span>
 								</div>

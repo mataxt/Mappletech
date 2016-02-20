@@ -178,7 +178,7 @@ public class AdminController {
 	// ======================================================================
 
 	// Generate a password for the new user created by admin
-
+	@ModelAttribute("pwd")
 	private String generatePassword() {
 		final String charset = "0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
 		Random rand = new Random(System.currentTimeMillis());
