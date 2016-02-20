@@ -108,7 +108,7 @@
 											<td>${r.creator}</td>
 											<td>${r.date}</td>
 											<td>
-												<button type="submit" name="remove" value="${r.eventID}" class="btn-md btn btn-danger">Ta bort</button>
+												<button type="submit" name="remove" value="${r.eventID}" onclick="return confirm('Bekräfta borttagning av ${r.title}?')" class="btn-md btn btn-danger">Ta bort</button>
 											</td>
 										</tr>
 									</c:forEach>

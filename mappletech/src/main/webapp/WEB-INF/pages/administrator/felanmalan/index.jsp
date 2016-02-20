@@ -113,7 +113,7 @@
 													<td>${r.status}</td>
 													<td>${r.date}</td>
 													<td>
-                                                    	<button type="submit" name="remove" value="${r.reportId}" class="btn-md btn btn-danger">Ta bort</button>
+                                                    	<button type="submit" name="remove" value="${r.reportId}" onclick="return confirm('Bekräfta borttagning?')" class="btn-md btn btn-danger">Ta bort</button>
                                                     </td>
 												</tr>
 											</c:forEach>

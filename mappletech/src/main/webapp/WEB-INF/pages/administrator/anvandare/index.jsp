@@ -116,7 +116,7 @@
                                                     <td>${r.mobileNumber}</td>
                                                     <td>${r.email}</td>
                                                     <td>
-                                                    	<button type="submit" name="remove" value="${r.username}" class="btn-md btn btn-danger">Ta bort</button>
+                                                    	<button type="submit" name="remove" value="${r.username}" onclick="return confirm('Bekräfta borttagning av ${r.username}?')" class="btn-md btn btn-danger">Ta bort</button>
                                                     </td>
                                                 </tr>
                                             </c:forEach>
@@ -128,7 +128,7 @@
                         	<br />
                             
                             <a href="/mappletech/administrator/anvandare/lagg-till-anvandare">
-                  				 <button type="submit" class="btn-lg btn btn-default" name="privilege">Skapa ny användare</button>
+                  				 <button type="submit" class="btn-lg btn btn-default" name="privilege" >Skapa ny användare</button>
                   			</a>
                         
 						</div>

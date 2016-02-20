@@ -110,7 +110,7 @@
 													<td>${r.timeTo}</td>
 													
 													<td><button type="submit" name="remove" value="${r.reservationId }"
-															class="btn-md btn btn-danger">Ta bort</button></td>
+															onclick="return confirm('Bekräfta borttagning?')" class="btn-md btn btn-danger">Ta bort</button></td>
 												</tr>
 											</c:forEach>
 										</c:if>

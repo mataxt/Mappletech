@@ -108,7 +108,7 @@
 											<td>${r.host}</td>
 
 											<td>
-												<button type="submit" name="remove" value="${r.groupName}" class="btn-md btn btn-danger">Ta bort</button>
+												<button type="submit" name="remove" value="${r.groupName}" onclick="return confirm('Bekräfta borttagning av ${r.groupName}?')" class="btn-md btn btn-danger">Ta bort</button>
 											</td>
 										</tr>
 									</c:forEach>
