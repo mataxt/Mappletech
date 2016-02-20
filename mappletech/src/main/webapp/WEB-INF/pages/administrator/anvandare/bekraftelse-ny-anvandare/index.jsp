@@ -72,17 +72,17 @@
 							method="POST">           
                        				<div class="form-group">
                                     	<label>Användarnamn</label>
-                                    	<form:label path="username" type="text" class="form-control" disabled="true">${username}</form:label>
+                                    	<form:label path="username" type="text" class="form-control" disabled="true">${newUser.username}</form:label>
                                  	</div>
                                     
                             		<div class="form-group">
                                     	<label>Namn</label>
-                                    	<form:label path="fullName" type="text" class="form-control" disabled="true">${fullName}</form:label>
+                                    	<form:label path="fullName" type="text" class="form-control" disabled="true">${newUser.fullName}</form:label>
                                  	</div>
                                     
                                     <div class="form-group">
                                     	<label>E-post</label>
-                                    	<form:label path="email" type="text" class="form-control" disabled="true">${email}</form:label>
+                                    	<form:label path="email" type="text" class="form-control" disabled="true">${newUser.email}</form:label>
                                  	</div>
                                  	
                                  	 <div class="form-group">
@@ -92,17 +92,17 @@
                                     
                                     <div class="form-group">
                                     	<label>Telefon</label>
-                                    	<form:label path="phoneNumber" type="text" class="form-control" disabled="true">${phoneNumber}</form:label>
+                                    	<form:label path="phoneNumber" type="text" class="form-control" disabled="true">${newUser.phoneNumber}</form:label>
                                  	</div>
                                     
                                     <div class="form-group">
                                     	<label>Mobil</label>
-                                    	<form:label path="mobileNumber" type="text" class="form-control" disabled="true">${mobileNumber}</form:label>
+                                    	<form:label path="mobileNumber" type="text" class="form-control" disabled="true">${newUser.mobileNumber}</form:label>
                                  	</div>
                                     
                                     <div class="form-group">
                                     	<label>Adress</label>
-                                    	<form:label path="address" type="text" class="form-control" disabled="true">${address}</form:label>
+                                    	<form:label path="address" type="text" class="form-control" disabled="true">${newUser.address}</form:label>
                                  	</div> 
                                     
                                 </form:form>                  

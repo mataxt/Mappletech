@@ -106,14 +106,16 @@ public class AdminController {
 	public ModelAndView addUsersGet() {
 		ModelAndView mv = new ModelAndView("administrator/anvandare/lagg-till-anvandare/index");
 		mv.addObject("uservm", new UserVM());
+		
 		return mv;
 	}
 
 	@RequestMapping(value = "/administrator/anvandare/lagg-till-anvandare", method = RequestMethod.POST)
 	public ModelAndView addUsersPost(@ModelAttribute("uservm") UserVM newUser) {
-
+		
 		ModelAndView mv = new ModelAndView("/administrator/anvandare/bekraftelse-ny-anvandare/index","uservm", newUser);
 		mv.addObject("pwd",newUser.getPassword());
+		mv.addObject("newUser",newUser);
 		
 		newUser.setPassword(passwordHash(newUser.getPassword()));
 		
