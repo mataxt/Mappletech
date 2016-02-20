@@ -98,7 +98,7 @@
 								<div class="form-group ">
 									<label>Användarnamn</label>
 									<form:input path="username" type="text" class="form-control"
-										name="username" placeholder="Användarnamn" maxlength="250" />
+										name="username" placeholder="Unikt användarnamn" maxlength="250" />
 								</div>
 
 								<div class="form-group ">

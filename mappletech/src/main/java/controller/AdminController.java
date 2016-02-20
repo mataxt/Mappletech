@@ -112,17 +112,21 @@ public class AdminController {
 	@RequestMapping(value = "/administrator/anvandare/lagg-till-anvandare", method = RequestMethod.POST)
 	public ModelAndView addUsersPost(@ModelAttribute("uservm") UserVM newUser) {
 
+		ModelAndView mv = new ModelAndView("/administrator/anvandare/bekraftelse-ny-anvandare/index","uservm", newUser);
+		mv.addObject("pwd",newUser.getPassword());
+		
 		newUser.setPassword(passwordHash(newUser.getPassword()));
 		
 		RestTemplate restTemplate = new RestTemplate();
-		boolean userExists = restTemplate.postForObject(URI + "/administrator/lagg-till-anvandare", newUser, Boolean.class);
+		boolean success = restTemplate.postForObject(URI + "/administrator/lagg-till-anvandare", newUser, Boolean.class);
 
-		if (!userExists) {
-			return new ModelAndView("/administrator/anvandare/index");
+		if (!success) { //probable cause: duplicate entry in db, username already registered
+			return new ModelAndView("/administrator/anvandare/lagg-till-anvandare/index");
 		}
-		return new ModelAndView("/administrator/anvandare/lagg-till-anvandare/index");
+		
+		return mv;
 	}
-
+	
 	// ======================== Groups ================================
 
 	@RequestMapping(value = { "/administrator/grupper" }, method = RequestMethod.GET)
