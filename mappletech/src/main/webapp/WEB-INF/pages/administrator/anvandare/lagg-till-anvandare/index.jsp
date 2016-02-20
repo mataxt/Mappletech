@@ -118,8 +118,8 @@
 								
 								<div class="form-group ">
 									<label>Lösenord</label>
-									<form:input path="email" type="text" class="form-control"
-										name="email" placeholder="temporärt lösenord" value="${pwd}" maxlength="250" />
+									<form:input path="password" type="text" class="form-control"
+										name="password" placeholder="Lösenord" value="${generatedPwd}" maxlength="250" />
 									<span style="color: #f56954"></span> <span
 										style="color: #f56954"></span>
 								</div>

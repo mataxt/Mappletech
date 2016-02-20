@@ -1,17 +1,16 @@
 package controller;
 
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
 import java.util.ArrayList;
 import java.util.Random;
 import javax.servlet.http.HttpServletRequest;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
-import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.client.RestTemplate;
 import org.springframework.web.servlet.ModelAndView;
-
 import vm.EventVM;
 import vm.GroupVM;
 import vm.ReportVM;
@@ -40,7 +39,7 @@ public class AdminController {
 	}
 
 	@RequestMapping(value = "/administrator/bokningar", method = RequestMethod.POST)
-	public String removeBookingPost(HttpServletRequest request) {
+	public ModelAndView removeBookingPost(HttpServletRequest request) {
 
 		ReservationVM r = new ReservationVM();
 		r.setReservationId(Integer.parseInt(request.getParameter("remove")));
@@ -48,7 +47,7 @@ public class AdminController {
 		RestTemplate restTemplate = new RestTemplate();
 		restTemplate.postForObject(URI + "/reservation/remove", r, Boolean.class);
 
-		return "redirect:/";
+		return new ModelAndView("/administrator/bokningar/index");
 	}
 
 	// ===================== ta bort anvandare =================================
@@ -66,14 +65,14 @@ public class AdminController {
 	}
 
 	@RequestMapping(value = "/administrator/anvandare", method = RequestMethod.POST)
-	public String allUsersPost(HttpServletRequest request) {
+	public ModelAndView allUsersPost(HttpServletRequest request) {
 
 		UserVM newUser = new UserVM();
 		newUser.setUsername(request.getParameter("remove"));
 		RestTemplate rest = new RestTemplate();
 		rest.postForObject(URI+"/administrator/removeUser",newUser, Boolean.class);
 
-		return "redirect:/administrator/anvandare/index";
+		return new ModelAndView("/administrator/anvandare/index");
 	}
 
 	// ======================== felanmalan ================================
@@ -90,7 +89,7 @@ public class AdminController {
 	}
 
 	@RequestMapping(value = "/administrator/felanmalan", method = RequestMethod.POST)
-	public String errorReportPost(HttpServletRequest request) {
+	public ModelAndView errorReportPost(HttpServletRequest request) {
 
 		ReportVM reportVm = new ReportVM();
 		reportVm.setReportId(Integer.parseInt(request.getParameter("remove")));
@@ -98,7 +97,7 @@ public class AdminController {
 		RestTemplate restTemplate = new RestTemplate();
 		restTemplate.postForObject(URI + "/report/remove", reportVm, Boolean.class);
 
-		return "redirect:/administrator/felanmalan/index";
+		return new ModelAndView("/administrator/felanmalan/index");
 	}
 
 	// ======================== ny anvandare ================================
@@ -107,22 +106,21 @@ public class AdminController {
 	public ModelAndView addUsersGet() {
 		ModelAndView mv = new ModelAndView("administrator/anvandare/lagg-till-anvandare/index");
 		mv.addObject("uservm", new UserVM());
-		mv.addObject("tmpPwd",generatePassword());
 		return mv;
 	}
 
 	@RequestMapping(value = "/administrator/anvandare/lagg-till-anvandare", method = RequestMethod.POST)
-	public String addUsersPost(@ModelAttribute("uservm") UserVM newUser) {
+	public ModelAndView addUsersPost(@ModelAttribute("uservm") UserVM newUser) {
 
-		System.out.println(newUser.getAddress());
+		newUser.setPassword(passwordHash(newUser.getPassword()));
 		
 		RestTemplate restTemplate = new RestTemplate();
 		boolean userExists = restTemplate.postForObject(URI + "/administrator/lagg-till-anvandare", newUser, Boolean.class);
 
 		if (!userExists) {
-			return "redirect:/administrator/anvandare/index";
+			return new ModelAndView("/administrator/anvandare/index");
 		}
-		return "redirect:/administrator/anvandare/lagg-till-anvandare/index";
+		return new ModelAndView("/administrator/anvandare/lagg-till-anvandare/index");
 	}
 
 	// ======================== Groups ================================
@@ -139,7 +137,7 @@ public class AdminController {
 	}
 	
 	@RequestMapping(value = "/administrator/grupper", method = RequestMethod.POST)
-	public String removeGroupPost(HttpServletRequest request) {
+	public ModelAndView removeGroupPost(HttpServletRequest request) {
 
 		GroupVM groupVm = new GroupVM();
 		groupVm.setGroupName(request.getParameter("remove"));
@@ -147,7 +145,7 @@ public class AdminController {
 		RestTemplate restTemplate = new RestTemplate();
 		restTemplate.postForObject(URI + "/group/remove", groupVm, Boolean.class);
 
-		return "redirect:/administrator/grupper/index";
+		return new ModelAndView("/administrator/grupper/index");
 	}
 	
 	// ======================== Events ================================
@@ -164,7 +162,7 @@ public class AdminController {
 	}
 	
 	@RequestMapping(value = "/administrator/handelser", method = RequestMethod.POST)
-	public String removeEventPost(HttpServletRequest request) {
+	public ModelAndView removeEventPost(HttpServletRequest request) {
 
 		EventVM eventVm = new EventVM();
 		eventVm.setEventID(Integer.parseInt(request.getParameter("remove")));
@@ -172,13 +170,13 @@ public class AdminController {
 		RestTemplate restTemplate = new RestTemplate();
 		restTemplate.postForObject(URI + "/event/delete", eventVm, Boolean.class);
 
-		return "redirect:/administrator/handelser/index";
+		return new ModelAndView("/administrator/handelser/index");
 	}
 
 	// ======================================================================
 
 	// Generate a password for the new user created by admin
-	@ModelAttribute("pwd")
+	@ModelAttribute("generatedPwd")
 	private String generatePassword() {
 		final String charset = "0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
 		Random rand = new Random(System.currentTimeMillis());
@@ -189,6 +187,25 @@ public class AdminController {
 		}
 		return sb.toString();
 	}
+	
+	private String passwordHash(String pwd) {
+
+		MessageDigest msgDigest = null;
+		try {
+			msgDigest = MessageDigest.getInstance("SHA-256");
+		} catch (NoSuchAlgorithmException e) {
+			e.printStackTrace();
+		}
+		msgDigest.update(pwd.getBytes());
+		byte[] digest = msgDigest.digest();
+		StringBuffer sb = new StringBuffer();
+		for (int i = 0; i < digest.length; i++) {
+			sb.append(Integer.toString((digest[i] & 0xff) + 0x100, 16).substring(1));
+		}
+		return sb.toString();
+	}
+	
+
 
 	// ======================================================================
 
