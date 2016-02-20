@@ -167,16 +167,9 @@
 						</a>
 					</div>
 
-<c:choose>
+					<c:choose>
 						<c:when test="${sessUser.privilege < '2'}">
-							<div id="disabledDiv" class="menu-item red">
-								<a> <i
-									class="fa fa-cog"></i>
-									<p>Administratör</p>
-								</a>
-							</div>
-							<br />
-
+							<!--  if not administrator -->
 						</c:when>
 						<c:otherwise>
 							<div id="adminDiv" class="menu-item color">
