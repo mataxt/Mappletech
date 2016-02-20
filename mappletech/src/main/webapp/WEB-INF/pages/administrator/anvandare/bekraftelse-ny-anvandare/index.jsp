@@ -115,12 +115,12 @@
                         
                         <div class="row">
                         	<div class="col-md-offset-3 col-md-6 col-md-offset-3">
-                            	 <a href="#" class="btn btn-success btn-lg" onClick="window.print()">
+                            	 <a href="#" class="btn btn-success btn-md" onClick="window.print()">
     								<span class="glyphicon glyphicon-print"></span> Skriv ut 
   								</a>
   								
-  								<button type="submit" class="btn btn-primary">
-    								<span class="glyphicon glyphicon-envelope"></span> Skicka mail -> ${newUser.email}
+  								<button type="submit" class="btn btn-primary btn-md">
+    								<span class="glyphicon glyphicon-envelope"></span> Skicka mail till ${newUser.email}
   								</button>
 	  								
                             </div>

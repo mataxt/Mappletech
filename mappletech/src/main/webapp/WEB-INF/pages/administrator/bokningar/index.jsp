@@ -11,7 +11,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
     <meta name="author" content="">
-        <title>Mappletech</title>
+        <title>Mappletech - Bokningar</title>
     
 <!-- Bootstrap Core CSS -->
 <link
@@ -95,7 +95,7 @@
                                 <thead>
                                     <tr>
                                     	<th>Lokal</th>
-                                        <th>Tid (frï¿½n)</th>
+                                        <th>Tid (från)</th>
                                         <th>Tid (till)</th>
                                         <th></th>
                                     </tr>
