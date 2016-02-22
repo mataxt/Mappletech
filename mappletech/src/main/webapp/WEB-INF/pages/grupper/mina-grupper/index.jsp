@@ -115,7 +115,7 @@
 									<c:forEach var="g" items="${mygroups}">
                                     <tr>   
                                     	<td>
-                                    		<a href="/mappletech/grupper/">
+                                    		<a href="/mappletech/grupper/${g.groupName}">
                                     			<button class="btn-md btn btn-info">${g.groupName}</button>
                                     		</a>
                                     	</td>
