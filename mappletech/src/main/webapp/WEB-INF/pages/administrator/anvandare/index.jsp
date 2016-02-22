@@ -127,7 +127,7 @@
 						
                         	<br />
                             
-                            <a href="/mappletech/administrator/anvandare/lagg-till-anvandare">
+                            <a href="lagg-till-anvandare">
                   				 <button type="submit" class="btn-lg btn btn-default" name="privilege" >Skapa ny användare</button>
                   			</a>
                         

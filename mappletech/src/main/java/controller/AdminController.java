@@ -56,6 +56,7 @@ public class AdminController {
 	public ModelAndView allUsersGet() {
 		
 		RestTemplate rest = new RestTemplate();
+		@SuppressWarnings("unchecked")
 		ArrayList<UserVM> list = rest.getForObject(URI+"/administrator/getAllUsers", ArrayList.class);
 		
 		ModelAndView mv = new ModelAndView("administrator/anvandare/index");
@@ -70,9 +71,9 @@ public class AdminController {
 		UserVM newUser = new UserVM();
 		newUser.setUsername(request.getParameter("remove"));
 		RestTemplate rest = new RestTemplate();
-		rest.postForObject(URI+"/administrator/removeUser",newUser, Boolean.class);
-
-		return new ModelAndView("/administrator/anvandare/index");
+		System.out.println(rest.postForObject(URI+"/administrator/removeUser",newUser, Boolean.class));
+		
+		return new ModelAndView("redirect: /");
 	}
 
 	// ======================== felanmalan ================================
@@ -81,6 +82,7 @@ public class AdminController {
 	public ModelAndView errorReportGet() {
 
 		RestTemplate rest = new RestTemplate();
+		@SuppressWarnings("unchecked")
 		ArrayList<ReportVM> list = rest.getForObject(URI + "/report/getAllReports", ArrayList.class);
 
 		ModelAndView mv = new ModelAndView("administrator/felanmalan/index");
@@ -135,6 +137,7 @@ public class AdminController {
 	public ModelAndView allGroupsGet() {
 
 		RestTemplate rest = new RestTemplate();
+		@SuppressWarnings("unchecked")
 		ArrayList<GroupVM> list = rest.getForObject(URI + "/group/getAll", ArrayList.class);
 		
 		ModelAndView mv = new ModelAndView("administrator/grupper/index");
@@ -160,6 +163,7 @@ public class AdminController {
 	public ModelAndView allEventsGet() {
 
 		RestTemplate rest = new RestTemplate();
+		@SuppressWarnings("unchecked")
 		ArrayList<EventVM> list = rest.getForObject(URI + "/event/getAll", ArrayList.class);
 		
 		ModelAndView mv = new ModelAndView("administrator/handelser/index");
