@@ -39,7 +39,7 @@ public class AdminRestController {
 
 		group.setDescription(groupVm.getDescription());
 		group.setGroupName(groupVm.getGroupName());
-		group.setHost(new User(groupVm.getHost()));
+		group.setHost(new User(groupVm.getHost().getUsername()));
 		group.setUsers(GroupDAO.fetchGroup(groupVm.getGroupName()).getUsers());
 		
 		return GroupDAO.removeGroup(group);
