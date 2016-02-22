@@ -84,16 +84,6 @@
 							<p>Hantera dina grupper här</p>
 						</div>
 					</div>
-
-					<div class="row">
-						<c:if test="${not empty mygroups}">
-							<ul>
-								<c:forEach var="g" items="${mygroups}">
-									<li>${g.groupName}</li>
-								</c:forEach>
-							</ul>
-						</c:if>
-					</div>
                     
                     <div class="row">
 						<div class="box-body pad table-responsive">
