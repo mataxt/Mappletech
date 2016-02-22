@@ -1,5 +1,7 @@
 package vm;
 
+import java.util.List;
+
 public class GroupVM {
 
 	private String groupName;
@@ -13,21 +15,22 @@ public class GroupVM {
 		this.description = description;
 	}
 
-	public void setHost(String host) {
+	public void setHost(UserVM host) {
 		this.host = host;
 	}
 
-	private String host;
-
+	private UserVM host;
+	private List<UserVM> members;
 	public GroupVM() {
 
 	}
 
-	public GroupVM(String groupName, String description, String host) {
+	public GroupVM(String groupName, String description, UserVM host,List<UserVM> members) {
 		super();
 		this.groupName = groupName;
 		this.description = description;
 		this.host = host;
+		this.members = members;
 	}
 
 	public String getGroupName() {
@@ -38,7 +41,15 @@ public class GroupVM {
 		return description;
 	}
 
-	public String getHost() {
+	public UserVM getHost() {
 		return host;
+	}
+
+	public List<UserVM> getMembers() {
+		return members;
+	}
+
+	public void setMembers(List<UserVM> members) {
+		this.members = members;
 	}
 }

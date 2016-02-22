@@ -33,7 +33,7 @@ public class GroupController {
 			@ModelAttribute("sessUser") UserVM sessUser) {
 		System.out.println("In POST mygrp...");
 		RestTemplate restTemplate = new RestTemplate();
-		grpVm.setHost(sessUser.getUsername());
+		grpVm.setHost(sessUser);
 		Boolean success = restTemplate.postForObject(URI + "group/add",grpVm, Boolean.class);
 		if (success) {
 			System.out.println("Success");
@@ -73,11 +73,10 @@ public class GroupController {
 	public ModelAndView viewGroup(@PathVariable("groupName") String groupName) {
 		System.out.println("In GET mygrp...");
 		RestTemplate restTemplate = new RestTemplate();
-		@SuppressWarnings("unchecked")
-		GroupVM grpVm = restTemplate.getForObject(URI + "group/{groupName}", GroupVM.class);
+		GroupVM grpVm = restTemplate.getForObject(URI + "group/{groupName}", GroupVM.class,groupName);
 		System.out.println(grpVm.toString());
 		ModelAndView mv = new ModelAndView("grupper/index");
-		mv.addObject("mygroups", grpVm);
+		mv.addObject("mygroups", grpVm.getMembers());
 		return mv;
 	}
 }

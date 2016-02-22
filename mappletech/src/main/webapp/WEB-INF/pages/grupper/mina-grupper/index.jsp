@@ -87,7 +87,7 @@
                     
                     <div class="row">
 						<div class="box-body pad table-responsive">
-							<form:form method="post" action="removeRes" modelAttribute="resRem">
+							
                   
                                 <table id="thetable" class="table table-bordered table-striped">
                               
@@ -111,10 +111,13 @@
                                     	</td>
                                     	<td>${g.description}</td>
                                     	<td>${g.host}</td>
-                                        <td>
-                                        	<button class="btn-md btn btn-danger">Ta bort</button>
-                                        </td>
-                                    </tr>
+												<form:form method="post" action="removeRes"
+													modelAttribute="resRem">
+													<td>
+														<button class="btn-md btn btn-danger">Ta bort</button>
+													</td>
+												</form:form>
+											</tr>
                                     </c:forEach>
                                 </c:if>           
                                 </tbody>
@@ -125,7 +128,6 @@
                              <a href="/mappletech/grupper/skapa-grupper/">
 								<button class="btn-lg btn btn-default">Ny grupp</button>
 							 </a>
-						</form:form>
                  
 						</div>
 					</div>

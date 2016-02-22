@@ -12,6 +12,7 @@ import dao.GroupDAO;
 import model.Group;
 import dao.UserDAO;
 import vm.GroupVM;
+import vm.UserVM;
 
 @RestController
 public class GroupRestConroller {
@@ -20,12 +21,12 @@ public class GroupRestConroller {
 	public Boolean createReservation(@RequestBody(required = true) GroupVM groupVM) {
 		Group group = new Group();
 		group.setGroupName(groupVM.getGroupName());
-		group.setHost(UserDAO.fetchUser(groupVM.getHost()));
+		group.setHost(UserDAO.fetchUser(groupVM.getHost().getUsername()));
 		if (groupVM.getDescription().length() > 0) {
 			group.setDescription(groupVM.getDescription());
 		}
 		Boolean success = GroupDAO.addGroup(group);
-		GroupDAO.changeGroup(group, groupVM.getHost(), "add");
+		GroupDAO.changeGroup(group, groupVM.getHost().getUsername(), "add");
 		
 
 		return success;
@@ -43,7 +44,8 @@ public class GroupRestConroller {
 		List<Group> groupList = GroupDAO.getAllGroups();
 		List<GroupVM> groupVMList = new ArrayList<GroupVM>();
 		for (Group group : groupList) {
-			groupVMList.add(new GroupVM(group.getGroupName(), group.getDescription(), group.getHost().getUsername()));
+			UserVM u = new UserVM(group.getHost().getUsername(), group.getHost().getPassword(), group.getHost().getFullName(), group.getHost().getEmail(), group.getHost().getPhoneNumber(), group.getHost().getMobileNumber(), group.getHost().getAddress(), group.getHost().getPrivilege());
+			groupVMList.add(new GroupVM(group.getGroupName(), group.getDescription(), u, new ArrayList<UserVM>()));
 		}
 		return groupVMList;
 	}
@@ -53,16 +55,17 @@ public class GroupRestConroller {
 		List<Group> groupList = GroupDAO.getAllGroups(username);
 		List<GroupVM> groupVMList = new ArrayList<GroupVM>();
 		for (Group group : groupList) {
-			groupVMList.add( new GroupVM(group.getGroupName(), group.getDescription(), group.getHost().getUsername()));
+			UserVM u = new UserVM(group.getHost().getUsername(), group.getHost().getPassword(), group.getHost().getFullName(), group.getHost().getEmail(), group.getHost().getPhoneNumber(), group.getHost().getMobileNumber(), group.getHost().getAddress(), group.getHost().getPrivilege());
+			groupVMList.add(new GroupVM(group.getGroupName(), group.getDescription(), u, new ArrayList<UserVM>()));
 		}
 		return groupVMList;
 	}
 	
 	@RequestMapping(value = "/group/{groupName}")
 	public GroupVM getGroup(@PathVariable("groupName") String groupName) {
-		Group groupList = GroupDAO.fetchGroup(groupName);
-		GroupVM groupVM = new GroupVM(groupList.getGroupName(), groupList.getDescription(), groupList.getHost().getUsername());
-		
+		Group group = GroupDAO.fetchGroup(groupName);
+		UserVM u = new UserVM(group.getHost().getUsername(), group.getHost().getPassword(), group.getHost().getFullName(), group.getHost().getEmail(), group.getHost().getPhoneNumber(), group.getHost().getMobileNumber(), group.getHost().getAddress(), group.getHost().getPrivilege());
+		GroupVM groupVM = new GroupVM(group.getGroupName(), group.getDescription(), u, new ArrayList<UserVM>());
 		return groupVM;
 	}
 

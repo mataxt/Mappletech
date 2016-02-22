@@ -98,7 +98,7 @@
                     
                     <div class="row">
 						<div class="box-body pad table-responsive">
-							<form:form method="post" action="removeRes" modelAttribute="resRem">
+<%-- 							<form:form method="post" action="removeRes" modelAttribute="resRem"> --%>
                   
                                 <table id="thetable" class="table table-bordered table-striped">
                               
@@ -111,7 +111,7 @@
                                 
                                 <tbody>
                                 <c:if test="${not empty users}">
-									<c:forEach var="u" items="${users}">
+									<c:forEach var="u" items="${mygroups}">
                                     <tr>   
                                     	<td>${u.usersame}</td>
                                     	<td>${g.epost}</td>
@@ -125,7 +125,7 @@
                               </table>
                               
                              <br />
-						</form:form>
+<%-- 						</form:form> --%>
                  
 						</div>
 					</div>
