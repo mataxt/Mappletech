@@ -114,7 +114,11 @@
                                 <c:if test="${not empty mygroups}">
 									<c:forEach var="g" items="${mygroups}">
                                     <tr>   
-                                    	<td><button class="btn-md btn btn-primary">${g.groupName}</button></td>
+                                    	<td>
+                                    		<a href="/mappletech/grupper/">
+                                    			<button class="btn-md btn btn-info">${g.groupName}</button>
+                                    		</a>
+                                    	</td>
                                     	<td>${g.description}</td>
                                     	<td>${g.host}</td>
                                         <td>
