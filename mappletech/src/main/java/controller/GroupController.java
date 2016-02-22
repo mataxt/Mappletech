@@ -1,6 +1,7 @@
 package controller;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -76,7 +77,9 @@ public class GroupController {
 		GroupVM grpVm = restTemplate.getForObject(URI + "group/{groupName}", GroupVM.class,groupName);
 		System.out.println(grpVm.toString());
 		ModelAndView mv = new ModelAndView("grupper/index");
-		mv.addObject("mygroups", grpVm.getMembers());
+		mv.addObject("mygroups", grpVm);
+		mv.addObject("members", grpVm.getMembers());
+		System.out.println("test"+Arrays.toString(grpVm.getMembers().toArray()));
 		return mv;
 	}
 }

@@ -82,24 +82,15 @@
 						<div class="section-title text-center">
 							<h3>Grupp</h3>
 							<p>Grupp information</p>
+							 <p> Gruppnamn: ${mygroups.groupName} </p>
+                    		<p> Skapare: ${mygroups.host.username} </p>
 						</div>
-					</div>
-
-					<div class="row">
-						<c:if test="${not empty mygroups}">
-							<ul>
-								<c:forEach var="g" items="${mygroups}">
-									<li>${g.groupName}</li>
-									<li>${g.host}</li>
-								</c:forEach>
-							</ul>
-						</c:if>
 					</div>
                     
                     <div class="row">
 						<div class="box-body pad table-responsive">
 <%-- 							<form:form method="post" action="removeRes" modelAttribute="resRem"> --%>
-                  
+                  				
                                 <table id="thetable" class="table table-bordered table-striped">
                               
                                 <thead>
@@ -110,11 +101,11 @@
                                 </thead>
                                 
                                 <tbody>
-                                <c:if test="${not empty users}">
-									<c:forEach var="u" items="${mygroups}">
+                                <c:if test="${not empty members}">
+									<c:forEach var="u" items="${members}">
                                     <tr>   
                                     	<td>${u.usersame}</td>
-                                    	<td>${g.epost}</td>
+                                    	<td>${u.email}</td>
                                         <td>
                                         	<button class="btn-md btn btn-danger">Ta bort</button>
                                         </td>
@@ -125,7 +116,7 @@
                               </table>
                               
                              <br />
-<%-- 						</form:form> --%>
+
                  
 						</div>
 					</div>

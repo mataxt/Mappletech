@@ -65,7 +65,14 @@ public class GroupRestConroller {
 	public GroupVM getGroup(@PathVariable("groupName") String groupName) {
 		Group group = GroupDAO.fetchGroup(groupName);
 		UserVM u = new UserVM(group.getHost().getUsername(), group.getHost().getPassword(), group.getHost().getFullName(), group.getHost().getEmail(), group.getHost().getPhoneNumber(), group.getHost().getMobileNumber(), group.getHost().getAddress(), group.getHost().getPrivilege());
-		GroupVM groupVM = new GroupVM(group.getGroupName(), group.getDescription(), u, new ArrayList<UserVM>());
+		List<UserVM> list = new ArrayList<UserVM>();
+		for(model.User user: group.getUsers()){
+			UserVM uvm = new UserVM();
+			uvm.setUsername(user.getUsername());
+			uvm.setEmail(user.getEmail());
+			list.add(uvm);
+		}
+		GroupVM groupVM = new GroupVM(group.getGroupName(), group.getDescription(), u,list);
 		return groupVM;
 	}
 

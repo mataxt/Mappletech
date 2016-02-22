@@ -110,7 +110,7 @@
                                     		</a>
                                     	</td>
                                     	<td>${g.description}</td>
-                                    	<td>${g.host}</td>
+                                    	<td>${g.host.username}</td>
 												<form:form method="post" action="removeRes"
 													modelAttribute="resRem">
 													<td>
