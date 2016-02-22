@@ -4,6 +4,7 @@ import java.util.ArrayList;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.SessionAttributes;
@@ -64,6 +65,18 @@ public class GroupController {
 		ArrayList<GroupVM> grpVm = restTemplate.getForObject(URI + "group/getAll/{user}", ArrayList.class, sessUser.getUsername());
 		System.out.println(grpVm.toString());
 		ModelAndView mv = new ModelAndView("grupper/mina-grupper/index");
+		mv.addObject("mygroups", grpVm);
+		return mv;
+	}
+	
+	@RequestMapping(value = { "/grupper/{groupName}" }, method = RequestMethod.GET)
+	public ModelAndView viewGroup(@PathVariable("groupName") String groupName) {
+		System.out.println("In GET mygrp...");
+		RestTemplate restTemplate = new RestTemplate();
+		@SuppressWarnings("unchecked")
+		GroupVM grpVm = restTemplate.getForObject(URI + "group/{groupName}", GroupVM.class);
+		System.out.println(grpVm.toString());
+		ModelAndView mv = new ModelAndView("grupper/index");
 		mv.addObject("mygroups", grpVm);
 		return mv;
 	}

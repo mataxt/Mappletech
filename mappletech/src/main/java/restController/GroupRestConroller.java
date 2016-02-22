@@ -57,5 +57,13 @@ public class GroupRestConroller {
 		}
 		return groupVMList;
 	}
+	
+	@RequestMapping(value = "/group/{groupName}")
+	public GroupVM getGroup(@PathVariable("groupName") String groupName) {
+		Group groupList = GroupDAO.fetchGroup(groupName);
+		GroupVM groupVM = new GroupVM(groupList.getGroupName(), groupList.getDescription(), groupList.getHost().getUsername());
+		
+		return groupVM;
+	}
 
 }
