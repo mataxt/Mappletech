@@ -77,9 +77,13 @@
 
 				<div class="col-md-1">
 					<div class="col-sm">
+					
+					<form:form method="post" action="logout">
 						<a href="#">
-							<button class="btn btn-sm btn-danger btn-block">Logga ut</button>
+							<button type="submit" class="btn btn-sm btn-danger btn-block">Logga ut</button>
 						</a>
+					</form:form>
+					
 					</div>
 				</div>
 			</div>

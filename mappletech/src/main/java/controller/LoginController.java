@@ -3,6 +3,8 @@ package controller;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 
+import javax.servlet.http.HttpServletRequest;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -19,21 +21,11 @@ public class LoginController {
 	//private final String URI = "http://localhost:8080/tech2/rest/login";
 	//Deployment
 	private final String URI = "http://130.237.84.211:8080/mappletech/rest/login";
-	
-//	// Omdirigerar just nu till login
-//	@RequestMapping(value = { "/" }, method = RequestMethod.GET)
-//	public String start() {
-//		return "redirect:/login";
-//	}
 
 	@RequestMapping(value = { "/login" }, method = RequestMethod.GET)
 	public ModelAndView login() {
 		System.out.println("In GET Login...");
-//		RestTemplate restTemplate = new RestTemplate();
-//		EventVM[] eventVMArray = restTemplate.getForObject("http://130.237.84.211:8080/mappletech/rest/event/getLatest", EventVM[].class);
-//		List<EventVM> eventVMList = Arrays.asList(eventVMArray);
 		ModelAndView modelAndView = new ModelAndView("login/index","uservm", new UserVM());
-//		modelAndView.addObject("eventlist", eventVMList);
 		return modelAndView;
 	}
 
@@ -45,14 +37,20 @@ public class LoginController {
 		RestTemplate restTemplate = new RestTemplate();
 		System.out.println(loggedInUser.getUsername());
 		UserVM u = restTemplate.postForObject(URI, loggedInUser, UserVM.class);
-//		EventVM[] eventVMArray = restTemplate.getForObject("http://130.237.84.211:8080/mappletech/rest/event/getAll", EventVM[].class);
-//		List<EventVM> eventVMList = Arrays.asList(eventVMArray);
-//		modelAndView.addObject("eventlist", eventVMList);
+
 		if (u != null) {
 			return new ModelAndView("redirect:/","sessUser",u);
 		} else {
 			return new ModelAndView("redirect:login","uservm", new UserVM());
 		}
+	}
+	
+	@RequestMapping(value = { "logout" }, method = RequestMethod.POST)
+	public ModelAndView logout(@ModelAttribute("sessUser") UserVM userVm, HttpServletRequest request) {
+		
+		request.getSession().invalidate();
+		
+		return new ModelAndView("redirect:login","uservm", new UserVM());
 	}
 
 	private String passwordHash(String pwd) {
