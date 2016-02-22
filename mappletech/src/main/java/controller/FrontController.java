@@ -1,6 +1,8 @@
 package controller;
 
 import java.sql.Date;
+import java.util.Arrays;
+import java.util.List;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -11,6 +13,7 @@ import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.client.RestTemplate;
 import org.springframework.web.servlet.ModelAndView;
 
+import vm.EventVM;
 import vm.ReportVM;
 import vm.UserVM;
 
@@ -19,14 +22,18 @@ import vm.UserVM;
 @SessionAttributes("sessUser")
 public class FrontController {
 
-//	private static final String URI = "http://130.237.84.211:8080/mappletech/rest/";
-	private static final String URI = "http://localhost:8080/tech2/rest/";
+	private static final String URI = "http://130.237.84.211:8080/mappletech/rest/";
+//	private static final String URI = "http://localhost:8080/tech2/rest/";
 	@RequestMapping(value = { "/" }, method = RequestMethod.GET)
 	public ModelAndView front(Model model) {
 		System.out.println("In GET Main...");
 		if (model.containsAttribute("sessUser")){
 			ModelAndView mv = new ModelAndView("index");
+			RestTemplate restTemplate = new RestTemplate();
+			EventVM[] eventVMArray = restTemplate.getForObject("http://130.237.84.211:8080/mappletech/rest/event/getLatest", EventVM[].class);
+			List<EventVM> eventVMList = Arrays.asList(eventVMArray);
 			mv.addObject("repVm", new ReportVM());
+			mv.addObject("eventlist", eventVMList);
 			return mv;
 		}else
 			return new ModelAndView("redirect:login");
