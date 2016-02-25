@@ -27,7 +27,7 @@ public class EventController {
 	{
 		System.out.println("get mina handelser");
 		RestTemplate restTemplate = new RestTemplate();
-		EventVM[] eventVMArray = restTemplate.postForObject(URI + "/getAllFromToday",user.getUsername(), EventVM[].class);
+		EventVM[] eventVMArray = restTemplate.postForObject(URI + "/getAllFromToday",user.getUsername(),EventVM[].class);
 		List<EventVM> eventVMList = Arrays.asList(eventVMArray);
 		System.out.println(eventVMList.size());
 		ModelAndView modelAndView = new ModelAndView("handelser/mina-handelser/index");
