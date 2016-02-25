@@ -112,8 +112,8 @@ public class EventDAO {
 		List<Event> events = new ArrayList<Event>();
 		try {
 			em.getTransaction().begin();
-			TypedQuery<Event> q = em.createQuery("from Event", Event.class);
-			q.setFirstResult(1);
+			TypedQuery<Event> q = em.createQuery("from Event order by Date desc", Event.class);
+			q.setFirstResult(0);
 			q.setMaxResults(5);
 			events = q.getResultList();
 			em.getTransaction().commit();
