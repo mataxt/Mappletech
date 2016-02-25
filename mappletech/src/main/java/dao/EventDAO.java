@@ -77,14 +77,15 @@ public class EventDAO {
 		return events;
 	}
 	
-	public static List<Event> getAllEventsFromTodayDate() {
+	public static List<Event> getAllEventsFromTodayDate(String userName) {
 		EntityManagerFactory emf = Persistence.createEntityManagerFactory("UserPU");
 		EntityManager em = emf.createEntityManager();
 		List<Event> events = new ArrayList<Event>();
 		try {
 			em.getTransaction().begin();
-			TypedQuery<Event> query = em.createQuery("from Event e where e.date >=?1", Event.class);
+			TypedQuery<Event> query = em.createQuery("from Event e where e.date >=?1 and e.creator = ?2", Event.class);
 			query.setParameter(1, new Date(System.currentTimeMillis()));
+			query.setParameter(2, UserDAO.fetchUser(userName));
 			events = query.getResultList();
 			em.getTransaction().commit();
 

@@ -39,10 +39,10 @@ public class EventRestController {
 		return eventVMList;
 	}
 	
-	@RequestMapping(value="/event/getAllFromToday",method = RequestMethod.GET)
-	public List<EventVM> getAllEventsFromToday()
+	@RequestMapping(value="/event/getAllFromToday",method = RequestMethod.POST)
+	public List<EventVM> getAllEventsFromToday(@RequestBody(required=true) String userName)
 	{
-		List<Event> eventList = EventDAO.getAllEventsFromTodayDate();
+		List<Event> eventList = EventDAO.getAllEventsFromTodayDate(userName);
 		List<EventVM> eventVMList = new ArrayList<>();
 		for(Event event:eventList)
 		{
