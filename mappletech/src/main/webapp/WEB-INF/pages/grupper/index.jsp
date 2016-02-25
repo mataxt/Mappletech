@@ -104,7 +104,7 @@
                                 <c:if test="${not empty members}">
 									<c:forEach var="u" items="${members}">
                                     <tr>   
-                                    	<td>${u.usersame}</td>
+                                    	<td>${u.username}</td>
                                     	<td>${u.email}</td>
                                         <td>
                                         	<button class="btn-md btn btn-danger">Ta bort</button>
