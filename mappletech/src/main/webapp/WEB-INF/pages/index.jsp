@@ -73,9 +73,9 @@
 					</div>
 				</div>
 
-				<div class="col-md-5"></div>
+				<div class="col-md-4"></div>
 
-				<div class="col-md-1">
+				<div class="col-md-2">
 					<div class="col-sm">
 					
 					<form:form method="post" action="logout">
@@ -503,7 +503,7 @@
 
 				<div class="row">
 					<div class="col-md-6 col-sm-6 col-xs-12">
-						<div class="feature" style="height: 150px">
+						<div class="feature">
 							<a href="handelser/mina-handelser/"> <i
 								class="fa fa-bars purple"></i>
 								<div class="feature-content">
