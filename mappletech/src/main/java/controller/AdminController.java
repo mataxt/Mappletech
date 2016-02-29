@@ -5,10 +5,15 @@ import java.security.NoSuchAlgorithmException;
 import java.util.ArrayList;
 import java.util.Random;
 import javax.servlet.http.HttpServletRequest;
+
+import org.apache.catalina.connector.Request;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.client.RestTemplate;
 import org.springframework.web.servlet.ModelAndView;
 import vm.EventVM;
@@ -18,6 +23,7 @@ import vm.ReservationVM;
 import vm.UserVM;
 
 @Controller
+@SessionAttributes("sessUser")
 public class AdminController {
 
 	private final String URI = "http://130.237.84.211:8080/mappletech/rest";
@@ -25,12 +31,18 @@ public class AdminController {
 	// ===================== bokningar =================================
 
 	@RequestMapping(value = { "/administrator/bokningar" }, method = RequestMethod.GET)
-	public ModelAndView removeBookingGet() {
+	public ModelAndView removeBookingGet(Model model, HttpServletRequest request) {
+		
+		UserVM us = (UserVM) request.getSession().getAttribute("sessUser");
+		System.out.println("i Bokningar: " + request.getSession(false).getAttribute("sessUser"));
+		
+		if(request.getSession().getAttribute("sessUser")==null){
+			return new ModelAndView("redirect:login","uservm", new UserVM());
+		}
 
 		RestTemplate restTemplate = new RestTemplate();
 		@SuppressWarnings("unchecked")
-		ArrayList<ReservationVM> reservationList = restTemplate.getForObject(URI + "/reservation/getReservations",
-				ArrayList.class);
+		ArrayList<ReservationVM> reservationList = restTemplate.getForObject(URI + "/reservation/getReservations", ArrayList.class);
 
 		ModelAndView mv = new ModelAndView("administrator/bokningar/index");
 		mv.addObject("list", reservationList);

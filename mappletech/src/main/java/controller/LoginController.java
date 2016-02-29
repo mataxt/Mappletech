@@ -2,9 +2,7 @@ package controller;
 
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
-
 import javax.servlet.http.HttpServletRequest;
-
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -18,7 +16,6 @@ import vm.UserVM;
 @SessionAttributes("sessUser")
 public class LoginController {
 	//Local
-	//private final String URI = "http://localhost:8080/tech2/rest/login";
 	//Deployment
 	private final String URI = "http://130.237.84.211:8080/mappletech/rest/login";
 
@@ -30,7 +27,7 @@ public class LoginController {
 	}
 
 	@RequestMapping(value = "/login", method = RequestMethod.POST)
-	public ModelAndView doLogin(@ModelAttribute("uservm") UserVM userVm) {
+	public ModelAndView doLogin(@ModelAttribute("uservm") UserVM userVm, HttpServletRequest req) {
 
 		System.out.println("In POST Login...");
 		UserVM loggedInUser = new UserVM(userVm.getUsername(), passwordHash(userVm.getPassword()));
@@ -39,6 +36,7 @@ public class LoginController {
 		UserVM u = restTemplate.postForObject(URI, loggedInUser, UserVM.class);
 
 		if (u != null) {
+			req.setAttribute("sessUser", u);
 			return new ModelAndView("redirect:/","sessUser",u);
 		} else {
 			return new ModelAndView("redirect:login","uservm", new UserVM());
@@ -46,13 +44,14 @@ public class LoginController {
 	}
 	
 	@RequestMapping(value = { "logout" }, method = RequestMethod.POST)
-	public ModelAndView logout(@ModelAttribute("sessUser") UserVM userVm, HttpServletRequest request) {
+	public ModelAndView logout(@ModelAttribute("sessUser") UserVM userVm, HttpServletRequest req) {
 		
-		request.getSession().invalidate();
-		
+		req.getSession().setAttribute("sessUser", null);
+		req.getSession().invalidate();
 		return new ModelAndView("redirect:login","uservm", new UserVM());
 	}
 
+	
 	private String passwordHash(String pwd) {
 
 		MessageDigest msgDigest = null;

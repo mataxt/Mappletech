@@ -138,6 +138,6 @@ public class UserVM implements Serializable{
 	public void setPrivilege(Integer privilege) {
 		this.privilege = privilege;
 	}
-	
+
 }
 
