@@ -7,6 +7,7 @@ import java.util.Arrays;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
+import org.mockito.BDDMockito;
 import org.mockito.Mock;
 import org.powermock.api.mockito.PowerMockito;
 import org.powermock.core.classloader.annotations.PrepareForTest;
@@ -29,7 +30,7 @@ import model.User;
 import restController.EventRestController;
 import vm.EventVM;
 
-import static org.hamcrest.Matcher.*;
+import static org.hamcrest.Matchers.*;
 import static org.mockito.Mockito.*;
 import static org.powermock.api.mockito.PowerMockito.*;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*;
@@ -82,9 +83,18 @@ public class TestEventRest{
 	{
 		PowerMockito.mockStatic(EventDAO.class);
 		//when(EventDAO.getAllEvents()).thenReturn(Arrays.asList(first,second));
-		
+		BDDMockito.given(EventDAO.getAllEvents()).willReturn(Arrays.asList(first,second));
 		mockMvc.perform(get("/event/getAll"))
 		.andExpect(status().isOk())
-		.andExpect(content().contentType(MediaType.APPLICATION_JSON_UTF8_VALUE));
+		.andExpect(content().contentType(MediaType.APPLICATION_JSON_UTF8_VALUE))
+		.andExpect(jsonPath("$",hasSize(2)))
+		.andExpect(jsonPath("$[0].title",is(first.getTitle())))
+		.andExpect(jsonPath("$[0].creator",is(first.getCreator().getUsername())))
+		.andExpect(jsonPath("$[0].date",is(first.getDate().toString())))
+		.andExpect(jsonPath("$[0].description",is(first.getDescription())))
+		.andExpect(jsonPath("$[1].title",is(second.getTitle())))
+		.andExpect(jsonPath("$[1].creator",is(second.getCreator().getUsername())))
+		.andExpect(jsonPath("$[1].date",is(second.getDate().toString())))
+		.andExpect(jsonPath("$[1].description",is(second.getDescription())));
 	}
 }

@@ -20,7 +20,7 @@ import vm.UserVM;
 public class GroupController {
 
 	private final String URI = "http://130.237.84.211:8080/mappletech/rest/";
-	
+//	private final String URI = "http://localhost:8080/tech2/rest/";
 	@RequestMapping(value = { "/grupper/skapa-grupper/" }, method = RequestMethod.GET)
 	public ModelAndView add() {
 		System.out.println("In GET mygrp...");
@@ -79,7 +79,6 @@ public class GroupController {
 		ModelAndView mv = new ModelAndView("grupper/index");
 		mv.addObject("mygroups", grpVm);
 		mv.addObject("members", grpVm.getMembers());
-		System.out.println("test"+Arrays.toString(grpVm.getMembers().toArray()));
 		return mv;
 	}
 }
