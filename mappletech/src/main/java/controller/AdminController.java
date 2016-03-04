@@ -34,7 +34,7 @@ public class AdminController {
 	public ModelAndView removeBookingGet(Model model, HttpServletRequest request) {
 		
 		UserVM us = (UserVM) request.getSession().getAttribute("sessUser");
-		System.out.println("i Bokningar: " + request.getSession(false).getAttribute("sessUser"));
+		
 		
 		if(request.getSession().getAttribute("sessUser")==null){
 			return new ModelAndView("redirect:login","uservm", new UserVM());
@@ -55,7 +55,6 @@ public class AdminController {
 
 		ReservationVM r = new ReservationVM();
 		r.setReservationId(Integer.parseInt(request.getParameter("remove")));
-		System.out.println("REsID: " + r.getReservationId());
 		RestTemplate restTemplate = new RestTemplate();
 		restTemplate.postForObject(URI + "/reservation/remove", r, Boolean.class);
 
